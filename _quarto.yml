@@ -6,10 +6,10 @@ website:
   navbar:
     right:
       - about.qmd
-      - icon: linkedin
-        href: https://linkedin.com/in/rochellerafn
       - icon: github
         href: https://github.com/rochellerafn
+      - icon: linkedin
+        href: https://linkedin.com/in/rochellerafn
 format:
   html:
     theme: lux
