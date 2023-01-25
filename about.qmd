@@ -6,13 +6,13 @@ about:
   links:
     - icon: twitter
       text: Twitter
-      href: https://twitter.com
+      href: https://twitter.com/rochellerafn
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://linkedin.com/in/rochellerafn
     - icon: github
       text: Github
-      href: https://github.com
+      href: https://github.com/rochellerafn
 
 ---
 
