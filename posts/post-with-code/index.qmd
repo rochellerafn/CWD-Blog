@@ -80,20 +80,20 @@ summary(young_transactions$n_items)
 Next, I asked, what are the most popular items in each age group? I hoped this might show me some obvious and key differences. As we can see here, the top 3 items for both age groups are identical. However, the fourth item is different. This piqued my interest since that fourth items seems to indicate an intuitive generational difference. Mature customers purchased a basic t-shirt, where the young customers purchased a "strappy cropped" top. However, the more I dug, the less significant this difference became.
 
 ### Mature Top Items
-![](images/MATURE_top_items.jpg)
+![](MATURE_top_items.jpg)
 
 ### Young Top Items
-![](images/YOUNG_top_items.jpg)
+![](YOUNG_top_items.jpg)
 
 
 ## What about the most popular unique items in each age group?
 After researching top items, I filtered down even further. I chose to compare the purchases between the two groups to find unique items. What items did the young purchase that the mature did not, and vice versa?   
 
 ### Mature Unique Items
-![](images/MATURE_unique_items.jpg)
+![](MATURE_unique_items.jpg)
 
 ### Young Unique Items
-![](images/YOUNG_unique_items.jpg)
+![](YOUNG_unique_items.jpg)
 
 
 I started to get a little excited again when I found some interesting differences between the two groups. In the top items for the "young" group there were several baby items. But then the mature group had primarily items that would be appropriate for an adult. What if each group is purchasing for either themselves and/or their own children. For the mature it would make sense because they now have adult children, meaning they would have no need to purchase baby clothes. There were also a lot of underwear purchases in the top 20 for the "mature" group, but none in the top 20 for the "young". However, when I pulled the counts for these top unique items each was only purchased at most 86 times out of more than 21 million items purchased. Unfortunately the math here is not significant enough to consider.
@@ -121,7 +121,7 @@ head(mature_wordcounts, 10)
 As we can see from the top 10 words in each group, there are a couple of unique words on each side. But again, if we dig deeper we find there is no significance and zooming out shows us how similar these groups really are.
 
 After finding the top words from the unique items, I took a sample of the all items from each group and ran sentiment analysis on all descriptive words. As we can see, even the unique words in the top word lists above still show up as significant in the group.  
-![](images/2022 - MSDS Capstone Update - K.015.jpeg)
+![](2022 - MSDS Capstone Update - K.015.jpeg)
 
 
 ## What about percentage of descriptive words?
@@ -143,12 +143,12 @@ head(all_graphic_pct)
 
 ### What graphic appearances do the groups like?
 Here is an interesting visualization to really let the eerie similarity sink in. This graph is showing the distribution of graphical appearance names split by age group. How many times have the "young" and "mature" customers purchased items that are striped or lace or solid or embroidered, etc. The details of the graphic descriptors on the x-axis, however, are less important, what is most important is just glancing at the general shape of each graph. The graphs move at nearly identical rates, proving the proportions of graphical appearance and descriptor popularity being proportionately the same.
-![](images/Rplot.jpeg)
+![](Rplot.jpeg)
 
 
 ## Modeling this information
 After all of this analysis I took everything that I found and ran simple linear regression models to see if I could find any relationships. Here are the features and results...
-![](images/2022 - MSDS Capstone Update - K.017.jpeg)
+![](2022 - MSDS Capstone Update - K.017.jpeg)
 
 
 Everything had an R-Squared of virtually zero. This means there is no relationship regarding any of these features. I did continue to attempt more machine learning methods by using the unsupervised principal component analysis to see if it could find anything. It did create some groupings, but still, nothing significant enough to be able to predict age or age group.
