@@ -1,6 +1,6 @@
 ---
 title: "Welcome To My Blog"
-author: "Tristan O'Malley"
+author: "Rochelle Rafn"
 date: "2023-01-21"
 categories: [news]
 ---
