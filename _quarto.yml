@@ -7,10 +7,8 @@ website:
     right:
       - about.qmd
       - icon: linkedin
-        text: LinkedIn
         href: https://linkedin.com/in/rochellerafn
       - icon: github
-        text: Github
         href: https://github.com/rochellerafn
 format:
   html:
