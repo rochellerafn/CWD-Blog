@@ -70,10 +70,7 @@ summary(young_transactions$price)
 ### Number of items per transaction per group
 Similar to price, most of the information here looks similar. The one difference I found to be interesting is that the 3rd quartile and mean have a slight difference. I chose to hold on to the 10 or more items and engineer a prediction feature with it later on. Maybe since the "young" group is more likely to purchase more items in a transaction that could help predict a difference.
 
-```{r}
-summary(mature_transactions$n_items)
-summary(young_transactions$n_items)
-```
+![](2022 - MSDS Capstone Update - K.007.jpeg)
 
 
 ## Items Purchased 
@@ -102,21 +99,7 @@ I started to get a little excited again when I found some interesting difference
 ## What about the top descriptive words for the unique items in each age group?
 To move forward with the theme of unique items I decided to take those unique items even deeper by analyzing the descriptive words. Perhaps I can find some key descriptors that will differentiate the two groups? Despite it appearing some items were unique to each group, they were clearly still purchasing different items with very similar descriptions. Meaning, maybe each group did not purchase the exact same item, but perhaps a similar one in a different color, graphical appearance or a similar style.
 
-### Young Top Descriptive Words 
-```{r}
-young_wordcounts <- read.csv('/Users/rochellerafn/RStudio Files/h-and-m-personalized-fashion-recommendations/young_wordcounts') %>%
-  select(-X, -n)
-
-head(young_wordcounts, 10)
-```
-
-### Mature Top Descriptive Words
-```{r}
-mature_wordcounts <- read.csv('/Users/rochellerafn/RStudio Files/h-and-m-personalized-fashion-recommendations/mature_wordcounts') %>%
-  select(-X, -n)
-
-head(mature_wordcounts, 10)
-```
+![](2022 - MSDS Capstone Update - K.014.jpeg)
 
 As we can see from the top 10 words in each group, there are a couple of unique words on each side. But again, if we dig deeper we find there is no significance and zooming out shows us how similar these groups really are.
 

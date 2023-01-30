@@ -7,7 +7,7 @@ categories: [news]
 
 ## Meet Rochelle Rafn.
 
-![](DSC03055.jpg)
+![](thumbnail.jpg)
 
 Rochelle recently finished her MBA and is completing her Master’s in Data Science from Forbes-ranked Willamette University. She developed, owned, and operated Rafns’ Restaurant with her husband, Nate Rafn, for 9 years before successfully selling the business. She also helped build and develop a 501(c)(3) non-profit professional orchestra and is currently leading the organization as the Executive Director.
 
@@ -16,6 +16,8 @@ From a young age, Rochelle has naturally had an inherent sense of curiosity. Her
 It has been a full circle journey towards a career in STEM. Rochelle first discovered her aptitude in math during middle school. She was even invited to attend an annual conference held at Willamette University called, “Expanding Your Horizon”. This conference was created to encourage young girls to pursue education and careers within the STEM fields. At the time she was still more interested in becoming a Broadway actress, singer or WNBA player. 
 
 Since then she has still maintained an interest in tech, math and data. But, she didn’t find her true calling until she discovered the field of Data Science. The most valuable part of starting a business from scratch, running and maintaining it was learning not only what she was good at, but also what she enjoyed. Unbeknownst to her, she was beginning to teach herself the fundamentals of data analysis and data science by “geeking out” over the raw data in her restaurant’s cloud based services. When she finally made the connection and discovered that she could forge a whole career from her favorite business task, it was a no brainer. 
+
+![](DSC03055.jpg){width=50%}
 
 _“As a business owner and decision maker it is so important to know what is actually going on instead of only using intuition. There are times the data will actually surprise you. Making informed decisions is key, and you can achieve that with data.”_ - Rochelle Rafn
 

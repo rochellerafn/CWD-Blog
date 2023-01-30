@@ -9,7 +9,7 @@
 <meta name="author" content="Rochelle Rafn">
 <meta name="dcterms.date" content="2022-08-08">
 
-<title>CWD-Blog - H&amp;M Customer Age Analysis</title>
+<title>Rochelle Rafn Portfolio - H&amp;M Customer Age Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">CWD-Blog</span>
+    <span class="navbar-title">Rochelle Rafn Portfolio</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -105,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">MSDS - H&amp;M Capstone</h1>
+      <h1 class="title">H&amp;M Customer Age Analysis</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">news</div>
                 <div class="quarto-category">code</div>
@@ -190,16 +190,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="number-of-items-per-transaction-per-group" class="level3">
 <h3 class="anchored" data-anchor-id="number-of-items-per-transaction-per-group">Number of items per transaction per group</h3>
 <p>Similar to price, most of the information here looks similar. The one difference I found to be interesting is that the 3rd quartile and mean have a slight difference. I chose to hold on to the 10 or more items and engineer a prediction feature with it later on. Maybe since the “young” group is more likely to purchase more items in a transaction that could help predict a difference.</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    1.0     3.0     5.0     6.6     8.0   336.0 </code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  1.000   3.000   5.000   7.617  10.000 570.000 </code></pre>
-</div>
-</div>
+<p><img src="2022 - MSDS Capstone Update - K.007.jpeg" class="img-fluid"></p>
 </section>
 </section>
 <section id="items-purchased" class="level2">
@@ -230,45 +221,10 @@ ul.task-list li input[type="checkbox"] {
 <section id="what-about-the-top-descriptive-words-for-the-unique-items-in-each-age-group" class="level2">
 <h2 class="anchored" data-anchor-id="what-about-the-top-descriptive-words-for-the-unique-items-in-each-age-group">What about the top descriptive words for the unique items in each age group?</h2>
 <p>To move forward with the theme of unique items I decided to take those unique items even deeper by analyzing the descriptive words. Perhaps I can find some key descriptors that will differentiate the two groups? Despite it appearing some items were unique to each group, they were clearly still purchasing different items with very similar descriptions. Meaning, maybe each group did not purchase the exact same item, but perhaps a similar one in a different color, graphical appearance or a similar style.</p>
-<section id="young-top-descriptive-words" class="level3">
-<h3 class="anchored" data-anchor-id="young-top-descriptive-words">Young Top Descriptive Words</h3>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>           word
-1          body
-2       garment
-3  babychildren
-4         sizes
-5        cotton
-6         solid
-7        jersey
-8          dark
-9         light
-10         soft</code></pre>
-</div>
-</div>
-</section>
-<section id="mature-top-descriptive-words" class="level3">
-<h3 class="anchored" data-anchor-id="mature-top-descriptive-words">Mature Top Descriptive Words</h3>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>           word
-1          body
-2       garment
-3  babychildren
-4      children
-5          dark
-6         sizes
-7         upper
-8         solid
-9        jersey
-10        front</code></pre>
-</div>
-</div>
+<p><img src="2022 - MSDS Capstone Update - K.014.jpeg" class="img-fluid"></p>
 <p>As we can see from the top 10 words in each group, there are a couple of unique words on each side. But again, if we dig deeper we find there is no significance and zooming out shows us how similar these groups really are.</p>
 <p>After finding the top words from the unique items, I took a sample of the all items from each group and ran sentiment analysis on all descriptive words. As we can see, even the unique words in the top word lists above still show up as significant in the group.<br>
 <img src="2022 - MSDS Capstone Update - K.015.jpeg" class="img-fluid"></p>
-</section>
 </section>
 <section id="what-about-percentage-of-descriptive-words" class="level2">
 <h2 class="anchored" data-anchor-id="what-about-percentage-of-descriptive-words">What about percentage of descriptive words?</h2>
