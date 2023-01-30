@@ -1,5 +1,5 @@
 ---
-title: "Rochelle Rafn Portfolio"
+title: "CWD-Blog"
 listing:
   contents: posts
   sort: "date desc"
