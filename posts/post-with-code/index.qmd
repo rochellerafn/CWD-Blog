@@ -1,5 +1,5 @@
 ---
-title: "MSDS - H&M Capstone"
+title: "H&M Customer Age Analysis"
 author: "Rochelle Rafn"
 date: "2022-08-08"
 categories: [news, code, analysis]
