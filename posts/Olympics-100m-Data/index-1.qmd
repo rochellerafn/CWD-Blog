@@ -1,10 +1,9 @@
 ---
-title: "Olympics 100m Dash Over 100 Years"
+title: "Olympics 100m & 200m Dash Over 100 Years"
 author: "Rochelle Rafn"
 date: "12/8/2021"
 categories: [data, visualization, code, news]
 image: "thumbnail.jpeg"
-format: html
 ---
 
 ```{r setup}
@@ -12,9 +11,9 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 
 library(tidyverse)
 library(ggplot2)
-library(rvest)
 library(dplyr)
 ```
+
 
 ```{r}
 #| code-fold: true
@@ -23,39 +22,33 @@ library(dplyr)
 
 # Olympics 100m & 200m Dash Over 100 Years
 
-I scraped all men's and women's times for the 100m and 200m dash from all heats in the Olympics for the last 100 years. Are the medal winners outliers? Or are all humans collectively getting faster?
+I scraped all men's and women's times for the 100m and 200m dash from all heats in the Olympics for the last 100 years. Are the medal winners outliers? Or are all humans collectively getting faster? 
+
+Below I have subdivided the data by gender and race so that I can create some visualizations to track how times have changed since the early 1900s
 
 ```{r}
 oly_women_clean <- read_csv("/Users/rochellerafn/RStudio Files/oly_women_clean.csv")
 oly_men_clean <- read_csv("/Users/rochellerafn/RStudio Files/oly_men_clean.csv")
-```
 
-```{r, include=FALSE}
 oly_men_100m <- oly_men_clean %>%
   filter(Event == "100 metres")%>%
   arrange(desc(Year))
-```
 
-```{r, include=FALSE}
 oly_women_100m <- oly_women_clean %>%
   filter(Event == "100 metres")%>%
   arrange(desc(Year))
-```
 
-```{r, include=FALSE}
 oly_men_200m <- oly_men_clean %>%
   filter(Event == "200 metres")%>%
   arrange(desc(Year))
-```
 
-```{r, include=FALSE}
 oly_women_200m <- oly_women_clean %>%
   filter(Event == "200 metres")%>%
   arrange(desc(Year))
 ```
 
 
-## Pulling out Mens' 100m World Records 
+## Pulling out 100m World Records 
 
 _(different than Olympic records because of other track events that can also result in world records)_
 
@@ -63,21 +56,14 @@ _(different than Olympic records because of other track events that can also res
 oly_men_100m_record <- oly_men_100m %>%
   filter(Record %in% c("WR)", "=WR)"))%>%
   group_by(Year, Time)
-```
 
-
-## Pulling out Womens' World Records 
-
-_(different than Olympic records because of other track events that can also result in world records)_
-
-```{r}
 oly_women_100m_record <- oly_women_clean %>%
   filter(Record %in% c("WR)", "=WR)"), Event == "100 metres")%>%
   group_by(Year, Time)
 ```
 
 
-## Pulling out Mens' 200m World Records 
+## Pulling out 200m World Records 
 
 _(different than Olympic records because of other track events that can also result in world records)_
 
@@ -85,14 +71,7 @@ _(different than Olympic records because of other track events that can also res
 oly_men_200m_record <- oly_men_clean %>%
   filter(Record %in% c("WR)", "=WR)"), Event == "200 metres")%>%
   group_by(Year, Time)
-```
 
-
-## Pulling out Womens' 200m World Records 
-
-_(different than Olympic records because of other track events that can also result in world records)_
-
-```{r}
 oly_women_200m_record <- oly_women_clean %>%
   filter(Record %in% c("WR)", "=WR)"), Event == "200 metres")%>%
   group_by(Year, Time)
@@ -241,5 +220,3 @@ women200m_graph <- oly_women_200m %>%
 
 women200m_graph
 ```
-
-
