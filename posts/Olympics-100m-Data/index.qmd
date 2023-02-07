@@ -4,19 +4,31 @@ author: "Rochelle Rafn"
 date: "12/8/2021"
 categories: [data, visualization, code, news]
 image: "thumbnail.jpeg"
+format: html
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
 library(tidyverse)
 library(ggplot2)
 library(rvest)
 library(dplyr)
+```
 
+```{r}
+#| code-fold: true
+#| code-summary: "Show Code"
+```
+
+# Olympics 100m & 200m Dash Over 100 Years
+
+I scraped all men's and women's times for the 100m and 200m dash from all heats in the Olympics for the last 100 years. Are the medal winners outliers? Or are all humans collectively getting faster?
+
+```{r}
 oly_women_clean <- read_csv("/Users/rochellerafn/RStudio Files/oly_women_clean.csv")
 oly_men_clean <- read_csv("/Users/rochellerafn/RStudio Files/oly_men_clean.csv")
 ```
-
 
 ```{r, include=FALSE}
 oly_men_100m <- oly_men_clean %>%
@@ -24,13 +36,11 @@ oly_men_100m <- oly_men_clean %>%
   arrange(desc(Year))
 ```
 
-
 ```{r, include=FALSE}
 oly_women_100m <- oly_women_clean %>%
   filter(Event == "100 metres")%>%
   arrange(desc(Year))
 ```
-
 
 ```{r, include=FALSE}
 oly_men_200m <- oly_men_clean %>%
@@ -44,35 +54,53 @@ oly_women_200m <- oly_women_clean %>%
   arrange(desc(Year))
 ```
 
-#### Pulling out Mens' 100m World Records (different than Olympic records because of other track events that can also result in world records)
+
+## Pulling out Mens' 100m World Records 
+
+_(different than Olympic records because of other track events that can also result in world records)_
+
 ```{r}
 oly_men_100m_record <- oly_men_100m %>%
   filter(Record %in% c("WR)", "=WR)"))%>%
   group_by(Year, Time)
 ```
 
-#### Pulling out Womens' World Records (different than Olympic records because of other track events that can also result in world records)
+
+## Pulling out Womens' World Records 
+
+_(different than Olympic records because of other track events that can also result in world records)_
+
 ```{r}
 oly_women_100m_record <- oly_women_clean %>%
   filter(Record %in% c("WR)", "=WR)"), Event == "100 metres")%>%
   group_by(Year, Time)
 ```
 
-#### Pulling out Mens' 200m World Records (different than Olympic records because of other track events that can also result in world records)
+
+## Pulling out Mens' 200m World Records 
+
+_(different than Olympic records because of other track events that can also result in world records)_
+
 ```{r}
 oly_men_200m_record <- oly_men_clean %>%
   filter(Record %in% c("WR)", "=WR)"), Event == "200 metres")%>%
   group_by(Year, Time)
 ```
 
-#### Pulling out Womens' 200m World Records (different than Olympic records because of other track events that can also result in world records)
+
+## Pulling out Womens' 200m World Records 
+
+_(different than Olympic records because of other track events that can also result in world records)_
+
 ```{r}
 oly_women_200m_record <- oly_women_clean %>%
   filter(Record %in% c("WR)", "=WR)"), Event == "200 metres")%>%
   group_by(Year, Time)
 ```
 
-#### Men's 100 Meter Medals Over Time
+
+## Men's 100 Meter Medals Over Time
+
 ```{r}
 men100m_graph <- oly_men_100m %>%
   ggplot(aes(Year, Time, color = Medal))+
@@ -104,9 +132,13 @@ men100m_graph <- oly_men_100m %>%
 men100m_graph
 ```
 
-#### Women's 100 Meter Medals Over Time
-##### 2000 Women's 100M gold: The gold medal was originally won by Marion Jones of the United States. However, on 5 October 2007, she admitted to having used performance-enhancing drugs prior to the 2000 Olympics. On 9 October she relinquished her medals to the United States Olympic Committee, and on 12 December the International Olympic Committee formally stripped her of her medals.
-The IOC did not initially decide to regrade the results, as silver medalist Ekaterini Thanou had herself been subsequently involved in a doping scandal in the run-up to the 2004 Summer Olympics. After two years of deliberation, in late 2009 the IOC decided to upgrade Lawrence (original bronze) and Ottey (original 4th) to silver and bronze respectively, and leave Thanou as a silver medallist, with the gold medal withheld.## 
+
+## Women's 100 Meter Medals Over Time
+
+2000 Women's 100M gold: The gold medal was originally won by Marion Jones of the United States. However, on 5 October 2007, she admitted to having used performance-enhancing drugs prior to the 2000 Olympics. On 9 October she relinquished her medals to the United States Olympic Committee, and on 12 December the International Olympic Committee formally stripped her of her medals.
+
+The IOC did not initially decide to regrade the results, as silver medalist Ekaterini Thanou had herself been subsequently involved in a doping scandal in the run-up to the 2004 Summer Olympics. After two years of deliberation, in late 2009 the IOC decided to upgrade Lawrence (original bronze) and Ottey (original 4th) to silver and bronze respectively, and leave Thanou as a silver medalist, with the gold medal withheld.
+
 ```{r}
 women100m_graph <- oly_women_100m %>%
   ggplot(aes(Year, Time, color = Medal))+
@@ -138,7 +170,9 @@ women100m_graph <- oly_women_100m %>%
 women100m_graph
 ```
 
-#### Men's 200 Meter Medals Over Time
+
+## Men's 200 Meter Medals Over Time
+
 ```{r}
 men200m_graph <- oly_men_200m %>%
   ggplot(aes(Year, Time, color = Medal))+
@@ -175,7 +209,9 @@ men200m_graph <- oly_men_200m %>%
 men200m_graph
 ```
 
-#### Women's 200 Meter Medals Over Time
+
+## Women's 200 Meter Medals Over Time
+
 ```{r}
 women200m_graph <- oly_women_200m %>%
   ggplot(aes(Year, Time, color = Medal))+
