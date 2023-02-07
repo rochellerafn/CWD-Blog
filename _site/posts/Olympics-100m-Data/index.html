@@ -209,294 +209,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<section id="install.packagesrvest" class="level6">
-<h6 class="anchored" data-anchor-id="install.packagesrvest">install.packages(“rvest”)</h6>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-✔ ggplot2 3.4.0     ✔ purrr   0.3.4
-✔ tibble  3.1.8     ✔ dplyr   1.0.9
-✔ tidyr   1.2.0     ✔ stringr 1.4.0
-✔ readr   2.1.2     ✔ forcats 0.5.1
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'rvest'
-
-The following object is masked from 'package:readr':
-
-    guess_encoding</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="full-womens-olympic-data" class="level3">
-<h3 class="anchored" data-anchor-id="full-womens-olympic-data">Full Womens’ Olympic Data</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>oly_women_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"/Users/rochellerafn/RStudio Files/oly_women_clean.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-Rows: 864 Columns: 10
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(7): Medal, Record, Event, Name, Athlete.Country, Host.City, Host.Country dbl
-(3): ...1, Year, Time
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-• `` -&gt; `...1`</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(oly_women_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 10
-   ...1  Year Medal  Time Record Event       Name        Athle…¹ Host.…² Host.…³
-  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
-1     1  2016 Gold   10.7 &lt;NA&gt;   100 metres  Elaine Tho… Jamaica Rio de… Brazil 
-2     2  2016 Gold   21.8 &lt;NA&gt;   200 metres  Elaine Tho… Jamaica Rio de… Brazil 
-3     3  2016 Gold   49.4 &lt;NA&gt;   400 metres  Shaunae Mi… Bahamas Rio de… Brazil 
-4     4  2016 Gold   NA   &lt;NA&gt;   800 metres  Caster Sem… South … Rio de… Brazil 
-5     5  2016 Gold   NA   &lt;NA&gt;   1500 metres Faith Kipy… Kenya   Rio de… Brazil 
-6     6  2016 Gold   NA   &lt;NA&gt;   5000 metres Vivian Che… Kenya   Rio de… Brazil 
-# … with abbreviated variable names ¹​Athlete.Country, ²​Host.City, ³​Host.Country</code></pre>
-</div>
-</div>
-</section>
-<section id="full-mens-olympic-data" class="level3">
-<h3 class="anchored" data-anchor-id="full-mens-olympic-data">Full Mens’ Olympic Data</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>oly_men_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"/Users/rochellerafn/RStudio Files/oly_men_clean.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-Rows: 1422 Columns: 10
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(7): Medal, Record, Event, Name, Athlete.Country, Host.City, Host.Country dbl
-(3): ...1, Year, Time
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-• `` -&gt; `...1`</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(oly_men_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 10
-   ...1  Year Medal  Time Record Event       Name        Athle…¹ Host.…² Host.…³
-  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
-1     1  2016 Gold   9.81 &lt;NA&gt;   100 metres  Usain Bolt  Jamaica Rio de… Brazil 
-2     2  2016 Gold  19.8  &lt;NA&gt;   200 metres  Usain Bolt  Jamaica Rio de… Brazil 
-3     3  2016 Gold  43.0  &lt;NA&gt;   400 metres  Wayde van   Nieker… Rio de… Brazil 
-4     4  2016 Gold  NA    &lt;NA&gt;   800 metres  David Rudi… Kenya   Rio de… Brazil 
-5     5  2016 Gold  NA    &lt;NA&gt;   1500 metres Matthew Ce… Jr. Un… Rio de… Brazil 
-6     6  2016 Gold  NA    &lt;NA&gt;   5000 metres Mo Farah    Great … Rio de… Brazil 
-# … with abbreviated variable names ¹​Athlete.Country, ²​Host.City, ³​Host.Country</code></pre>
-</div>
-</div>
-<section id="pulling-out-data-just-for-the-mens-100m-race" class="level4">
-<h4 class="anchored" data-anchor-id="pulling-out-data-just-for-the-mens-100m-race">Pulling out data just for the Mens 100m race</h4>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>oly_men_100m <span class="ot">&lt;-</span> oly_men_clean <span class="sc">%&gt;%</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Event <span class="sc">==</span> <span class="st">"100 metres"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Year))</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(oly_men_100m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 10
-   ...1  Year Medal   Time Record Event      Name        Athle…¹ Host.…² Host.…³
-  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
-1     1  2016 Gold    9.81 &lt;NA&gt;   100 metres Usain Bolt  Jamaica Rio de… Brazil 
-2   475  2016 Silver  9.89 &lt;NA&gt;   100 metres Justin Gat… United… Rio de… Brazil 
-3   949  2016 Bronze  9.91 &lt;NA&gt;   100 metres Andre De    Grasse… Rio de… Brazil 
-4    30  2012 Gold    9.63 OR)    100 metres Usain Bolt  Jamaica London  Great …
-5   504  2012 Silver  9.75 &lt;NA&gt;   100 metres Yohan Blake Jamaica London  Great …
-6   978  2012 Bronze  9.79 &lt;NA&gt;   100 metres Justin Gat… United… London  Great …
-# … with abbreviated variable names ¹​Athlete.Country, ²​Host.City, ³​Host.Country</code></pre>
-</div>
-</div>
-</section>
-<section id="pulling-out-data-just-for-the-womens-100m-race" class="level4">
-<h4 class="anchored" data-anchor-id="pulling-out-data-just-for-the-womens-100m-race">Pulling out data just for the Womens’ 100m race</h4>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>oly_women_100m <span class="ot">&lt;-</span> oly_women_clean <span class="sc">%&gt;%</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Event <span class="sc">==</span> <span class="st">"100 metres"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Year))</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(oly_women_100m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 10
-   ...1  Year Medal   Time Record Event      Name        Athle…¹ Host.…² Host.…³
-  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
-1     1  2016 Gold    10.7 &lt;NA&gt;   100 metres Elaine Tho… Jamaica Rio de… Brazil 
-2   289  2016 Silver  10.8 &lt;NA&gt;   100 metres Tori Bowie  United… Rio de… Brazil 
-3   577  2016 Bronze  10.9 &lt;NA&gt;   100 metres Shelly-Ann… Jamaica Rio de… Brazil 
-4    29  2012 Gold    10.8 &lt;NA&gt;   100 metres Shelly-Ann… Jamaica London  Great …
-5   317  2012 Silver  10.8 &lt;NA&gt;   100 metres Carmelita … United… London  Great …
-6   605  2012 Bronze  10.8 &lt;NA&gt;   100 metres Veronica C… Jamaica London  Great …
-# … with abbreviated variable names ¹​Athlete.Country, ²​Host.City, ³​Host.Country</code></pre>
-</div>
-</div>
-</section>
-<section id="pulling-out-data-just-for-the-mens-200m-race" class="level4">
-<h4 class="anchored" data-anchor-id="pulling-out-data-just-for-the-mens-200m-race">Pulling out data just for the Mens 200m race</h4>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>oly_men_200m <span class="ot">&lt;-</span> oly_men_clean <span class="sc">%&gt;%</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Event <span class="sc">==</span> <span class="st">"200 metres"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Year))</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(oly_men_200m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 10
-   ...1  Year Medal   Time Record Event      Name        Athle…¹ Host.…² Host.…³
-  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
-1     2  2016 Gold    19.8 &lt;NA&gt;   200 metres Usain Bolt  Jamaica Rio de… Brazil 
-2   476  2016 Silver  20.0 &lt;NA&gt;   200 metres Andre De    Grasse… Rio de… Brazil 
-3   950  2016 Bronze  20.1 &lt;NA&gt;   200 metres Christophe… France  Rio de… Brazil 
-4    31  2012 Gold    19.3 &lt;NA&gt;   200 metres Usain Bolt  Jamaica London  Great …
-5   505  2012 Silver  19.4 &lt;NA&gt;   200 metres Yohan Blake Jamaica London  Great …
-6   979  2012 Bronze  19.8 &lt;NA&gt;   200 metres Warren Weir Jamaica London  Great …
-# … with abbreviated variable names ¹​Athlete.Country, ²​Host.City, ³​Host.Country</code></pre>
-</div>
-</div>
-</section>
-<section id="pulling-out-data-just-for-the-womens-200m-race" class="level4">
-<h4 class="anchored" data-anchor-id="pulling-out-data-just-for-the-womens-200m-race">Pulling out data just for the Womens 200m race</h4>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>oly_women_200m <span class="ot">&lt;-</span> oly_women_clean <span class="sc">%&gt;%</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Event <span class="sc">==</span> <span class="st">"200 metres"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Year))</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(oly_women_200m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 10
-   ...1  Year Medal   Time Record Event      Name        Athle…¹ Host.…² Host.…³
-  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
-1     2  2016 Gold    21.8 &lt;NA&gt;   200 metres Elaine Tho… Jamaica Rio de… Brazil 
-2   290  2016 Silver  21.9 &lt;NA&gt;   200 metres Dafne Schi… Nether… Rio de… Brazil 
-3   578  2016 Bronze  22.2 &lt;NA&gt;   200 metres Tori Bowie  United… Rio de… Brazil 
-4    30  2012 Gold    21.9 &lt;NA&gt;   200 metres Allyson Fe… United… London  Great …
-5   318  2012 Silver  22.1 &lt;NA&gt;   200 metres Shelly-Ann… Jamaica London  Great …
-6   606  2012 Bronze  22.1 &lt;NA&gt;   200 metres Carmelita … United… London  Great …
-# … with abbreviated variable names ¹​Athlete.Country, ²​Host.City, ³​Host.Country</code></pre>
-</div>
-</div>
-</section>
 <section id="pulling-out-mens-100m-world-records-different-than-olympic-records-because-of-other-track-events-that-can-also-result-in-world-records" class="level4">
 <h4 class="anchored" data-anchor-id="pulling-out-mens-100m-world-records-different-than-olympic-records-because-of-other-track-events-that-can-also-result-in-world-records">Pulling out Mens’ 100m World Records (different than Olympic records because of other track events that can also result in world records)</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>oly_men_100m_record <span class="ot">&lt;-</span> oly_men_100m <span class="sc">%&gt;%</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Record <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"WR)"</span>, <span class="st">"=WR)"</span>))<span class="sc">%&gt;%</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year, Time)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>oly_men_100m_record</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 10
-# Groups:   Year, Time [4]
-   ...1  Year Medal  Time Record Event      Name         Athle…¹ Host.…² Host.…³
-  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
-1    59  2008 Gold   9.69 WR)    100 metres Usain Bolt   Jamaica Beijing China  
-2   136  1996 Gold   9.84 WR)    100 metres Donovan Bai… Canada  Atlanta USA    
-3   186  1988 Gold   9.92 WR)    100 metres Carl Lewis   United… Seoul   South …
-4   331  1964 Gold  10    =WR)   100 metres Bob Hayes    United… Tokyo   Japan  
-# … with abbreviated variable names ¹​Athlete.Country, ²​Host.City, ³​Host.Country</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>oly_men_100m_record <span class="ot">&lt;-</span> oly_men_100m <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Record <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"WR)"</span>, <span class="st">"=WR)"</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year, Time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="pulling-out-womens-world-records-different-than-olympic-records-because-of-other-track-events-that-can-also-result-in-world-records" class="level4">
 <h4 class="anchored" data-anchor-id="pulling-out-womens-world-records-different-than-olympic-records-because-of-other-track-events-that-can-also-result-in-world-records">Pulling out Womens’ World Records (different than Olympic records because of other track events that can also result in world records)</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>oly_women_100m_record <span class="ot">&lt;-</span> oly_women_clean <span class="sc">%&gt;%</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Record <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"WR)"</span>, <span class="st">"=WR)"</span>), Event <span class="sc">==</span> <span class="st">"100 metres"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year, Time)</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>oly_women_100m_record</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 10
-# Groups:   Year, Time [1]
-   ...1  Year Medal  Time Record Event      Name         Athle…¹ Host.…² Host.…³
-  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
-1   207  1972 Gold   11.1 WR)    100 metres Renate Stec… East G… Munich  Germany
-# … with abbreviated variable names ¹​Athlete.Country, ²​Host.City, ³​Host.Country</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>oly_women_100m_record <span class="ot">&lt;-</span> oly_women_clean <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Record <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"WR)"</span>, <span class="st">"=WR)"</span>), Event <span class="sc">==</span> <span class="st">"100 metres"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year, Time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="pulling-out-mens-200m-world-records-different-than-olympic-records-because-of-other-track-events-that-can-also-result-in-world-records" class="level4">
 <h4 class="anchored" data-anchor-id="pulling-out-mens-200m-world-records-different-than-olympic-records-because-of-other-track-events-that-can-also-result-in-world-records">Pulling out Mens’ 200m World Records (different than Olympic records because of other track events that can also result in world records)</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>oly_men_200m_record <span class="ot">&lt;-</span> oly_men_clean <span class="sc">%&gt;%</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Record <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"WR)"</span>, <span class="st">"=WR)"</span>), Event <span class="sc">==</span> <span class="st">"200 metres"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year, Time)</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>oly_men_200m_record</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 10
-# Groups:   Year, Time [3]
-   ...1  Year Medal  Time Record Event      Name         Athle…¹ Host.…² Host.…³
-  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
-1    60  2008 Gold   19.3 WR)    200 metres Usain Bolt   Jamaica Beijing China  
-2   137  1996 Gold   19.3 WR)    200 metres Michael Joh… United… Atlanta USA    
-3   356  1960 Gold   20.5 =WR)   200 metres Livio Berru… Italy   Rome    Italy  
-# … with abbreviated variable names ¹​Athlete.Country, ²​Host.City, ³​Host.Country</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>oly_men_200m_record <span class="ot">&lt;-</span> oly_men_clean <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Record <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"WR)"</span>, <span class="st">"=WR)"</span>), Event <span class="sc">==</span> <span class="st">"200 metres"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year, Time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="pulling-out-womens-200m-world-records-different-than-olympic-records-because-of-other-track-events-that-can-also-result-in-world-records" class="level4">
 <h4 class="anchored" data-anchor-id="pulling-out-womens-200m-world-records-different-than-olympic-records-because-of-other-track-events-that-can-also-result-in-world-records">Pulling out Womens’ 200m World Records (different than Olympic records because of other track events that can also result in world records)</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>oly_women_200m_record <span class="ot">&lt;-</span> oly_women_clean <span class="sc">%&gt;%</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Record <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"WR)"</span>, <span class="st">"=WR)"</span>), Event <span class="sc">==</span> <span class="st">"200 metres"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year, Time)</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>oly_women_200m_record</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 10
-# Groups:   Year, Time [2]
-   ...1  Year Medal  Time Record Event      Name         Athle…¹ Host.…² Host.…³
-  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
-1   144  1988 Gold   21.3 WR)    200 metres Florence Gr… Joyner… Seoul   South …
-2   208  1972 Gold   22.4 =WR)   200 metres Renate Stec… East G… Munich  Germany
-# … with abbreviated variable names ¹​Athlete.Country, ²​Host.City, ³​Host.Country</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>oly_women_200m_record <span class="ot">&lt;-</span> oly_women_clean <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Record <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"WR)"</span>, <span class="st">"=WR)"</span>), Event <span class="sc">==</span> <span class="st">"200 metres"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year, Time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="mens-100-meter-medals-over-time" class="level4">
 <h4 class="anchored" data-anchor-id="mens-100-meter-medals-over-time">Men’s 100 Meter Medals Over Time</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>men100m_graph <span class="ot">&lt;-</span> oly_men_100m <span class="sc">%&gt;%</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Year, Time, <span class="at">color =</span> Medal))<span class="sc">+</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> oly_men_100m_record, <span class="fu">aes</span>(Year, Time), <span class="at">color =</span> <span class="st">"turquoise"</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">xmin=</span><span class="dv">1939</span>, <span class="at">xmax=</span><span class="dv">1945</span>, <span class="at">ymin=</span><span class="fl">9.6</span>, <span class="at">ymax=</span><span class="fl">10.64</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">alpha =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1967</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">size =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>))<span class="sc">+</span></span>
-<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#FFB48C"</span>, <span class="st">"#EBD739"</span>, <span class="st">"#B5BCC2"</span>))<span class="sc">+</span></span>
-<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1936</span>, <span class="dv">1944</span>, <span class="dv">1952</span>, <span class="dv">1960</span>, <span class="dv">1968</span>, <span class="dv">1976</span>, <span class="dv">1984</span>, <span class="dv">1992</span>, <span class="dv">2000</span>, <span class="dv">2008</span>, <span class="dv">2016</span>),</span>
-<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"1936"</span>, <span class="st">"1944"</span>, <span class="st">"1952"</span>, <span class="st">"1960"</span>, <span class="st">"1968"</span>, <span class="st">"1976"</span>, <span class="st">"1984"</span>, <span class="st">"1992"</span>, <span class="st">"2000"</span>, <span class="st">"2008"</span>, <span class="st">"2016"</span>))<span class="sc">+</span></span>
-<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="dv">1976</span>, <span class="fl">9.65</span>), <span class="at">label =</span> <span class="st">"PEDs Banned"</span>, <span class="at">size =</span> <span class="fl">3.8</span>, <span class="at">family =</span> <span class="st">"Courier"</span>, <span class="at">color =</span> <span class="st">"grey"</span>)<span class="sc">+</span></span>
-<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gold, Silver &amp; Bronze Medals Over Time"</span>,</span>
-<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Mens 100m Dash"</span>,</span>
-<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Time (in seconds)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>men100m_graph <span class="ot">&lt;-</span> oly_men_100m <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Year, Time, <span class="at">color =</span> Medal))<span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> oly_men_100m_record, <span class="fu">aes</span>(Year, Time), <span class="at">color =</span> <span class="st">"turquoise"</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">xmin=</span><span class="dv">1939</span>, <span class="at">xmax=</span><span class="dv">1945</span>, <span class="at">ymin=</span><span class="fl">9.6</span>, <span class="at">ymax=</span><span class="fl">10.64</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">alpha =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1967</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">size =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>))<span class="sc">+</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#FFB48C"</span>, <span class="st">"#EBD739"</span>, <span class="st">"#B5BCC2"</span>))<span class="sc">+</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1936</span>, <span class="dv">1944</span>, <span class="dv">1952</span>, <span class="dv">1960</span>, <span class="dv">1968</span>, <span class="dv">1976</span>, <span class="dv">1984</span>, <span class="dv">1992</span>, <span class="dv">2000</span>, <span class="dv">2008</span>, <span class="dv">2016</span>),</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"1936"</span>, <span class="st">"1944"</span>, <span class="st">"1952"</span>, <span class="st">"1960"</span>, <span class="st">"1968"</span>, <span class="st">"1976"</span>, <span class="st">"1984"</span>, <span class="st">"1992"</span>, <span class="st">"2000"</span>, <span class="st">"2008"</span>, <span class="st">"2016"</span>))<span class="sc">+</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="dv">1976</span>, <span class="fl">9.65</span>), <span class="at">label =</span> <span class="st">"PEDs Banned"</span>, <span class="at">size =</span> <span class="fl">3.8</span>, <span class="at">family =</span> <span class="st">"Courier"</span>, <span class="at">color =</span> <span class="st">"grey"</span>)<span class="sc">+</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gold, Silver &amp; Bronze Medals Over Time"</span>,</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Mens 100m Dash"</span>,</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Time (in seconds)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` instead.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>men100m_graph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>men100m_graph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -506,39 +286,39 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <h5 class="anchored" data-anchor-id="womens-100m-gold-the-gold-medal-was-originally-won-by-marion-jones-of-the-united-states.-however-on-5-october-2007-she-admitted-to-having-used-performance-enhancing-drugs-prior-to-the-2000-olympics.-on-9-october-she-relinquished-her-medals-to-the-united-states-olympic-committee-and-on-12-december-the-international-olympic-committee-formally-stripped-her-of-her-medals.">2000 Women’s 100M gold: The gold medal was originally won by Marion Jones of the United States. However, on 5 October 2007, she admitted to having used performance-enhancing drugs prior to the 2000 Olympics. On 9 October she relinquished her medals to the United States Olympic Committee, and on 12 December the International Olympic Committee formally stripped her of her medals.</h5>
 <p>The IOC did not initially decide to regrade the results, as silver medalist Ekaterini Thanou had herself been subsequently involved in a doping scandal in the run-up to the 2004 Summer Olympics. After two years of deliberation, in late 2009 the IOC decided to upgrade Lawrence (original bronze) and Ottey (original 4th) to silver and bronze respectively, and leave Thanou as a silver medallist, with the gold medal withheld.##</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>women100m_graph <span class="ot">&lt;-</span> oly_women_100m <span class="sc">%&gt;%</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Year, Time, <span class="at">color =</span> Medal))<span class="sc">+</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> oly_women_100m_record, <span class="fu">aes</span>(Year, Time), <span class="at">color =</span> <span class="st">"turquoise"</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">xmin=</span><span class="dv">1939</span>, <span class="at">xmax=</span><span class="dv">1945</span>, <span class="at">ymin=</span><span class="fl">10.5</span>, <span class="at">ymax=</span><span class="fl">12.25</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">alpha =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1967</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">size =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gold, Silver &amp; Bronze Medals Over 100 Years"</span>,</span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Womens 100m Dash"</span>,</span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Time (in seconds)"</span>)<span class="sc">+</span></span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>         <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>))<span class="sc">+</span></span>
-<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#FFB48C"</span>, <span class="st">"#EBD739"</span>, <span class="st">"#B5BCC2"</span>))<span class="sc">+</span></span>
-<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1936</span>, <span class="dv">1944</span>, <span class="dv">1952</span>, <span class="dv">1960</span>, <span class="dv">1968</span>, <span class="dv">1976</span>, <span class="dv">1984</span>, <span class="dv">1992</span>, <span class="dv">2000</span>, <span class="dv">2008</span>, <span class="dv">2016</span>),</span>
-<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"1936"</span>, <span class="st">"1944"</span>, <span class="st">"1952"</span>, <span class="st">"1960"</span>, <span class="st">"1968"</span>, <span class="st">"1976"</span>, <span class="st">"1984"</span>, <span class="st">"1992"</span>, <span class="st">"2000"</span>, <span class="st">"2008"</span>, <span class="st">"2016"</span>))<span class="sc">+</span></span>
-<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="dv">1976</span>, <span class="fl">10.55</span>), <span class="at">label =</span> <span class="st">"PEDs Banned"</span>, <span class="at">size =</span> <span class="fl">3.8</span>, <span class="at">family =</span> <span class="st">"Courier"</span>, <span class="at">color =</span> <span class="st">"grey"</span>)</span>
-<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>women100m_graph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>women100m_graph <span class="ot">&lt;-</span> oly_women_100m <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Year, Time, <span class="at">color =</span> Medal))<span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> oly_women_100m_record, <span class="fu">aes</span>(Year, Time), <span class="at">color =</span> <span class="st">"turquoise"</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">xmin=</span><span class="dv">1939</span>, <span class="at">xmax=</span><span class="dv">1945</span>, <span class="at">ymin=</span><span class="fl">10.5</span>, <span class="at">ymax=</span><span class="fl">12.25</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">alpha =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1967</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">size =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gold, Silver &amp; Bronze Medals Over 100 Years"</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Womens 100m Dash"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Time (in seconds)"</span>)<span class="sc">+</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>         <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>))<span class="sc">+</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#FFB48C"</span>, <span class="st">"#EBD739"</span>, <span class="st">"#B5BCC2"</span>))<span class="sc">+</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1936</span>, <span class="dv">1944</span>, <span class="dv">1952</span>, <span class="dv">1960</span>, <span class="dv">1968</span>, <span class="dv">1976</span>, <span class="dv">1984</span>, <span class="dv">1992</span>, <span class="dv">2000</span>, <span class="dv">2008</span>, <span class="dv">2016</span>),</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"1936"</span>, <span class="st">"1944"</span>, <span class="st">"1952"</span>, <span class="st">"1960"</span>, <span class="st">"1968"</span>, <span class="st">"1976"</span>, <span class="st">"1984"</span>, <span class="st">"1992"</span>, <span class="st">"2000"</span>, <span class="st">"2008"</span>, <span class="st">"2016"</span>))<span class="sc">+</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="dv">1976</span>, <span class="fl">10.55</span>), <span class="at">label =</span> <span class="st">"PEDs Banned"</span>, <span class="at">size =</span> <span class="fl">3.8</span>, <span class="at">family =</span> <span class="st">"Courier"</span>, <span class="at">color =</span> <span class="st">"grey"</span>)</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>women100m_graph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 3 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -546,81 +326,80 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <section id="mens-200-meter-medals-over-time" class="level4">
 <h4 class="anchored" data-anchor-id="mens-200-meter-medals-over-time">Men’s 200 Meter Medals Over Time</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>men200m_graph <span class="ot">&lt;-</span> oly_men_200m <span class="sc">%&gt;%</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Year, Time, <span class="at">color =</span> Medal))<span class="sc">+</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> oly_men_200m_record, <span class="fu">aes</span>(Year, Time), <span class="at">color =</span> <span class="st">"turquoise"</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">xmin=</span><span class="dv">1939</span>, <span class="at">xmax=</span><span class="dv">1945</span>, <span class="at">ymin=</span><span class="fl">19.21</span>, <span class="at">ymax=</span><span class="fl">21.39</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">alpha =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1967</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">size =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gold, Silver &amp; Bronze Medals Over 100 Years"</span>,</span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Mens 200m Dash"</span>,</span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Time (in seconds)"</span>)<span class="sc">+</span></span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>))<span class="sc">+</span></span>
-<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#FFB48C"</span>, <span class="st">"#EBD739"</span>, <span class="st">"#B5BCC2"</span>))<span class="sc">+</span></span>
-<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1936</span>, <span class="dv">1944</span>, <span class="dv">1952</span>, <span class="dv">1960</span>, <span class="dv">1968</span>, <span class="dv">1976</span>, <span class="dv">1984</span>, <span class="dv">1992</span>, <span class="dv">2000</span>, <span class="dv">2008</span>, <span class="dv">2016</span>),</span>
-<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"1936"</span>, <span class="st">"1944"</span>, <span class="st">"1952"</span>, <span class="st">"1960"</span>, <span class="st">"1968"</span>, <span class="st">"1976"</span>, <span class="st">"1984"</span>, <span class="st">"1992"</span>, <span class="st">"2000"</span>, <span class="st">"2008"</span>, <span class="st">"2016"</span>))<span class="sc">+</span></span>
-<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="fl">19.2</span>, <span class="fl">19.6</span>, <span class="dv">20</span>, <span class="fl">20.4</span>, <span class="fl">20.8</span>, <span class="fl">21.2</span>),</span>
-<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"19.2"</span>, <span class="st">"19.6"</span>, <span class="st">"20"</span>, <span class="st">"20.4"</span>, <span class="st">"20.8"</span>, <span class="st">"21.2"</span>),</span>
-<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">19.2</span>, <span class="fl">21.4</span>),</span>
-<span id="cb35-29"><a href="#cb35-29" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>))<span class="sc">+</span></span>
-<span id="cb35-30"><a href="#cb35-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="dv">1954</span>, <span class="fl">19.35</span>), <span class="at">label =</span> <span class="st">"World War II"</span>, <span class="at">size =</span> <span class="fl">3.8</span>, <span class="at">family =</span> <span class="st">"Courier"</span>, <span class="at">color =</span> <span class="st">"grey"</span>)<span class="sc">+</span></span>
-<span id="cb35-31"><a href="#cb35-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="dv">1976</span>, <span class="fl">19.35</span>), <span class="at">label =</span> <span class="st">"PEDs Banned"</span>, <span class="at">size =</span> <span class="fl">3.8</span>, <span class="at">family =</span> <span class="st">"Courier"</span>, <span class="at">color =</span> <span class="st">"grey"</span>)</span>
-<span id="cb35-32"><a href="#cb35-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-33"><a href="#cb35-33" aria-hidden="true" tabindex="-1"></a>men200m_graph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>men200m_graph <span class="ot">&lt;-</span> oly_men_200m <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Year, Time, <span class="at">color =</span> Medal))<span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> oly_men_200m_record, <span class="fu">aes</span>(Year, Time), <span class="at">color =</span> <span class="st">"turquoise"</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">xmin=</span><span class="dv">1939</span>, <span class="at">xmax=</span><span class="dv">1945</span>, <span class="at">ymin=</span><span class="fl">19.21</span>, <span class="at">ymax=</span><span class="fl">21.39</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">alpha =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1967</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">size =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gold, Silver &amp; Bronze Medals Over 100 Years"</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Mens 200m Dash"</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Time (in seconds)"</span>)<span class="sc">+</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>))<span class="sc">+</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#FFB48C"</span>, <span class="st">"#EBD739"</span>, <span class="st">"#B5BCC2"</span>))<span class="sc">+</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1936</span>, <span class="dv">1944</span>, <span class="dv">1952</span>, <span class="dv">1960</span>, <span class="dv">1968</span>, <span class="dv">1976</span>, <span class="dv">1984</span>, <span class="dv">1992</span>, <span class="dv">2000</span>, <span class="dv">2008</span>, <span class="dv">2016</span>),</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"1936"</span>, <span class="st">"1944"</span>, <span class="st">"1952"</span>, <span class="st">"1960"</span>, <span class="st">"1968"</span>, <span class="st">"1976"</span>, <span class="st">"1984"</span>, <span class="st">"1992"</span>, <span class="st">"2000"</span>, <span class="st">"2008"</span>, <span class="st">"2016"</span>))<span class="sc">+</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="fl">19.2</span>, <span class="fl">19.6</span>, <span class="dv">20</span>, <span class="fl">20.4</span>, <span class="fl">20.8</span>, <span class="fl">21.2</span>),</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"19.2"</span>, <span class="st">"19.6"</span>, <span class="st">"20"</span>, <span class="st">"20.4"</span>, <span class="st">"20.8"</span>, <span class="st">"21.2"</span>),</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">19.2</span>, <span class="fl">21.4</span>),</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>))<span class="sc">+</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="dv">1954</span>, <span class="fl">19.35</span>), <span class="at">label =</span> <span class="st">"World War II"</span>, <span class="at">size =</span> <span class="fl">3.8</span>, <span class="at">family =</span> <span class="st">"Courier"</span>, <span class="at">color =</span> <span class="st">"grey"</span>)<span class="sc">+</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="dv">1976</span>, <span class="fl">19.35</span>), <span class="at">label =</span> <span class="st">"PEDs Banned"</span>, <span class="at">size =</span> <span class="fl">3.8</span>, <span class="at">family =</span> <span class="st">"Courier"</span>, <span class="at">color =</span> <span class="st">"grey"</span>)</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>men200m_graph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
 <section id="womens-200-meter-medals-over-time" class="level4">
 <h4 class="anchored" data-anchor-id="womens-200-meter-medals-over-time">Women’s 200 Meter Medals Over Time</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>women200m_graph <span class="ot">&lt;-</span> oly_women_200m <span class="sc">%&gt;%</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Year, Time, <span class="at">color =</span> Medal))<span class="sc">+</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> oly_women_200m_record, <span class="fu">aes</span>(Year, Time), <span class="at">color =</span> <span class="st">"turquoise"</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1967</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">size =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gold, Silver &amp; Bronze Medals Over Time"</span>,</span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Womens 200m Dash"</span>,</span>
-<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Time (in seconds)"</span>)<span class="sc">+</span></span>
-<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>))<span class="sc">+</span></span>
-<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#FFB48C"</span>, <span class="st">"#EBD739"</span>, <span class="st">"#B5BCC2"</span>))<span class="sc">+</span></span>
-<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1948</span>, <span class="dv">1956</span>, <span class="dv">1962</span>, <span class="dv">1970</span>, <span class="dv">1976</span>, <span class="dv">1984</span>, <span class="dv">1992</span>, <span class="dv">2000</span>, <span class="dv">2008</span>, <span class="dv">2016</span>),</span>
-<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"1948"</span>, <span class="st">"1956"</span>, <span class="st">"1964"</span>, <span class="st">"1972"</span>, <span class="st">"1980"</span>, <span class="st">"1988"</span>, <span class="st">"1996"</span>, <span class="st">"2004"</span>, <span class="st">"2012"</span>, <span class="st">"2020"</span>))<span class="sc">+</span></span>
-<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="dv">1975</span>, <span class="fl">21.5</span>), <span class="at">label =</span> <span class="st">"PEDs Banned"</span>, <span class="at">size =</span> <span class="fl">3.8</span>, <span class="at">family =</span> <span class="st">"Courier"</span>, <span class="at">color =</span> <span class="st">"grey"</span>)</span>
-<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a>women200m_graph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>women200m_graph <span class="ot">&lt;-</span> oly_women_200m <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Year, Time, <span class="at">color =</span> Medal))<span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> oly_women_200m_record, <span class="fu">aes</span>(Year, Time), <span class="at">color =</span> <span class="st">"turquoise"</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1967</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">size =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gold, Silver &amp; Bronze Medals Over Time"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Womens 200m Dash"</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Time (in seconds)"</span>)<span class="sc">+</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>))<span class="sc">+</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#FFB48C"</span>, <span class="st">"#EBD739"</span>, <span class="st">"#B5BCC2"</span>))<span class="sc">+</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1948</span>, <span class="dv">1956</span>, <span class="dv">1962</span>, <span class="dv">1970</span>, <span class="dv">1976</span>, <span class="dv">1984</span>, <span class="dv">1992</span>, <span class="dv">2000</span>, <span class="dv">2008</span>, <span class="dv">2016</span>),</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"1948"</span>, <span class="st">"1956"</span>, <span class="st">"1964"</span>, <span class="st">"1972"</span>, <span class="st">"1980"</span>, <span class="st">"1988"</span>, <span class="st">"1996"</span>, <span class="st">"2004"</span>, <span class="st">"2012"</span>, <span class="st">"2020"</span>))<span class="sc">+</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="dv">1975</span>, <span class="fl">21.5</span>), <span class="at">label =</span> <span class="st">"PEDs Banned"</span>, <span class="at">size =</span> <span class="fl">3.8</span>, <span class="at">family =</span> <span class="st">"Courier"</span>, <span class="at">color =</span> <span class="st">"grey"</span>)</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>women200m_graph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

@@ -8,64 +8,40 @@ image: "thumbnail.jpeg"
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-```
-
-###### install.packages("rvest")
-```{r}
 library(tidyverse)
 library(ggplot2)
 library(rvest)
 library(dplyr)
-```
 
-### Full Womens' Olympic Data
-```{r}
 oly_women_clean <- read_csv("/Users/rochellerafn/RStudio Files/oly_women_clean.csv")
-
-head(oly_women_clean)
-```
-
-### Full Mens' Olympic Data 
-```{r}
 oly_men_clean <- read_csv("/Users/rochellerafn/RStudio Files/oly_men_clean.csv")
-
-head(oly_men_clean)
 ```
 
-#### Pulling out data just for the Mens 100m race
-```{r}
+
+```{r, include=FALSE}
 oly_men_100m <- oly_men_clean %>%
   filter(Event == "100 metres")%>%
   arrange(desc(Year))
-
-head(oly_men_100m)
 ```
 
-#### Pulling out data just for the Womens' 100m race
-```{r}
+
+```{r, include=FALSE}
 oly_women_100m <- oly_women_clean %>%
   filter(Event == "100 metres")%>%
   arrange(desc(Year))
-
-head(oly_women_100m)
 ```
 
-#### Pulling out data just for the Mens 200m race
-```{r}
+
+```{r, include=FALSE}
 oly_men_200m <- oly_men_clean %>%
   filter(Event == "200 metres")%>%
   arrange(desc(Year))
-
-head(oly_men_200m)
 ```
 
-#### Pulling out data just for the Womens 200m race
-```{r}
+```{r, include=FALSE}
 oly_women_200m <- oly_women_clean %>%
   filter(Event == "200 metres")%>%
   arrange(desc(Year))
-
-head(oly_women_200m)
 ```
 
 #### Pulling out Mens' 100m World Records (different than Olympic records because of other track events that can also result in world records)
@@ -73,8 +49,6 @@ head(oly_women_200m)
 oly_men_100m_record <- oly_men_100m %>%
   filter(Record %in% c("WR)", "=WR)"))%>%
   group_by(Year, Time)
-
-oly_men_100m_record
 ```
 
 #### Pulling out Womens' World Records (different than Olympic records because of other track events that can also result in world records)
@@ -82,8 +56,6 @@ oly_men_100m_record
 oly_women_100m_record <- oly_women_clean %>%
   filter(Record %in% c("WR)", "=WR)"), Event == "100 metres")%>%
   group_by(Year, Time)
-
-oly_women_100m_record
 ```
 
 #### Pulling out Mens' 200m World Records (different than Olympic records because of other track events that can also result in world records)
@@ -91,8 +63,6 @@ oly_women_100m_record
 oly_men_200m_record <- oly_men_clean %>%
   filter(Record %in% c("WR)", "=WR)"), Event == "200 metres")%>%
   group_by(Year, Time)
-
-oly_men_200m_record
 ```
 
 #### Pulling out Womens' 200m World Records (different than Olympic records because of other track events that can also result in world records)
@@ -100,8 +70,6 @@ oly_men_200m_record
 oly_women_200m_record <- oly_women_clean %>%
   filter(Record %in% c("WR)", "=WR)"), Event == "200 metres")%>%
   group_by(Year, Time)
-
-oly_women_200m_record
 ```
 
 #### Men's 100 Meter Medals Over Time
