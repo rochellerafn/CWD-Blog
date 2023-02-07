@@ -9,7 +9,7 @@
 <meta name="author" content="Rochelle Rafn">
 <meta name="dcterms.date" content="2021-12-08">
 
-<title>Rochelle Rafn Portfolio - Olympics 100m &amp; 200m Dash Over 100 Years</title>
+<title>Rochelle Rafn Portfolio - Olympics 100m Dash Over 100 Years</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -123,6 +123,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script src="../../site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="../../site_libs/plotly-binding-4.10.0/plotly.js"></script>
+<script src="../../site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="../../site_libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="../../site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="../../site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="../../site_libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="../../site_libs/plotly-main-2.5.1/plotly-latest.min.js"></script>
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -168,7 +176,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Olympics 100m &amp; 200m Dash Over 100 Years</h1>
+      <h1 class="title">Olympics 100m Dash Over 100 Years</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">news</div>
                 <div class="quarto-category">code</div>
@@ -224,17 +232,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="olympics-100m-200m-dash-over-100-years" class="level1">
 <h1>Olympics 100m &amp; 200m Dash Over 100 Years</h1>
 <p><img src="210315125224-usain-bolt-grinning-race.jpg" class="img-fluid" style="width:75.0%"></p>
-<p>I scraped all available data for the 100m and 200m dashes for every time in every heat of the Olympics over 100 years.</p>
+<p>I scraped all available data for the times of every heat in the 100m dash at the Olympics over nearly 100 years.</p>
 <p>Before we dive in to all times, I first have subdivided the data by event and gender, then extracted only the medal winners to see if there is a pattern there first.</p>
 <div class="cell">
 <details>
 <summary>Show Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>oly_women_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"/Users/rochellerafn/RStudio Files/oly_women_clean.csv"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>oly_men_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"/Users/rochellerafn/RStudio Files/oly_men_clean.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>oly_men_clean <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"/Users/rochellerafn/RStudio Files/oly_men_clean.csv"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>oly_women_clean <span class="ot">&lt;-</span> oly_women_clean[,<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>oly_men_clean <span class="ot">&lt;-</span> oly_men_clean[,<span class="sc">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="mens-100m-dash" class="level3">
-<h3 class="anchored" data-anchor-id="mens-100m-dash">Men’s 100m Dash</h3>
 <div class="cell">
 <details>
 <summary>Show Code</summary>
@@ -244,16 +253,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(Year, Name, Medal, Time, Event, Host.City, Host.Country, Athlete.Country, Record)</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(oly_men_100m) <span class="sc">%&gt;%</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Men's 100m Dash"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">subtitle =</span> <span class="st">"Medal Winners"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">source_note =</span> <span class="st">"Source: Wikipedia"</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    gtExtras<span class="sc">::</span><span class="fu">gt_theme_espn</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
-<div id="ymemgckrmc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="kfljfjhvba" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+html {
+  font-family: Lato, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#ymemgckrmc) .gt_table {
+:where(#kfljfjhvba) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -265,8 +281,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   background-color: #FFFFFF;
   width: auto;
   border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
+  border-top-width: 3px;
+  border-top-color: #FFFFFF;
   border-right-style: none;
   border-right-width: 2px;
   border-right-color: #D3D3D3;
@@ -278,9 +294,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-left-color: #D3D3D3;
 }
 
-:where(#ymemgckrmc) .gt_heading {
+:where(#kfljfjhvba) .gt_heading {
   background-color: #FFFFFF;
-  text-align: center;
+  text-align: left;
   border-bottom-color: #FFFFFF;
   border-left-style: none;
   border-left-width: 1px;
@@ -290,14 +306,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#ymemgckrmc) .gt_caption {
+:where(#kfljfjhvba) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#ymemgckrmc) .gt_title {
+:where(#kfljfjhvba) .gt_title {
   color: #333333;
-  font-size: 125%;
+  font-size: 24px;
   font-weight: initial;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -307,7 +323,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-width: 0;
 }
 
-:where(#ymemgckrmc) .gt_subtitle {
+:where(#kfljfjhvba) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -319,13 +335,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-width: 0;
 }
 
-:where(#ymemgckrmc) .gt_bottom_border {
+:where(#kfljfjhvba) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#ymemgckrmc) .gt_col_headings {
+:where(#kfljfjhvba) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -340,12 +356,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#ymemgckrmc) .gt_col_heading {
+:where(#kfljfjhvba) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
   border-left-style: none;
   border-left-width: 1px;
   border-left-color: #D3D3D3;
@@ -360,27 +376,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-:where(#ymemgckrmc) .gt_column_spanner_outer {
+:where(#kfljfjhvba) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 4px;
   padding-right: 4px;
 }
 
-:where(#ymemgckrmc) .gt_column_spanner_outer:first-child {
+:where(#kfljfjhvba) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#ymemgckrmc) .gt_column_spanner_outer:last-child {
+:where(#kfljfjhvba) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#ymemgckrmc) .gt_column_spanner {
+:where(#kfljfjhvba) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -392,16 +408,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   width: 100%;
 }
 
-:where(#ymemgckrmc) .gt_group_heading {
+:where(#kfljfjhvba) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -418,12 +434,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   text-align: left;
 }
 
-:where(#ymemgckrmc) .gt_empty_group_heading {
+:where(#kfljfjhvba) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
+  font-size: 80%;
+  font-weight: bolder;
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -433,23 +449,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-:where(#ymemgckrmc) .gt_from_md > :first-child {
+:where(#kfljfjhvba) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#ymemgckrmc) .gt_from_md > :last-child {
+:where(#kfljfjhvba) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#ymemgckrmc) .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
+:where(#kfljfjhvba) .gt_row {
+  padding-top: 7px;
+  padding-bottom: 7px;
   padding-left: 5px;
   padding-right: 5px;
   margin: 10px;
   border-top-style: solid;
   border-top-width: 1px;
-  border-top-color: #D3D3D3;
+  border-top-color: #F6F7F7;
   border-left-style: none;
   border-left-width: 1px;
   border-left-color: #D3D3D3;
@@ -460,12 +476,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-:where(#ymemgckrmc) .gt_stub {
+:where(#kfljfjhvba) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #D3D3D3;
@@ -473,7 +489,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#ymemgckrmc) .gt_stub_row_group {
+:where(#kfljfjhvba) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -487,11 +503,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: top;
 }
 
-:where(#ymemgckrmc) .gt_row_group_first td {
+:where(#kfljfjhvba) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#ymemgckrmc) .gt_summary_row {
+:where(#kfljfjhvba) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -501,16 +517,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#ymemgckrmc) .gt_first_summary_row {
+:where(#kfljfjhvba) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#ymemgckrmc) .gt_first_summary_row.thick {
+:where(#kfljfjhvba) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#ymemgckrmc) .gt_last_summary_row {
+:where(#kfljfjhvba) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -520,7 +536,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-:where(#ymemgckrmc) .gt_grand_summary_row {
+:where(#kfljfjhvba) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -530,7 +546,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#ymemgckrmc) .gt_first_grand_summary_row {
+:where(#kfljfjhvba) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -540,11 +556,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-:where(#ymemgckrmc) .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
+:where(#kfljfjhvba) .gt_striped {
+  background-color: #FAFAFA;
 }
 
-:where(#ymemgckrmc) .gt_table_body {
+:where(#kfljfjhvba) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -553,7 +569,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-:where(#ymemgckrmc) .gt_footnotes {
+:where(#kfljfjhvba) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -567,7 +583,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#ymemgckrmc) .gt_footnote {
+:where(#kfljfjhvba) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -576,7 +592,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#ymemgckrmc) .gt_sourcenotes {
+:where(#kfljfjhvba) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -590,77 +606,84 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#ymemgckrmc) .gt_sourcenote {
-  font-size: 90%;
+:where(#kfljfjhvba) .gt_sourcenote {
+  font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-:where(#ymemgckrmc) .gt_left {
+:where(#kfljfjhvba) .gt_left {
   text-align: left;
 }
 
-:where(#ymemgckrmc) .gt_center {
+:where(#kfljfjhvba) .gt_center {
   text-align: center;
 }
 
-:where(#ymemgckrmc) .gt_right {
+:where(#kfljfjhvba) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#ymemgckrmc) .gt_font_normal {
+:where(#kfljfjhvba) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#ymemgckrmc) .gt_font_bold {
+:where(#kfljfjhvba) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#ymemgckrmc) .gt_font_italic {
+:where(#kfljfjhvba) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#ymemgckrmc) .gt_super {
+:where(#kfljfjhvba) .gt_super {
   font-size: 65%;
 }
 
-:where(#ymemgckrmc) .gt_footnote_marks {
+:where(#kfljfjhvba) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#ymemgckrmc) .gt_asterisk {
+:where(#kfljfjhvba) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#ymemgckrmc) .gt_indent_1 {
+:where(#kfljfjhvba) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#ymemgckrmc) .gt_indent_2 {
+:where(#kfljfjhvba) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#ymemgckrmc) .gt_indent_3 {
+:where(#kfljfjhvba) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#ymemgckrmc) .gt_indent_4 {
+:where(#kfljfjhvba) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#ymemgckrmc) .gt_indent_5 {
+:where(#kfljfjhvba) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
 <table class="gt_table">
-  
+  <thead class="gt_header">
+    <tr>
+      <td colspan="9" class="gt_heading gt_title gt_font_normal" style="">Men's 100m Dash</td>
+    </tr>
+    <tr>
+      <td colspan="9" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="">Medal Winners</td>
+    </tr>
+  </thead>
   <thead class="gt_col_headings">
     <tr>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Year">Year</th>
@@ -672,7 +695,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Host.Country">Host.Country</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Athlete.Country">Athlete.Country</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Record">Record</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="...1">...1</th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
@@ -684,18 +706,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td headers="Host.City" class="gt_row gt_left">Rio de Janeiro</td>
 <td headers="Host.Country" class="gt_row gt_left">Brazil</td>
 <td headers="Athlete.Country" class="gt_row gt_left">Jamaica</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">1</td></tr>
-    <tr><td headers="Year" class="gt_row gt_right">2016</td>
-<td headers="Name" class="gt_row gt_left">Justin Gatlin</td>
-<td headers="Medal" class="gt_row gt_left">Silver</td>
-<td headers="Time" class="gt_row gt_right">9.89</td>
-<td headers="Event" class="gt_row gt_left">100 metres</td>
-<td headers="Host.City" class="gt_row gt_left">Rio de Janeiro</td>
-<td headers="Host.Country" class="gt_row gt_left">Brazil</td>
-<td headers="Athlete.Country" class="gt_row gt_left">United States</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">475</td></tr>
+<td headers="Record" class="gt_row gt_left">NA</td></tr>
+    <tr><td headers="Year" class="gt_row gt_right gt_striped">2016</td>
+<td headers="Name" class="gt_row gt_left gt_striped">Justin Gatlin</td>
+<td headers="Medal" class="gt_row gt_left gt_striped">Silver</td>
+<td headers="Time" class="gt_row gt_right gt_striped">9.89</td>
+<td headers="Event" class="gt_row gt_left gt_striped">100 metres</td>
+<td headers="Host.City" class="gt_row gt_left gt_striped">Rio de Janeiro</td>
+<td headers="Host.Country" class="gt_row gt_left gt_striped">Brazil</td>
+<td headers="Athlete.Country" class="gt_row gt_left gt_striped">United States</td>
+<td headers="Record" class="gt_row gt_left gt_striped">NA</td></tr>
     <tr><td headers="Year" class="gt_row gt_right">2016</td>
 <td headers="Name" class="gt_row gt_left">Andre De</td>
 <td headers="Medal" class="gt_row gt_left">Bronze</td>
@@ -704,18 +724,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td headers="Host.City" class="gt_row gt_left">Rio de Janeiro</td>
 <td headers="Host.Country" class="gt_row gt_left">Brazil</td>
 <td headers="Athlete.Country" class="gt_row gt_left">Grasse Canada</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">949</td></tr>
-    <tr><td headers="Year" class="gt_row gt_right">2012</td>
-<td headers="Name" class="gt_row gt_left">Usain Bolt</td>
-<td headers="Medal" class="gt_row gt_left">Gold</td>
-<td headers="Time" class="gt_row gt_right">9.63</td>
-<td headers="Event" class="gt_row gt_left">100 metres</td>
-<td headers="Host.City" class="gt_row gt_left">London</td>
-<td headers="Host.Country" class="gt_row gt_left">Great Britain</td>
-<td headers="Athlete.Country" class="gt_row gt_left">Jamaica</td>
-<td headers="Record" class="gt_row gt_left">OR)</td>
-<td headers="...1" class="gt_row gt_right">30</td></tr>
+<td headers="Record" class="gt_row gt_left">NA</td></tr>
+    <tr><td headers="Year" class="gt_row gt_right gt_striped">2012</td>
+<td headers="Name" class="gt_row gt_left gt_striped">Usain Bolt</td>
+<td headers="Medal" class="gt_row gt_left gt_striped">Gold</td>
+<td headers="Time" class="gt_row gt_right gt_striped">9.63</td>
+<td headers="Event" class="gt_row gt_left gt_striped">100 metres</td>
+<td headers="Host.City" class="gt_row gt_left gt_striped">London</td>
+<td headers="Host.Country" class="gt_row gt_left gt_striped">Great Britain</td>
+<td headers="Athlete.Country" class="gt_row gt_left gt_striped">Jamaica</td>
+<td headers="Record" class="gt_row gt_left gt_striped">OR)</td></tr>
     <tr><td headers="Year" class="gt_row gt_right">2012</td>
 <td headers="Name" class="gt_row gt_left">Yohan Blake</td>
 <td headers="Medal" class="gt_row gt_left">Silver</td>
@@ -724,28 +742,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td headers="Host.City" class="gt_row gt_left">London</td>
 <td headers="Host.Country" class="gt_row gt_left">Great Britain</td>
 <td headers="Athlete.Country" class="gt_row gt_left">Jamaica</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">504</td></tr>
-    <tr><td headers="Year" class="gt_row gt_right">2012</td>
-<td headers="Name" class="gt_row gt_left">Justin Gatlin</td>
-<td headers="Medal" class="gt_row gt_left">Bronze</td>
-<td headers="Time" class="gt_row gt_right">9.79</td>
-<td headers="Event" class="gt_row gt_left">100 metres</td>
-<td headers="Host.City" class="gt_row gt_left">London</td>
-<td headers="Host.Country" class="gt_row gt_left">Great Britain</td>
-<td headers="Athlete.Country" class="gt_row gt_left">United States</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">978</td></tr>
+<td headers="Record" class="gt_row gt_left">NA</td></tr>
+    <tr><td headers="Year" class="gt_row gt_right gt_striped">2012</td>
+<td headers="Name" class="gt_row gt_left gt_striped">Justin Gatlin</td>
+<td headers="Medal" class="gt_row gt_left gt_striped">Bronze</td>
+<td headers="Time" class="gt_row gt_right gt_striped">9.79</td>
+<td headers="Event" class="gt_row gt_left gt_striped">100 metres</td>
+<td headers="Host.City" class="gt_row gt_left gt_striped">London</td>
+<td headers="Host.Country" class="gt_row gt_left gt_striped">Great Britain</td>
+<td headers="Athlete.Country" class="gt_row gt_left gt_striped">United States</td>
+<td headers="Record" class="gt_row gt_left gt_striped">NA</td></tr>
   </tbody>
-  
+  <tfoot class="gt_sourcenotes">
+    <tr>
+      <td class="gt_sourcenote" colspan="9">Source: Wikipedia</td>
+    </tr>
+  </tfoot>
   
 </table>
 </div>
 </div>
 </div>
-</section>
-<section id="womens-100m-dash" class="level3">
-<h3 class="anchored" data-anchor-id="womens-100m-dash">Women’s 100m Dash</h3>
 <div class="cell">
 <details>
 <summary>Show Code</summary>
@@ -755,16 +772,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(Year, Name, Medal, Time, Event, Host.City, Host.Country, Athlete.Country, Record)</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(oly_women_100m) <span class="sc">%&gt;%</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Women's 100m Dash"</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">subtitle =</span> <span class="st">"Medal Winners"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_source_note</span>(</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">source_note =</span> <span class="st">"Source: Wikipedia"</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    gtExtras<span class="sc">::</span><span class="fu">gt_theme_espn</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 
-<div id="bsrvtxuaho" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="icvyxocahv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+html {
+  font-family: Lato, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#bsrvtxuaho) .gt_table {
+:where(#icvyxocahv) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -776,8 +800,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   background-color: #FFFFFF;
   width: auto;
   border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
+  border-top-width: 3px;
+  border-top-color: #FFFFFF;
   border-right-style: none;
   border-right-width: 2px;
   border-right-color: #D3D3D3;
@@ -789,9 +813,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-left-color: #D3D3D3;
 }
 
-:where(#bsrvtxuaho) .gt_heading {
+:where(#icvyxocahv) .gt_heading {
   background-color: #FFFFFF;
-  text-align: center;
+  text-align: left;
   border-bottom-color: #FFFFFF;
   border-left-style: none;
   border-left-width: 1px;
@@ -801,14 +825,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#bsrvtxuaho) .gt_caption {
+:where(#icvyxocahv) .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#bsrvtxuaho) .gt_title {
+:where(#icvyxocahv) .gt_title {
   color: #333333;
-  font-size: 125%;
+  font-size: 24px;
   font-weight: initial;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -818,7 +842,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-width: 0;
 }
 
-:where(#bsrvtxuaho) .gt_subtitle {
+:where(#icvyxocahv) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -830,13 +854,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-width: 0;
 }
 
-:where(#bsrvtxuaho) .gt_bottom_border {
+:where(#icvyxocahv) .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#bsrvtxuaho) .gt_col_headings {
+:where(#icvyxocahv) .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -851,12 +875,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#bsrvtxuaho) .gt_col_heading {
+:where(#icvyxocahv) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
   border-left-style: none;
   border-left-width: 1px;
   border-left-color: #D3D3D3;
@@ -871,27 +895,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-:where(#bsrvtxuaho) .gt_column_spanner_outer {
+:where(#icvyxocahv) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 4px;
   padding-right: 4px;
 }
 
-:where(#bsrvtxuaho) .gt_column_spanner_outer:first-child {
+:where(#icvyxocahv) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#bsrvtxuaho) .gt_column_spanner_outer:last-child {
+:where(#icvyxocahv) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#bsrvtxuaho) .gt_column_spanner {
+:where(#icvyxocahv) .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -903,16 +927,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   width: 100%;
 }
 
-:where(#bsrvtxuaho) .gt_group_heading {
+:where(#icvyxocahv) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -929,12 +953,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   text-align: left;
 }
 
-:where(#bsrvtxuaho) .gt_empty_group_heading {
+:where(#icvyxocahv) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
+  font-size: 80%;
+  font-weight: bolder;
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -944,23 +968,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-:where(#bsrvtxuaho) .gt_from_md > :first-child {
+:where(#icvyxocahv) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#bsrvtxuaho) .gt_from_md > :last-child {
+:where(#icvyxocahv) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#bsrvtxuaho) .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
+:where(#icvyxocahv) .gt_row {
+  padding-top: 7px;
+  padding-bottom: 7px;
   padding-left: 5px;
   padding-right: 5px;
   margin: 10px;
   border-top-style: solid;
   border-top-width: 1px;
-  border-top-color: #D3D3D3;
+  border-top-color: #F6F7F7;
   border-left-style: none;
   border-left-width: 1px;
   border-left-color: #D3D3D3;
@@ -971,12 +995,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-:where(#bsrvtxuaho) .gt_stub {
+:where(#icvyxocahv) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #D3D3D3;
@@ -984,7 +1008,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#bsrvtxuaho) .gt_stub_row_group {
+:where(#icvyxocahv) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -998,11 +1022,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: top;
 }
 
-:where(#bsrvtxuaho) .gt_row_group_first td {
+:where(#icvyxocahv) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#bsrvtxuaho) .gt_summary_row {
+:where(#icvyxocahv) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1012,16 +1036,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#bsrvtxuaho) .gt_first_summary_row {
+:where(#icvyxocahv) .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#bsrvtxuaho) .gt_first_summary_row.thick {
+:where(#icvyxocahv) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#bsrvtxuaho) .gt_last_summary_row {
+:where(#icvyxocahv) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1031,7 +1055,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-:where(#bsrvtxuaho) .gt_grand_summary_row {
+:where(#icvyxocahv) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1041,7 +1065,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#bsrvtxuaho) .gt_first_grand_summary_row {
+:where(#icvyxocahv) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1051,11 +1075,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-:where(#bsrvtxuaho) .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
+:where(#icvyxocahv) .gt_striped {
+  background-color: #FAFAFA;
 }
 
-:where(#bsrvtxuaho) .gt_table_body {
+:where(#icvyxocahv) .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1064,7 +1088,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-:where(#bsrvtxuaho) .gt_footnotes {
+:where(#icvyxocahv) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1078,7 +1102,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#bsrvtxuaho) .gt_footnote {
+:where(#icvyxocahv) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1087,7 +1111,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#bsrvtxuaho) .gt_sourcenotes {
+:where(#icvyxocahv) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1101,77 +1125,84 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#bsrvtxuaho) .gt_sourcenote {
-  font-size: 90%;
+:where(#icvyxocahv) .gt_sourcenote {
+  font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-:where(#bsrvtxuaho) .gt_left {
+:where(#icvyxocahv) .gt_left {
   text-align: left;
 }
 
-:where(#bsrvtxuaho) .gt_center {
+:where(#icvyxocahv) .gt_center {
   text-align: center;
 }
 
-:where(#bsrvtxuaho) .gt_right {
+:where(#icvyxocahv) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#bsrvtxuaho) .gt_font_normal {
+:where(#icvyxocahv) .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#bsrvtxuaho) .gt_font_bold {
+:where(#icvyxocahv) .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#bsrvtxuaho) .gt_font_italic {
+:where(#icvyxocahv) .gt_font_italic {
   font-style: italic;
 }
 
-:where(#bsrvtxuaho) .gt_super {
+:where(#icvyxocahv) .gt_super {
   font-size: 65%;
 }
 
-:where(#bsrvtxuaho) .gt_footnote_marks {
+:where(#icvyxocahv) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#bsrvtxuaho) .gt_asterisk {
+:where(#icvyxocahv) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#bsrvtxuaho) .gt_indent_1 {
+:where(#icvyxocahv) .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#bsrvtxuaho) .gt_indent_2 {
+:where(#icvyxocahv) .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#bsrvtxuaho) .gt_indent_3 {
+:where(#icvyxocahv) .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#bsrvtxuaho) .gt_indent_4 {
+:where(#icvyxocahv) .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#bsrvtxuaho) .gt_indent_5 {
+:where(#icvyxocahv) .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
 <table class="gt_table">
-  
+  <thead class="gt_header">
+    <tr>
+      <td colspan="9" class="gt_heading gt_title gt_font_normal" style="">Women's 100m Dash</td>
+    </tr>
+    <tr>
+      <td colspan="9" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="">Medal Winners</td>
+    </tr>
+  </thead>
   <thead class="gt_col_headings">
     <tr>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Year">Year</th>
@@ -1183,7 +1214,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Host.Country">Host.Country</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Athlete.Country">Athlete.Country</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Record">Record</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="...1">...1</th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
@@ -1195,18 +1225,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td headers="Host.City" class="gt_row gt_left">Rio de Janeiro</td>
 <td headers="Host.Country" class="gt_row gt_left">Brazil</td>
 <td headers="Athlete.Country" class="gt_row gt_left">Jamaica</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">1</td></tr>
-    <tr><td headers="Year" class="gt_row gt_right">2016</td>
-<td headers="Name" class="gt_row gt_left">Tori Bowie</td>
-<td headers="Medal" class="gt_row gt_left">Silver</td>
-<td headers="Time" class="gt_row gt_right">10.83</td>
-<td headers="Event" class="gt_row gt_left">100 metres</td>
-<td headers="Host.City" class="gt_row gt_left">Rio de Janeiro</td>
-<td headers="Host.Country" class="gt_row gt_left">Brazil</td>
-<td headers="Athlete.Country" class="gt_row gt_left">United States</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">289</td></tr>
+<td headers="Record" class="gt_row gt_left">NA</td></tr>
+    <tr><td headers="Year" class="gt_row gt_right gt_striped">2016</td>
+<td headers="Name" class="gt_row gt_left gt_striped">Tori Bowie</td>
+<td headers="Medal" class="gt_row gt_left gt_striped">Silver</td>
+<td headers="Time" class="gt_row gt_right gt_striped">10.83</td>
+<td headers="Event" class="gt_row gt_left gt_striped">100 metres</td>
+<td headers="Host.City" class="gt_row gt_left gt_striped">Rio de Janeiro</td>
+<td headers="Host.Country" class="gt_row gt_left gt_striped">Brazil</td>
+<td headers="Athlete.Country" class="gt_row gt_left gt_striped">United States</td>
+<td headers="Record" class="gt_row gt_left gt_striped">NA</td></tr>
     <tr><td headers="Year" class="gt_row gt_right">2016</td>
 <td headers="Name" class="gt_row gt_left">Shelly-Ann Fraser-Pryce</td>
 <td headers="Medal" class="gt_row gt_left">Bronze</td>
@@ -1215,18 +1243,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td headers="Host.City" class="gt_row gt_left">Rio de Janeiro</td>
 <td headers="Host.Country" class="gt_row gt_left">Brazil</td>
 <td headers="Athlete.Country" class="gt_row gt_left">Jamaica</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">577</td></tr>
-    <tr><td headers="Year" class="gt_row gt_right">2012</td>
-<td headers="Name" class="gt_row gt_left">Shelly-Ann Fraser-Pryce</td>
-<td headers="Medal" class="gt_row gt_left">Gold</td>
-<td headers="Time" class="gt_row gt_right">10.75</td>
-<td headers="Event" class="gt_row gt_left">100 metres</td>
-<td headers="Host.City" class="gt_row gt_left">London</td>
-<td headers="Host.Country" class="gt_row gt_left">Great Britain</td>
-<td headers="Athlete.Country" class="gt_row gt_left">Jamaica</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">29</td></tr>
+<td headers="Record" class="gt_row gt_left">NA</td></tr>
+    <tr><td headers="Year" class="gt_row gt_right gt_striped">2012</td>
+<td headers="Name" class="gt_row gt_left gt_striped">Shelly-Ann Fraser-Pryce</td>
+<td headers="Medal" class="gt_row gt_left gt_striped">Gold</td>
+<td headers="Time" class="gt_row gt_right gt_striped">10.75</td>
+<td headers="Event" class="gt_row gt_left gt_striped">100 metres</td>
+<td headers="Host.City" class="gt_row gt_left gt_striped">London</td>
+<td headers="Host.Country" class="gt_row gt_left gt_striped">Great Britain</td>
+<td headers="Athlete.Country" class="gt_row gt_left gt_striped">Jamaica</td>
+<td headers="Record" class="gt_row gt_left gt_striped">NA</td></tr>
     <tr><td headers="Year" class="gt_row gt_right">2012</td>
 <td headers="Name" class="gt_row gt_left">Carmelita Jeter</td>
 <td headers="Medal" class="gt_row gt_left">Silver</td>
@@ -1235,1059 +1261,114 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td headers="Host.City" class="gt_row gt_left">London</td>
 <td headers="Host.Country" class="gt_row gt_left">Great Britain</td>
 <td headers="Athlete.Country" class="gt_row gt_left">United States</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">317</td></tr>
-    <tr><td headers="Year" class="gt_row gt_right">2012</td>
-<td headers="Name" class="gt_row gt_left">Veronica Campbell-Brown</td>
-<td headers="Medal" class="gt_row gt_left">Bronze</td>
-<td headers="Time" class="gt_row gt_right">10.81</td>
-<td headers="Event" class="gt_row gt_left">100 metres</td>
-<td headers="Host.City" class="gt_row gt_left">London</td>
-<td headers="Host.Country" class="gt_row gt_left">Great Britain</td>
-<td headers="Athlete.Country" class="gt_row gt_left">Jamaica</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">605</td></tr>
+<td headers="Record" class="gt_row gt_left">NA</td></tr>
+    <tr><td headers="Year" class="gt_row gt_right gt_striped">2012</td>
+<td headers="Name" class="gt_row gt_left gt_striped">Veronica Campbell-Brown</td>
+<td headers="Medal" class="gt_row gt_left gt_striped">Bronze</td>
+<td headers="Time" class="gt_row gt_right gt_striped">10.81</td>
+<td headers="Event" class="gt_row gt_left gt_striped">100 metres</td>
+<td headers="Host.City" class="gt_row gt_left gt_striped">London</td>
+<td headers="Host.Country" class="gt_row gt_left gt_striped">Great Britain</td>
+<td headers="Athlete.Country" class="gt_row gt_left gt_striped">Jamaica</td>
+<td headers="Record" class="gt_row gt_left gt_striped">NA</td></tr>
   </tbody>
-  
-  
-</table>
-</div>
-</div>
-</div>
-</section>
-<section id="mens-200m-dash" class="level3">
-<h3 class="anchored" data-anchor-id="mens-200m-dash">Men’s 200m Dash</h3>
-<div class="cell">
-<details>
-<summary>Show Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>oly_men_200m <span class="ot">&lt;-</span> oly_men_clean <span class="sc">%&gt;%</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Event <span class="sc">==</span> <span class="st">"200 metres"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Year)) <span class="sc">%&gt;%</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(Year, Name, Medal, Time, Event, Host.City, Host.Country, Athlete.Country, Record)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(oly_men_200m) <span class="sc">%&gt;%</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-
-<div id="nlgmjflyom" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-:where(#nlgmjflyom) .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-:where(#nlgmjflyom) .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#nlgmjflyom) .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-:where(#nlgmjflyom) .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-:where(#nlgmjflyom) .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-:where(#nlgmjflyom) .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-:where(#nlgmjflyom) .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#nlgmjflyom) .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-:where(#nlgmjflyom) .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-:where(#nlgmjflyom) .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-:where(#nlgmjflyom) .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-:where(#nlgmjflyom) .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-:where(#nlgmjflyom) .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-:where(#nlgmjflyom) .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-:where(#nlgmjflyom) .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-:where(#nlgmjflyom) .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-:where(#nlgmjflyom) .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-:where(#nlgmjflyom) .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#nlgmjflyom) .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-:where(#nlgmjflyom) .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-:where(#nlgmjflyom) .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#nlgmjflyom) .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-:where(#nlgmjflyom) .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-:where(#nlgmjflyom) .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-:where(#nlgmjflyom) .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#nlgmjflyom) .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-:where(#nlgmjflyom) .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-:where(#nlgmjflyom) .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-:where(#nlgmjflyom) .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#nlgmjflyom) .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#nlgmjflyom) .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#nlgmjflyom) .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#nlgmjflyom) .gt_left {
-  text-align: left;
-}
-
-:where(#nlgmjflyom) .gt_center {
-  text-align: center;
-}
-
-:where(#nlgmjflyom) .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-:where(#nlgmjflyom) .gt_font_normal {
-  font-weight: normal;
-}
-
-:where(#nlgmjflyom) .gt_font_bold {
-  font-weight: bold;
-}
-
-:where(#nlgmjflyom) .gt_font_italic {
-  font-style: italic;
-}
-
-:where(#nlgmjflyom) .gt_super {
-  font-size: 65%;
-}
-
-:where(#nlgmjflyom) .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 75%;
-  vertical-align: 0.4em;
-}
-
-:where(#nlgmjflyom) .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-:where(#nlgmjflyom) .gt_indent_1 {
-  text-indent: 5px;
-}
-
-:where(#nlgmjflyom) .gt_indent_2 {
-  text-indent: 10px;
-}
-
-:where(#nlgmjflyom) .gt_indent_3 {
-  text-indent: 15px;
-}
-
-:where(#nlgmjflyom) .gt_indent_4 {
-  text-indent: 20px;
-}
-
-:where(#nlgmjflyom) .gt_indent_5 {
-  text-indent: 25px;
-}
-</style>
-<table class="gt_table">
-  
-  <thead class="gt_col_headings">
+  <tfoot class="gt_sourcenotes">
     <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Year">Year</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Name">Name</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Medal">Medal</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Time">Time</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Event">Event</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Host.City">Host.City</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Host.Country">Host.Country</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Athlete.Country">Athlete.Country</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Record">Record</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="...1">...1</th>
+      <td class="gt_sourcenote" colspan="9">Source: Wikipedia</td>
     </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="Year" class="gt_row gt_right">2016</td>
-<td headers="Name" class="gt_row gt_left">Usain Bolt</td>
-<td headers="Medal" class="gt_row gt_left">Gold</td>
-<td headers="Time" class="gt_row gt_right">19.78</td>
-<td headers="Event" class="gt_row gt_left">200 metres</td>
-<td headers="Host.City" class="gt_row gt_left">Rio de Janeiro</td>
-<td headers="Host.Country" class="gt_row gt_left">Brazil</td>
-<td headers="Athlete.Country" class="gt_row gt_left">Jamaica</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">2</td></tr>
-    <tr><td headers="Year" class="gt_row gt_right">2016</td>
-<td headers="Name" class="gt_row gt_left">Andre De</td>
-<td headers="Medal" class="gt_row gt_left">Silver</td>
-<td headers="Time" class="gt_row gt_right">20.02</td>
-<td headers="Event" class="gt_row gt_left">200 metres</td>
-<td headers="Host.City" class="gt_row gt_left">Rio de Janeiro</td>
-<td headers="Host.Country" class="gt_row gt_left">Brazil</td>
-<td headers="Athlete.Country" class="gt_row gt_left">Grasse Canada</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">476</td></tr>
-    <tr><td headers="Year" class="gt_row gt_right">2016</td>
-<td headers="Name" class="gt_row gt_left">Christophe Lemaitre</td>
-<td headers="Medal" class="gt_row gt_left">Bronze</td>
-<td headers="Time" class="gt_row gt_right">20.12</td>
-<td headers="Event" class="gt_row gt_left">200 metres</td>
-<td headers="Host.City" class="gt_row gt_left">Rio de Janeiro</td>
-<td headers="Host.Country" class="gt_row gt_left">Brazil</td>
-<td headers="Athlete.Country" class="gt_row gt_left">France</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">950</td></tr>
-    <tr><td headers="Year" class="gt_row gt_right">2012</td>
-<td headers="Name" class="gt_row gt_left">Usain Bolt</td>
-<td headers="Medal" class="gt_row gt_left">Gold</td>
-<td headers="Time" class="gt_row gt_right">19.32</td>
-<td headers="Event" class="gt_row gt_left">200 metres</td>
-<td headers="Host.City" class="gt_row gt_left">London</td>
-<td headers="Host.Country" class="gt_row gt_left">Great Britain</td>
-<td headers="Athlete.Country" class="gt_row gt_left">Jamaica</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">31</td></tr>
-    <tr><td headers="Year" class="gt_row gt_right">2012</td>
-<td headers="Name" class="gt_row gt_left">Yohan Blake</td>
-<td headers="Medal" class="gt_row gt_left">Silver</td>
-<td headers="Time" class="gt_row gt_right">19.44</td>
-<td headers="Event" class="gt_row gt_left">200 metres</td>
-<td headers="Host.City" class="gt_row gt_left">London</td>
-<td headers="Host.Country" class="gt_row gt_left">Great Britain</td>
-<td headers="Athlete.Country" class="gt_row gt_left">Jamaica</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">505</td></tr>
-    <tr><td headers="Year" class="gt_row gt_right">2012</td>
-<td headers="Name" class="gt_row gt_left">Warren Weir</td>
-<td headers="Medal" class="gt_row gt_left">Bronze</td>
-<td headers="Time" class="gt_row gt_right">19.84</td>
-<td headers="Event" class="gt_row gt_left">200 metres</td>
-<td headers="Host.City" class="gt_row gt_left">London</td>
-<td headers="Host.Country" class="gt_row gt_left">Great Britain</td>
-<td headers="Athlete.Country" class="gt_row gt_left">Jamaica</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">979</td></tr>
-  </tbody>
-  
+  </tfoot>
   
 </table>
 </div>
 </div>
 </div>
-</section>
-<section id="womens-200m-dash" class="level3">
-<h3 class="anchored" data-anchor-id="womens-200m-dash">Women’s 200m Dash</h3>
-<div class="cell">
-<details>
-<summary>Show Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>oly_women_200m <span class="ot">&lt;-</span> oly_women_clean <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Event <span class="sc">==</span> <span class="st">"200 metres"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Year)) <span class="sc">%&gt;%</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(Year, Name, Medal, Time, Event, Host.City, Host.Country, Athlete.Country, Record)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(oly_women_200m) <span class="sc">%&gt;%</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-
-<div id="jmzitlwvqe" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-:where(#jmzitlwvqe) .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-:where(#jmzitlwvqe) .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#jmzitlwvqe) .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-:where(#jmzitlwvqe) .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-:where(#jmzitlwvqe) .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-:where(#jmzitlwvqe) .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-:where(#jmzitlwvqe) .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#jmzitlwvqe) .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-:where(#jmzitlwvqe) .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-:where(#jmzitlwvqe) .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-:where(#jmzitlwvqe) .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-:where(#jmzitlwvqe) .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-:where(#jmzitlwvqe) .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-:where(#jmzitlwvqe) .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-:where(#jmzitlwvqe) .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-:where(#jmzitlwvqe) .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-:where(#jmzitlwvqe) .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-:where(#jmzitlwvqe) .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#jmzitlwvqe) .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-:where(#jmzitlwvqe) .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-:where(#jmzitlwvqe) .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#jmzitlwvqe) .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-:where(#jmzitlwvqe) .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-:where(#jmzitlwvqe) .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-:where(#jmzitlwvqe) .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#jmzitlwvqe) .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-:where(#jmzitlwvqe) .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-:where(#jmzitlwvqe) .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-:where(#jmzitlwvqe) .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#jmzitlwvqe) .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#jmzitlwvqe) .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#jmzitlwvqe) .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#jmzitlwvqe) .gt_left {
-  text-align: left;
-}
-
-:where(#jmzitlwvqe) .gt_center {
-  text-align: center;
-}
-
-:where(#jmzitlwvqe) .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-:where(#jmzitlwvqe) .gt_font_normal {
-  font-weight: normal;
-}
-
-:where(#jmzitlwvqe) .gt_font_bold {
-  font-weight: bold;
-}
-
-:where(#jmzitlwvqe) .gt_font_italic {
-  font-style: italic;
-}
-
-:where(#jmzitlwvqe) .gt_super {
-  font-size: 65%;
-}
-
-:where(#jmzitlwvqe) .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 75%;
-  vertical-align: 0.4em;
-}
-
-:where(#jmzitlwvqe) .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-:where(#jmzitlwvqe) .gt_indent_1 {
-  text-indent: 5px;
-}
-
-:where(#jmzitlwvqe) .gt_indent_2 {
-  text-indent: 10px;
-}
-
-:where(#jmzitlwvqe) .gt_indent_3 {
-  text-indent: 15px;
-}
-
-:where(#jmzitlwvqe) .gt_indent_4 {
-  text-indent: 20px;
-}
-
-:where(#jmzitlwvqe) .gt_indent_5 {
-  text-indent: 25px;
-}
-</style>
-<table class="gt_table">
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Year">Year</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Name">Name</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Medal">Medal</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Time">Time</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Event">Event</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Host.City">Host.City</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Host.Country">Host.Country</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Athlete.Country">Athlete.Country</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Record">Record</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="...1">...1</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="Year" class="gt_row gt_right">2016</td>
-<td headers="Name" class="gt_row gt_left">Elaine Thompson</td>
-<td headers="Medal" class="gt_row gt_left">Gold</td>
-<td headers="Time" class="gt_row gt_right">21.78</td>
-<td headers="Event" class="gt_row gt_left">200 metres</td>
-<td headers="Host.City" class="gt_row gt_left">Rio de Janeiro</td>
-<td headers="Host.Country" class="gt_row gt_left">Brazil</td>
-<td headers="Athlete.Country" class="gt_row gt_left">Jamaica</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">2</td></tr>
-    <tr><td headers="Year" class="gt_row gt_right">2016</td>
-<td headers="Name" class="gt_row gt_left">Dafne Schippers</td>
-<td headers="Medal" class="gt_row gt_left">Silver</td>
-<td headers="Time" class="gt_row gt_right">21.88</td>
-<td headers="Event" class="gt_row gt_left">200 metres</td>
-<td headers="Host.City" class="gt_row gt_left">Rio de Janeiro</td>
-<td headers="Host.Country" class="gt_row gt_left">Brazil</td>
-<td headers="Athlete.Country" class="gt_row gt_left">Netherlands</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">290</td></tr>
-    <tr><td headers="Year" class="gt_row gt_right">2016</td>
-<td headers="Name" class="gt_row gt_left">Tori Bowie</td>
-<td headers="Medal" class="gt_row gt_left">Bronze</td>
-<td headers="Time" class="gt_row gt_right">22.15</td>
-<td headers="Event" class="gt_row gt_left">200 metres</td>
-<td headers="Host.City" class="gt_row gt_left">Rio de Janeiro</td>
-<td headers="Host.Country" class="gt_row gt_left">Brazil</td>
-<td headers="Athlete.Country" class="gt_row gt_left">United States</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">578</td></tr>
-    <tr><td headers="Year" class="gt_row gt_right">2012</td>
-<td headers="Name" class="gt_row gt_left">Allyson Felix</td>
-<td headers="Medal" class="gt_row gt_left">Gold</td>
-<td headers="Time" class="gt_row gt_right">21.88</td>
-<td headers="Event" class="gt_row gt_left">200 metres</td>
-<td headers="Host.City" class="gt_row gt_left">London</td>
-<td headers="Host.Country" class="gt_row gt_left">Great Britain</td>
-<td headers="Athlete.Country" class="gt_row gt_left">United States</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">30</td></tr>
-    <tr><td headers="Year" class="gt_row gt_right">2012</td>
-<td headers="Name" class="gt_row gt_left">Shelly-Ann Fraser-Pryce</td>
-<td headers="Medal" class="gt_row gt_left">Silver</td>
-<td headers="Time" class="gt_row gt_right">22.09</td>
-<td headers="Event" class="gt_row gt_left">200 metres</td>
-<td headers="Host.City" class="gt_row gt_left">London</td>
-<td headers="Host.Country" class="gt_row gt_left">Great Britain</td>
-<td headers="Athlete.Country" class="gt_row gt_left">Jamaica</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">318</td></tr>
-    <tr><td headers="Year" class="gt_row gt_right">2012</td>
-<td headers="Name" class="gt_row gt_left">Carmelita Jeter</td>
-<td headers="Medal" class="gt_row gt_left">Bronze</td>
-<td headers="Time" class="gt_row gt_right">22.14</td>
-<td headers="Event" class="gt_row gt_left">200 metres</td>
-<td headers="Host.City" class="gt_row gt_left">London</td>
-<td headers="Host.Country" class="gt_row gt_left">Great Britain</td>
-<td headers="Athlete.Country" class="gt_row gt_left">United States</td>
-<td headers="Record" class="gt_row gt_left">NA</td>
-<td headers="...1" class="gt_row gt_right">606</td></tr>
-  </tbody>
-  
-  
-</table>
-</div>
-</div>
-</div>
-</section>
 <section id="mens-100m-medals-over-time" class="level2">
 <h2 class="anchored" data-anchor-id="mens-100m-medals-over-time">Men’s 100m Medals Over Time</h2>
+<p>Lets looks at the journey of the medals from 1912 to 2008</p>
 <div class="cell">
 <details>
 <summary>Show Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>men100m_graph <span class="ot">&lt;-</span> oly_men_100m <span class="sc">%&gt;%</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Year, Time, <span class="at">color =</span> Medal))<span class="sc">+</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">xmin=</span><span class="dv">1939</span>, <span class="at">xmax=</span><span class="dv">1945</span>, <span class="at">ymin=</span><span class="fl">9.6</span>, <span class="at">ymax=</span><span class="fl">10.64</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">alpha =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1967</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">size =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>mens_100m_gsb_ani <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(oly_men_100m, <span class="fu">aes</span>(Year, Time, <span class="at">color =</span> Medal, <span class="at">frame =</span> Year))<span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">5</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>)<span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gold, Silver &amp; Bronze Medals Over 100 Years"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Mens 100m Dash"</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Time (in seconds)"</span>)<span class="sc">+</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>))<span class="sc">+</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#FFB48C"</span>, <span class="st">"#EBD739"</span>, <span class="st">"#B5BCC2"</span>))</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(mens_100m_gsb_ani)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="htmlwidget-33bcd90be93b612bd771" style="width:100%;height:464px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-33bcd90be93b612bd771">{"x":{"data":[{"x":[1936],"y":[10.5],"text":"Year: 1936<br />Time: 10.50<br />Medal: Bronze<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1936],"y":[10.3],"text":"Year: 1936<br />Time: 10.30<br />Medal: Gold<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1936],"y":[10.4],"text":"Year: 1936<br />Time: 10.40<br />Medal: Silver<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"layout":{"margin":{"t":43.7625570776256,"r":7.30593607305936,"b":40.1826484018265,"l":48.9497716894977},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Gold, Silver & Bronze Medals Over 100 Years","font":{"color":"rgba(0,0,0,1)","family":"Courier","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1932,2020],"tickmode":"array","ticktext":["1940","1960","1980","2000","2020"],"tickvals":[1940,1960,1980,2000,2020],"categoryorder":"array","categoryarray":["1940","1960","1980","2000","2020"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Courier","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Year","font":{"color":"rgba(0,0,0,1)","family":"Courier","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[9.5815,10.6485],"tickmode":"array","ticktext":["9.6","9.8","10.0","10.2","10.4","10.6"],"tickvals":[9.6,9.8,10,10.2,10.4,10.6],"categoryorder":"array","categoryarray":["9.6","9.8","10.0","10.2","10.4","10.6"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Courier","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Time (in seconds)","font":{"color":"rgba(0,0,0,1)","family":"Courier","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"Courier","size":11.689497716895},"title":{"text":"Medal","font":{"color":"rgba(0,0,0,1)","family":"Courier","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative","sliders":[{"currentvalue":{"prefix":"~Year: ","xanchor":"right","font":{"size":16,"color":"rgba(204,204,204,1)"}},"steps":[{"method":"animate","args":[["1936"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1936","value":"1936"},{"method":"animate","args":[["1948"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1948","value":"1948"},{"method":"animate","args":[["1952"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1952","value":"1952"},{"method":"animate","args":[["1956"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1956","value":"1956"},{"method":"animate","args":[["1960"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1960","value":"1960"},{"method":"animate","args":[["1964"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1964","value":"1964"},{"method":"animate","args":[["1968"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1968","value":"1968"},{"method":"animate","args":[["1972"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1972","value":"1972"},{"method":"animate","args":[["1976"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1976","value":"1976"},{"method":"animate","args":[["1980"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1980","value":"1980"},{"method":"animate","args":[["1984"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1984","value":"1984"},{"method":"animate","args":[["1988"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1988","value":"1988"},{"method":"animate","args":[["1992"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1992","value":"1992"},{"method":"animate","args":[["1996"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1996","value":"1996"},{"method":"animate","args":[["2000"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2000","value":"2000"},{"method":"animate","args":[["2004"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2004","value":"2004"},{"method":"animate","args":[["2008"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2008","value":"2008"},{"method":"animate","args":[["2012"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2012","value":"2012"},{"method":"animate","args":[["2016"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2016","value":"2016"}],"visible":true,"pad":{"t":40}}],"updatemenus":[{"type":"buttons","direction":"right","showactive":false,"y":0,"x":0,"yanchor":"top","xanchor":"right","pad":{"t":60,"r":5},"buttons":[{"label":"Play","method":"animate","args":[null,{"fromcurrent":true,"mode":"immediate","transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false}}]}]}]},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"6f757c4e6604":{"x":{},"y":{},"colour":{},"frame":{},"type":"scatter"},"6f757f0bd05d":{"x":{},"y":{},"colour":{},"frame":{}}},"cur_data":"6f757c4e6604","visdat":{"6f757c4e6604":["function (y) ","x"],"6f757f0bd05d":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"frames":[{"name":"1936","data":[{"x":[1936],"y":[10.5],"text":"Year: 1936<br />Time: 10.50<br />Medal: Bronze<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1936],"y":[10.3],"text":"Year: 1936<br />Time: 10.30<br />Medal: Gold<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1936],"y":[10.4],"text":"Year: 1936<br />Time: 10.40<br />Medal: Silver<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1948","data":[{"x":[1948],"y":[10.6],"text":"Year: 1948<br />Time: 10.60<br />Medal: Bronze<br />Year: 1948","frame":"1948","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1948],"y":[10.3],"text":"Year: 1948<br />Time: 10.30<br />Medal: Gold<br />Year: 1948","frame":"1948","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1948],"y":[10.4],"text":"Year: 1948<br />Time: 10.40<br />Medal: Silver<br />Year: 1948","frame":"1948","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1952","data":[{"x":[1952],"y":[10.4],"text":"Year: 1952<br />Time: 10.40<br />Medal: Bronze<br />Year: 1952","frame":"1952","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1952],"y":[10.4],"text":"Year: 1952<br />Time: 10.40<br />Medal: Gold<br />Year: 1952","frame":"1952","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1952],"y":[10.4],"text":"Year: 1952<br />Time: 10.40<br />Medal: Silver<br />Year: 1952","frame":"1952","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1956","data":[{"x":[1956],"y":[10.6],"text":"Year: 1956<br />Time: 10.60<br />Medal: Bronze<br />Year: 1956","frame":"1956","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1956],"y":[10.5],"text":"Year: 1956<br />Time: 10.50<br />Medal: Gold<br />Year: 1956","frame":"1956","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1956],"y":[10.5],"text":"Year: 1956<br />Time: 10.50<br />Medal: Silver<br />Year: 1956","frame":"1956","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1960","data":[{"x":[1960],"y":[10.3],"text":"Year: 1960<br />Time: 10.30<br />Medal: Bronze<br />Year: 1960","frame":"1960","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1960],"y":[10.2],"text":"Year: 1960<br />Time: 10.20<br />Medal: Gold<br />Year: 1960","frame":"1960","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1960],"y":[10.2],"text":"Year: 1960<br />Time: 10.20<br />Medal: Silver<br />Year: 1960","frame":"1960","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1964","data":[{"x":[1964],"y":[10.2],"text":"Year: 1964<br />Time: 10.20<br />Medal: Bronze<br />Year: 1964","frame":"1964","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1964],"y":[10],"text":"Year: 1964<br />Time: 10.00<br />Medal: Gold<br />Year: 1964","frame":"1964","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1964],"y":[10.2],"text":"Year: 1964<br />Time: 10.20<br />Medal: Silver<br />Year: 1964","frame":"1964","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1968","data":[{"x":[1968],"y":[10.07],"text":"Year: 1968<br />Time: 10.07<br />Medal: Bronze<br />Year: 1968","frame":"1968","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1968],"y":[9.95],"text":"Year: 1968<br />Time:  9.95<br />Medal: Gold<br />Year: 1968","frame":"1968","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1968],"y":[10.04],"text":"Year: 1968<br />Time: 10.04<br />Medal: Silver<br />Year: 1968","frame":"1968","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1972","data":[{"x":[1972],"y":[10.33],"text":"Year: 1972<br />Time: 10.33<br />Medal: Bronze<br />Year: 1972","frame":"1972","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1972],"y":[10.14],"text":"Year: 1972<br />Time: 10.14<br />Medal: Gold<br />Year: 1972","frame":"1972","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1972],"y":[10.24],"text":"Year: 1972<br />Time: 10.24<br />Medal: Silver<br />Year: 1972","frame":"1972","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1976","data":[{"x":[1976],"y":[10.14],"text":"Year: 1976<br />Time: 10.14<br />Medal: Bronze<br />Year: 1976","frame":"1976","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1976],"y":[10.06],"text":"Year: 1976<br />Time: 10.06<br />Medal: Gold<br />Year: 1976","frame":"1976","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1976],"y":[10.08],"text":"Year: 1976<br />Time: 10.08<br />Medal: Silver<br />Year: 1976","frame":"1976","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1980","data":[{"x":[1980],"y":[10.39],"text":"Year: 1980<br />Time: 10.39<br />Medal: Bronze<br />Year: 1980","frame":"1980","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1980],"y":[10.25],"text":"Year: 1980<br />Time: 10.25<br />Medal: Gold<br />Year: 1980","frame":"1980","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1980],"y":[10.25],"text":"Year: 1980<br />Time: 10.25<br />Medal: Silver<br />Year: 1980","frame":"1980","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1984","data":[{"x":[1984],"y":[10.22],"text":"Year: 1984<br />Time: 10.22<br />Medal: Bronze<br />Year: 1984","frame":"1984","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1984],"y":[9.99],"text":"Year: 1984<br />Time:  9.99<br />Medal: Gold<br />Year: 1984","frame":"1984","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1984],"y":[10.19],"text":"Year: 1984<br />Time: 10.19<br />Medal: Silver<br />Year: 1984","frame":"1984","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1988","data":[{"x":[1988],"y":[9.99],"text":"Year: 1988<br />Time:  9.99<br />Medal: Bronze<br />Year: 1988","frame":"1988","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1988],"y":[9.92],"text":"Year: 1988<br />Time:  9.92<br />Medal: Gold<br />Year: 1988","frame":"1988","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1988],"y":[9.97],"text":"Year: 1988<br />Time:  9.97<br />Medal: Silver<br />Year: 1988","frame":"1988","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1992","data":[{"x":[1992],"y":[10.04],"text":"Year: 1992<br />Time: 10.04<br />Medal: Bronze<br />Year: 1992","frame":"1992","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1992],"y":[9.96],"text":"Year: 1992<br />Time:  9.96<br />Medal: Gold<br />Year: 1992","frame":"1992","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1992],"y":[10.02],"text":"Year: 1992<br />Time: 10.02<br />Medal: Silver<br />Year: 1992","frame":"1992","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1996","data":[{"x":[1996],"y":[9.9],"text":"Year: 1996<br />Time:  9.90<br />Medal: Bronze<br />Year: 1996","frame":"1996","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1996],"y":[9.84],"text":"Year: 1996<br />Time:  9.84<br />Medal: Gold<br />Year: 1996","frame":"1996","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1996],"y":[9.89],"text":"Year: 1996<br />Time:  9.89<br />Medal: Silver<br />Year: 1996","frame":"1996","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"2000","data":[{"x":[2000],"y":[10.04],"text":"Year: 2000<br />Time: 10.04<br />Medal: Bronze<br />Year: 2000","frame":"2000","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[2000],"y":[9.87],"text":"Year: 2000<br />Time:  9.87<br />Medal: Gold<br />Year: 2000","frame":"2000","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[2000],"y":[9.99],"text":"Year: 2000<br />Time:  9.99<br />Medal: Silver<br />Year: 2000","frame":"2000","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"2004","data":[{"x":[2004],"y":[9.87],"text":"Year: 2004<br />Time:  9.87<br />Medal: Bronze<br />Year: 2004","frame":"2004","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[2004],"y":[9.85],"text":"Year: 2004<br />Time:  9.85<br />Medal: Gold<br />Year: 2004","frame":"2004","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[2004],"y":[9.86],"text":"Year: 2004<br />Time:  9.86<br />Medal: Silver<br />Year: 2004","frame":"2004","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"2008","data":[{"x":[2008],"y":[9.91],"text":"Year: 2008<br />Time:  9.91<br />Medal: Bronze<br />Year: 2008","frame":"2008","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[2008],"y":[9.69],"text":"Year: 2008<br />Time:  9.69<br />Medal: Gold<br />Year: 2008","frame":"2008","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[2008],"y":[9.89],"text":"Year: 2008<br />Time:  9.89<br />Medal: Silver<br />Year: 2008","frame":"2008","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"2012","data":[{"x":[2012],"y":[9.79],"text":"Year: 2012<br />Time:  9.79<br />Medal: Bronze<br />Year: 2012","frame":"2012","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[2012],"y":[9.63],"text":"Year: 2012<br />Time:  9.63<br />Medal: Gold<br />Year: 2012","frame":"2012","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[2012],"y":[9.75],"text":"Year: 2012<br />Time:  9.75<br />Medal: Silver<br />Year: 2012","frame":"2012","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"2016","data":[{"x":[2016],"y":[9.91],"text":"Year: 2016<br />Time:  9.91<br />Medal: Bronze<br />Year: 2016","frame":"2016","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[2016],"y":[9.81],"text":"Year: 2016<br />Time:  9.81<br />Medal: Gold<br />Year: 2016","frame":"2016","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[2016],"y":[9.89],"text":"Year: 2016<br />Time:  9.89<br />Medal: Silver<br />Year: 2016","frame":"2016","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]}],"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="historical-context" class="level2">
+<h2 class="anchored" data-anchor-id="historical-context">Historical Context</h2>
+<p>Here is a flat version of the same plot with more context regarding spikes in time due to historical context.</p>
+<div class="cell">
+<details>
+<summary>Show Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>men100m_graph <span class="ot">&lt;-</span> oly_men_100m <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Year, Time, <span class="at">color =</span> Medal))<span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="fl">2.7</span>)<span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="fl">0.8</span>)<span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">xmin=</span><span class="dv">1939</span>, <span class="at">xmax=</span><span class="dv">1945</span>, <span class="at">ymin=</span><span class="fl">9.6</span>, <span class="at">ymax=</span><span class="fl">10.64</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">alpha =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1967</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">size =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>))<span class="sc">+</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#FFB48C"</span>, <span class="st">"#EBD739"</span>, <span class="st">"#B5BCC2"</span>))<span class="sc">+</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1936</span>, <span class="dv">1944</span>, <span class="dv">1952</span>, <span class="dv">1960</span>, <span class="dv">1968</span>, <span class="dv">1976</span>, <span class="dv">1984</span>, <span class="dv">1992</span>, <span class="dv">2000</span>, <span class="dv">2008</span>, <span class="dv">2016</span>),</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"1936"</span>, <span class="st">"1944"</span>, <span class="st">"1952"</span>, <span class="st">"1960"</span>, <span class="st">"1968"</span>, <span class="st">"1976"</span>, <span class="st">"1984"</span>, <span class="st">"1992"</span>, <span class="st">"2000"</span>, <span class="st">"2008"</span>, <span class="st">"2016"</span>))<span class="sc">+</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="dv">1976</span>, <span class="fl">9.65</span>), <span class="at">label =</span> <span class="st">"PEDs Banned"</span>, <span class="at">size =</span> <span class="fl">3.8</span>, <span class="at">family =</span> <span class="st">"Courier"</span>, <span class="at">color =</span> <span class="st">"grey"</span>)<span class="sc">+</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gold, Silver &amp; Bronze Medals Over Time"</span>,</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Mens 100m Dash"</span>,</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Time (in seconds)"</span>)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>men100m_graph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index-o_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="womens-100m-medals-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="womens-100m-medals-over-time">Women’s 100m Medals Over Time</h2>
+<p>Lets looks at the journey of the medals from 1912 to 2008</p>
+<div class="cell">
+<details>
+<summary>Show Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>womens_100m_gsb_ani <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(oly_women_100m, <span class="fu">aes</span>(Year, Time, <span class="at">color =</span> Medal, <span class="at">frame =</span> Year))<span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">5</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>)<span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gold, Silver &amp; Bronze Medals Over 100 Years"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Mens 100m Dash"</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Time (in seconds)"</span>)<span class="sc">+</span></span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
@@ -2300,55 +1381,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.background =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>))<span class="sc">+</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#FFB48C"</span>, <span class="st">"#EBD739"</span>, <span class="st">"#B5BCC2"</span>))<span class="sc">+</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1936</span>, <span class="dv">1944</span>, <span class="dv">1952</span>, <span class="dv">1960</span>, <span class="dv">1968</span>, <span class="dv">1976</span>, <span class="dv">1984</span>, <span class="dv">1992</span>, <span class="dv">2000</span>, <span class="dv">2008</span>, <span class="dv">2016</span>),</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"1936"</span>, <span class="st">"1944"</span>, <span class="st">"1952"</span>, <span class="st">"1960"</span>, <span class="st">"1968"</span>, <span class="st">"1976"</span>, <span class="st">"1984"</span>, <span class="st">"1992"</span>, <span class="st">"2000"</span>, <span class="st">"2008"</span>, <span class="st">"2016"</span>))<span class="sc">+</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="dv">1976</span>, <span class="fl">9.65</span>), <span class="at">label =</span> <span class="st">"PEDs Banned"</span>, <span class="at">size =</span> <span class="fl">3.8</span>, <span class="at">family =</span> <span class="st">"Courier"</span>, <span class="at">color =</span> <span class="st">"grey"</span>)<span class="sc">+</span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gold, Silver &amp; Bronze Medals Over Time"</span>,</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Mens 100m Dash"</span>,</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Time (in seconds)"</span>)</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>men100m_graph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#FFB48C"</span>, <span class="st">"#EBD739"</span>, <span class="st">"#B5BCC2"</span>))</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(womens_100m_gsb_ani)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="index-o_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<div id="htmlwidget-92a1ea0dec392b6cf9d0" style="width:100%;height:464px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-92a1ea0dec392b6cf9d0">{"x":{"data":[{"x":[1936],"y":[11.9],"text":"Year: 1936<br />Time: 11.90<br />Medal: Bronze<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1936],"y":[11.5],"text":"Year: 1936<br />Time: 11.50<br />Medal: Gold<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1936],"y":[11.7],"text":"Year: 1936<br />Time: 11.70<br />Medal: Silver<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"layout":{"margin":{"t":43.7625570776256,"r":7.30593607305936,"b":40.1826484018265,"l":48.9497716894977},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Gold, Silver & Bronze Medals Over 100 Years","font":{"color":"rgba(0,0,0,1)","family":"Courier","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1932,2020],"tickmode":"array","ticktext":["1940","1960","1980","2000","2020"],"tickvals":[1940,1960,1980,2000,2020],"categoryorder":"array","categoryarray":["1940","1960","1980","2000","2020"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Courier","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Year","font":{"color":"rgba(0,0,0,1)","family":"Courier","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[10.457,12.283],"tickmode":"array","ticktext":["10.5","11.0","11.5","12.0"],"tickvals":[10.5,11,11.5,12],"categoryorder":"array","categoryarray":["10.5","11.0","11.5","12.0"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Courier","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Time (in seconds)","font":{"color":"rgba(0,0,0,1)","family":"Courier","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"Courier","size":11.689497716895},"title":{"text":"Medal","font":{"color":"rgba(0,0,0,1)","family":"Courier","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative","sliders":[{"currentvalue":{"prefix":"~Year: ","xanchor":"right","font":{"size":16,"color":"rgba(204,204,204,1)"}},"steps":[{"method":"animate","args":[["1936"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1936","value":"1936"},{"method":"animate","args":[["1948"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1948","value":"1948"},{"method":"animate","args":[["1952"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1952","value":"1952"},{"method":"animate","args":[["1956"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1956","value":"1956"},{"method":"animate","args":[["1960"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1960","value":"1960"},{"method":"animate","args":[["1964"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1964","value":"1964"},{"method":"animate","args":[["1968"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1968","value":"1968"},{"method":"animate","args":[["1972"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1972","value":"1972"},{"method":"animate","args":[["1976"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1976","value":"1976"},{"method":"animate","args":[["1980"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1980","value":"1980"},{"method":"animate","args":[["1984"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1984","value":"1984"},{"method":"animate","args":[["1988"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1988","value":"1988"},{"method":"animate","args":[["1992"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1992","value":"1992"},{"method":"animate","args":[["1996"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1996","value":"1996"},{"method":"animate","args":[["2000"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2000","value":"2000"},{"method":"animate","args":[["2008"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2008","value":"2008"},{"method":"animate","args":[["2012"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2012","value":"2012"},{"method":"animate","args":[["2016"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2016","value":"2016"}],"visible":true,"pad":{"t":40}}],"updatemenus":[{"type":"buttons","direction":"right","showactive":false,"y":0,"x":0,"yanchor":"top","xanchor":"right","pad":{"t":60,"r":5},"buttons":[{"label":"Play","method":"animate","args":[null,{"fromcurrent":true,"mode":"immediate","transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false}}]}]}]},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"6f757aa95df0":{"x":{},"y":{},"colour":{},"frame":{},"type":"scatter"},"6f75556767a":{"x":{},"y":{},"colour":{},"frame":{}}},"cur_data":"6f757aa95df0","visdat":{"6f757aa95df0":["function (y) ","x"],"6f75556767a":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"frames":[{"name":"1936","data":[{"x":[1936],"y":[11.9],"text":"Year: 1936<br />Time: 11.90<br />Medal: Bronze<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1936],"y":[11.5],"text":"Year: 1936<br />Time: 11.50<br />Medal: Gold<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1936],"y":[11.7],"text":"Year: 1936<br />Time: 11.70<br />Medal: Silver<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1948","data":[{"x":[1948],"y":[12.2],"text":"Year: 1948<br />Time: 12.20<br />Medal: Bronze<br />Year: 1948","frame":"1948","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1948],"y":[11.9],"text":"Year: 1948<br />Time: 11.90<br />Medal: Gold<br />Year: 1948","frame":"1948","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1948],"y":[12.2],"text":"Year: 1948<br />Time: 12.20<br />Medal: Silver<br />Year: 1948","frame":"1948","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1952","data":[{"x":[1952],"y":[11.9],"text":"Year: 1952<br />Time: 11.90<br />Medal: Bronze<br />Year: 1952","frame":"1952","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1952],"y":[11.5],"text":"Year: 1952<br />Time: 11.50<br />Medal: Gold<br />Year: 1952","frame":"1952","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1952],"y":[11.8],"text":"Year: 1952<br />Time: 11.80<br />Medal: Silver<br />Year: 1952","frame":"1952","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1956","data":[{"x":[1956],"y":[11.7],"text":"Year: 1956<br />Time: 11.70<br />Medal: Bronze<br />Year: 1956","frame":"1956","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1956],"y":[11.5],"text":"Year: 1956<br />Time: 11.50<br />Medal: Gold<br />Year: 1956","frame":"1956","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1956],"y":[11.7],"text":"Year: 1956<br />Time: 11.70<br />Medal: Silver<br />Year: 1956","frame":"1956","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1960","data":[{"x":[1960],"y":[11.3],"text":"Year: 1960<br />Time: 11.30<br />Medal: Bronze<br />Year: 1960","frame":"1960","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1960],"y":[11],"text":"Year: 1960<br />Time: 11.00<br />Medal: Gold<br />Year: 1960","frame":"1960","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1960],"y":[11.3],"text":"Year: 1960<br />Time: 11.30<br />Medal: Silver<br />Year: 1960","frame":"1960","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1964","data":[{"x":[1964],"y":[11.6],"text":"Year: 1964<br />Time: 11.60<br />Medal: Bronze<br />Year: 1964","frame":"1964","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1964],"y":[11.4],"text":"Year: 1964<br />Time: 11.40<br />Medal: Gold<br />Year: 1964","frame":"1964","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1964],"y":[11.6],"text":"Year: 1964<br />Time: 11.60<br />Medal: Silver<br />Year: 1964","frame":"1964","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1968","data":[{"x":[1968],"y":[11.19],"text":"Year: 1968<br />Time: 11.19<br />Medal: Bronze<br />Year: 1968","frame":"1968","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1968],"y":[11.08],"text":"Year: 1968<br />Time: 11.08<br />Medal: Gold<br />Year: 1968","frame":"1968","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1968],"y":[11.15],"text":"Year: 1968<br />Time: 11.15<br />Medal: Silver<br />Year: 1968","frame":"1968","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1972","data":[{"x":[1972],"y":[11.24],"text":"Year: 1972<br />Time: 11.24<br />Medal: Bronze<br />Year: 1972","frame":"1972","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1972],"y":[11.07],"text":"Year: 1972<br />Time: 11.07<br />Medal: Gold<br />Year: 1972","frame":"1972","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1972],"y":[11.23],"text":"Year: 1972<br />Time: 11.23<br />Medal: Silver<br />Year: 1972","frame":"1972","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1976","data":[{"x":[1976],"y":[11.17],"text":"Year: 1976<br />Time: 11.17<br />Medal: Bronze<br />Year: 1976","frame":"1976","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1976],"y":[11.08],"text":"Year: 1976<br />Time: 11.08<br />Medal: Gold<br />Year: 1976","frame":"1976","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1976],"y":[11.13],"text":"Year: 1976<br />Time: 11.13<br />Medal: Silver<br />Year: 1976","frame":"1976","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1980","data":[{"x":[1980],"y":[11.14],"text":"Year: 1980<br />Time: 11.14<br />Medal: Bronze<br />Year: 1980","frame":"1980","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1980],"y":[11.06],"text":"Year: 1980<br />Time: 11.06<br />Medal: Gold<br />Year: 1980","frame":"1980","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1980],"y":[11.07],"text":"Year: 1980<br />Time: 11.07<br />Medal: Silver<br />Year: 1980","frame":"1980","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1984","data":[{"x":[1984],"y":[11.16],"text":"Year: 1984<br />Time: 11.16<br />Medal: Bronze<br />Year: 1984","frame":"1984","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1984],"y":[10.97],"text":"Year: 1984<br />Time: 10.97<br />Medal: Gold<br />Year: 1984","frame":"1984","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1984],"y":[11.13],"text":"Year: 1984<br />Time: 11.13<br />Medal: Silver<br />Year: 1984","frame":"1984","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1988","data":[{"x":[1988],"y":[10.85],"text":"Year: 1988<br />Time: 10.85<br />Medal: Bronze<br />Year: 1988","frame":"1988","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1988],"y":[10.54],"text":"Year: 1988<br />Time: 10.54<br />Medal: Gold<br />Year: 1988","frame":"1988","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1988],"y":[10.83],"text":"Year: 1988<br />Time: 10.83<br />Medal: Silver<br />Year: 1988","frame":"1988","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1992","data":[{"x":[1992],"y":[10.84],"text":"Year: 1992<br />Time: 10.84<br />Medal: Bronze<br />Year: 1992","frame":"1992","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1992],"y":[10.82],"text":"Year: 1992<br />Time: 10.82<br />Medal: Gold<br />Year: 1992","frame":"1992","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1992],"y":[10.83],"text":"Year: 1992<br />Time: 10.83<br />Medal: Silver<br />Year: 1992","frame":"1992","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1996","data":[{"x":[1996],"y":[10.96],"text":"Year: 1996<br />Time: 10.96<br />Medal: Bronze<br />Year: 1996","frame":"1996","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1996],"y":[10.94],"text":"Year: 1996<br />Time: 10.94<br />Medal: Gold<br />Year: 1996","frame":"1996","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1996],"y":[10.94],"text":"Year: 1996<br />Time: 10.94<br />Medal: Silver<br />Year: 1996","frame":"1996","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"2000","data":[{"x":[2000,2000],"y":[11.19,11.19],"text":"Year: 2000<br />Time: 11.19<br />Medal: Bronze<br />Year: 2000","frame":"2000","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[2000,2000],"y":[null,null],"text":"Year: 2000<br />Time:    NA<br />Medal: Gold<br />Year: 2000","frame":"2000","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[2000,2000],"y":[11.12,11.18],"text":["Year: 2000<br />Time: 11.12<br />Medal: Silver<br />Year: 2000","Year: 2000<br />Time: 11.18<br />Medal: Silver<br />Year: 2000"],"frame":"2000","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"2008","data":[{"x":[2008],"y":[null],"text":"Year: 2008<br />Time:    NA<br />Medal: Bronze<br />Year: 2008","frame":"2008","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[2008],"y":[10.78],"text":"Year: 2008<br />Time: 10.78<br />Medal: Gold<br />Year: 2008","frame":"2008","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[2008],"y":[10.98],"text":"Year: 2008<br />Time: 10.98<br />Medal: Silver<br />Year: 2008","frame":"2008","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"2012","data":[{"x":[2012],"y":[10.81],"text":"Year: 2012<br />Time: 10.81<br />Medal: Bronze<br />Year: 2012","frame":"2012","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[2012],"y":[10.75],"text":"Year: 2012<br />Time: 10.75<br />Medal: Gold<br />Year: 2012","frame":"2012","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[2012],"y":[10.78],"text":"Year: 2012<br />Time: 10.78<br />Medal: Silver<br />Year: 2012","frame":"2012","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"2016","data":[{"x":[2016],"y":[10.86],"text":"Year: 2016<br />Time: 10.86<br />Medal: Bronze<br />Year: 2016","frame":"2016","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[2016],"y":[10.71],"text":"Year: 2016<br />Time: 10.71<br />Medal: Gold<br />Year: 2016","frame":"2016","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[2016],"y":[10.83],"text":"Year: 2016<br />Time: 10.83<br />Medal: Silver<br />Year: 2016","frame":"2016","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":null,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]}],"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
-<section id="womens-100m-medals-over-time" class="level2">
-<h2 class="anchored" data-anchor-id="womens-100m-medals-over-time">Women’s 100m Medals Over Time</h2>
+<section id="historical-context-1" class="level2">
+<h2 class="anchored" data-anchor-id="historical-context-1">Historical Context</h2>
 <p>2000 Women’s 100M gold: The gold medal was originally won by Marion Jones of the United States. However, on 5 October 2007, she admitted to having used performance-enhancing drugs prior to the 2000 Olympics. On 9 October she relinquished her medals to the United States Olympic Committee, and on 12 December the International Olympic Committee formally stripped her of her medals.</p>
 <p>The IOC did not initially decide to regrade the results, as silver medalist Ekaterini Thanou had herself been subsequently involved in a doping scandal in the run-up to the 2004 Summer Olympics. After two years of deliberation, in late 2009 the IOC decided to upgrade Lawrence (original bronze) and Ottey (original 4th) to silver and bronze respectively, and leave Thanou as a silver medallist, with the gold medal withheld</p>
 <div class="cell">
 <details>
 <summary>Show Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>women100m_graph <span class="ot">&lt;-</span> oly_women_100m <span class="sc">%&gt;%</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Year, Time, <span class="at">color =</span> Medal))<span class="sc">+</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">xmin=</span><span class="dv">1939</span>, <span class="at">xmax=</span><span class="dv">1945</span>, <span class="at">ymin=</span><span class="fl">10.5</span>, <span class="at">ymax=</span><span class="fl">12.25</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">alpha =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1967</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">size =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gold, Silver &amp; Bronze Medals Over 100 Years"</span>,</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Womens 100m Dash"</span>,</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Time (in seconds)"</span>)<span class="sc">+</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>))<span class="sc">+</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#FFB48C"</span>, <span class="st">"#EBD739"</span>, <span class="st">"#B5BCC2"</span>))<span class="sc">+</span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1936</span>, <span class="dv">1944</span>, <span class="dv">1952</span>, <span class="dv">1960</span>, <span class="dv">1968</span>, <span class="dv">1976</span>, <span class="dv">1984</span>, <span class="dv">1992</span>, <span class="dv">2000</span>, <span class="dv">2008</span>, <span class="dv">2016</span>),</span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"1936"</span>, <span class="st">"1944"</span>, <span class="st">"1952"</span>, <span class="st">"1960"</span>, <span class="st">"1968"</span>, <span class="st">"1976"</span>, <span class="st">"1984"</span>, <span class="st">"1992"</span>, <span class="st">"2000"</span>, <span class="st">"2008"</span>, <span class="st">"2016"</span>))<span class="sc">+</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="dv">1976</span>, <span class="fl">10.55</span>), <span class="at">label =</span> <span class="st">"PEDs Banned"</span>, <span class="at">size =</span> <span class="fl">3.8</span>, <span class="at">family =</span> <span class="st">"Courier"</span>, <span class="at">color =</span> <span class="st">"grey"</span>)</span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>women100m_graph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gganimate)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>women100m_graph <span class="ot">&lt;-</span> oly_women_100m <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Year, Time, <span class="at">color =</span> Medal))<span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="fl">2.7</span>)<span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="fl">0.8</span>)<span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">xmin=</span><span class="dv">1939</span>, <span class="at">xmax=</span><span class="dv">1945</span>, <span class="at">ymin=</span><span class="fl">10.5</span>, <span class="at">ymax=</span><span class="fl">12.25</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">alpha =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1967</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"grey"</span>, <span class="at">size =</span> <span class="fl">0.75</span>)<span class="sc">+</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gold, Silver &amp; Bronze Medals Over 100 Years"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Womens 100m Dash"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Time (in seconds)"</span>)<span class="sc">+</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Courier"</span>),</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>         <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>))<span class="sc">+</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#FFB48C"</span>, <span class="st">"#EBD739"</span>, <span class="st">"#B5BCC2"</span>))<span class="sc">+</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1936</span>, <span class="dv">1944</span>, <span class="dv">1952</span>, <span class="dv">1960</span>, <span class="dv">1968</span>, <span class="dv">1976</span>, <span class="dv">1984</span>, <span class="dv">1992</span>, <span class="dv">2000</span>, <span class="dv">2008</span>, <span class="dv">2016</span>),</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"1936"</span>, <span class="st">"1944"</span>, <span class="st">"1952"</span>, <span class="st">"1960"</span>, <span class="st">"1968"</span>, <span class="st">"1976"</span>, <span class="st">"1984"</span>, <span class="st">"1992"</span>, <span class="st">"2000"</span>, <span class="st">"2008"</span>, <span class="st">"2016"</span>))<span class="sc">+</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="dv">1976</span>, <span class="fl">10.55</span>), <span class="at">label =</span> <span class="st">"PEDs Banned"</span>, <span class="at">size =</span> <span class="fl">3.8</span>, <span class="at">family =</span> <span class="st">"Courier"</span>, <span class="at">color =</span> <span class="st">"grey"</span>)</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>women100m_graph</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index-o_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>

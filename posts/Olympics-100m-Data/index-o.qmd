@@ -1,5 +1,5 @@
 ---
-title: "Olympics 100m & 200m Dash Over 100 Years"
+title: "Olympics 100m Dash Over 100 Years"
 author: "Rochelle Rafn"
 date: "2021-12-08"
 categories: [news, code, analysis, visualization]
@@ -31,17 +31,19 @@ library(gt)
 
 ![](210315125224-usain-bolt-grinning-race.jpg){width=75%}
 
-I scraped all available data for the 100m and 200m dashes for every time in every heat of the Olympics over 100 years. 
+I scraped all available data for the times of every heat in the 100m dash at the Olympics over nearly 100 years. 
 
 Before we dive in to all times, I first have subdivided the data by event and gender, then extracted only the medal winners to see if there is a pattern there first. 
 
 ```{r}
 oly_women_clean <- read_csv("/Users/rochellerafn/RStudio Files/oly_women_clean.csv")
 oly_men_clean <- read_csv("/Users/rochellerafn/RStudio Files/oly_men_clean.csv")
+
+oly_women_clean <- oly_women_clean[,-1]
+oly_men_clean <- oly_men_clean[,-1]
 ```
 
 
-### Men's 100m Dash
 
 ```{r}
 oly_men_100m <- oly_men_clean %>%
@@ -50,11 +52,17 @@ oly_men_100m <- oly_men_clean %>%
   relocate(Year, Name, Medal, Time, Event, Host.City, Host.Country, Athlete.Country, Record)
 
 head(oly_men_100m) %>%
-  gt()
+  gt() %>%
+  tab_header(title = "Men's 100m Dash",
+             subtitle = "Medal Winners") %>%
+  tab_source_note(
+    source_note = "Source: Wikipedia"
+  ) %>%
+    gtExtras::gt_theme_espn()
 ```
 
 
-### Women's 100m Dash
+
 
 ```{r}
 oly_women_100m <- oly_women_clean %>%
@@ -63,43 +71,57 @@ oly_women_100m <- oly_women_clean %>%
   relocate(Year, Name, Medal, Time, Event, Host.City, Host.Country, Athlete.Country, Record)
 
 head(oly_women_100m) %>%
-  gt()
-```
-
-
-### Men's 200m Dash
-
-```{r}
-oly_men_200m <- oly_men_clean %>%
-  filter(Event == "200 metres")%>%
-  arrange(desc(Year)) %>%
-  relocate(Year, Name, Medal, Time, Event, Host.City, Host.Country, Athlete.Country, Record)
-
-head(oly_men_200m) %>%
-  gt()
-```
-
-
-### Women's 200m Dash
-
-```{r}
-oly_women_200m <- oly_women_clean %>%
-  filter(Event == "200 metres")%>%
-  arrange(desc(Year)) %>%
-  relocate(Year, Name, Medal, Time, Event, Host.City, Host.Country, Athlete.Country, Record)
-
-head(oly_women_200m) %>%
-  gt()
+  gt() %>%
+  tab_header(title = "Women's 100m Dash",
+             subtitle = "Medal Winners") %>%
+  tab_source_note(
+    source_note = "Source: Wikipedia"
+  ) %>%
+    gtExtras::gt_theme_espn()
 ```
 
 
 ## Men's 100m Medals Over Time
 
+Lets looks at the journey of the medals from 1912 to 2008
+
+```{r}
+library(plotly)
+
+mens_100m_gsb_ani <- ggplot(oly_men_100m, aes(Year, Time, color = Medal, frame = Year))+
+  geom_point(size = 5, alpha = 0.6)+
+  geom_line()+
+   labs(title = "Gold, Silver & Bronze Medals Over 100 Years",
+       subtitle = "Mens 100m Dash",
+       y = "Time (in seconds)")+
+  theme(panel.background = element_blank(),
+        plot.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        plot.title = element_text(family = "Courier"),
+        legend.title = element_text(family = "Courier"),
+        plot.subtitle = element_text(family = "Courier"),
+        axis.text = element_text(family = "Courier"),
+        legend.text = element_text(family = "Courier"),
+        legend.background = element_blank(),
+        axis.title = element_text(family = "Courier"),
+         legend.key = element_rect(fill = "white"))+
+  scale_color_manual(values = c("#FFB48C", "#EBD739", "#B5BCC2"))
+
+ggplotly(mens_100m_gsb_ani)
+```
+
+
+
+## Historical Context
+
+Here is a flat version of the same plot with more context regarding spikes in time due to historical context.
+
 ```{r}
 men100m_graph <- oly_men_100m %>%
   ggplot(aes(Year, Time, color = Medal))+
-  geom_point(alpha = 0.5, size = 3)+
-  geom_line()+
+  geom_point(alpha = 0.7, size = 2.7)+
+  geom_line(alpha = 0.7, size = 0.8)+
   geom_rect(xmin=1939, xmax=1945, ymin=9.6, ymax=10.64, color = "grey", linetype = "dotted", alpha = 0)+
   geom_vline(xintercept = 1967, linetype = "dotted", color = "grey", size = 0.75)+
   theme(panel.background = element_blank(),
@@ -128,15 +150,47 @@ men100m_graph
 
 ## Women's 100m Medals Over Time
 
+Lets looks at the journey of the medals from 1912 to 2008
+
+```{r}
+womens_100m_gsb_ani <- ggplot(oly_women_100m, aes(Year, Time, color = Medal, frame = Year))+
+  geom_point(size = 5, alpha = 0.6)+
+  geom_line()+
+   labs(title = "Gold, Silver & Bronze Medals Over 100 Years",
+       subtitle = "Mens 100m Dash",
+       y = "Time (in seconds)")+
+  theme(panel.background = element_blank(),
+        plot.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        plot.title = element_text(family = "Courier"),
+        legend.title = element_text(family = "Courier"),
+        plot.subtitle = element_text(family = "Courier"),
+        axis.text = element_text(family = "Courier"),
+        legend.text = element_text(family = "Courier"),
+        legend.background = element_blank(),
+        axis.title = element_text(family = "Courier"),
+         legend.key = element_rect(fill = "white"))+
+  scale_color_manual(values = c("#FFB48C", "#EBD739", "#B5BCC2"))
+
+ggplotly(womens_100m_gsb_ani)
+```
+
+
+
+## Historical Context 
+
 2000 Women's 100M gold: The gold medal was originally won by Marion Jones of the United States. However, on 5 October 2007, she admitted to having used performance-enhancing drugs prior to the 2000 Olympics. On 9 October she relinquished her medals to the United States Olympic Committee, and on 12 December the International Olympic Committee formally stripped her of her medals.
 
 The IOC did not initially decide to regrade the results, as silver medalist Ekaterini Thanou had herself been subsequently involved in a doping scandal in the run-up to the 2004 Summer Olympics. After two years of deliberation, in late 2009 the IOC decided to upgrade Lawrence (original bronze) and Ottey (original 4th) to silver and bronze respectively, and leave Thanou as a silver medallist, with the gold medal withheld
 
 ```{r}
+library(gganimate)
+
 women100m_graph <- oly_women_100m %>%
   ggplot(aes(Year, Time, color = Medal))+
-  geom_point(alpha = 0.5, size = 3)+
-  geom_line()+
+  geom_point(alpha = 0.7, size = 2.7)+
+  geom_line(alpha = 0.7, size = 0.8)+
   geom_rect(xmin=1939, xmax=1945, ymin=10.5, ymax=12.25, color = "grey", linetype = "dotted", alpha = 0)+
   geom_vline(xintercept = 1967, linetype = "dotted", color = "grey", size = 0.75)+
    labs(title = "Gold, Silver & Bronze Medals Over 100 Years",
@@ -161,5 +215,3 @@ women100m_graph <- oly_women_100m %>%
 
 women100m_graph
 ```
-
-
