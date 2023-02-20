@@ -1,0 +1,62 @@
+---
+title: "Archive-Product-Mix-2017-2019"
+author: "Rochelle Rafn"
+---
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+```
+
+
+```{r}
+archive_mix_2017_01 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2017-01.csv")
+archive_mix_2017_02 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2017-02.csv")
+archive_mix_2017_03 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2017-03.csv")
+archive_mix_2017_04 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2017-04.csv")
+archive_mix_2017_05 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2017-05.csv")
+archive_mix_2017_06 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2017-06.csv")
+archive_mix_2017_07 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2017-07.csv")
+archive_mix_2017_08 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2017-08.csv")
+archive_mix_2017_09 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2017-09.csv")
+archive_mix_2017_10 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2017-10.csv")
+archive_mix_2017_11 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2017-11.csv")
+archive_mix_2017_12 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2017-12.csv")
+
+archive_mix_2018_01 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2018-01.csv")
+archive_mix_2018_02 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2018-02.csv")
+archive_mix_2018_03 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2018-03.csv")
+archive_mix_2018_04 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2018-04.csv")
+archive_mix_2018_05 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2018-05.csv")
+archive_mix_2018_06 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2018-06.csv")
+archive_mix_2018_07 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2018-07.csv")
+archive_mix_2018_08 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2018-08.csv")
+archive_mix_2018_09 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2018-09.csv")
+archive_mix_2018_10 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2018-10.csv")
+archive_mix_2018_11 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2018-11.csv")
+archive_mix_2018_12 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2018-12.csv")
+
+archive_mix_2019_01 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2019-01.csv")
+archive_mix_2019_02 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2019-02.csv")
+archive_mix_2019_03 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2019-03.csv")
+archive_mix_2019_04 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2019-04.csv")
+archive_mix_2019_05 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2019-05.csv")
+archive_mix_2019_06 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2019-06.csv")
+archive_mix_2019_07 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2019-07.csv")
+archive_mix_2019_08 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2019-08.csv")
+archive_mix_2019_09 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2019-09.csv")
+archive_mix_2019_10 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2019-10.csv")
+archive_mix_2019_11 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2019-11.csv")
+archive_mix_2019_12 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2019-12.csv")
+```
+
+
+```{r}
+str(archive_mix_2017_01)
+```
+
+```{r}
+
+```
+
