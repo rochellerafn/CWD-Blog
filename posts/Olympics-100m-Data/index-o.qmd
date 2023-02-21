@@ -112,6 +112,20 @@ ggplotly(mens_100m_gsb_ani)
 ```
 
 
+```{r}
+library(crosstalk)
+library(d3scatter)
+library(leaflet)
+
+shared_oly_men <- SharedData$new(oly_men_100m)
+
+bscols(widths = c(5, 5, 5),
+       d3scatter(shared_oly_men, ~Year, ~Time, ~Medal),
+        list(filter_slider("Year", "Year", shared_oly_men, ~Year),
+             filter_checkbox("Medal", "Medal", shared_oly_men, ~Medal, inline = TRUE))
+)
+```
+
 
 ## Historical Context
 
@@ -215,3 +229,5 @@ women100m_graph <- oly_women_100m %>%
 
 women100m_graph
 ```
+
+
