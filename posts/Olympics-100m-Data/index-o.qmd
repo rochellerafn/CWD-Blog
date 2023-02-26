@@ -36,8 +36,8 @@ I scraped all available data for the times of every heat in the 100m dash at the
 Before we dive in to all times, I first have subdivided the data by event and gender, then extracted only the medal winners to see if there is a pattern there first. 
 
 ```{r}
-oly_women_clean <- read_csv("/Users/rochellerafn/RStudio Files/oly_women_clean.csv")
-oly_men_clean <- read_csv("/Users/rochellerafn/RStudio Files/oly_men_clean.csv")
+oly_women_clean <- read_csv("/Users/rochellerafn/RStudio_Files/oly_women_clean.csv")
+oly_men_clean <- read_csv("/Users/rochellerafn/RStudio_Files/oly_men_clean.csv")
 
 oly_women_clean <- oly_women_clean[,-1]
 oly_men_clean <- oly_men_clean[,-1]
@@ -109,21 +109,6 @@ mens_100m_gsb_ani <- ggplot(oly_men_100m, aes(Year, Time, color = Medal, frame =
   scale_color_manual(values = c("#FFB48C", "#EBD739", "#B5BCC2"))
 
 ggplotly(mens_100m_gsb_ani)
-```
-
-
-```{r}
-library(crosstalk)
-library(d3scatter)
-library(leaflet)
-
-shared_oly_men <- SharedData$new(oly_men_100m)
-
-bscols(widths = c(5, 5, 5),
-       d3scatter(shared_oly_men, ~Year, ~Time, ~Medal),
-        list(filter_slider("Year", "Year", shared_oly_men, ~Year),
-             filter_checkbox("Medal", "Medal", shared_oly_men, ~Medal, inline = TRUE))
-)
 ```
 
 
