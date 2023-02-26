@@ -150,7 +150,7 @@ men100m_graph
 
 ## Women's 100m Medals Over Time
 
-Lets looks at the journey of the medals from 1912 to 2008
+Lets looks at the journey of the medals from 1912 to 2008 for the Women's 100m race.
 
 ```{r}
 womens_100m_gsb_ani <- ggplot(oly_women_100m, aes(Year, Time, color = Medal, frame = Year))+
