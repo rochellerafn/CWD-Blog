@@ -139,6 +139,7 @@ men100m_graph <- oly_men_100m %>%
   scale_x_continuous(breaks = c(1936, 1944, 1952, 1960, 1968, 1976, 1984, 1992, 2000, 2008, 2016),
                      labels = c("1936", "1944", "1952", "1960", "1968", "1976", "1984", "1992", "2000", "2008", "2016"))+
   geom_text(aes(1976, 9.65), label = "PEDs Banned", size = 3.8, family = "Courier", color = "grey")+
+  geom_text(aes(1949, 9.65), label = "WWII", size = 3.8, family = "Courier", color = "grey")+
   labs(title = "Gold, Silver & Bronze Medals Over Time",
        subtitle = "Mens 100m Dash",
        y = "Time (in seconds)")
@@ -210,7 +211,8 @@ women100m_graph <- oly_women_100m %>%
   scale_color_manual(values = c("#FFB48C", "#EBD739", "#B5BCC2"))+
   scale_x_continuous(breaks = c(1936, 1944, 1952, 1960, 1968, 1976, 1984, 1992, 2000, 2008, 2016),
                      labels = c("1936", "1944", "1952", "1960", "1968", "1976", "1984", "1992", "2000", "2008", "2016"))+
-  geom_text(aes(1976, 10.55), label = "PEDs Banned", size = 3.8, family = "Courier", color = "grey")
+  geom_text(aes(1976, 10.55), label = "PEDs Banned", size = 3.8, family = "Courier", color = "grey")+
+  geom_text(aes(1949, 10.55), label = "WWII", size = 3.8, family = "Courier", color = "grey")
 
 women100m_graph
 ```
