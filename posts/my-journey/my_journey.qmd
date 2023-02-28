@@ -1,0 +1,55 @@
+---
+title: "My Journey"
+subtitle: "Data Science • Business Intelligence • Leadership • Strategy"
+author: "Rochelle Rafn"
+date: "2023-02-20"
+categories: [news, code, analysis]
+image: "DSC03110.jpg"
+format:
+  revealjs: 
+    multiplex: true
+    preview-links: true
+    theme: [custom.scss]
+    scrollable: true
+    html-math-method: katex
+    incremental: true
+    slide-number: c/t
+    transition: convex
+    code-fold: true
+    code-tools: true
+---
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+```{r setup, include=FALSE}
+library(fontawesome)
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, echo=TRUE, tidy=TRUE, comment=NA, prompt=FALSE, fig.height=6, fig.width=6.5, fig.retina = 3, dev = 'svg', eval=TRUE)
+library(tidyverse)
+library(DT)
+```
+
+# Rochelle Rafn
+
+From Business Owner to aspiring Data Scientist
+
+![](DSC03110.jpg)
+
+## Work Experience
+
+:::: {.columns}
+::: {.column width="50%"}
+![](logo-mock-c-dark@1x.png)
+Executive Director
+2019-Present
+- Executive Leadership
+- Overall Operations & Management
+- Fundraising, Budget & Finance
+- Public Speaking & Presentations
+- Visual Branding & Marketing
+
+:::
+::: {.column width="50%"}
+![](IMG_6045.png)
+
+:::
+::::

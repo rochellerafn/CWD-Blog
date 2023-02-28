@@ -1,0 +1,20 @@
+{
+  "hash": "9fe5838bf29aedcf1c6c7c8f2c70a0d0",
+  "result": {
+    "markdown": "---\ntitle: \"My Journey\"\nsubtitle: \"Data Science • Business Intelligence • Leadership • Strategy\"\nauthor: \"Rochelle Rafn\"\ndate: \"2023-02-20\"\ncategories: [news, code, analysis]\nimage: \"DSC03110.jpg\"\nformat:\n  revealjs: \n    multiplex: true\n    preview-links: true\n    theme: [custom.scss]\n    scrollable: true\n    html-math-method: katex\n    incremental: true\n    slide-number: c/t\n    transition: convex\n    code-fold: true\n    code-tools: true\n---\n\n\n<link href=\"//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css\" rel=\"stylesheet\">\n\n\n\n\n\n# Rochelle Rafn\n\nFrom Business Owner to aspiring Data Scientist\n\n![](DSC03110.jpg)\n\n## Work Experience\n\n:::: {.columns}\n::: {.column width=\"50%\"}\n![](logo-mock-c-dark@1x.png)\nExecutive Director\n2019-Present\n- Executive Leadership\n- Overall Operations & Management\n- Fundraising, Budget & Finance\n- Public Speaking & Presentations\n- Visual Branding & Marketing\n\n:::\n::: {.column width=\"50%\"}\n![](IMG_6045.png)\n\n:::\n::::",
+    "supporting": [
+      "my_journey_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
