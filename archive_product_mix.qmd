@@ -53,10 +53,373 @@ archive_mix_2019_12 <- read.csv("/Users/rochellerafn/RStudio_Files/Archive_Coffe
 
 
 ```{r}
-str(archive_mix_2017_01)
+str(archive_mix_2017_12)
+```
+
+### 2017
+
+```{r}
+Year = 2017
+Month = "January"
+
+archive_mix_2017_01 <- cbind(archive_mix_2017_01, Year, Month)
+
+head(archive_mix_2017_01)
 ```
 
 ```{r}
+Year = 2017
+Month = "February"
 
+archive_mix_2017_02 <- cbind(archive_mix_2017_02, Year, Month)
+
+head(archive_mix_2017_02)
+```
+
+```{r}
+Year = 2017
+Month = "March"
+
+archive_mix_2017_03 <- cbind(archive_mix_2017_03, Year, Month)
+
+head(archive_mix_2017_03)
+```
+
+```{r}
+Year = 2017
+Month = "April"
+
+archive_mix_2017_04 <- cbind(archive_mix_2017_04, Year, Month)
+
+head(archive_mix_2017_04)
+```
+
+```{r}
+Year = 2017
+Month = "May"
+
+archive_mix_2017_05 <- cbind(archive_mix_2017_05, Year, Month)
+
+archive_mix_2017_05 <- archive_mix_2017_05[,-13]
+
+head(archive_mix_2017_05)
+```
+
+```{r}
+Year = 2017
+Month = "June"
+
+archive_mix_2017_06 <- cbind(archive_mix_2017_06, Year, Month)
+
+head(archive_mix_2017_06)
+```
+
+```{r}
+Year = 2017
+Month = "July"
+
+archive_mix_2017_07 <- cbind(archive_mix_2017_07, Year, Month)
+
+head(archive_mix_2017_07)
+```
+
+```{r}
+Year = 2017
+Month = "August"
+
+archive_mix_2017_08 <- cbind(archive_mix_2017_08, Year, Month)
+
+head(archive_mix_2017_08)
+```
+
+```{r}
+Year = 2017
+Month = "September"
+
+archive_mix_2017_09 <- cbind(archive_mix_2017_09, Year, Month)
+
+head(archive_mix_2017_09)
+```
+
+```{r}
+Year = 2017
+Month = "October"
+
+archive_mix_2017_10 <- cbind(archive_mix_2017_10, Year, Month)
+
+head(archive_mix_2017_10)
+```
+
+```{r}
+Year = 2017
+Month = "November"
+
+archive_mix_2017_11 <- cbind(archive_mix_2017_11, Year, Month)
+
+head(archive_mix_2017_11)
+```
+
+```{r}
+Year = 2017
+Month = "December"
+
+archive_mix_2017_12 <- cbind(archive_mix_2017_12, Year, Month)
+
+head(archive_mix_2017_12)
+```
+
+### 2018
+
+```{r}
+Year = 2018
+Month = "January"
+
+archive_mix_2018_01 <- cbind(archive_mix_2018_01, Year, Month)
+
+head(archive_mix_2018_01)
+```
+
+```{r}
+Year = 2018
+Month = "February"
+
+archive_mix_2018_02 <- cbind(archive_mix_2018_02, Year, Month)
+
+head(archive_mix_2018_02)
+```
+
+```{r}
+Year = 2018
+Month = "March"
+
+archive_mix_2018_03 <- cbind(archive_mix_2018_03, Year, Month)
+
+head(archive_mix_2018_03)
+```
+
+```{r}
+Year = 2018
+Month = "April"
+
+archive_mix_2018_04 <- cbind(archive_mix_2018_04, Year, Month)
+
+head(archive_mix_2018_04)
+```
+
+```{r}
+Year = 2018
+Month = "May"
+
+archive_mix_2018_05 <- cbind(archive_mix_2018_05, Year, Month)
+
+head(archive_mix_2018_05)
+```
+
+```{r}
+Year = 2018
+Month = "June"
+
+archive_mix_2018_06 <- cbind(archive_mix_2018_06, Year, Month)
+
+head(archive_mix_2018_06)
+```
+
+```{r}
+Year = 2018
+Month = "July"
+
+archive_mix_2018_07 <- cbind(archive_mix_2018_07, Year, Month)
+
+head(archive_mix_2018_07)
+```
+
+```{r}
+Year = 2018
+Month = "August"
+
+archive_mix_2018_08 <- cbind(archive_mix_2018_08, Year, Month)
+
+head(archive_mix_2018_08)
+```
+
+```{r}
+Year = 2018
+Month = "September"
+
+archive_mix_2018_09 <- cbind(archive_mix_2018_09, Year, Month)
+
+head(archive_mix_2018_09)
+```
+
+```{r}
+Year = 2018
+Month = "October"
+
+archive_mix_2018_10 <- cbind(archive_mix_2018_10, Year, Month)
+
+head(archive_mix_2018_10)
+```
+
+```{r}
+Year = 2018
+Month = "November"
+
+archive_mix_2018_11 <- cbind(archive_mix_2018_11, Year, Month)
+
+head(archive_mix_2018_11)
+```
+
+```{r}
+Year = 2018
+Month = "December"
+
+archive_mix_2018_12 <- cbind(archive_mix_2018_12, Year, Month)
+
+head(archive_mix_2018_12)
+```
+
+
+### 2019
+
+```{r}
+Year = 2019
+Month = "January"
+
+archive_mix_2019_01 <- cbind(archive_mix_2019_01, Year, Month)
+
+head(archive_mix_2019_01)
+```
+
+```{r}
+Year = 2019
+Month = "February"
+
+archive_mix_2019_02 <- cbind(archive_mix_2019_02, Year, Month)
+
+head(archive_mix_2019_02)
+```
+
+```{r}
+Year = 2019
+Month = "March"
+
+archive_mix_2019_03 <- cbind(archive_mix_2019_03, Year, Month)
+
+head(archive_mix_2019_03)
+```
+
+```{r}
+Year = 2019
+Month = "April"
+
+archive_mix_2019_04 <- cbind(archive_mix_2019_04, Year, Month)
+
+head(archive_mix_2019_04)
+```
+
+```{r}
+Year = 2019
+Month = "May"
+
+archive_mix_2019_05 <- cbind(archive_mix_2019_05, Year, Month)
+
+head(archive_mix_2019_05)
+```
+
+```{r}
+Year = 2019
+Month = "June"
+
+archive_mix_2019_06 <- cbind(archive_mix_2019_06, Year, Month)
+
+head(archive_mix_2019_06)
+```
+
+```{r}
+Year = 2019
+Month = "July"
+
+archive_mix_2019_07 <- cbind(archive_mix_2019_07, Year, Month)
+
+head(archive_mix_2019_07)
+```
+
+```{r}
+Year = 2019
+Month = "August"
+
+archive_mix_2019_08 <- cbind(archive_mix_2019_08, Year, Month)
+
+head(archive_mix_2019_08)
+```
+
+```{r}
+Year = 2019
+Month = "September"
+
+archive_mix_2019_09 <- cbind(archive_mix_2019_09, Year, Month)
+
+head(archive_mix_2019_09)
+```
+
+```{r}
+Year = 2019
+Month = "October"
+
+archive_mix_2019_10 <- cbind(archive_mix_2019_10, Year, Month)
+
+head(archive_mix_2019_10)
+```
+
+```{r}
+Year = 2019
+Month = "November"
+
+archive_mix_2019_11 <- cbind(archive_mix_2019_11, Year, Month)
+
+head(archive_mix_2019_11)
+```
+
+```{r}
+Year = 2019
+Month = "December"
+
+archive_mix_2019_12 <- cbind(archive_mix_2019_12, Year, Month)
+
+head(archive_mix_2019_12)
+```
+
+
+### Merging Months
+
+```{r}
+archive_mix_2017_ALL <- rbind(archive_mix_2017_01, archive_mix_2017_02, archive_mix_2017_03, archive_mix_2017_04, archive_mix_2017_05, archive_mix_2017_06, archive_mix_2017_07, archive_mix_2017_08, archive_mix_2017_09, archive_mix_2017_10, archive_mix_2017_11, archive_mix_2017_12)
+
+head(archive_mix_2017_ALL)
+```
+
+```{r}
+archive_mix_2018_ALL <- rbind(archive_mix_2018_01, archive_mix_2018_02, archive_mix_2018_03, archive_mix_2018_04, archive_mix_2018_05, archive_mix_2018_06, archive_mix_2018_07, archive_mix_2018_08, archive_mix_2018_09, archive_mix_2018_10, archive_mix_2018_11, archive_mix_2018_12)
+
+head(archive_mix_2018_ALL)
+```
+
+```{r}
+archive_mix_2019_ALL <- rbind(archive_mix_2019_01, archive_mix_2019_02, archive_mix_2019_03, archive_mix_2019_04, archive_mix_2019_05, archive_mix_2019_06, archive_mix_2019_07, archive_mix_2019_08, archive_mix_2019_09, archive_mix_2019_10, archive_mix_2019_11, archive_mix_2019_12)
+
+head(archive_mix_2019_ALL)
+```
+
+
+### Merging Years
+
+```{r}
+archive_mix_2017_2019_ALL <- rbind(archive_mix_2017_ALL, archive_mix_2018_ALL, archive_mix_2019_ALL)
+
+str(archive_mix_2017_2019_ALL)
+```
+
+```{r}
+unique(archive_mix_2017_2019_ALL$Year)
 ```
 
