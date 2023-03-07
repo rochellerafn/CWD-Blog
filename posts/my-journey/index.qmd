@@ -1,11 +1,11 @@
 ---
 title: "Rochelle Rafn"
-subtitle: "Data Science • Business Intelligence • Leadership • Strategy"
+subtitle: "Data Science • Business Intelligence • Strategy • Leadership"
 date: "2023-02-20"
 categories: [news, code, analysis]
 image: "DSC03110.jpg"
 format:
-  revealjs: 
+  revealjs:
     multiplex: true
     preview-links: true
     scrollable: true
