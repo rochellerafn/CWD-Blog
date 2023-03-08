@@ -395,18 +395,27 @@ head(archive_mix_2019_12)
 ```{r}
 archive_mix_2017_ALL <- rbind(archive_mix_2017_01, archive_mix_2017_02, archive_mix_2017_03, archive_mix_2017_04, archive_mix_2017_05, archive_mix_2017_06, archive_mix_2017_07, archive_mix_2017_08, archive_mix_2017_09, archive_mix_2017_10, archive_mix_2017_11, archive_mix_2017_12)
 
-archive_mix_2017_ALL$Total <- as.numeric(gsub('[$]', '', archive_mix_2017_ALL$Total))
-archive_mix_2017_ALL$Gross.Revenue <- as.numeric(gsub('[$]', '', archive_mix_2017_ALL$Gross.Revenue))
-archive_mix_2017_ALL$Discounts <- as.numeric(gsub('[$]', '', archive_mix_2017_ALL$Discounts))
-archive_mix_2017_ALL$Refund <- as.numeric(gsub('[$]', '', archive_mix_2017_ALL$Refund))
-archive_mix_2017_ALL$Net.Revenue <- as.numeric(gsub('[$]', '', archive_mix_2017_ALL$Net.Revenue))
-archive_mix_2017_ALL$Cost <- as.numeric(gsub('[$]', '', archive_mix_2017_ALL$Cost))
-archive_mix_2017_ALL$Profitability <- as.numeric(gsub('[$]', '', archive_mix_2017_ALL$Profitability))
-archive_mix_2017_ALL$Total <- as.numeric(gsub('[$]', '', archive_mix_2017_ALL$Total))
-archive_mix_2017_ALL$Year <- as.character(archive_mix_2017_ALL$Year)
+sapply(archive_mix_2017_ALL, function(x) sum(is.na(x)))
+
+archive_mix_2017_ALL$Total <- as.numeric(gsub("[^0-9.]", "", archive_mix_2017_ALL$Total))
+archive_mix_2017_ALL$Gross.Revenue <- as.numeric(gsub("[^0-9.]", "", archive_mix_2017_ALL$Gross.Revenue))
+archive_mix_2017_ALL$Discounts <- as.numeric(gsub("[^0-9.]", "", archive_mix_2017_ALL$Discounts))
+archive_mix_2017_ALL$Refund <- as.numeric(gsub("[^0-9.]", "", archive_mix_2017_ALL$Refund))
+archive_mix_2017_ALL$Net.Revenue <- as.numeric(gsub("[^0-9.]", "", archive_mix_2017_ALL$Net.Revenue))
+archive_mix_2017_ALL$Cost <- as.numeric(gsub("[^0-9.]", "", archive_mix_2017_ALL$Cost))
+archive_mix_2017_ALL$Profitability <- as.numeric(gsub("[^0-9.]", "", archive_mix_2017_ALL$Profitability))
+archive_mix_2017_ALL$Total <- as.numeric(gsub("[^0-9.]", "", archive_mix_2017_ALL$Total))
+
+archive_mix_2017_ALL <- archive_mix_2017_ALL %>%
+mutate(Year = as.character("2017"), Month = factor(Month, levels = month.name))
 
 head(archive_mix_2017_ALL)
+
+archive_mix_2017_ALL %>%
+  group_by(Month) %>%
+  summarise(Total = sum(Total))
 ```
+
 
 ```{r}
 archive_mix_2018_ALL <- rbind(archive_mix_2018_01, archive_mix_2018_02, archive_mix_2018_03, archive_mix_2018_04, archive_mix_2018_05, archive_mix_2018_06, archive_mix_2018_07, archive_mix_2018_08, archive_mix_2018_09, archive_mix_2018_10, archive_mix_2018_11, archive_mix_2018_12)
@@ -420,6 +429,9 @@ archive_mix_2018_ALL$Cost <- as.numeric(gsub('[$]', '', archive_mix_2018_ALL$Cos
 archive_mix_2018_ALL$Profitability <- as.numeric(gsub('[$]', '', archive_mix_2018_ALL$Profitability))
 archive_mix_2018_ALL$Total <- as.numeric(gsub('[$]', '', archive_mix_2018_ALL$Total))
 archive_mix_2018_ALL$Year <- as.character(archive_mix_2018_ALL$Year)
+
+archive_mix_2018_ALL <- archive_mix_2018_ALL %>%
+mutate(Year = as.character("2017"), Month = factor(Month, levels = month.name))
 
 head(archive_mix_2018_ALL)
 ```
@@ -437,6 +449,7 @@ archive_mix_2019_ALL$Profitability <- as.numeric(gsub('[$]', '', archive_mix_201
 archive_mix_2019_ALL$Total <- as.numeric(gsub('[$]', '', archive_mix_2019_ALL$Total))
 archive_mix_2019_ALL$Year <- as.character(archive_mix_2019_ALL$Year)
 
+
 head(archive_mix_2019_ALL)
 ```
 
@@ -444,12 +457,13 @@ head(archive_mix_2019_ALL)
 
 ```{r}
 archive_monthly_mix_2017 <- archive_mix_2017_ALL%>%
-  filter(!is.na(Total)) %>%
   group_by(Month) %>%
   summarise(Total=sum(Total))
 
 archive_monthly_mix_2017 <- archive_monthly_mix_2017 %>%
   mutate(Year = as.character("2017"), Month = factor(Month, levels = month.name))
+
+
 
 archive_monthly_mix_2017 %>%
   arrange(Month, Year)
@@ -457,7 +471,6 @@ archive_monthly_mix_2017 %>%
 
 ```{r}
 archive_monthly_mix_2018 <- archive_mix_2018_ALL%>%
-  filter(!is.na(Total)) %>%
   group_by(Month) %>%
   summarise(Total=sum(Total))
 
@@ -468,10 +481,13 @@ archive_monthly_mix_2018 %>%
   arrange(Month, Year)
 ```
 
+```{r}
+
+```
+
 
 ```{r}
 archive_monthly_mix_2019 <- archive_mix_2019_ALL%>%
-  filter(!is.na(Total)) %>%
   group_by(Month) %>%
   summarise(Total=sum(Total))
 
