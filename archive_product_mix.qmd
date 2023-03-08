@@ -541,3 +541,32 @@ head(archive_mix_2017_2019_ALL)
 ```
 
 
+```{r}
+archive_mix_2017_2019_ALL$Item.Name <- gsub("[[:punct:]]", "", archive_mix_2017_2019_ALL$Item.Name)
+archive_mix_2017_2019_ALL[[1]] <- tolower(archive_mix_2017_2019_ALL[[1]])
+
+archive_mix_2017_2019_ALL$Category <- gsub("[[:punct:]]", "", archive_mix_2017_2019_ALL$Category)
+archive_mix_2017_2019_ALL[[2]] <- tolower(archive_mix_2017_2019_ALL[[2]])
+
+head(archive_mix_2017_2019_ALL)
+```
+
+```{r}
+unique(archive_mix_2017_2019_ALL$Category)
+```
+
+```{r}
+archive_mix_categories <- archive_mix_2017_2019_ALL %>%
+  group_by(Year) %>%
+  count(Category) %>%
+  arrange(desc(n))
+
+archive_mix_categories 
+```
+
+```{r}
+ggplot(archive_mix_categories, aes(Category, n))+
+  geom_col()+
+  facet_wrap(~Year)
+```
+
