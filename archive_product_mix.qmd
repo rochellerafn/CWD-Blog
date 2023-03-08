@@ -420,6 +420,16 @@ str(archive_mix_2017_2019_ALL)
 ```
 
 ```{r}
-unique(archive_mix_2017_2019_ALL$Year)
+unique(archive_mix_2017_2019_ALL$Total)
+```
+
+```{r}
+head(archive_mix_2017_2019_ALL)
+```
+
+
+```{r}
+ggplot(archive_mix_2017_2019_ALL, aes(x=Year, y=Total) +
+         geom_line())
 ```
 
