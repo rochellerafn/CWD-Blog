@@ -11,7 +11,7 @@ format:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 
 library(tidyverse)
 library(dplyr)
@@ -48,7 +48,6 @@ or_sales_yearly <- or_sales_yearly %>%
 ### There is a striking consistency to the seasonality of liquor sales year over year.
 ```{r}
 library(MetBrewer)
-install.packages("devtools")
 devtools::install_github("BlakeRMills/MetBrewer")
 
 or_sales_yearly %>%
@@ -108,6 +107,8 @@ ggplot(aes(reorder(COUNTY, -Total.Sales), Total.Sales, fill = COUNTY)) +
   geom_col()+
   scale_y_continuous()+
   theme_void()+
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1, size = 6))+
   facet_wrap(~Year)
 ```
 
@@ -126,6 +127,7 @@ product_sales_2020 <- product_sales_2020 %>%
 ```
 
 
+### Categories of Liquor Type
 ```{r}
 # Different liquor categories
 unique(product_sales_2020$Category)

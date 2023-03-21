@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -200,7 +200,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.0     ✔ readr     2.1.4
 ✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.1     ✔ tibble    3.1.8
+✔ ggplot2   3.4.1     ✔ tibble    3.2.0
 ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
 ✔ purrr     1.0.1     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
@@ -252,15 +252,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_12 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/Users/rochellerafn/RStudio_Files/Archive_Coffee_Bar/Product_Mix_2019-12.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(archive_mix_2017_01)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(archive_mix_2017_12)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   1739 obs. of  13 variables:
- $ Item.Name                 : chr  "64oz Chai Latte" "-- 64oz Chai Latte + Half &amp; Half" "-- 64oz Chai Latte + Regular Whole Milk" "-- 64oz Chai Latte + Almond" ...
+<pre><code>'data.frame':   1761 obs. of  13 variables:
+ $ Item.Name                 : chr  "64oz Vanilla Latte" "-- 64oz Vanilla Latte + Regular Whole Milk" "-- 64oz Vanilla Latte + Half &amp; Half" "-- 64oz Vanilla Latte + Almond" ...
  $ Category                  : chr  "64 oz. Take Home Coffee Drinks" "64 oz. Take Home Coffee Drinks" "64 oz. Take Home Coffee Drinks" "64 oz. Take Home Coffee Drinks" ...
  $ Quantity.Sold             : int  0 0 0 0 0 0 0 0 0 0 ...
  $ Quantity.Refunded         : int  0 0 0 0 0 0 0 0 0 0 ...
  $ Net.Quantity              : int  0 0 0 0 0 0 0 0 0 0 ...
- $ Current.Remaining.Quantity: num  0 0 0 0 0 0 0 0 0 0 ...
+ $ Current.Remaining.Quantity: int  0 0 0 0 0 0 0 0 0 0 ...
  $ Gross.Revenue             : chr  "$0.00" "$0.00" "$0.00" "$0.00" ...
  $ Discounts                 : chr  "$0.00" "$0.00" "$0.00" "$0.00" ...
  $ Refund                    : chr  "$0.00" "$0.00" "$0.00" "$0.00" ...
@@ -270,11 +270,2342 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  $ Total                     : chr  "$0.00" "$0.00" "$0.00" "$0.00" ...</code></pre>
 </div>
 </div>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section">2017</h3>
 <div class="cell">
-
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2017</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"January"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_01 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2017_01, Year, Month)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2017_01)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                Item.Name                       Category
+1                         64oz Chai Latte 64 oz. Take Home Coffee Drinks
+2        -- 64oz Chai Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+3 -- 64oz Chai Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+4             -- 64oz Chai Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Chai Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Chai Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+    Month
+1 January
+2 January
+3 January
+4 January
+5 January
+6 January</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2017</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"February"</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_02 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2017_02, Year, Month)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2017_02)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                     Item.Name                       Category
+1                         64oz The Bee's Knees 64 oz. Take Home Coffee Drinks
+2            -- 64oz The Bee's Knees + Coconut 64 oz. Take Home Coffee Drinks
+3              -- 64oz The Bee's Knees + Oatly 64 oz. Take Home Coffee Drinks
+4             -- 64oz The Bee's Knees + Almond 64 oz. Take Home Coffee Drinks
+5 -- 64oz The Bee's Knees + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+6        -- 64oz The Bee's Knees + Half &amp; Half 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+     Month
+1 February
+2 February
+3 February
+4 February
+5 February
+6 February</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2017</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"March"</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_03 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2017_03, Year, Month)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2017_03)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                Item.Name            Category Quantity.Sold Quantity.Refunded
+1                  Coffee              Coffee          1606                 0
+2                   Tacos              Dinner          1029                 0
+3             Specials II              Coffee           949                 0
+4               Additions              Coffee           876                 0
+5              Cappuccino              Coffee           640                 0
+6 -- Tacos + Chicken Taco Dinner Small Plates           437                 0
+  Net.Quantity Current.Remaining.Quantity Gross.Revenue Discounts Refund
+1         1606                          0     $4,015.00   $161.00  $0.00
+2         1029                          0     $2,058.00   $134.40  $0.00
+3          949                          0     $4,745.00   $154.25  $0.00
+4          876                          0       $563.00    $20.65  $0.00
+5          640                          0     $2,240.00    $73.50  $0.00
+6          437                          0       $874.00    $54.60  $0.00
+  Net.Revenue  Cost Profitability     Total Year Month
+1   $3,854.00 $0.00     $3,854.00 $3,854.00 2017 March
+2   $1,923.60 $0.00     $1,923.60 $1,923.60 2017 March
+3   $4,590.75 $0.00     $4,590.75 $4,590.75 2017 March
+4     $542.35 $0.00       $542.35   $542.35 2017 March
+5   $2,166.50 $0.00     $2,166.50 $2,166.50 2017 March
+6     $819.40 $0.00       $819.40   $819.40 2017 March</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2017</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"April"</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_04 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2017_04, Year, Month)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2017_04)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                     Item.Name                       Category
+1                         64oz The Bee's Knees 64 oz. Take Home Coffee Drinks
+2            -- 64oz The Bee's Knees + Coconut 64 oz. Take Home Coffee Drinks
+3              -- 64oz The Bee's Knees + Oatly 64 oz. Take Home Coffee Drinks
+4             -- 64oz The Bee's Knees + Almond 64 oz. Take Home Coffee Drinks
+5 -- 64oz The Bee's Knees + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+6        -- 64oz The Bee's Knees + Half &amp; Half 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+  Month
+1 April
+2 April
+3 April
+4 April
+5 April
+6 April</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2017</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"May"</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_05 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2017_05, Year, Month)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_05 <span class="ot">&lt;-</span> archive_mix_2017_05[,<span class="sc">-</span><span class="dv">13</span>]</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2017_05)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                   Item.Name                       Category
+1                         64oz Warm &amp; Toasty 64 oz. Take Home Coffee Drinks
+2        -- 64oz Warm &amp; Toasty + Half &amp; Half 64 oz. Take Home Coffee Drinks
+3             -- 64oz Warm &amp; Toasty + Almond 64 oz. Take Home Coffee Drinks
+4              -- 64oz Warm &amp; Toasty + Oatly 64 oz. Take Home Coffee Drinks
+5            -- 64oz Warm &amp; Toasty + Coconut 64 oz. Take Home Coffee Drinks
+6 -- 64oz Warm &amp; Toasty + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+  Month
+1   May
+2   May
+3   May
+4   May
+5   May
+6   May</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2017</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"June"</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_06 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2017_06, Year, Month)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2017_06)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                     Item.Name                       Category
+1                         64oz The Bee's Knees 64 oz. Take Home Coffee Drinks
+2            -- 64oz The Bee's Knees + Coconut 64 oz. Take Home Coffee Drinks
+3              -- 64oz The Bee's Knees + Oatly 64 oz. Take Home Coffee Drinks
+4             -- 64oz The Bee's Knees + Almond 64 oz. Take Home Coffee Drinks
+5 -- 64oz The Bee's Knees + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+6        -- 64oz The Bee's Knees + Half &amp; Half 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+  Month
+1  June
+2  June
+3  June
+4  June
+5  June
+6  June</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2017</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"July"</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_07 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2017_07, Year, Month)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2017_07)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                   Item.Name                       Category
+1                             64oz Cold Brew 64 oz. Take Home Coffee Drinks
+2                         64oz Vanilla Latte 64 oz. Take Home Coffee Drinks
+3 -- 64oz Vanilla Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+4        -- 64oz Vanilla Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+5             -- 64oz Vanilla Latte + Almond 64 oz. Take Home Coffee Drinks
+6            -- 64oz Vanilla Latte + Coconut 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+  Month
+1  July
+2  July
+3  July
+4  July
+5  July
+6  July</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2017</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"August"</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_08 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2017_08, Year, Month)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2017_08)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                     Item.Name                       Category
+1                         64oz The Bee's Knees 64 oz. Take Home Coffee Drinks
+2            -- 64oz The Bee's Knees + Coconut 64 oz. Take Home Coffee Drinks
+3              -- 64oz The Bee's Knees + Oatly 64 oz. Take Home Coffee Drinks
+4             -- 64oz The Bee's Knees + Almond 64 oz. Take Home Coffee Drinks
+5 -- 64oz The Bee's Knees + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+6        -- 64oz The Bee's Knees + Half &amp; Half 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+   Month
+1 August
+2 August
+3 August
+4 August
+5 August
+6 August</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2017</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"September"</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_09 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2017_09, Year, Month)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2017_09)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                   Item.Name                       Category
+1                         64oz Vanilla Latte 64 oz. Take Home Coffee Drinks
+2 -- 64oz Vanilla Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+3        -- 64oz Vanilla Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+4             -- 64oz Vanilla Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Vanilla Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Vanilla Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+      Month
+1 September
+2 September
+3 September
+4 September
+5 September
+6 September</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2017</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"October"</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_10 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2017_10, Year, Month)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2017_10)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                Item.Name                       Category
+1                         64oz Chai Latte 64 oz. Take Home Coffee Drinks
+2        -- 64oz Chai Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+3 -- 64oz Chai Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+4             -- 64oz Chai Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Chai Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Chai Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+    Month
+1 October
+2 October
+3 October
+4 October
+5 October
+6 October</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2017</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"November"</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_11 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2017_11, Year, Month)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2017_11)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                   Item.Name                       Category
+1                         64oz Vanilla Latte 64 oz. Take Home Coffee Drinks
+2 -- 64oz Vanilla Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+3        -- 64oz Vanilla Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+4             -- 64oz Vanilla Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Vanilla Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Vanilla Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+     Month
+1 November
+2 November
+3 November
+4 November
+5 November
+6 November</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2017</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"December"</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_12 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2017_12, Year, Month)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2017_12)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                   Item.Name                       Category
+1                         64oz Vanilla Latte 64 oz. Take Home Coffee Drinks
+2 -- 64oz Vanilla Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+3        -- 64oz Vanilla Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+4             -- 64oz Vanilla Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Vanilla Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Vanilla Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2017
+     Month
+1 December
+2 December
+3 December
+4 December
+5 December
+6 December</code></pre>
+</div>
+</div>
+</section>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1">2018</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2018</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"January"</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_01 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2018_01, Year, Month)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2018_01)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                Item.Name                       Category
+1                         64oz Chai Latte 64 oz. Take Home Coffee Drinks
+2        -- 64oz Chai Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+3 -- 64oz Chai Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+4             -- 64oz Chai Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Chai Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Chai Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+    Month
+1 January
+2 January
+3 January
+4 January
+5 January
+6 January</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2018</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"February"</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_02 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2018_02, Year, Month)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2018_02)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                     Item.Name                       Category
+1                         64oz The Bee's Knees 64 oz. Take Home Coffee Drinks
+2            -- 64oz The Bee's Knees + Coconut 64 oz. Take Home Coffee Drinks
+3              -- 64oz The Bee's Knees + Oatly 64 oz. Take Home Coffee Drinks
+4             -- 64oz The Bee's Knees + Almond 64 oz. Take Home Coffee Drinks
+5 -- 64oz The Bee's Knees + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+6        -- 64oz The Bee's Knees + Half &amp; Half 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+     Month
+1 February
+2 February
+3 February
+4 February
+5 February
+6 February</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2018</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"March"</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_03 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2018_03, Year, Month)</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2018_03)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                     Item.Name                       Category
+1                         64oz The Bee's Knees 64 oz. Take Home Coffee Drinks
+2            -- 64oz The Bee's Knees + Coconut 64 oz. Take Home Coffee Drinks
+3              -- 64oz The Bee's Knees + Oatly 64 oz. Take Home Coffee Drinks
+4             -- 64oz The Bee's Knees + Almond 64 oz. Take Home Coffee Drinks
+5 -- 64oz The Bee's Knees + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+6        -- 64oz The Bee's Knees + Half &amp; Half 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+  Month
+1 March
+2 March
+3 March
+4 March
+5 March
+6 March</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2018</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"April"</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_04 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2018_04, Year, Month)</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2018_04)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                Item.Name                       Category
+1                         64oz Chai Latte 64 oz. Take Home Coffee Drinks
+2        -- 64oz Chai Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+3 -- 64oz Chai Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+4             -- 64oz Chai Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Chai Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Chai Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+  Month
+1 April
+2 April
+3 April
+4 April
+5 April
+6 April</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2018</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"May"</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_05 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2018_05, Year, Month)</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2018_05)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                           Item.Name                       Category
+1                         64oz Latte 64 oz. Take Home Coffee Drinks
+2              -- 64oz Latte + Oatly 64 oz. Take Home Coffee Drinks
+3            -- 64oz Latte + Coconut 64 oz. Take Home Coffee Drinks
+4        -- 64oz Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+5             -- 64oz Latte + Almond 64 oz. Take Home Coffee Drinks
+6 -- 64oz Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+  Month
+1   May
+2   May
+3   May
+4   May
+5   May
+6   May</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2018</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"June"</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_06 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2018_06, Year, Month)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2018_06)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                   Item.Name                       Category
+1                         64oz Vanilla Latte 64 oz. Take Home Coffee Drinks
+2 -- 64oz Vanilla Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+3        -- 64oz Vanilla Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+4             -- 64oz Vanilla Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Vanilla Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Vanilla Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+  Month
+1  June
+2  June
+3  June
+4  June
+5  June
+6  June</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2018</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"July"</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_07 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2018_07, Year, Month)</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2018_07)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                   Item.Name                       Category
+1                         64oz Warm &amp; Toasty 64 oz. Take Home Coffee Drinks
+2        -- 64oz Warm &amp; Toasty + Half &amp; Half 64 oz. Take Home Coffee Drinks
+3             -- 64oz Warm &amp; Toasty + Almond 64 oz. Take Home Coffee Drinks
+4              -- 64oz Warm &amp; Toasty + Oatly 64 oz. Take Home Coffee Drinks
+5            -- 64oz Warm &amp; Toasty + Coconut 64 oz. Take Home Coffee Drinks
+6 -- 64oz Warm &amp; Toasty + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+  Month
+1  July
+2  July
+3  July
+4  July
+5  July
+6  July</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2018</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"August"</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_08 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2018_08, Year, Month)</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2018_08)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                   Item.Name                       Category
+1                         64oz Vanilla Latte 64 oz. Take Home Coffee Drinks
+2 -- 64oz Vanilla Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+3        -- 64oz Vanilla Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+4             -- 64oz Vanilla Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Vanilla Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Vanilla Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+   Month
+1 August
+2 August
+3 August
+4 August
+5 August
+6 August</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2018</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"September"</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_09 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2018_09, Year, Month)</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2018_09)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                Item.Name                       Category
+1                         64oz Chai Latte 64 oz. Take Home Coffee Drinks
+2        -- 64oz Chai Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+3 -- 64oz Chai Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+4             -- 64oz Chai Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Chai Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Chai Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+      Month
+1 September
+2 September
+3 September
+4 September
+5 September
+6 September</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2018</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"October"</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_10 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2018_10, Year, Month)</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2018_10)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                   Item.Name                       Category
+1                             64oz Cold Brew 64 oz. Take Home Coffee Drinks
+2                         64oz Vanilla Latte 64 oz. Take Home Coffee Drinks
+3 -- 64oz Vanilla Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+4        -- 64oz Vanilla Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+5             -- 64oz Vanilla Latte + Almond 64 oz. Take Home Coffee Drinks
+6            -- 64oz Vanilla Latte + Coconut 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+    Month
+1 October
+2 October
+3 October
+4 October
+5 October
+6 October</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2018</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"November"</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_11 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2018_11, Year, Month)</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2018_11)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                   Item.Name                       Category
+1                         64oz Vanilla Latte 64 oz. Take Home Coffee Drinks
+2 -- 64oz Vanilla Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+3        -- 64oz Vanilla Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+4             -- 64oz Vanilla Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Vanilla Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Vanilla Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+     Month
+1 November
+2 November
+3 November
+4 November
+5 November
+6 November</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2018</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"December"</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_12 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2018_12, Year, Month)</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2018_12)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                   Item.Name                       Category
+1                         64oz Vanilla Latte 64 oz. Take Home Coffee Drinks
+2 -- 64oz Vanilla Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+3        -- 64oz Vanilla Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+4             -- 64oz Vanilla Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Vanilla Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Vanilla Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2018
+     Month
+1 December
+2 December
+3 December
+4 December
+5 December
+6 December</code></pre>
+</div>
+</div>
+</section>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2">2019</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2019</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"January"</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_01 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2019_01, Year, Month)</span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2019_01)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                Item.Name                       Category
+1                         64oz Chai Latte 64 oz. Take Home Coffee Drinks
+2        -- 64oz Chai Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+3 -- 64oz Chai Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+4             -- 64oz Chai Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Chai Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Chai Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+    Month
+1 January
+2 January
+3 January
+4 January
+5 January
+6 January</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2019</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"February"</span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_02 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2019_02, Year, Month)</span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2019_02)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                Item.Name                       Category
+1                         64oz Chai Latte 64 oz. Take Home Coffee Drinks
+2        -- 64oz Chai Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+3 -- 64oz Chai Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+4             -- 64oz Chai Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Chai Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Chai Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+     Month
+1 February
+2 February
+3 February
+4 February
+5 February
+6 February</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2019</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"March"</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_03 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2019_03, Year, Month)</span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2019_03)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                     Item.Name                       Category
+1                         64oz The Bee's Knees 64 oz. Take Home Coffee Drinks
+2            -- 64oz The Bee's Knees + Coconut 64 oz. Take Home Coffee Drinks
+3              -- 64oz The Bee's Knees + Oatly 64 oz. Take Home Coffee Drinks
+4             -- 64oz The Bee's Knees + Almond 64 oz. Take Home Coffee Drinks
+5 -- 64oz The Bee's Knees + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+6        -- 64oz The Bee's Knees + Half &amp; Half 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+  Month
+1 March
+2 March
+3 March
+4 March
+5 March
+6 March</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2019</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"April"</span></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_04 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2019_04, Year, Month)</span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2019_04)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                Item.Name                       Category
+1                         64oz Chai Latte 64 oz. Take Home Coffee Drinks
+2        -- 64oz Chai Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+3 -- 64oz Chai Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+4             -- 64oz Chai Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Chai Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Chai Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+  Month
+1 April
+2 April
+3 April
+4 April
+5 April
+6 April</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2019</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"May"</span></span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_05 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2019_05, Year, Month)</span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2019_05)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                   Item.Name                       Category
+1                         64oz Vanilla Latte 64 oz. Take Home Coffee Drinks
+2 -- 64oz Vanilla Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+3        -- 64oz Vanilla Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+4             -- 64oz Vanilla Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Vanilla Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Vanilla Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+  Month
+1   May
+2   May
+3   May
+4   May
+5   May
+6   May</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2019</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"June"</span></span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_06 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2019_06, Year, Month)</span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2019_06)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                     Item.Name                       Category
+1                         64oz The Bee's Knees 64 oz. Take Home Coffee Drinks
+2            -- 64oz The Bee's Knees + Coconut 64 oz. Take Home Coffee Drinks
+3              -- 64oz The Bee's Knees + Oatly 64 oz. Take Home Coffee Drinks
+4             -- 64oz The Bee's Knees + Almond 64 oz. Take Home Coffee Drinks
+5 -- 64oz The Bee's Knees + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+6        -- 64oz The Bee's Knees + Half &amp; Half 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+  Month
+1  June
+2  June
+3  June
+4  June
+5  June
+6  June</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2019</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"July"</span></span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_07 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2019_07, Year, Month)</span>
+<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2019_07)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                   Item.Name                       Category
+1                         64oz Vanilla Latte 64 oz. Take Home Coffee Drinks
+2 -- 64oz Vanilla Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+3        -- 64oz Vanilla Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+4             -- 64oz Vanilla Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Vanilla Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Vanilla Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+  Month
+1  July
+2  July
+3  July
+4  July
+5  July
+6  July</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2019</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"August"</span></span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_08 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2019_08, Year, Month)</span>
+<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2019_08)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                   Item.Name                       Category
+1                         64oz Vanilla Latte 64 oz. Take Home Coffee Drinks
+2 -- 64oz Vanilla Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+3        -- 64oz Vanilla Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+4             -- 64oz Vanilla Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Vanilla Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Vanilla Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+   Month
+1 August
+2 August
+3 August
+4 August
+5 August
+6 August</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2019</span></span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"September"</span></span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_09 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2019_09, Year, Month)</span>
+<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-6"><a href="#cb71-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2019_09)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                Item.Name                       Category
+1                         64oz Chai Latte 64 oz. Take Home Coffee Drinks
+2        -- 64oz Chai Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+3 -- 64oz Chai Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+4             -- 64oz Chai Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Chai Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Chai Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+      Month
+1 September
+2 September
+3 September
+4 September
+5 September
+6 September</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2019</span></span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"October"</span></span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_10 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2019_10, Year, Month)</span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2019_10)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                Item.Name                       Category
+1                         64oz Chai Latte 64 oz. Take Home Coffee Drinks
+2        -- 64oz Chai Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+3 -- 64oz Chai Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+4             -- 64oz Chai Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Chai Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Chai Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+    Month
+1 October
+2 October
+3 October
+4 October
+5 October
+6 October</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2019</span></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"November"</span></span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_11 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2019_11, Year, Month)</span>
+<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2019_11)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                           Item.Name                       Category
+1                         64oz Latte 64 oz. Take Home Coffee Drinks
+2              -- 64oz Latte + Oatly 64 oz. Take Home Coffee Drinks
+3            -- 64oz Latte + Coconut 64 oz. Take Home Coffee Drinks
+4        -- 64oz Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+5             -- 64oz Latte + Almond 64 oz. Take Home Coffee Drinks
+6 -- 64oz Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+     Month
+1 November
+2 November
+3 November
+4 November
+5 November
+6 November</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>Year <span class="ot">=</span> <span class="dv">2019</span></span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>Month <span class="ot">=</span> <span class="st">"December"</span></span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_12 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(archive_mix_2019_12, Year, Month)</span>
+<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2019_12)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                Item.Name                       Category
+1                         64oz Chai Latte 64 oz. Take Home Coffee Drinks
+2        -- 64oz Chai Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+3 -- 64oz Chai Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+4             -- 64oz Chai Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Chai Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Chai Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue  Cost Profitability Total Year
+1         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+2         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+3         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+4         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+5         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+6         $0.00     $0.00  $0.00       $0.00 $0.00         $0.00 $0.00 2019
+     Month
+1 December
+2 December
+3 December
+4 December
+5 December
+6 December</code></pre>
+</div>
+</div>
+</section>
+<section id="merging-months" class="level3">
+<h3 class="anchored" data-anchor-id="merging-months">Merging Months</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_ALL <span class="ot">&lt;-</span> <span class="fu">rbind</span>(archive_mix_2017_01, archive_mix_2017_02, archive_mix_2017_03, archive_mix_2017_04, archive_mix_2017_05, archive_mix_2017_06, archive_mix_2017_07, archive_mix_2017_08, archive_mix_2017_09, archive_mix_2017_10, archive_mix_2017_11, archive_mix_2017_12)</span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_ALL<span class="sc">$</span>Total <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2017_ALL<span class="sc">$</span>Total))</span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_ALL<span class="sc">$</span>Gross.Revenue <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2017_ALL<span class="sc">$</span>Gross.Revenue))</span>
+<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_ALL<span class="sc">$</span>Discounts <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2017_ALL<span class="sc">$</span>Discounts))</span>
+<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_ALL<span class="sc">$</span>Refund <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2017_ALL<span class="sc">$</span>Refund))</span>
+<span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_ALL<span class="sc">$</span>Net.Revenue <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2017_ALL<span class="sc">$</span>Net.Revenue))</span>
+<span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_ALL<span class="sc">$</span>Cost <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2017_ALL<span class="sc">$</span>Cost))</span>
+<span id="cb79-9"><a href="#cb79-9" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_ALL<span class="sc">$</span>Profitability <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2017_ALL<span class="sc">$</span>Profitability))</span>
+<span id="cb79-10"><a href="#cb79-10" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_ALL<span class="sc">$</span>Total <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2017_ALL<span class="sc">$</span>Total))</span>
+<span id="cb79-11"><a href="#cb79-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-12"><a href="#cb79-12" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_ALL <span class="ot">&lt;-</span> archive_mix_2017_ALL <span class="sc">%&gt;%</span></span>
+<span id="cb79-13"><a href="#cb79-13" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.character</span>(<span class="st">"2017"</span>), <span class="at">Month =</span> <span class="fu">factor</span>(Month, <span class="at">levels =</span> month.name))</span>
+<span id="cb79-14"><a href="#cb79-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-15"><a href="#cb79-15" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(archive_mix_2017_ALL, <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 Item.Name                   Category 
+                         0                          0 
+             Quantity.Sold          Quantity.Refunded 
+                         0                          0 
+              Net.Quantity Current.Remaining.Quantity 
+                         0                          0 
+             Gross.Revenue                  Discounts 
+                         0                          0 
+                    Refund                Net.Revenue 
+                         0                          0 
+                      Cost              Profitability 
+                         0                          0 
+                     Total                       Year 
+                         0                          0 
+                     Month 
+                         0 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2017_ALL)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                Item.Name                       Category
+1                         64oz Chai Latte 64 oz. Take Home Coffee Drinks
+2        -- 64oz Chai Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+3 -- 64oz Chai Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+4             -- 64oz Chai Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Chai Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Chai Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue Cost Profitability Total Year
+1             0         0      0           0    0             0     0 2017
+2             0         0      0           0    0             0     0 2017
+3             0         0      0           0    0             0     0 2017
+4             0         0      0           0    0             0     0 2017
+5             0         0      0           0    0             0     0 2017
+6             0         0      0           0    0             0     0 2017
+    Month
+1 January
+2 January
+3 January
+4 January
+5 January
+6 January</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_ALL <span class="sc">%&gt;%</span></span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Month) <span class="sc">%&gt;%</span></span>
+<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Total =</span> <span class="fu">sum</span>(Total))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 2
+   Month      Total
+   &lt;fct&gt;      &lt;dbl&gt;
+ 1 January   50828.
+ 2 February  52611.
+ 3 March     60161.
+ 4 April     62712.
+ 5 May       67779.
+ 6 June      64351.
+ 7 July      68957.
+ 8 August    85086.
+ 9 September 70160.
+10 October   74374.
+11 November  71000.
+12 December  81037.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_ALL <span class="ot">&lt;-</span> <span class="fu">rbind</span>(archive_mix_2018_01, archive_mix_2018_02, archive_mix_2018_03, archive_mix_2018_04, archive_mix_2018_05, archive_mix_2018_06, archive_mix_2018_07, archive_mix_2018_08, archive_mix_2018_09, archive_mix_2018_10, archive_mix_2018_11, archive_mix_2018_12)</span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_ALL<span class="sc">$</span>Total <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2018_ALL<span class="sc">$</span>Total))</span>
+<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_ALL<span class="sc">$</span>Gross.Revenue <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2018_ALL<span class="sc">$</span>Gross.Revenue))</span>
+<span id="cb85-5"><a href="#cb85-5" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_ALL<span class="sc">$</span>Discounts <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2018_ALL<span class="sc">$</span>Discounts))</span>
+<span id="cb85-6"><a href="#cb85-6" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_ALL<span class="sc">$</span>Refund <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2018_ALL<span class="sc">$</span>Refund))</span>
+<span id="cb85-7"><a href="#cb85-7" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_ALL<span class="sc">$</span>Net.Revenue <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2018_ALL<span class="sc">$</span>Net.Revenue))</span>
+<span id="cb85-8"><a href="#cb85-8" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_ALL<span class="sc">$</span>Cost <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2018_ALL<span class="sc">$</span>Cost))</span>
+<span id="cb85-9"><a href="#cb85-9" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_ALL<span class="sc">$</span>Profitability <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2018_ALL<span class="sc">$</span>Profitability))</span>
+<span id="cb85-10"><a href="#cb85-10" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_ALL<span class="sc">$</span>Total <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2018_ALL<span class="sc">$</span>Total))</span>
+<span id="cb85-11"><a href="#cb85-11" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_ALL<span class="sc">$</span>Year <span class="ot">&lt;-</span> <span class="fu">as.character</span>(archive_mix_2018_ALL<span class="sc">$</span>Year)</span>
+<span id="cb85-12"><a href="#cb85-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-13"><a href="#cb85-13" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_ALL <span class="ot">&lt;-</span> archive_mix_2018_ALL <span class="sc">%&gt;%</span></span>
+<span id="cb85-14"><a href="#cb85-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.character</span>(<span class="st">"2018"</span>), <span class="at">Month =</span> <span class="fu">factor</span>(Month, <span class="at">levels =</span> month.name))</span>
+<span id="cb85-15"><a href="#cb85-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-16"><a href="#cb85-16" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(archive_mix_2018_ALL, <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 Item.Name                   Category 
+                         0                          0 
+             Quantity.Sold          Quantity.Refunded 
+                         0                          0 
+              Net.Quantity Current.Remaining.Quantity 
+                         0                          0 
+             Gross.Revenue                  Discounts 
+                         0                          0 
+                    Refund                Net.Revenue 
+                         0                          0 
+                      Cost              Profitability 
+                         0                          0 
+                     Total                       Year 
+                         0                          0 
+                     Month 
+                         0 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2018_ALL)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                Item.Name                       Category
+1                         64oz Chai Latte 64 oz. Take Home Coffee Drinks
+2        -- 64oz Chai Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+3 -- 64oz Chai Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+4             -- 64oz Chai Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Chai Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Chai Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue Cost Profitability Total Year
+1             0         0      0           0    0             0     0 2018
+2             0         0      0           0    0             0     0 2018
+3             0         0      0           0    0             0     0 2018
+4             0         0      0           0    0             0     0 2018
+5             0         0      0           0    0             0     0 2018
+6             0         0      0           0    0             0     0 2018
+    Month
+1 January
+2 January
+3 January
+4 January
+5 January
+6 January</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>archive_mix_2018_ALL <span class="sc">%&gt;%</span></span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Month) <span class="sc">%&gt;%</span></span>
+<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Total =</span> <span class="fu">sum</span>(Total))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 2
+   Month      Total
+   &lt;fct&gt;      &lt;dbl&gt;
+ 1 January   88685.
+ 2 February  69002.
+ 3 March     74728.
+ 4 April     73794.
+ 5 May       80120.
+ 6 June      69112.
+ 7 July      75764.
+ 8 August    81945.
+ 9 September 92335.
+10 October   93693 
+11 November  86840.
+12 December  99634.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_ALL <span class="ot">&lt;-</span> <span class="fu">rbind</span>(archive_mix_2019_01, archive_mix_2019_02, archive_mix_2019_03, archive_mix_2019_04, archive_mix_2019_05, archive_mix_2019_06, archive_mix_2019_07, archive_mix_2019_08, archive_mix_2019_09, archive_mix_2019_10, archive_mix_2019_11, archive_mix_2019_12)</span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_ALL<span class="sc">$</span>Total <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2019_ALL<span class="sc">$</span>Total))</span>
+<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_ALL<span class="sc">$</span>Gross.Revenue <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2019_ALL<span class="sc">$</span>Gross.Revenue))</span>
+<span id="cb91-5"><a href="#cb91-5" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_ALL<span class="sc">$</span>Discounts <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2019_ALL<span class="sc">$</span>Discounts))</span>
+<span id="cb91-6"><a href="#cb91-6" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_ALL<span class="sc">$</span>Refund <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2019_ALL<span class="sc">$</span>Refund))</span>
+<span id="cb91-7"><a href="#cb91-7" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_ALL<span class="sc">$</span>Net.Revenue <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2019_ALL<span class="sc">$</span>Net.Revenue))</span>
+<span id="cb91-8"><a href="#cb91-8" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_ALL<span class="sc">$</span>Cost <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2019_ALL<span class="sc">$</span>Cost))</span>
+<span id="cb91-9"><a href="#cb91-9" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_ALL<span class="sc">$</span>Profitability <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2019_ALL<span class="sc">$</span>Profitability))</span>
+<span id="cb91-10"><a href="#cb91-10" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_ALL<span class="sc">$</span>Total <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"[^0-9.]"</span>, <span class="st">""</span>, archive_mix_2019_ALL<span class="sc">$</span>Total))</span>
+<span id="cb91-11"><a href="#cb91-11" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_ALL<span class="sc">$</span>Year <span class="ot">&lt;-</span> <span class="fu">as.character</span>(archive_mix_2019_ALL<span class="sc">$</span>Year)</span>
+<span id="cb91-12"><a href="#cb91-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb91-13"><a href="#cb91-13" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_ALL <span class="ot">&lt;-</span> archive_mix_2019_ALL <span class="sc">%&gt;%</span></span>
+<span id="cb91-14"><a href="#cb91-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.character</span>(<span class="st">"2019"</span>), <span class="at">Month =</span> <span class="fu">factor</span>(Month, <span class="at">levels =</span> month.name))</span>
+<span id="cb91-15"><a href="#cb91-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb91-16"><a href="#cb91-16" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(archive_mix_2018_ALL, <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 Item.Name                   Category 
+                         0                          0 
+             Quantity.Sold          Quantity.Refunded 
+                         0                          0 
+              Net.Quantity Current.Remaining.Quantity 
+                         0                          0 
+             Gross.Revenue                  Discounts 
+                         0                          0 
+                    Refund                Net.Revenue 
+                         0                          0 
+                      Cost              Profitability 
+                         0                          0 
+                     Total                       Year 
+                         0                          0 
+                     Month 
+                         0 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2019_ALL)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                Item.Name                       Category
+1                         64oz Chai Latte 64 oz. Take Home Coffee Drinks
+2        -- 64oz Chai Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+3 -- 64oz Chai Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+4             -- 64oz Chai Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Chai Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Chai Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue Cost Profitability Total Year
+1             0         0      0           0    0             0     0 2019
+2             0         0      0           0    0             0     0 2019
+3             0         0      0           0    0             0     0 2019
+4             0         0      0           0    0             0     0 2019
+5             0         0      0           0    0             0     0 2019
+6             0         0      0           0    0             0     0 2019
+    Month
+1 January
+2 January
+3 January
+4 January
+5 January
+6 January</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a>archive_mix_2019_ALL <span class="sc">%&gt;%</span></span>
+<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Month) <span class="sc">%&gt;%</span></span>
+<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Total =</span> <span class="fu">sum</span>(Total))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 2
+   Month       Total
+   &lt;fct&gt;       &lt;dbl&gt;
+ 1 January   102816.
+ 2 February   77863.
+ 3 March      94411.
+ 4 April      84548.
+ 5 May        82485.
+ 6 June       80679.
+ 7 July       80758.
+ 8 August     88184.
+ 9 September  89667.
+10 October    95539.
+11 November   86787.
+12 December   92686.</code></pre>
+</div>
+</div>
+</section>
+<section id="total-sales-by-month-by-year" class="level3">
+<h3 class="anchored" data-anchor-id="total-sales-by-month-by-year">Total Sales By Month By Year</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>archive_monthly_mix_2017 <span class="ot">&lt;-</span> archive_mix_2017_ALL<span class="sc">%&gt;%</span></span>
+<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Month) <span class="sc">%&gt;%</span></span>
+<span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Total=</span><span class="fu">sum</span>(Total))</span>
+<span id="cb97-4"><a href="#cb97-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-5"><a href="#cb97-5" aria-hidden="true" tabindex="-1"></a>archive_monthly_mix_2017 <span class="ot">&lt;-</span> archive_monthly_mix_2017 <span class="sc">%&gt;%</span></span>
+<span id="cb97-6"><a href="#cb97-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.character</span>(<span class="st">"2017"</span>))</span>
+<span id="cb97-7"><a href="#cb97-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-8"><a href="#cb97-8" aria-hidden="true" tabindex="-1"></a>archive_monthly_mix_2017 <span class="sc">%&gt;%</span></span>
+<span id="cb97-9"><a href="#cb97-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Month, Year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 3
+   Month      Total Year 
+   &lt;fct&gt;      &lt;dbl&gt; &lt;chr&gt;
+ 1 January   50828. 2017 
+ 2 February  52611. 2017 
+ 3 March     60161. 2017 
+ 4 April     62712. 2017 
+ 5 May       67779. 2017 
+ 6 June      64351. 2017 
+ 7 July      68957. 2017 
+ 8 August    85086. 2017 
+ 9 September 70160. 2017 
+10 October   74374. 2017 
+11 November  71000. 2017 
+12 December  81037. 2017 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a>archive_monthly_mix_2018 <span class="ot">&lt;-</span> archive_mix_2018_ALL<span class="sc">%&gt;%</span></span>
+<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Month) <span class="sc">%&gt;%</span></span>
+<span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Total=</span><span class="fu">sum</span>(Total))</span>
+<span id="cb99-4"><a href="#cb99-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-5"><a href="#cb99-5" aria-hidden="true" tabindex="-1"></a>archive_monthly_mix_2018 <span class="ot">&lt;-</span> archive_monthly_mix_2018 <span class="sc">%&gt;%</span></span>
+<span id="cb99-6"><a href="#cb99-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.character</span>(<span class="st">"2018"</span>))</span>
+<span id="cb99-7"><a href="#cb99-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-8"><a href="#cb99-8" aria-hidden="true" tabindex="-1"></a>archive_monthly_mix_2018 <span class="sc">%&gt;%</span></span>
+<span id="cb99-9"><a href="#cb99-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Month, Year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 3
+   Month      Total Year 
+   &lt;fct&gt;      &lt;dbl&gt; &lt;chr&gt;
+ 1 January   88685. 2018 
+ 2 February  69002. 2018 
+ 3 March     74728. 2018 
+ 4 April     73794. 2018 
+ 5 May       80120. 2018 
+ 6 June      69112. 2018 
+ 7 July      75764. 2018 
+ 8 August    81945. 2018 
+ 9 September 92335. 2018 
+10 October   93693  2018 
+11 November  86840. 2018 
+12 December  99634. 2018 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a>archive_monthly_mix_2019 <span class="ot">&lt;-</span> archive_mix_2019_ALL<span class="sc">%&gt;%</span></span>
+<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Month) <span class="sc">%&gt;%</span></span>
+<span id="cb101-3"><a href="#cb101-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Total=</span><span class="fu">sum</span>(Total))</span>
+<span id="cb101-4"><a href="#cb101-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb101-5"><a href="#cb101-5" aria-hidden="true" tabindex="-1"></a>archive_monthly_mix_2019 <span class="ot">&lt;-</span> archive_monthly_mix_2019 <span class="sc">%&gt;%</span></span>
+<span id="cb101-6"><a href="#cb101-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.character</span>(<span class="st">"2019"</span>))</span>
+<span id="cb101-7"><a href="#cb101-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb101-8"><a href="#cb101-8" aria-hidden="true" tabindex="-1"></a>archive_monthly_mix_2019 <span class="sc">%&gt;%</span></span>
+<span id="cb101-9"><a href="#cb101-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Month, Year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 3
+   Month       Total Year 
+   &lt;fct&gt;       &lt;dbl&gt; &lt;chr&gt;
+ 1 January   102816. 2019 
+ 2 February   77863. 2019 
+ 3 March      94411. 2019 
+ 4 April      84548. 2019 
+ 5 May        82485. 2019 
+ 6 June       80679. 2019 
+ 7 July       80758. 2019 
+ 8 August     88184. 2019 
+ 9 September  89667. 2019 
+10 October    95539. 2019 
+11 November   86787. 2019 
+12 December   92686. 2019 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>archive_monthly_mix_ALL <span class="ot">&lt;-</span> <span class="fu">rbind</span>(archive_monthly_mix_2019, archive_monthly_mix_2018, archive_monthly_mix_2017) </span>
+<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-3"><a href="#cb103-3" aria-hidden="true" tabindex="-1"></a>archive_monthly_mix_ALL <span class="sc">%&gt;%</span></span>
+<span id="cb103-4"><a href="#cb103-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Month, Year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 36 × 3
+   Month      Total Year 
+   &lt;fct&gt;      &lt;dbl&gt; &lt;chr&gt;
+ 1 January   50828. 2017 
+ 2 January   88685. 2018 
+ 3 January  102816. 2019 
+ 4 February  52611. 2017 
+ 5 February  69002. 2018 
+ 6 February  77863. 2019 
+ 7 March     60161. 2017 
+ 8 March     74728. 2018 
+ 9 March     94411. 2019 
+10 April     62712. 2017 
+# … with 26 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(archive_monthly_mix_ALL, <span class="fu">aes</span>(Month, Total, <span class="at">group=</span>Year, <span class="at">color=</span>Year))<span class="sc">+</span></span>
+<span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb105-3"><a href="#cb105-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size=</span>.<span class="dv">7</span>) <span class="sc">+</span></span>
+<span id="cb105-4"><a href="#cb105-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb105-5"><a href="#cb105-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb105-6"><a href="#cb105-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb105-7"><a href="#cb105-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="archive_product_mix_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="merging-years" class="level3">
+<h3 class="anchored" data-anchor-id="merging-years">Merging Years</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_2019_ALL <span class="ot">&lt;-</span> <span class="fu">rbind</span>(archive_mix_2017_ALL, archive_mix_2018_ALL, archive_mix_2019_ALL)</span>
+<span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-3"><a href="#cb107-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(archive_mix_2017_2019_ALL)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   63791 obs. of  15 variables:
+ $ Item.Name                 : chr  "64oz Chai Latte" "-- 64oz Chai Latte + Half &amp; Half" "-- 64oz Chai Latte + Regular Whole Milk" "-- 64oz Chai Latte + Almond" ...
+ $ Category                  : chr  "64 oz. Take Home Coffee Drinks" "64 oz. Take Home Coffee Drinks" "64 oz. Take Home Coffee Drinks" "64 oz. Take Home Coffee Drinks" ...
+ $ Quantity.Sold             : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ Quantity.Refunded         : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ Net.Quantity              : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ Current.Remaining.Quantity: num  0 0 0 0 0 0 0 0 0 0 ...
+ $ Gross.Revenue             : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ Discounts                 : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ Refund                    : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ Net.Revenue               : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ Cost                      : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ Profitability             : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ Total                     : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ Year                      : chr  "2017" "2017" "2017" "2017" ...
+ $ Month                     : Factor w/ 12 levels "January","February",..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(archive_mix_2017_2019_ALL<span class="sc">$</span>Total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   [1]    0.00  598.90  656.50  289.30  218.00  743.40  425.30  576.30  224.70
+  [10]  453.00 1260.20  396.00  139.50  338.00  658.50  113.30  882.00  740.00
+  [19]  821.00  192.00  443.30 3870.03 1750.35  295.00  100.00   50.00   24.00
+  [28]  121.00 1828.13  314.40   18.00  296.40  328.65  454.85  164.40   55.45
+  [37]   25.65  190.20   19.15 4243.25  933.50 1460.50  791.50 1057.75 1006.20
+  [46]  217.20  467.70  364.50   35.00  539.40  306.60  352.00  327.60  208.00
+  [55]  523.20   80.00  434.70  231.00  318.60  161.40   48.00   20.00   55.80
+  [64]   92.70  193.90   74.70   42.90  130.80  101.40   60.00  105.20  105.00
+  [73]   98.40  670.95  114.00    4.00   97.20  108.35   12.45   50.40   45.50
+  [82]    6.00  797.30  383.25   22.40  798.60 1167.95  121.60  368.00  455.00
+  [91]   70.00  200.00  185.00   90.00  313.00   72.00  354.20  387.40  427.50
+ [100]  384.00  151.00  110.00  102.00  142.00  292.00  303.00  344.00   22.00
+ [109]   30.00  210.60   89.40  121.20  577.00  205.10  263.90  108.00  217.65
+ [118]   48.90  150.90  461.40   67.80  217.80   53.55   89.60   87.15  141.90
+ [127]  132.50   62.40  220.80   67.50  352.10   36.00   12.00  315.60  161.00
+ [136]  459.00   28.80   75.00  407.00  210.00  402.20 1261.45  549.30  783.80
+ [145]  512.10  407.80  587.00  447.90  443.10  524.00  190.30  135.00  554.40
+ [154]  845.00  420.00  750.00 1141.20  112.00  468.00  229.90  674.00 1772.55
+ [163] 1766.10  284.20  264.20  229.20  458.00  143.95   48.30   18.50  232.10
+ [172]   15.15  251.00   88.00 3963.00  653.00 1498.00  916.00   85.00  811.00
+ [181]  412.80 1122.00 3620.00  416.50  246.20   81.80   87.40   77.00  303.60
+ [190]  386.50  409.60  315.00  848.40  419.80   71.50  320.40  146.40  126.00
+ [199]  681.40  661.50  303.80  332.20   19.80  150.50   52.80   43.50   18.90
+ [208]  168.00  114.90  104.00   44.00   98.00   42.50    7.50  460.25   85.20
+ [217]  129.75  660.80    8.00  743.70  198.40  468.75 1132.25  367.50  165.00
+ [226]  422.50  157.50  247.00  256.00  445.00  160.00  275.00   10.00  280.00
+ [235]  164.70  120.00  555.00  228.00  149.00   84.00   40.00   25.00  224.00
+ [244]  116.00  322.00   61.00   17.00  317.40  112.80  204.60  435.00  203.00
+ [253]  169.00   63.00   39.90   33.60  356.70   16.10   27.00  132.90   90.90
+ [262]  231.90   37.00   85.80  166.80   61.60  124.80  292.60   57.00  240.00
+ [271]  379.00  205.00  423.60  411.75  182.00 3854.00 1923.60 4590.75  542.35
+ [280] 2166.50  819.40 1444.45 2050.38 1222.80 1826.44  193.55  936.70  575.80
+ [289] 1418.30  280.80  259.60  240.20  422.40  954.88  951.50  570.30  441.00
+ [298]  830.10  806.50  546.70  538.30   74.10 1005.10  503.65  418.50  639.00
+ [307]  796.20  780.00  312.90  365.05  871.20  697.60  634.00  801.30  234.00
+ [316]  592.70  210.90  274.40  578.70  150.25  179.60  106.00  290.00  171.00
+ [325]  332.70  485.00  525.40  187.60  618.00  439.40  153.00  347.10   24.50
+ [334]  147.00  276.38  394.20  141.00  604.80  506.40  244.80  351.45  226.10
+ [343]  156.80  164.00  351.00  394.80  250.00  465.00  132.00  454.90   93.00
+ [352]  376.50  217.00  373.60  113.20  348.00  140.00   65.10  129.50   78.90
+ [361]  157.80   94.50   81.00  278.00  361.00  320.60  133.20  279.60  106.38
+ [370]   89.20   69.00  318.40   66.00  273.00  294.00  111.60  135.20  190.00
+ [379]  187.00   44.70  158.00  230.00   96.00  186.00  285.00   40.80  180.00
+ [388]  260.00   40.60   21.20  198.00  136.50  150.00   45.00   13.50  225.00
+ [397]  128.00   97.50   60.20   16.00   29.00   53.00   15.00   71.00   14.00
+ [406]  618.50 1170.60  504.40  837.20  774.70  343.00  999.20  405.80  841.50
+ [415]  383.40  705.00  492.20 1804.00  451.00  278.40  511.20  139.80  478.80
+ [424]  324.00   91.30  894.00  310.60  270.60 1704.60  523.55  170.60   54.65
+ [433]  265.30    9.00 2190.00 3779.50  471.90  308.00 4330.75  767.50 1986.00
+ [442]  698.00  101.50  777.75 1156.30  609.00 2757.00  689.60  569.20  634.40
+ [451]  863.80  216.00  794.80   55.00  289.00  421.40  266.00  372.60  570.60
+ [460]  307.80   58.00  652.40  238.00  244.40   27.90   42.00  284.90  144.70
+ [469]   81.20   87.00  219.00  104.50  438.55   73.90   14.40   59.50 1466.85
+ [478]  417.75  940.80   28.00  670.25  176.05  380.00  318.00  357.50  110.50
+ [487]   90.70  310.00   56.00  110.70  335.00   65.00   21.00   78.40  176.00
+ [496]  284.00   23.00  430.40   34.00   13.00  115.40  181.40  313.20  148.20
+ [505]  593.00  249.20  109.80  346.50  143.00   57.90  302.75  192.90   81.55
+ [514]  102.90   89.70  172.20   47.70  132.80  438.00  488.80  363.10  223.00
+ [523]  400.40  249.00  541.30  300.50  664.10 1276.90  615.90  451.60  975.80
+ [532]  390.60  972.00  679.20  347.40  383.20  360.00 1625.00  630.00  497.70
+ [541]  333.00 1057.00   33.00  424.60  380.90 1588.05 3536.25  360.90   86.60
+ [550]  274.30  501.65  157.25  271.40 2146.20  241.50   56.50 4585.75  848.50
+ [559] 2162.50  658.00  781.75  588.00  446.40  530.60 1140.90 5434.40 1519.80
+ [568] 1562.00 1033.80 1318.80  263.00  372.80  264.00  502.00  300.00  296.80
+ [577]  101.00  184.00  382.20   61.20  287.10  202.80  273.60  666.90  741.60
+ [586]   75.60   64.80   72.90   96.90  272.80    5.20   94.75  330.05  183.20
+ [595]   45.95   10.95  176.80  204.00  231.60 1749.30  217.60  602.70  478.00
+ [604]  885.00  305.50  412.50  620.00  550.00  342.00  304.00   54.00  154.00
+ [613]  410.00  191.00  166.00  156.00  135.60  321.00  170.10   81.90   86.40
+ [622]  302.70   86.10  201.60   24.90  137.70  159.00  398.65  291.60  319.00
+ [631]  345.00  119.00  211.00  493.00 1070.10  781.20 1048.70  548.90  706.80
+ [640]  321.30  281.80  416.00  941.60  371.00  492.00   94.80  398.70  265.50
+ [649]  816.50  206.10 1165.50   76.00  166.40  199.20  376.20  199.00 1433.70
+ [658]  500.90  156.10   67.30    3.50  477.05  319.50  238.30  556.40 4490.00
+ [667]  529.00 2297.00  572.50  330.00  761.50 3469.53 1103.70 1888.25 2372.60
+ [676]  519.40  353.40  427.40  443.60  628.80   26.40  266.25  377.60  138.60
+ [685]   34.50  588.20  469.00  236.80  152.00  647.40  250.20   99.60   51.90
+ [694]  274.80   41.00  443.70   39.60   69.90  166.60   41.70  100.10  319.55
+ [703]  203.60   35.50    6.45   29.05  265.80  229.60  120.75  640.75  743.10
+ [712]  521.75 1513.75  196.00  371.25  685.00  525.00  175.00  113.75   31.00
+ [721]   99.00  422.00  182.80   82.00  245.30  336.00  283.00  415.60   82.40
+ [730]  212.10  112.40   99.70  505.00  207.00  118.80   82.80    9.90    3.00
+ [739]    7.00  347.65   76.50  199.15   73.05    1.05  320.20  163.20   64.05
+ [748]  724.80   78.00  569.80   62.00  522.90  138.00   99.90    5.00  342.30
+ [757]   49.50   45.90  111.00  288.30  215.60  629.70  614.60  395.00  229.00
+ [766] 1062.90  571.10  893.20 1073.50  803.90  992.50  355.00  422.80  428.00
+ [775]  673.00  979.90 1442.70  258.00  877.50  946.80  752.00  463.00 1828.20
+ [784]   73.20  471.60  806.40 4384.50 2661.00  749.50  724.00  334.60  224.60
+ [793]  442.05  127.35   57.80   14.50  223.90  952.20   11.00 1782.55  204.25
+ [802]   74.25  544.90  663.20  446.60 2949.75 1471.70 2915.00  585.00  477.00
+ [811]  522.80  922.40  711.00  666.00  226.50  406.80   75.90  911.94  125.20
+ [820]  573.20  193.80  410.70  187.80  366.10  151.80  144.00   36.50  186.40
+ [829]  198.80  493.85  436.25 1433.60  713.40  227.50  364.00  575.00  500.00
+ [838]  312.00   67.00  242.00  474.30  285.30  452.80  164.80   12.80  103.80
+ [847]   30.90   39.00   15.90   34.40  290.40   82.10   58.10  118.00   46.00
+ [856]   38.50  430.55  165.55  545.70   83.70   51.00  846.70  637.60   71.60
+ [865]  379.90  136.00  495.90    6.60  268.50   89.05  477.10  334.00  447.60
+ [874]  566.00  283.60  212.80  721.70 1030.70  550.40  302.00  757.20  895.70
+ [883]  730.40 1019.60  200.60  869.00  891.10  536.00  252.70  779.00   25.20
+ [892]  126.50 1076.90  683.50  339.60  650.70  509.60  152.95  246.00    2.00
+ [901]   47.65 2364.25  727.60 1124.70 1661.00 3372.75  314.80   91.60  223.20
+ [910] 5459.00  331.50 3165.00  776.00  193.00  660.50   26.00  607.20  533.75
+ [919] 3321.40  591.00  480.40  510.80  562.40 1176.80  596.70  200.20  272.10
+ [928]  369.00  195.90  206.40  818.94  452.40  532.80  165.60 1094.40  944.10
+ [937]  130.00 1101.00 1294.70   33.20  122.40  372.00  222.00  635.00  291.00
+ [946]  536.20  150.40  282.40  283.20  172.00  376.80  357.20   62.55   19.50
+ [955]   43.05  258.40  188.25  912.60  256.40  410.50  653.80 1619.10  153.40
+ [964]  267.60  605.00   37.50   86.00  448.00  154.40   74.00  387.00  346.00
+ [973]   50.70  542.00  196.80  353.80  532.00  534.60  483.70  656.80  130.40
+ [982]    2.40  195.60   36.90  138.50   68.00   70.50  459.90  260.10   62.10
+ [991]  614.00  282.00  159.20   74.50   17.50   74.55  423.50   83.00  178.50
+[1000]  595.50  117.00  258.60 1165.80  175.80  904.80  337.15  164.15  552.50
+[1009]  235.80  299.70  533.00  260.20  487.00  392.00  305.40  630.90 1475.10
+[1018]  528.80  785.00  706.00  920.80  409.00  472.10 1101.90  941.00  586.80
+[1027] 1053.50  484.80  659.00  976.00  366.70  716.00  543.20 3272.25 1995.00
+[1036]  239.00  163.00 4778.00  461.50 3097.50  978.00   64.50 1029.90  461.60
+[1045]  441.05 2333.45   49.40  497.00  122.35   60.15  457.10  282.10 1732.80
+[1054]  367.00  335.60  293.40  517.50  560.00  571.50  367.20  184.70  145.20
+[1063]  735.60  203.70  497.10  858.60    0.90  326.64  295.20  124.00  118.40
+[1072]   52.00  199.60  289.20  109.00   70.40 1523.20  886.80  316.75  258.50
+[1081]  292.50  660.00  274.00  431.20  174.10   79.70  209.00  564.80  138.40
+[1090]  161.60  212.00  111.50  100.50  672.00  378.40   32.80  469.50  233.10
+[1099] 1079.20  141.60  824.80   84.80  411.20   65.20  103.00  189.00  679.10
+[1108]  183.60   84.90  417.80  115.80   93.10   31.50    6.90  158.70  467.00
+[1117]  331.00  516.70  461.00  174.00  825.30  825.10 1408.60  391.20  599.80
+[1126]  445.40  587.80  573.60  567.70  739.40  631.00 1345.90 1105.30  663.10
+[1135]  709.50  540.00  296.00  636.00  741.50  620.20  649.60 1187.90 1160.40
+[1144]   95.00  298.60  250.60  223.60 2154.25   47.00  350.40 1787.50  476.55
+[1153]  120.60   58.65  218.70    4.50   50.10 4800.50 2233.00 1089.00  770.50
+[1162] 3800.25  607.60 1348.17  130.20  142.10  885.50  132.27 1258.00  285.80
+[1171]  329.40  362.00  801.00  644.00  627.00  102.20  288.00  223.80  898.80
+[1180]  185.40  730.20  483.20  351.30  309.40   95.60  465.20   10.50   49.00
+[1189]  116.80   13.80  926.10  409.25  214.40 1509.40  695.80  460.00  162.00
+[1198]  448.50   38.00  225.50  382.00  377.10   20.70   44.80  233.60   12.90
+[1207]  546.40  100.80   47.20   39.20   20.80  247.50  139.00  108.50  154.05
+[1216]   22.05  514.80   80.50  234.50   93.90  183.80   91.80   57.05  847.20
+[1225]  171.90  147.90  413.40 1475.40  277.80  984.80  184.80  194.00  452.00
+[1234]  413.50  213.30  751.20  906.10  394.00  632.40  778.70  317.00 1038.30
+[1243]  291.50  492.70  190.40  646.00  346.80  518.40 1355.20  399.00  667.20
+[1252] 1199.10 1438.40  486.50 2287.95  456.60  484.03  129.18   39.15  226.90
+[1261]   56.30 3463.25 1833.75  274.50  244.50 1031.40   43.20 5210.50 2086.00
+[1270]  581.00  609.50 1172.00  732.00 1251.60   95.20  821.10  128.10  786.60
+[1279]  179.40  221.00  155.80  230.40  648.20  358.20  808.20  211.50    4.20
+[1288]  818.30  120.80  594.00  378.60  676.00  187.20  162.40  219.10   53.20
+[1297]   69.60  668.00  129.90   31.95   21.45 1424.15  570.15  383.75  855.60
+[1306]  272.00  279.50  252.00  700.00  170.00  400.00  179.20  328.90  148.00
+[1315]  107.00  227.00  183.00  686.00  133.00  289.50  154.50  475.20   58.40
+[1324]   18.40   64.00  484.20  359.10   26.10  113.40   21.90   25.80   11.70
+[1333]  374.40   46.40 1051.00  637.20  232.80  522.20  119.50  231.70   60.55
+[1342]   66.50  220.50  855.30  117.90  388.80  125.05   32.55  107.90  287.00
+[1351]  547.40  237.00  401.00  811.30 1117.30  797.10  457.80  596.80  899.00
+[1360]  650.90  412.20 1151.94 1172.50  690.00  226.40  424.50 1274.90  559.20
+[1369] 1623.00  576.00  397.80 1064.00 1927.80 3438.50  114.20   13.20  177.00
+[1378]  473.10 1948.00 5486.00 1855.00  539.00  736.00 1735.50  580.50  240.50
+[1387]  475.55  138.70   52.95   21.80  206.00    8.50   47.60  169.20  581.70
+[1396]  916.50  899.43  534.10  104.93  625.56  153.80  163.80  188.96  513.20
+[1405]  106.60  722.80  253.00  474.00  668.30  164.50  255.90  363.00 1267.70
+[1414]  564.10  129.00   74.20  241.80  298.40   87.90   29.20   32.00  987.20
+[1423]  106.40 1465.10  758.70  585.20  392.75  487.50  390.00 2965.00  870.00
+[1432]  650.00 1325.00  546.00  429.20   94.00  220.00  464.00  167.50  238.10
+[1441]  449.00  286.00  202.00  115.00  406.00   88.30   14.80   22.80  674.40
+[1450]  382.40   10.40  510.40   66.40  308.80  197.10   64.60  581.10  395.70
+[1459]   46.70   42.70   73.00 1192.80  922.00  110.90  104.65   85.50   18.55
+[1468]   36.05  494.70   81.50  206.50   33.90   70.80  268.10  985.50  237.60
+[1477]  123.90  254.00  989.80  531.60  249.30  273.10  381.00  419.10  614.40
+[1486]  344.50  450.70  576.10  709.40  648.30 1227.10  699.10  372.90  556.50
+[1495] 1236.00  748.00 1085.40  432.00  323.00  335.40  281.50 1261.50 1125.80
+[1504]  868.00  600.00  443.00  488.00  425.70 1145.60  269.30 1659.75  495.30
+[1513] 1028.40   42.20 3742.75  479.70  143.15   39.65 3645.00 2215.00  790.00
+[1522]  424.00  524.65 4704.50 2059.00  635.50  596.00  763.00 1865.15  791.60
+[1531]  174.80  181.60  197.60 1271.20  151.20  786.10  590.66  354.00  470.00
+[1540]  119.40  795.20  255.00  179.50 1338.40  145.60  647.90  180.60  362.80
+[1549]  557.00   25.60  634.60   55.60   54.50   73.80  751.50  675.15  132.40
+[1558] 1229.20  462.00  188.00 1067.40  295.60  420.70  912.80   96.30  347.00
+[1567]  325.00  501.50  298.30  220.05   21.60   38.85   43.80  213.00  815.60
+[1576]   74.40  474.40   26.80    4.80  495.00  107.50  513.50  131.50 1270.00
+[1585]  814.40 1082.70  261.90  168.90  489.00  681.50  324.10  154.70   63.90
+[1594]  517.40  228.10  440.00  773.00  293.80  257.00  706.30 1190.00  433.70
+[1603]  250.70  626.50  194.40  606.60  770.70  415.10  429.00  317.70  616.50
+[1612] 1356.40 1773.20 1436.40  275.30  261.30 1694.00  653.10  948.00   84.40
+[1621]   19.00 3570.75  245.20  476.40  323.50   91.50  431.05  131.40   16.50
+[1630]    6.50   35.45 3668.00  426.50  361.50 1919.05 1063.00  515.00  123.00
+[1639]   21.50  135.50  931.00  682.50   83.30  126.60   87.60  113.60  374.50
+[1648]  734.00  205.80  794.30  615.20  171.50  991.20  221.50  694.90  169.80
+[1657]  248.80   69.20  165.50  544.00  144.90   83.60  398.50 1372.70  728.80
+[1666]  533.40  510.00  370.50  377.00  186.20  328.00  214.60  425.00   78.60
+[1675]  499.00  188.40  170.40  260.05  891.90  247.80  361.20  120.05 1098.80
+[1684]  159.60  750.40  566.85  266.55   90.60  128.70  104.05   46.55  793.00
+[1693]  745.70  185.60  438.70 1501.10  859.30  876.50  776.90  313.70  527.10
+[1702]  349.40  832.80  514.40  167.70  826.00 1522.40 1463.40 1456.60  472.00
+[1711] 2235.80 5194.00  702.50 2780.50  943.00 1113.00 3845.50  255.20 1902.00
+[1720]  542.40  151.10   65.15  243.10   52.65  306.20   28.60  277.60   66.20
+[1729]   31.20  669.25  580.30  147.60  135.80  130.90 1080.80  114.10  752.50
+[1738]   72.80  484.50   72.60  102.40  137.20  584.40  145.00 1531.25  677.95
+[1747]  792.30  436.50  480.20  375.00  276.90  228.80  494.00  728.00  433.50
+[1756]  434.00  122.00  155.00  341.00 1014.40   31.80  726.60  615.60   76.80
+[1765]  311.20  528.00  181.20  582.00  373.00  115.20  158.40  364.80  820.50
+[1774]  178.00  133.10   44.10  484.65   79.50  221.55  234.40   71.05 1230.00
+[1783]  782.40   37.20  174.40  545.05  295.05  113.05  900.30  238.80  396.60
+[1792]  138.90  167.00  598.00  609.10  403.00  624.00  951.20  604.50  689.70
+[1801]  610.30  660.70 1037.60 1301.60 1041.00  689.00  352.80 1097.00  674.70
+[1810]  410.40  458.40 1131.90  694.10 1881.25  285.60   34.60 1940.00  460.20
+[1819] 3463.00  512.00  161.25  225.60   37.65  387.95 1122.90  585.90 4518.95
+[1828]  316.50  195.00  237.80  378.50 1018.00  380.50 1477.65  172.40  180.20
+[1837]   70.60  412.70  470.60   23.40    9.30  242.40  475.60  127.25   70.45
+[1846] 1574.85  400.25  173.20  846.60  725.40  739.00  379.50   37.80   18.20
+[1855]   73.50  252.50  177.80   27.60  156.50  450.50 1049.75  232.30  129.30
+[1864] 1525.20   68.60    8.40  216.80  711.20   46.20  639.30 1243.80  728.70
+[1873]  146.10  515.50  161.45  182.40  342.70  146.70  922.50  240.90  153.90
+[1882]  371.70 1224.00   41.20  160.80  495.40  130.50   27.20  246.70  154.20
+[1891]   10.60  106.55  507.00  489.40  197.00  270.00  647.20  768.40  477.40
+[1900]  230.30  389.40 1144.40  600.90  433.10  322.70 1278.80 1027.00  979.80
+[1909]  306.00  649.00  586.00  743.00  722.40  608.40 1707.65 2142.00 5104.95
+[1918]  485.40  854.70 2908.40  345.50  510.95   57.20  942.30  541.80 3415.25
+[1927] 1330.20  108.65   60.45  480.00 1880.00  476.00  191.60   63.20   63.80
+[1936]  103.60  462.60  108.80  553.00    1.50   92.80  257.20  128.80  421.50
+[1945] 1625.05  614.25  888.00  329.00   32.20  695.00  172.90 2173.50  580.00
+[1954]  485.60  261.67  409.50  716.30  589.00  399.50  606.20  401.10  208.50
+[1963]   23.10  411.50  320.00  299.00  496.60  419.00  452.30 1004.00  198.10
+[1972]   95.90  278.10 1349.60  866.60 1033.46  602.00   59.40    2.16  763.20
+[1981]  392.40  173.70  640.80  508.55  235.55  926.00  567.60    9.20  324.70
+[1990]  198.90   91.00   91.15  340.00  414.00  195.20  233.20  437.40  335.10
+[1999]  450.60  740.70  805.40  391.70  425.10  688.10  832.10  659.20 1122.10
+[2008]  214.70  928.00  405.00  723.00  410.30  563.20  795.60  770.00  297.00
+[2017] 1779.00 1188.60 4734.05  331.80  748.55 2592.15 1056.55 1476.65 3169.00
+[2026]  885.15  444.00  547.35  138.80   46.15   20.50  275.40  475.30  171.20
+[2035]  208.60  252.60  933.00  279.20  401.40  523.90  114.40   46.95   15.45
+[2044]  210.80  270.40 1563.10  419.50  852.00  493.15  188.50  475.00  698.26
+[2053]  261.00  619.00  339.00  278.60  312.30  245.40  338.40  105.70   72.10
+[2062]  608.80 1201.20  894.60   66.60  954.00  420.30  357.00 1156.86  245.70
+[2071]  632.70   56.70   19.26  792.80  156.90   65.05  431.00  216.30  200.70
+[2080]  404.50  311.40 1023.60    1.20  350.50  274.10  162.20  692.20  778.10
+[2089]  494.80  787.40  262.00  834.00 1500.00 1358.10 1261.80  221.40  938.00
+[2098]  223.30  749.00  943.80  949.50  347.70  742.80   20.20 1498.25 1109.25
+[2107]  140.60   49.65   13.65  236.75   41.50 2861.50  451.50  245.00 1000.20
+[2116]  451.15 5363.70  688.60 2999.70 1027.40 1686.48 1695.00  876.20  240.40
+[2125]  284.80  666.60  499.05  255.60 1567.65  807.00  587.15   71.40  706.06
+[2134]    3.30  350.20  698.40  317.80  203.50   23.92  322.30   42.40 1543.00
+[2143]  822.00 1787.20   36.40  288.40   12.60 1267.80  789.20  924.00  407.40
+[2152]  193.20  361.90  106.80 1156.50  140.70   57.40  243.05   39.55  883.60
+[2161]   57.50  664.00  264.30  441.90  108.90   63.75  168.80  313.30  109.60
+[2170]  232.00  798.80  886.20  827.20  414.80  931.40  888.50  255.40 1259.10
+[2179]  702.00  980.00 1507.50 1440.00  869.70  670.00 1051.50  192.50  534.65
+[2188]  145.10   66.30  209.10   48.65  257.50 1899.45  312.10   87.80  224.30
+[2197] 1152.60  560.10 2075.00 5557.15  577.80  773.30 3113.20 1092.85  956.70
+[2206] 3203.00  479.15   58.20   24.20 1229.00  150.60  190.60  770.40  781.00
+[2215]  112.70   54.80   28.50  238.40  265.20  123.75  644.35 1574.65  117.60
+[2224]  450.75  134.00  559.00  605.20  888.80  264.50  276.00 1703.80 1257.20
+[2233]   82.20  596.20    8.70 1494.00  764.90  110.60   76.30   34.30 1105.00
+[2242]  146.00  551.00  754.70  647.00 1380.75  368.20  518.10   52.50  271.60
+[2251]  576.90  903.40  121.80  692.40  603.20  300.90  276.30  106.50  301.00
+[2260]  781.50  687.20 1056.10  334.10  456.00  277.00  944.50  807.80  506.00
+[2269]  530.10 1190.70  277.40  739.20  956.00 1174.80  536.40 1501.65  509.30
+[2278]  897.50  365.10  553.80   67.20  213.60  472.15   25.40    6.40 5094.15
+[2287]  414.60  793.10 3069.70  816.75 1932.00 1825.55  157.00   99.45  504.60
+[2296]  577.45  112.30   34.15 1236.30  724.05 2064.65 3500.25 1338.00  404.40
+[2305]   97.40  149.40  157.60  489.50  665.10  122.50  140.40  369.20   96.40
+[2314]  546.35  434.75  763.50  308.75  233.25 1019.70  746.30  415.00  268.00
+[2323]  248.00  760.20 1730.20 1352.40  414.70  120.40  109.20 1352.00 1283.00
+[2332] 2356.00  236.00   59.00 1809.00  113.00   43.00  305.20  271.70  897.20
+[2341]  211.40  330.95  387.80  104.70  330.30 1161.40  209.40  800.00  565.05
+[2350]  288.05  247.10  387.20  657.20 1259.00  809.40  519.20  709.30  570.20
+[2359]  386.40  796.00   89.80  461.70  709.80  946.00 1028.50  473.40  259.00
+[2368]   94.90  746.90  454.30  784.80  927.60  522.00  344.30   51.60  863.00
+[2377]  934.80  693.00  573.00 1012.80   55.20  318.90   87.45  272.90   41.15
+[2386] 2313.15 6150.85  715.00  248.60 1247.95 3070.10  576.40 2108.00  107.80
+[2395]   25.30   59.90    3.90   17.35   14.05  634.05   54.20    3.20 4428.15
+[2404] 1857.00  607.40  198.20  175.20   10.30   54.40  505.20   32.45    7.95
+[2413]  556.75 1636.25  172.80  873.80  583.45  277.50  125.00  837.00  863.20
+[2422]  701.00  353.60  350.00  221.30  225.80 2045.80  277.30  129.80 1205.20
+[2431]  162.50 1072.30  103.50  516.20  178.30  398.80  201.00  197.80  466.20
+[2440]  529.20  388.00 1678.80 1284.00  736.40  562.10   26.70 1534.00   85.55
+[2449] 1171.00  794.40    7.60  185.20  612.60    2.50  793.20  377.40  322.80
+[2458]  136.80  186.55    2.70  434.20  715.80  564.00  733.80  657.00  214.00
+[2467]  462.50  471.20  638.00  391.60  756.00  732.60 1200.00 1073.60 1154.60
+[2476]  983.00  385.00  619.30 2414.30 1979.00  282.50  116.50 5938.35 1041.70
+[2485] 2536.05  699.60  268.30  240.30  506.25 4348.40  555.75  102.10   89.35
+[2494]    5.50  944.70  434.35  142.20  161.80 1025.60  676.80    7.30   88.80
+[2503]   15.30   98.70 1544.90  550.90  743.50  660.60  282.80  673.20  678.60
+[2512]  526.40  854.80  463.50  330.40  102.30  124.30   65.70  294.40 1697.30
+[2521]   82.50 1037.30  123.20   47.30  262.50  235.00 1568.40  171.60   63.60
+[2530] 1138.80 1370.00  415.20  211.20  772.80   66.90   36.30  932.80  179.30
+[2539]  508.20    6.80    1.80  911.70  189.90  446.10  548.60  326.55   92.05
+[2548]  143.50 1311.60  903.60  201.80   62.70  392.80  105.60  640.00  554.20
+[2557]  544.40 1066.20  893.60  494.40  177.60  530.90  229.50  744.00  565.10
+[2566]  625.10  286.70  159.50  135.30  617.40  691.20  218.40  786.00  195.80
+[2575]  949.30  456.50  507.60  263.70  236.70  787.20  365.70 6132.50  920.70
+[2584] 1882.10 2478.30  851.40  347.50   86.50 2039.50 1081.20 3889.45  253.20
+[2593]  213.20 2192.05  553.33  101.53  221.80   47.50   25.50    3.60  391.30
+[2602]  359.40  146.80  344.70  273.30   75.50   35.60  197.50  668.20  517.30
+[2611] 1571.15  543.30  229.65  128.15  698.63  390.30  408.00  243.00   15.70
+[2620]  676.20  358.80  754.50 3175.00  960.00  900.00 1250.00   91.20  786.40
+[2629]  535.50  246.40  516.10  173.00  466.00  336.80   92.00  153.30 1763.00
+[2638] 1614.80  910.80  148.50 1712.40  110.40 1329.60  493.90  189.30  672.30
+[2647]   56.40  522.60   46.80 2117.80  259.80 1039.60  392.85  305.55  466.95
+[2656]  225.85    8.05   84.55   98.35   32.70 1109.80  479.25  595.80  350.80
+[2665]  447.00  265.00   70.10  496.40  218.80  321.90  470.40  191.40  484.30
+[2674]  354.10  232.70  459.60  769.50 1025.20 1257.30  316.80  559.90 1415.70
+[2683]  591.60  328.20  430.00 2390.00  892.00 1195.00  404.80 5000.05  788.15
+[2692] 1237.50 2351.25  623.15  345.70 3942.70  498.30   76.35  224.80   47.45
+[2701]    1.00 1010.40 1917.50  610.00  254.40  224.40 1954.75 3049.20  369.60
+[2710]  386.10 1008.00  345.80   90.80  111.20  143.80  338.80  333.90   70.20
+[2719]   80.20   43.60  533.20  142.50   84.50   16.95   67.55  735.00 1070.05
+[2728]  587.20 1549.80  558.60  284.30  783.90   89.55  486.75  599.75  685.80
+[2737]  708.90 2529.00 1755.00  103.20   90.40 1460.00 1872.00  635.60  590.00
+[2746]  504.00  469.70   26.50  679.00  718.00  126.42 1218.80  706.20   69.30
+[2755] 1585.20   58.80    7.20 1254.00  582.30  548.50  165.80   53.80 1097.33
+[2764]  126.40  522.50   80.30  256.30  695.40   58.50   61.80   39.30   24.60
+[2773]  816.20  449.20 1348.90  312.55  611.10  215.25 1945.90  816.40   49.20
+[2782]  428.10  389.10  327.40  672.10  504.80  920.50  219.80  590.20  182.30
+[2791]  661.00  580.80 1047.20  378.00  552.00 1034.50  906.00 1915.50  267.50
+[2800]  905.70  373.20 4671.43  923.18 1230.90 2039.95  488.90   92.90  197.90
+[2809]   56.80   33.10 3547.50 1614.20  356.65  980.50  489.80  160.60  363.60
+[2818]  324.90   48.80   40.50 1464.40  680.50   67.60   88.20  348.70  501.00
+[2827]  443.40  599.20  222.30  450.00  389.20  543.48  332.40  694.28  670.32
+[2836]   49.80  308.50  134.40  568.00 1371.70  597.30  214.50  253.40  546.30
+[2845]  665.00  144.80  591.80 1773.60   45.60 1443.60  685.50   38.70   38.10
+[2854] 1165.00 1274.70  375.55  257.60  430.85  210.70   75.40  541.20  297.20
+[2863]  176.70 2085.75  283.80  884.40  437.85  411.05  119.90  333.10  383.00
+[2872]  371.90  471.50  871.00  973.30  935.70   95.30  187.40 1026.00  237.90
+[2881]  434.40 1510.30  703.00 1162.50 1123.20  107.60  222.40  963.00   71.90
+[2890] 1197.40   54.60  234.90 3866.30  478.50  196.50 1861.50  414.75  589.25
+[2899]  142.35   98.65  230.10   23.50   38.65  736.20 5269.25  787.60 1229.25
+[2908] 2647.70  311.30 2087.60  407.10  648.80  206.60  225.20 1511.00  374.00
+[2917]  413.10  502.80   90.45  402.40  626.00  990.85  141.20   75.20 1529.15
+[2926]  696.85  348.40  561.96  202.08   15.60  905.52  444.20  761.60  445.90
+[2935]  473.00  313.60  824.40  631.80   48.60   35.70 1426.00  296.20  133.80
+[2944] 2035.20  235.20 1492.80 1202.30  669.90  333.60  657.90  789.50 1928.80
+[2953]  366.30  960.30  174.90   31.30 2109.80  301.80  943.60  428.85  262.35
+[2962]  520.55   11.55  201.05  128.40 1148.75  198.50  172.55  603.60  358.00
+[2971]  207.30  265.70  292.63  437.00  340.70  546.60 1006.50  759.00  316.10
+[2980]  144.20  222.70  303.50  829.50 1191.50 1402.00  239.40  476.30 1430.40
+[2989]  520.00  433.20  514.00 1314.00  702.90 4511.30  360.80  415.25  542.30
+[2998]  465.85 2690.65   34.65  716.85 3538.20 1689.50 1015.50  452.10  629.50
+[3007]   99.95  122.70  289.40   41.95 2068.15  740.20  278.80  265.60 1471.00
+[3016]  412.00   45.20   80.55  131.25  557.75  618.80 1077.05    4.55 1572.03
+[3025]  499.20  393.90  242.20  573.58  390.24  841.68  403.17 1121.52  307.36
+[3034]  406.90  137.00  458.90  267.30  508.00  476.80 1815.60 1344.00  964.70
+[3043]  592.90   20.90   37.40  627.90  483.90   17.70  219.20   87.20 1792.20
+[3052]  127.60 1056.00 1269.00  637.00  588.50   87.50  612.20  261.20 2130.15
+[3061]  878.70    7.80  478.35  101.70 1051.05  283.50  134.05  362.20  122.30
+[3070]  704.00  284.50  359.60  450.40  491.20  709.00  159.10  293.30 1156.20
+[3079] 1015.70 1382.40  334.40 1173.00 1161.00 1273.00  235.30  152.80  318.50
+[3088]  111.15  284.70   30.15   46.30  305.00 1032.30 1576.00  967.80 1966.65
+[3097] 4455.00  587.40  710.05 2992.55 3086.60  293.00  303.20   77.80  111.80
+[3106]  166.20   22.30  600.25  149.20 1410.45  124.20  845.90   24.15 1491.35
+[3115]  547.20  411.60  100.20  412.32  637.80  850.80  781.44  498.10  416.20
+[3124]  484.44   51.50  269.60 1199.00  300.30   94.60 1497.10   68.20  615.00
+[3133]  437.70  538.20  642.50 1182.33 1540.70 1123.10  553.20  521.20  731.60
+[3142]  545.00  461.90  529.55  151.50 1865.00  323.40  986.40  859.60  185.50
+[3151]  441.10  226.00  177.10  375.20  322.10  609.30  625.40  149.70  797.60
+[3160]  348.10  408.80  684.70  349.70  876.10  997.00  520.30  365.40  334.80
+[3169] 1460.40 1232.10 1476.00  125.15  273.90 2701.00 4380.65  664.60  514.25
+[3178] 2558.60 1689.10  961.20  117.20  140.30 2345.80  306.30 1442.00  597.50
+[3187] 1389.50   30.20  819.90  619.40   82.60  116.40  290.60 1169.00   17.30
+[3196]  168.40   23.60 1526.20  267.80  113.85  873.95  500.75  704.40  562.45
+[3205] 1447.25    5.90  326.20   68.90 1014.96 1054.08  355.40  611.40  589.90
+[3214]  215.00   93.80  614.70 1743.60   38.40 1316.40 1173.70  278.30  212.30
+[3223]  698.10  528.30 1287.00  708.00 1421.20  795.30   14.30  385.20 1638.95
+[3232]  298.20  882.40  739.55  284.55  152.10  281.10  418.10  383.50  199.80
+[3241]  291.40  550.60  510.90  656.20  519.10 1152.80 1010.65  994.80  189.20
+[3250]  570.00  251.90  379.20  690.20  975.30 4761.50  690.80  523.80  418.00
+[3259]  666.05 2384.25 1078.20 2763.25  651.20 1328.10  125.45 2711.20   96.60
+[3268]  130.30 1442.50  549.35   98.75   98.15   27.50   45.45 1763.65 1516.00
+[3277]  216.40  253.60  439.20   79.60  521.10 1535.45  520.75  626.85 1396.00
+[3286]  261.95  125.10  779.90   15.05  463.45  936.12  421.23  304.37  436.00
+[3295] 1152.09   79.00  597.00 1618.10  853.60  999.90  734.40  572.40  431.40
+[3304] 1744.80  123.60   60.80 1566.70  885.20  362.70  361.80  642.60  191.10
+[3313]  359.00  287.30   98.10  389.60  325.50  223.50  207.40 1300.90  512.90
+[3322]  627.60  791.30  490.00  574.80  281.60 1314.50 1999.00 1119.00  984.20
+[3331] 1482.30  243.80   59.20  184.60   98.25  117.35  253.10   36.10  302.50
+[3340]  201.50 1107.00 3081.25  730.95 1512.80 3031.50 1914.85 5261.75  502.20
+[3349]  511.50  870.65 2894.10  345.10  636.80  179.00  231.80  560.40  530.00
+[3358]  143.40    0.50  150.80 1657.60  605.25  728.20  691.25 1516.25  330.85
+[3367]  801.90  330.73  745.08  517.48  456.80  283.78  128.50  314.00 1718.20
+[3376]  295.90  940.50  156.20  363.50  728.10  208.80   80.40 1304.40 1395.00
+[3385]  619.50   23.70  702.80  228.20 1680.50  301.20  825.60  439.60  383.10
+[3394]  245.90  127.00  210.30 1100.90  772.70  373.10  248.30  621.60  237.50
+[3403]  494.10  398.00  724.60  366.00 1134.00  936.00  495.60 1470.00  302.60
+[3412]  385.70 1135.80 1807.50 4359.95  451.55  289.80  276.10  610.50 2358.95
+[3421] 1729.85  364.65  891.20  545.40  267.40  227.40 1988.00  404.70  991.50
+[3430] 3335.30  554.75  104.35  115.65   20.15 1024.00  500.20  391.00  601.20
+[3439]   52.40   27.40  319.20  759.75  764.80 1510.15  155.60  177.20  274.95
+[3448]  116.55  778.85 1844.85  358.60   96.50  397.33  648.44  281.40   92.40
+[3457]  205.66  736.78 1826.40 1294.80  708.60   52.20  531.30   16.80 1699.50
+[3466]  950.40  116.60 1053.80  250.80  434.50  182.60  655.90 1343.00  239.80
+[3475]  163.60  341.90  276.80  470.70  418.80  523.00  348.80  224.55   77.60
+[3484]  357.40  789.80  199.50  308.30  391.90   77.20  197.20  433.90 1848.55
+[3493]  271.80 1029.20   50.25  296.90  177.90  327.00  262.20  683.20  352.90
+[3502]  621.90  395.10  456.30  884.50  808.50  535.20  430.10  416.90  294.50
+[3511]  815.10  878.00 1610.10  704.70 1245.60 1095.00 1142.90  384.80 5571.95
+[3520]  668.25  817.85  977.40  669.35  431.75 1949.75 3661.90  921.80  226.60
+[3529]  357.70 1148.70 2301.60  638.55  117.15  129.40    7.10   30.65 2074.00
+[3538]  270.45  294.90   26.60 1548.00  628.60  218.20  332.10  777.00   50.85
+[3547]   19.35  138.25   24.80    8.15    3.80    0.30    0.15 2179.80  112.60
+[3556]    8.80  828.00 1533.20   29.15  289.25  805.20  692.75  697.90  739.50
+[3565]  672.64  238.64 1249.92  826.50  128.08  233.00  141.70  332.00 1650.00
+[3574]  955.90   30.80  577.30 2098.80 1610.40  965.20  218.90   31.90  492.80
+[3583]  572.00  812.10   42.30  660.90 1276.00  256.80 1035.90  286.40   59.60
+[3592] 2184.10 1220.00  538.60  574.10  265.90  412.30  279.00  430.70  610.90
+[3601]  300.10  291.10  484.00  689.30  485.10  706.40  295.30 1099.20 1439.50
+[3610]  782.00    5.40 1046.00 1503.00  880.00  483.60  620.45  114.65  140.65
+[3619]   51.65   30.50 2055.55  244.90  224.90  340.55 1069.20  677.10  149.60
+[3628]  193.50 3177.00 5514.75 1053.25  618.75  520.85 1757.30 1549.00 1281.00
+[3637]  568.20  163.40  208.40  549.00   34.80   57.60  121.50 1439.80  651.85
+[3646] 2025.10    6.70    0.60  726.40  476.75  327.50  235.50  779.10  453.80
+[3655]  800.10 1113.60  291.83  756.56  165.90  129.60  148.90  257.40   32.50
+[3664]  151.75    8.60    8.65 1445.40 1851.60  243.60 1368.00  547.80 1227.00
+[3673]  558.00  334.20  671.40   86.90 1996.95  915.60  577.35 1066.45  249.55
+[3682]  165.05  437.20  153.65  157.20  835.00  392.20  791.40  833.50   86.80
+[3691]  288.10  675.30  153.60  351.50  352.20  586.40  640.50  447.10  561.00
+[3700] 1018.80 1205.50  399.60  442.00  487.30  866.00  578.60 1414.80  147.50
+[3709]  544.55   89.85  230.20   18.80 2076.90 3010.80  879.30  512.25  122.65
+[3718]   18.60 1555.00  309.05 5881.30 1090.65  398.20  583.55  432.30 1934.35
+[3727]  836.00  290.70   29.70   40.90 1932.70 1181.80  183.95   77.40  591.35
+[3736]  626.40  502.25  530.25 1290.00 2290.00  875.00  704.20  129.78 1039.68
+[3745]  578.10  707.20  518.00 1720.70  112.20  965.00  541.50   11.95 1119.30
+[3754]  234.30  137.50  574.20 1722.00  375.60 1087.20  229.80   35.40  582.60
+[3763] 1491.33 1035.75  421.60 1882.35   77.85  468.90  409.40  411.00  353.00</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2017_2019_ALL)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                Item.Name                       Category
+1                         64oz Chai Latte 64 oz. Take Home Coffee Drinks
+2        -- 64oz Chai Latte + Half &amp; Half 64 oz. Take Home Coffee Drinks
+3 -- 64oz Chai Latte + Regular Whole Milk 64 oz. Take Home Coffee Drinks
+4             -- 64oz Chai Latte + Almond 64 oz. Take Home Coffee Drinks
+5            -- 64oz Chai Latte + Coconut 64 oz. Take Home Coffee Drinks
+6              -- 64oz Chai Latte + Oatly 64 oz. Take Home Coffee Drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue Cost Profitability Total Year
+1             0         0      0           0    0             0     0 2017
+2             0         0      0           0    0             0     0 2017
+3             0         0      0           0    0             0     0 2017
+4             0         0      0           0    0             0     0 2017
+5             0         0      0           0    0             0     0 2017
+6             0         0      0           0    0             0     0 2017
+    Month
+1 January
+2 January
+3 January
+4 January
+5 January
+6 January</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_2019_ALL<span class="sc">$</span>Item.Name <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"[[:punct:]]"</span>, <span class="st">""</span>, archive_mix_2017_2019_ALL<span class="sc">$</span>Item.Name)</span>
+<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_2019_ALL[[<span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">tolower</span>(archive_mix_2017_2019_ALL[[<span class="dv">1</span>]])</span>
+<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_2019_ALL<span class="sc">$</span>Category <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"[[:punct:]]"</span>, <span class="st">""</span>, archive_mix_2017_2019_ALL<span class="sc">$</span>Category)</span>
+<span id="cb113-5"><a href="#cb113-5" aria-hidden="true" tabindex="-1"></a>archive_mix_2017_2019_ALL[[<span class="dv">2</span>]] <span class="ot">&lt;-</span> <span class="fu">tolower</span>(archive_mix_2017_2019_ALL[[<span class="dv">2</span>]])</span>
+<span id="cb113-6"><a href="#cb113-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-7"><a href="#cb113-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(archive_mix_2017_2019_ALL)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                             Item.Name                      Category
+1                      64oz chai latte 64 oz take home coffee drinks
+2          64oz chai latte  half  half 64 oz take home coffee drinks
+3  64oz chai latte  regular whole milk 64 oz take home coffee drinks
+4              64oz chai latte  almond 64 oz take home coffee drinks
+5             64oz chai latte  coconut 64 oz take home coffee drinks
+6               64oz chai latte  oatly 64 oz take home coffee drinks
+  Quantity.Sold Quantity.Refunded Net.Quantity Current.Remaining.Quantity
+1             0                 0            0                          0
+2             0                 0            0                          0
+3             0                 0            0                          0
+4             0                 0            0                          0
+5             0                 0            0                          0
+6             0                 0            0                          0
+  Gross.Revenue Discounts Refund Net.Revenue Cost Profitability Total Year
+1             0         0      0           0    0             0     0 2017
+2             0         0      0           0    0             0     0 2017
+3             0         0      0           0    0             0     0 2017
+4             0         0      0           0    0             0     0 2017
+5             0         0      0           0    0             0     0 2017
+6             0         0      0           0    0             0     0 2017
+    Month
+1 January
+2 January
+3 January
+4 January
+5 January
+6 January</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(archive_mix_2017_2019_ALL<span class="sc">$</span>Category)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "64 oz take home coffee drinks" "beer"                         
+ [3] "beerwine"                      "brunchlunch"                  
+ [5] "cocktails"                     "coffee"                       
+ [7] "dinner"                        "dinner entrees"               
+ [9] "dinner small plates"           "lunch"                        
+[11] "other drinks"                  "pastries"                     
+[13] "retail"                        "seasonal"                     
+[15] "speakeasy"                     "spirits"                      
+[17] "staples"                       "tea"                          
+[19] "wine"                          "eclipse drinks"               
+[21] "eclipse food"                  "casino night"                 
+[23] "potions"                       "tacos"                        
+[25] "star wars food"                "star wars day drinks"         
+[27] "star wars drinks"              "star wars treats"             </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>archive_mix_categories <span class="ot">&lt;-</span> archive_mix_2017_2019_ALL <span class="sc">%&gt;%</span></span>
+<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year) <span class="sc">%&gt;%</span></span>
+<span id="cb117-3"><a href="#cb117-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Category) <span class="sc">%&gt;%</span></span>
+<span id="cb117-4"><a href="#cb117-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span>
+<span id="cb117-5"><a href="#cb117-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-6"><a href="#cb117-6" aria-hidden="true" tabindex="-1"></a>archive_mix_categories </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 65 × 3
+# Groups:   Year [3]
+   Year  Category      n
+   &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;
+ 1 2018  spirits    8093
+ 2 2019  spirits    8091
+ 3 2017  spirits    8088
+ 4 2019  dinner     3686
+ 5 2018  dinner     3668
+ 6 2017  dinner     3644
+ 7 2018  cocktails  1977
+ 8 2019  cocktails  1959
+ 9 2017  cocktails  1911
+10 2018  speakeasy  1477
+# … with 55 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(archive_mix_categories, <span class="fu">aes</span>(Category, n))<span class="sc">+</span></span>
+<span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()<span class="sc">+</span></span>
+<span id="cb119-3"><a href="#cb119-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="archive_product_mix_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid" width="672"></p>
+</div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
