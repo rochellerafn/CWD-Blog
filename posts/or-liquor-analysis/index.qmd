@@ -177,7 +177,7 @@ liquor_sales_plot <- ggplot(product_total_sales_2020, aes(reorder(Category, -Tot
         plot.background = element_blank(),
         legend.position = "none")+
   scale_fill_met_d("Signac")+
-  labs(title = "Total Revenue by Liquor Type",
+  labs(title = "Total Revenue Sold by Liquor Type",
         y = "Total Sales (in dollars)",
         x = "Liquor Type")+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
