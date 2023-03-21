@@ -168,11 +168,8 @@ product_total_sales_2020 <- product_sales_2020 %>%
 product_total_sales_2020 <- product_total_sales_2020 %>%
   rename("Total_Sales" = "sum(Total_Sales)") %>%
   arrange(desc(Total_Sales))
-```
 
-
-### Total sales revenue by liquor type in 2020
-```{r}
+# Plotting Liquor Type Total Sales Revenue
 liquor_sales_plot <- ggplot(product_total_sales_2020, aes(reorder(Category, -Total_Sales), Total_Sales, group = Category, fill = Category))+
   geom_col(stat = "identity")+
   scale_y_continuous(labels = scales::comma)+
@@ -180,13 +177,11 @@ liquor_sales_plot <- ggplot(product_total_sales_2020, aes(reorder(Category, -Tot
         plot.background = element_blank(),
         legend.position = "none")+
   scale_fill_met_d("Signac")+
-  labs(y = "Total Sales (in dollars)",
-       x = "Liquor Type")+
+  labs(title = "Total Revenue by Liquor Type",
+        y = "Total Sales (in dollars)",
+        x = "Liquor Type")+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-```
 
-
-```{r}
 # Focusing on total number of units sold by liquor type
 product_total_count_2020 <- product_sales_2020 %>%
   group_by(Category) %>%
@@ -195,11 +190,8 @@ product_total_count_2020 <- product_sales_2020 %>%
 product_total_count_2020 <- product_total_count_2020 %>%
   rename("Total_Units_Sold" = "sum(Units_Sold)") %>%
   arrange(desc(Total_Units_Sold))
-```
 
-
-### Number of units sold in 2020 by liquor type
-```{r}
+# Plotting Liquor Type Total Units Sold
 liquor_units_plot <- ggplot(product_total_count_2020, aes(reorder(Category, -Total_Units_Sold), Total_Units_Sold, group = Category, fill = Category))+
   geom_col(stat = "identity")+
   scale_y_continuous(labels = scales::comma)+
@@ -207,12 +199,13 @@ liquor_units_plot <- ggplot(product_total_count_2020, aes(reorder(Category, -Tot
         plot.background = element_blank(),
         legend.position = "none")+
   scale_fill_met_d("Signac")+
-  labs(y = "Total Units Sold",
-       x = "Liquor Type")+
+  labs(title = "Total Units Sold by Liquor Type",
+        y = "Total Units Sold",
+        x = "Liquor Type")+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 ```
 
-### Looking at 2020 Liquor Sales Revenue vs. Units Sold
+### Looking at 2020 Revenue vs. Units Sold Based on Liquor Type
 ```{r}
 library(gridExtra)
 
