@@ -64,6 +64,31 @@ ggplot(aes(Month, Total.Sales, group = Year, color = Year)) +
        y = "Total Sales (in dollars)")
 ```
 
+
+### Animated Graph
+```{r}
+# Watching the shape of year over year shift up
+
+library(plotly)
+
+or_sales_yearly_graph <- or_sales_yearly %>%
+  filter(Year < 2023) %>%
+ggplot(aes(Month, Total.Sales, group = Year, color = Year, frame = Year)) +
+  geom_line(stat = "identity")+
+  scale_y_continuous(labels = scales::comma)+
+  theme(panel.background = element_blank(),
+        plot.background = element_blank(),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+        legend.position = "none")+
+  scale_color_met_d("Klimt")+
+  labs(title = "Seasonality of Oregonian's Liquor Consumption is Consistent",
+       subtitle = "Total Liquor Sales in Oregon",
+       y = "Total Sales (in dollars)")
+
+ggplotly(or_sales_yearly_graph)
+```
+
+
 ### Sales for liquor in Oregon is continuing to grow year over year.
 ```{r}
 or_sales_yearly %>%
