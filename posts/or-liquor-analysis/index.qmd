@@ -65,7 +65,7 @@ ggplot(aes(Month, Total.Sales, group = Year, color = Year)) +
 ```
 
 
-### Animated Graph
+### Same Graph... Animated
 ```{r}
 # Watching the shape of year over year shift up
 
