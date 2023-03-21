@@ -45,7 +45,7 @@ or_sales_yearly <- or_sales_yearly %>%
 ```
 
 
-### There is a striking consistency to the seasonality of liquor sales year over year
+### There is a striking consistency to the seasonality of liquor sales year over year.
 ```{r}
 library(MetBrewer)
 install.packages("devtools")
