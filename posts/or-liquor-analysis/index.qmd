@@ -26,6 +26,12 @@ library(lubridate)
 ```
 
 
+# The Oregon Liquor Industry
+
+I will be working on an analysis of the liquor industry in Oregon. At this time Oregon is still a controlled state. This means that all liquor must be sold to and distributed by the State of Oregon.
+
+I gathered publicly available data from the State of Oregon website that specifies total liquor sales by county and store from 2017 - 2023.
+
 ```{r}
 or_sales <- read.csv('/Users/rochellerafn/RStudio_Files/liquor-analysis/OR-Liquor-Sales-Store.csv')
 
@@ -45,7 +51,8 @@ or_sales_yearly <- or_sales_yearly %>%
 ```
 
 
-### There is a striking consistency to the seasonality of liquor sales year over year.
+#### There is a striking consistency to the seasonality of liquor sales year over year.
+
 ```{r}
 library(MetBrewer)
 devtools::install_github("BlakeRMills/MetBrewer")
