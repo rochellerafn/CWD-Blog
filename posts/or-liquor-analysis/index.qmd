@@ -173,7 +173,7 @@ product_total_sales_2020 <- product_total_sales_2020 %>%
 
 ### Total sales revenue by liquor type in 2020
 ```{r}
-ggplot(product_total_sales_2020, aes(reorder(Category, -Total_Sales), Total_Sales, group = Category, fill = Category))+
+liquor_sales_plot <- ggplot(product_total_sales_2020, aes(reorder(Category, -Total_Sales), Total_Sales, group = Category, fill = Category))+
   geom_col(stat = "identity")+
   scale_y_continuous(labels = scales::comma)+
   theme(panel.background = element_blank(),
@@ -200,7 +200,7 @@ product_total_count_2020 <- product_total_count_2020 %>%
 
 ### Number of units sold in 2020 by liquor type
 ```{r}
-ggplot(product_total_count_2020, aes(reorder(Category, -Total_Units_Sold), Total_Units_Sold, group = Category, fill = Category))+
+liquor_units_plot <- ggplot(product_total_count_2020, aes(reorder(Category, -Total_Units_Sold), Total_Units_Sold, group = Category, fill = Category))+
   geom_col(stat = "identity")+
   scale_y_continuous(labels = scales::comma)+
   theme(panel.background = element_blank(),
@@ -211,3 +211,11 @@ ggplot(product_total_count_2020, aes(reorder(Category, -Total_Units_Sold), Total
        x = "Liquor Type")+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 ```
+
+### Looking at 2020 Liquor Sales Revenue vs. Units Sold
+```{r}
+library(gridExtra)
+
+grid.arrange(liquor_sales_plot, liquor_units_plot, nrow = 1)
+```
+
