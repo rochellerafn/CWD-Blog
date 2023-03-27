@@ -72,7 +72,7 @@ ggplot(aes(Month, Total.Sales, group = Year, color = Year)) +
 ```
 
 
-### Same Graph... Animated
+#### Same Graph... Animated
 ```{r}
 # Watching the shape of year over year shift up
 
@@ -96,7 +96,7 @@ ggplotly(or_sales_yearly_graph)
 ```
 
 
-### Sales for liquor in Oregon is continuing to grow year over year.
+#### Sales for liquor in Oregon is continuing to grow year over year.
 ```{r}
 or_sales_yearly %>%
   filter(Year < 2023) %>%
@@ -132,7 +132,7 @@ or_county_sales <- or_county_sales %>%
   arrange(desc(Total.Sales))
 ```
 
-### Looking at total liquor sales by county
+#### Looking at total liquor sales by county
 ```{r}
 or_county_sales %>%
 ggplot(aes(reorder(COUNTY, -Total.Sales), Total.Sales, fill = COUNTY)) +
@@ -159,7 +159,7 @@ product_sales_2020 <- product_sales_2020 %>%
 ```
 
 
-### Categories of Liquor Type
+#### Categories of Liquor Type
 ```{r}
 # Different liquor categories
 unique(product_sales_2020$Category)
@@ -212,7 +212,7 @@ liquor_units_plot <- ggplot(product_total_count_2020, aes(reorder(Category, -Tot
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 ```
 
-### Looking at 2020 Revenue vs. Units Sold Based on Liquor Type
+#### Looking at 2020 Revenue vs. Units Sold Based on Liquor Type
 ```{r}
 library(gridExtra)
 
