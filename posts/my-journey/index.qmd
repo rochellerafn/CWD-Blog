@@ -80,10 +80,23 @@ Executive Director
 
 ## How it All Began
 
-- Chose to use Square back in 2013 when it was primarily used as a mobile payment option. Why? Because I saw the value in the cloud based data storage
-- Eventually used raw data to research and develope my own metrics and analysis. 
-- Built my own data tables, visualizations and dashboards from scratch for my own internal knowledge as well as reports for our investors, bank and real estate agent when we decide to pursue selling the business
+Chose to use Square back in 2013 when it was primarily used as a mobile payment option. Why? Because I saw the value in the cloud based data storage
 
+
+## How it All Began
+Eventually used raw data to research and develop my own metrics and analysis.
+
+![](2023-Bio-Deck.004.jpeg)
+
+## How it All Began
+Eventually used raw data to research and develop my own metrics and analysis.
+
+![](2023-Bio-Deck.006.jpeg)
+
+## How it All Began
+Built my own data tables, visualizations and dashboards from scratch
+
+![](2023-Bio-Deck.008.jpeg)
 
 ## Education
 
@@ -117,7 +130,9 @@ Willamette University
 
 Data Analysis & Visualization
 
-![](2022 - MSDS Capstone Highlights GIF.gif)
+Better Tools and experience with "Big Data" 
+
+![H&M Customer Analysis | 31 million Data Points](2022 - MSDS Capstone Highlights GIF.gif)
 
 
 ## What I Bring
