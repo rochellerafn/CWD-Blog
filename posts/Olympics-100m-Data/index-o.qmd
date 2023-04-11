@@ -220,8 +220,8 @@ women100m_graph <- oly_women_100m %>%
 women100m_graph
 ```
 
-
-# Looking at the full Men's 100m distribution of all heats from Stockholm 1912 to Rio de Janeiro 2016, including major historical events. 
+## Men's 100m All Heats
+Looking at the full Men's 100m distribution of all heats from Stockholm 1912 to Rio de Janeiro 2016, including major historical events. There are a few interesting things going on here. You'll notice that times slowed down after the large break due to WWII and also the ban on PEDs. Another interesting thing that would have been missed without this information is that the gold medal is *not* always the fastest time.  
 
 ```{r}
 # Rio de Janeiro 2016
@@ -373,8 +373,8 @@ mens_100m_box <- ggplot()+
                      labels = c("1912", "1920", "1928", "1936", "1944", "1952", "1960", "1968", "1976", "1984", "1992", "2000", "2008", "2016"))+
   geom_hline(yintercept = 1967, size = 1, color = "oldlace", linetype = 'dotted')+
   geom_rect(aes(xmin=9.25, xmax=12.75, ymin=1939, ymax=1945), fill="oldlace", color = "oldlace", linetype = "dotted", alpha = 0.2, size = 0.8)+
-  geom_text(aes(9.5, 1933.5), label = "World War II", size = 4.2, family = "Courier-Bold", color = "white")+
-  geom_text(aes(9.5, 1972), label = "PEDs Banned", size = 4.2, family = "Courier-Bold", color = "white")
+  geom_text(aes(9.5, 1928), label = "World War II", size = 4.2, family = "Courier-Bold", color = "white")+
+  geom_text(aes(9.5, 1977), label = "PEDs Banned", size = 4.2, family = "Courier-Bold", color = "white")
 
 mens_100m_box
 ```
