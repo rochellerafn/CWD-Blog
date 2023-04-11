@@ -19,6 +19,9 @@ library(tidyverse)
 library(ggplot2)
 library(dplyr)
 library(gt)
+
+mens_100m_all <- read.csv("/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/mens_100m_all.csv") %>%
+  select(Year, Host.City, Host.Country, Rank, Time, Athlete, Nation, Notes)
 ```
 
 
@@ -217,4 +220,157 @@ women100m_graph <- oly_women_100m %>%
 women100m_graph
 ```
 
+
+# Looking at the full Men's 100m distribution of all heats from Stockholm 1912 to Rio de Janeiro 2016, including major historical events. 
+
+```{r}
+# Rio de Janeiro 2016
+rio_men_100m_all <- mens_100m_all %>%
+  filter(Year == 2016)
+
+# Beijing 2008
+bei_men_100m_all <- mens_100m_all %>%
+  filter(Year == 2008)
+
+# London 2012
+lon12_men_100m_all <- mens_100m_all %>%
+  filter(Year == 2012)
+
+# Athens 2004
+ath_men_100m_all <- mens_100m_all %>%
+  filter(Year == 2004)
+
+# Sydney 2000
+syd_men_100m_all <- mens_100m_all %>%
+  filter(Year == 2000)
+
+# Atlanta 1996
+atl_men_100m_all <- mens_100m_all %>%
+  filter(Year == 1996)
+
+# Barcelona 1992
+bar_men_100m <- mens_100m_all %>%
+  filter(Year == 1992)
+
+# Seoul 1988
+seo_men_100m <- mens_100m_all %>%
+  filter(Year == 1988)
+
+# Los Angeles 1984
+los_men_100m <- mens_100m_all %>%
+  filter(Year == 1984)
+
+# Moscow 1980
+mos_men_100m <- mens_100m_all %>%
+  filter(Year == 1980)
+
+# Montreal 1976
+mon_men_100m <- mens_100m_all %>%
+  filter(Year == 1976)
+
+# Munich 1972
+mun_men_100m <- mens_100m_all %>%
+  filter(Year == 1972)
+
+# Mexico City 1968
+mex_men_100m <- mens_100m_all %>%
+  filter(Year == 1968)
+
+# Tokyo 1964
+tok_men_100m <- mens_100m_all %>%
+  filter(Year == 1964)
+
+# Rome 1960
+rom_men_100m <- mens_100m_all %>%
+  filter(Year == 1960)
+
+# Melbourne 1956 
+mel_men_100m <- mens_100m_all %>%
+  filter(Year == 1956)
+
+# Helsinki 1952 
+hel_men_100m <- mens_100m_all %>%
+  filter(Year == 1952)
+
+# London 1948 
+lon48_men_100m <- mens_100m_all %>%
+  filter(Year == 1948)
+
+# Berlin 1936 
+ber_men_100m <- mens_100m_all %>%
+  filter(Year == 1936)
+
+# Los Angeles 1932
+los32_men_100m <- mens_100m_all %>%
+  filter(Year == 1932)
+
+# Amsterdam 1928
+ams_men_100m <- mens_100m_all %>%
+  filter(Year == 1928)
+
+# Paris 1924
+par_men_100m <- mens_100m_all %>%
+  filter(Year == 1924)
+
+# Antwerp 1920
+ant_men_100m <- mens_100m_all %>%
+  filter(Year == 1920)
+
+# Stockholm 1912
+sto_men_100m <- mens_100m_all %>%
+  filter(Year == 1912)
+```
+
+
+```{r}
+mens_100m_box <- ggplot()+
+  geom_boxplot(data = rio_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = bei_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = lon12_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = ath_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = syd_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = atl_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = bar_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = seo_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = los_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = mos_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = mon_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = mun_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = mex_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = tok_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = rom_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = mel_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = hel_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = lon48_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = ber_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = los32_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = ams_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = par_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = ant_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_boxplot(data = sto_men_100m_all, aes(Time, Year), fill = "oldlace")+
+  geom_point(data = mens_100m_gold, aes(Time, Year, color = "Rank"), color = "yellow", size=2)+
+  coord_flip()+
+  theme(panel.background = element_rect(fill = "#00CCFF"), 
+        plot.background = element_rect(fill = "#00CCFF"),
+        panel.grid.major.y = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        plot.title = element_text(family = "Courier-Bold", color = "grey20"),
+        plot.subtitle = element_text(color = "grey20", family = "Courier"),
+        axis.text = element_text(color = "grey20", family = "Courier"),
+        axis.title = element_text(color = "grey20", family = "Courier-Bold"),
+        axis.ticks = element_blank())+
+  labs(title = "Are Humans Collectively Gaining Speed?",
+       subtitle = "100 Years of Mens 100m Race Times at the Olympics")+
+  scale_x_continuous("Time (in seconds)", limits = c(9.25,12.75), expand = c(0,0))+
+  scale_y_continuous(breaks = c(1912, 1920, 1928, 1936, 1944, 1952, 1960, 1968, 1976, 1984, 1992, 2000, 2008, 2016),
+                     labels = c("1912", "1920", "1928", "1936", "1944", "1952", "1960", "1968", "1976", "1984", "1992", "2000", "2008", "2016"))+
+  geom_hline(yintercept = 1967, size = 1, color = "oldlace", linetype = 'dotted')+
+  geom_rect(aes(xmin=9.25, xmax=12.75, ymin=1939, ymax=1945), fill="oldlace", color = "oldlace", linetype = "dotted", alpha = 0.2, size = 0.8)+
+  geom_text(aes(9.5, 1933.5), label = "World War II", size = 4.2, family = "Courier-Bold", color = "white")+
+  geom_text(aes(9.5, 1972), label = "PEDs Banned", size = 4.2, family = "Courier-Bold", color = "white")
+
+mens_100m_box
+```
 
