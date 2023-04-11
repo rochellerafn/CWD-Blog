@@ -1,5 +1,6 @@
 ---
 title: "Oregon Liquor Analysis"
+subtitle: "Exploration of the Liquor Purchasing Habits in Oregon"
 author: "Rochelle Rafn"
 date: "2023-03-20"
 categories: [news, code, analysis, visualization]
@@ -17,6 +18,7 @@ library(tidyverse)
 library(dplyr)
 library(ggplot2)
 library(lubridate)
+library(gt)
 ```
 
 
@@ -25,6 +27,7 @@ library(lubridate)
 #| code-summary: "Show Code"
 ```
 
+![](DSC_0325.jpg){width=75%}
 
 # The Oregon Liquor Industry
 
@@ -51,6 +54,7 @@ or_sales_yearly <- or_sales_yearly %>%
 ```
 
 
+
 #### There is a striking consistency to the seasonality of liquor sales year over year.
 
 ```{r}
@@ -72,7 +76,9 @@ ggplot(aes(Month, Total.Sales, group = Year, color = Year)) +
 ```
 
 
+
 #### Same Graph... Animated
+
 ```{r}
 # Watching the shape of year over year shift up
 
@@ -96,7 +102,9 @@ ggplotly(or_sales_yearly_graph)
 ```
 
 
-#### Sales for liquor in Oregon is continuing to grow year over year.
+
+#### Sales for liquor in Oregon is continuing to grow year over year
+
 ```{r}
 or_sales_yearly %>%
   filter(Year < 2023) %>%
@@ -110,6 +118,8 @@ ggplot(aes(Year, Total.Sales, fill = Year, color = Year))+
   labs(y = "Total Sales (in dollars)")
 ```
 
+
+#### Looking at total liquor sales by county
 
 ```{r}
 # Creating a table focused on total sales by store location
@@ -132,7 +142,7 @@ or_county_sales <- or_county_sales %>%
   arrange(desc(Total.Sales))
 ```
 
-#### Looking at total liquor sales by county
+
 ```{r}
 or_county_sales %>%
 ggplot(aes(reorder(COUNTY, -Total.Sales), Total.Sales, fill = COUNTY)) +
@@ -143,6 +153,7 @@ ggplot(aes(reorder(COUNTY, -Total.Sales), Total.Sales, fill = COUNTY)) +
         axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1, size = 6))+
   facet_wrap(~Year)
 ```
+
 
 
 ```{r}
@@ -159,12 +170,23 @@ product_sales_2020 <- product_sales_2020 %>%
 ```
 
 
-#### Categories of Liquor Type
+
 ```{r}
 # Different liquor categories
-unique(product_sales_2020$Category)
+product_sales_2020 %>%
+  select(Category)%>%
+  unique() %>%
+  arrange(Category) %>%
+   gt() %>%
+  tab_header(title = "Liquor Type") %>%
+  tab_source_note(
+    source_note = "Source: OLCC"
+  ) %>%
+    gtExtras::gt_theme_espn()
 ```
 
+
+#### Looking at 2020 Revenue vs. Units Sold Based on Liquor Type
 
 ```{r}
 # Grouping Category so I can analyze total sales by liquor type
@@ -212,7 +234,8 @@ liquor_units_plot <- ggplot(product_total_count_2020, aes(reorder(Category, -Tot
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 ```
 
-#### Looking at 2020 Revenue vs. Units Sold Based on Liquor Type
+
+
 ```{r}
 library(gridExtra)
 
