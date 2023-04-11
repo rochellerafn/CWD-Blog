@@ -39,6 +39,27 @@ From Business Owner to aspiring Data Scientist
 
 :::: {.columns}
 ::: {.column width="50%"}
+![](Rafns Logo NEW.png){width=50%}
+
+Co-Owner & General Manager
+
+2012-2021
+- Overall Operations & Management
+- Data Management, Strategy & Implementation
+- HR, Employee Management
+- Visual Branding, Marketing & Communications
+
+:::
+::: {.column width="50%"}
+![](4N7A1525.jpg)
+
+:::
+::::
+
+## Work Experience
+
+:::: {.columns}
+::: {.column width="50%"}
 ![](logo-mock-c-dark@1x.png){width=50%}
 
 Executive Director
@@ -56,3 +77,33 @@ Executive Director
 
 :::
 ::::
+
+## Education
+
+:::: {.columns}
+::: {.column width="50%"}
+
+Dual Master's Degrees
+Willamette University
+
+Atkinson Graduate School of Management, MBA — 2022
+Data Analysis, Statistics
+Leadership, Strategy
+Accounting, Finance
+Operations
+
+
+Master’s in Data Science — 2023
+Exploratory Data Analysis
+Visualization
+SQL, R, Python
+Machine Learning
+Market Research
+
+:::
+::: {.column width="50%"}
+![](220827-Portraits-9.jpg)
+
+:::
+::::
+
