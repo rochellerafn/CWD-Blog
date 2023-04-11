@@ -249,76 +249,81 @@ atl_men_100m_all <- mens_100m_all %>%
   filter(Year == 1996)
 
 # Barcelona 1992
-bar_men_100m <- mens_100m_all %>%
+bar_men_100m_all <- mens_100m_all %>%
   filter(Year == 1992)
 
 # Seoul 1988
-seo_men_100m <- mens_100m_all %>%
+seo_men_100m_all <- mens_100m_all %>%
   filter(Year == 1988)
 
 # Los Angeles 1984
-los_men_100m <- mens_100m_all %>%
+los_men_100m_all <- mens_100m_all %>%
   filter(Year == 1984)
 
 # Moscow 1980
-mos_men_100m <- mens_100m_all %>%
+mos_men_100m_all <- mens_100m_all %>%
   filter(Year == 1980)
 
 # Montreal 1976
-mon_men_100m <- mens_100m_all %>%
+mon_men_100m_all <- mens_100m_all %>%
   filter(Year == 1976)
 
 # Munich 1972
-mun_men_100m <- mens_100m_all %>%
+mun_men_100m_all <- mens_100m_all %>%
   filter(Year == 1972)
 
 # Mexico City 1968
-mex_men_100m <- mens_100m_all %>%
+mex_men_100m_all <- mens_100m_all %>%
   filter(Year == 1968)
 
 # Tokyo 1964
-tok_men_100m <- mens_100m_all %>%
+tok_men_100m_all <- mens_100m_all %>%
   filter(Year == 1964)
 
 # Rome 1960
-rom_men_100m <- mens_100m_all %>%
+rom_men_100m_all <- mens_100m_all %>%
   filter(Year == 1960)
 
 # Melbourne 1956 
-mel_men_100m <- mens_100m_all %>%
+mel_men_100m_all <- mens_100m_all %>%
   filter(Year == 1956)
 
 # Helsinki 1952 
-hel_men_100m <- mens_100m_all %>%
+hel_men_100m_all <- mens_100m_all %>%
   filter(Year == 1952)
 
 # London 1948 
-lon48_men_100m <- mens_100m_all %>%
+lon48_men_100m_all <- mens_100m_all %>%
   filter(Year == 1948)
 
 # Berlin 1936 
-ber_men_100m <- mens_100m_all %>%
+ber_men_100m_all <- mens_100m_all %>%
   filter(Year == 1936)
 
 # Los Angeles 1932
-los32_men_100m <- mens_100m_all %>%
+los32_men_100m_all <- mens_100m_all %>%
   filter(Year == 1932)
 
 # Amsterdam 1928
-ams_men_100m <- mens_100m_all %>%
+ams_men_100m_all <- mens_100m_all %>%
   filter(Year == 1928)
 
 # Paris 1924
-par_men_100m <- mens_100m_all %>%
+par_men_100m_all <- mens_100m_all %>%
   filter(Year == 1924)
 
 # Antwerp 1920
-ant_men_100m <- mens_100m_all %>%
+ant_men_100m_all <- mens_100m_all %>%
   filter(Year == 1920)
 
 # Stockholm 1912
-sto_men_100m <- mens_100m_all %>%
+sto_men_100m_all <- mens_100m_all %>%
   filter(Year == 1912)
+
+# Gold Medals
+mens_100m_gold <- mens_100m_all %>%
+  filter(Rank == "Gold")%>%
+  group_by(Year, Rank)
 ```
 
 
