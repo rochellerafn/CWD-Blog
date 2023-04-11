@@ -10,7 +10,7 @@ format:
     preview-links: true
     scrollable: true
     html-math-method: katex
-    incremental: true
+    incremental: false
     slide-number: c/t
     transition: convex
     code-fold: true
@@ -87,25 +87,24 @@ Executive Director
 
 ## Education
 
+Willamette University
+
 :::: {.columns}
 ::: {.column width="50%"}
 
-Dual Master's Degrees
-Willamette University
+### Atkinson Graduate School of Management, MBA — 2022
+- Graduated with Atkinson Honors
+- Data Analysis, Statistics
+- Leadership, Strategy
+- Accounting, Finance
+- Operations
 
-Atkinson Graduate School of Management, MBA — 2022
-Data Analysis, Statistics
-Leadership, Strategy
-Accounting, Finance
-Operations
-
-
-Master’s in Data Science — 2023
-Exploratory Data Analysis
-Visualization
-SQL, R, Python
-Machine Learning
-Market Research
+### Master’s in Data Science — 2023
+- Exploratory Data Analysis
+- Visualization
+- SQL, R, Python
+- Machine Learning
+- Market Research
 
 :::
 ::: {.column width="50%"}
@@ -120,3 +119,25 @@ Data Analysis & Visualization
 
 ![](2022 - MSDS Capstone Highlights GIF.gif)
 
+
+## What I Bring
+
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- Dedicated, Hardworking, Ownership
+- Creative Problem Solver, Composed
+- High-quality work
+- 2015 Sustainable Small Business of the Year
+- 5-Star Rating — TripAdvisor
+- 100% Health Department scores
+- Graduating with Atkinson Honors (3.8+ GPA)
+- Excellent Client & Communication skills (100% Customer Satisfaction Rating)
+- Inherently Curious, Lifelong Learner
+
+:::
+::: {.column width="50%"}
+![](DSC03188.jpg)
+:::
+::::
