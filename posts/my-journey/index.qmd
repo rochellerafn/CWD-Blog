@@ -84,17 +84,18 @@ Chose to use Square back in 2013 when it was primarily used as a mobile payment 
 
 
 ## How it All Started
-Eventually used raw data to research and develop my own metrics and analysis.
+I eventually used raw data to research and develop my own data frames and metrics.
 
-![](2023-Bio-Deck.004.jpeg)
+![](2023-Bio-Deck-Slide-05.gif)
 
 ## How it All Started
-Eventually used raw data to research and develop my own metrics and analysis.
+With those metrics I created my own data analysis and visualizations.
+![](2023-Bio-Deck.004.jpeg)
 
 ![](2023-Bio-Deck.006.jpeg)
 
 ## How it All Started
-Built my own data tables, visualizations and dashboards from scratch
+Overtime I continued to create more data tables, visualizations and dashboards from scratch
 
 ![](2023-Bio-Deck.008.jpeg)
 
