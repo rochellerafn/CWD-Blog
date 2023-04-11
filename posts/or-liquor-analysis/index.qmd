@@ -140,10 +140,8 @@ or_county_sales <- or_sales %>%
 or_county_sales <- or_county_sales %>%
   rename("Total.Sales" = "sum(Total.Sales)") %>%
   arrange(desc(Total.Sales))
-```
 
-
-```{r}
+# Visualizing the sales by county
 or_county_sales %>%
 ggplot(aes(reorder(COUNTY, -Total.Sales), Total.Sales, fill = COUNTY)) +
   geom_col()+
