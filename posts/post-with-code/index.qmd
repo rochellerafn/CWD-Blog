@@ -12,6 +12,7 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 
 library(tidyverse)
 library(dplyr)
+library(gt)
 ```
 
 # 50 year olds shopping at H&M? What’s that all about? 
@@ -32,7 +33,7 @@ I began this project with a very different question in mind. However, after star
 
 ```{r} 
 library(ggplot2)
-customers <- read.csv('/Users/rochellerafn/RStudio Files/h-and-m-personalized-fashion-recommendations/customers.csv') 
+customers <- read.csv('/Users/rochellerafn/RStudio_Files//h-and-m-personalized-fashion-recommendations/customers.csv') 
 
 ggplot(customers, aes(age))+
   geom_bar(fill = 'black')+
@@ -59,8 +60,8 @@ I began with high level questions and analysis. Is there are price point differe
 We can see that price is pretty similar across the board. I did also check to make sure the distribution was normal to be sure I wasn't missing hidden gems, like I found with the age distribution. Unfortunately nothing significant here.
 
 ```{r}
-mature_transactions <- read.csv('/Users/rochellerafn/RStudio Files/h-and-m-personalized-fashion-recommendations/mature_transactions')
-young_transactions <- read.csv('/Users/rochellerafn/RStudio Files/h-and-m-personalized-fashion-recommendations/young_transactions')
+mature_transactions <- read.csv('/Users/rochellerafn/RStudio_Files/h-and-m-personalized-fashion-recommendations/mature_transactions')
+young_transactions <- read.csv('/Users/rochellerafn/RStudio_Files/h-and-m-personalized-fashion-recommendations/young_transactions')
 
 summary(mature_transactions$price)
 summary(young_transactions$price)
@@ -113,14 +114,21 @@ Circling back to the proportion of "young" versus "mature" customers, I went ano
 Yet again we can see extremely small differences. To the point where they are almost identical. Only a 3% difference between the "young" and "mature" with the top descriptor, "solid". From there, each word shows only a 1% or less difference. 
 
 ```{r}
-all_graphic_pct <- read.csv('/Users/rochellerafn/RStudio Files/h-and-m-personalized-fashion-recommendations/all_graphic_pct')
+all_graphic_pct <- read.csv('/Users/rochellerafn/RStudio_Files/h-and-m-personalized-fashion-recommendations/all_graphic_pct')
 
 all_graphic_pct <- all_graphic_pct %>%
   mutate('Percent Difference' = pct_difference, 'Young Percent' = y_graphic_pct, 'Mature Percent' = m_graphic_pct, 'Graphic Appearance Name' = graphical_appearance_name) %>%
   select(-X, -y_graphic_count, -m_graphic_count, -pct_difference, -y_graphic_pct, -m_graphic_pct, -graphical_appearance_name) %>%
   relocate('Graphic Appearance Name', 'Young Percent', 'Mature Percent')
 
-head(all_graphic_pct)
+head(all_graphic_pct) %>%
+ gt() %>%
+  tab_header(title = "Graphical Appearance",
+             subtitle = "Difference in Proportion") %>%
+  tab_source_note(
+    source_note = "Source: Kaggle"
+  ) %>%
+    gtExtras::gt_theme_espn()
 ```
 
 
