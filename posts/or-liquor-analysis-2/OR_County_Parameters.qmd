@@ -11,8 +11,6 @@ params:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache=TRUE, message=FALSE, warning=FALSE)
-
-options(knitr.duplicate.label = "allow")
 ```
 
 ```{r, include=FALSE}
@@ -26,9 +24,10 @@ or_county_sales <- read.csv('/Users/rochellerafn/RStudio_Files/Data_Communicatio
  
 
 ## Oregon Liquor Sales in `r params$county`
+Using parameters to filter by County
 
 ```{r}
-# Filtering for the county parameter
+
 county_liquor_sales <- or_county_sales %>%
   select(-Month) %>%
   filter(COUNTY == params$county) %>%

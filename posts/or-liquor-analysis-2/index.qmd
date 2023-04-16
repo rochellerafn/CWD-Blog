@@ -10,7 +10,6 @@ format:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(message=FALSE, warning=FALSE)
-options(knitr.duplicate.label = "allow")
 ```
 
 #### Creating a function for a parameterized markdown

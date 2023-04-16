@@ -119,18 +119,11 @@
     "text": "County Liquor Sales\n\n\nShow Code\nlibrary(DT)\n\n\nor_county_sales <- read.csv(\"/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/or_county_sales.csv\")\n\nor_county_sales <- or_county_sales %>%\n  select(-Month, -X) %>%\n  group_by(COUNTY, Year) %>%\n  rename(\"County\" = \"COUNTY\") %>%\n  summarize(sum(Total.Sales)) %>%\n  rename(\"Total.Sales\" = \"sum(Total.Sales)\") %>%\n  arrange(Year)\n\ndatatable(or_county_sales)"
   },
   {
-    "objectID": "posts/or-liquor-analysis-2/OR_County_Parameters.html",
-    "href": "posts/or-liquor-analysis-2/OR_County_Parameters.html",
-    "title": "Oregon Liquor Sales by County",
-    "section": "",
-    "text": "Show Code\nlibrary(tidyverse)\nlibrary(ggplot2)\nlibrary(gt)\n\nor_county_sales <- read.csv('/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/or_county_sales.csv')"
-  },
-  {
     "objectID": "posts/or-liquor-analysis-2/OR_County_Parameters.html#oregon-liquor-sales-in-multnomah",
     "href": "posts/or-liquor-analysis-2/OR_County_Parameters.html#oregon-liquor-sales-in-multnomah",
     "title": "Oregon Liquor Sales by County",
     "section": "Oregon Liquor Sales in Multnomah",
-    "text": "Oregon Liquor Sales in Multnomah\n\n\nShow Code\n# Filtering for the county parameter\ncounty_liquor_sales <- or_county_sales %>%\n  select(-Month) %>%\n  filter(COUNTY == params$county) %>%\n  group_by(COUNTY, Year) %>%\n  summarize(sum(Total.Sales)) %>%\n  rename(\"Total.Sales\" = \"sum(Total.Sales)\") %>%\n  arrange(Year)\n\n\n \n\nTotal Yearly Sales in Multnomah\n\n\nShow Code\n# Sales Table\ncounty_liquor_sales %>%\n gt() %>%\n    gtExtras::gt_theme_espn()\n\n\n\n\n\n\n  \n    \n    \n      Year\n      Total.Sales\n    \n  \n  \n    2017\n155646776\n    2018\n173638975\n    2019\n180872041\n    2020\n178978736\n    2021\n191001211\n    2022\n201939882\n  \n  \n  \n\n\n\n\n\n\nShow Code\n# Sales Graph\ncounty_liquor_sales %>%\n  ggplot(aes(Year, Total.Sales))+\n    geom_point()+\n    geom_line(stat=\"identity\")+\n    scale_y_continuous(labels = scales::comma)+\n    theme(panel.background = element_blank(),\n        plot.background = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank())+\n  labs(title = paste(params$county, \"County Liquor Sales\"))"
+    "text": "Oregon Liquor Sales in Multnomah\nUsing parameters to filter by County\n\n\nShow Code\ncounty_liquor_sales <- or_county_sales %>%\n  select(-Month) %>%\n  filter(COUNTY == params$county) %>%\n  group_by(COUNTY, Year) %>%\n  summarize(sum(Total.Sales)) %>%\n  rename(\"Total.Sales\" = \"sum(Total.Sales)\") %>%\n  arrange(Year)\n\n\n \n\nTotal Yearly Sales in Multnomah\n\n\nShow Code\n# Sales Table\ncounty_liquor_sales %>%\n gt() %>%\n    gtExtras::gt_theme_espn()\n\n\n\n\n\n\n  \n    \n    \n      Year\n      Total.Sales\n    \n  \n  \n    2017\n155646776\n    2018\n173638975\n    2019\n180872041\n    2020\n178978736\n    2021\n191001211\n    2022\n201939882\n  \n  \n  \n\n\n\n\n\n\nShow Code\n# Sales Graph\ncounty_liquor_sales %>%\n  ggplot(aes(Year, Total.Sales))+\n    geom_point()+\n    geom_line(stat=\"identity\")+\n    scale_y_continuous(labels = scales::comma)+\n    theme(panel.background = element_blank(),\n        plot.background = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank())+\n  labs(title = paste(params$county, \"County Liquor Sales\"))"
   },
   {
     "objectID": "posts/or-liquor-analysis/index.html",
