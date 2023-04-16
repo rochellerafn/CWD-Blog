@@ -11,10 +11,11 @@ params:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache=TRUE, message=FALSE, warning=FALSE)
+
+options(knitr.duplicate.label = "allow")
 ```
 
-```{r, include=FALSE}
-
+```{r}
 library(tidyverse)
 library(ggplot2)
 library(gt)
@@ -29,8 +30,9 @@ or_county_sales <- read.csv('/Users/rochellerafn/RStudio_Files/Data_Communicatio
 ```{r}
 # Filtering for the county parameter
 county_liquor_sales <- or_county_sales %>%
+  select(-Month) %>%
   filter(COUNTY == params$county) %>%
-  group_by(Year) %>%
+  group_by(COUNTY, Year) %>%
   summarize(sum(Total.Sales)) %>%
   rename("Total.Sales" = "sum(Total.Sales)") %>%
   arrange(Year)

@@ -196,63 +196,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<div class="cell" data-hash="OR_County_Parameters_cache/html/unnamed-chunk-1_80b853284357cf339effa00b91d4270c">
-<details>
-<summary>Show Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>or_county_sales <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/or_county_sales.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
 <p>&nbsp;</p>
-<section id="oregon-liquor-sales-in-multnomah" class="level2">
-<h2 class="anchored" data-anchor-id="oregon-liquor-sales-in-multnomah">Oregon Liquor Sales in Multnomah</h2>
-<div class="cell" data-hash="OR_County_Parameters_cache/html/unnamed-chunk-2_456d6061c6a639d5f5361ec152864b34">
-<details>
-<summary>Show Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtering for the county parameter</span></span>
+<section id="oregon-liquor-sales-in-umatilla" class="level2">
+<h2 class="anchored" data-anchor-id="oregon-liquor-sales-in-umatilla">Oregon Liquor Sales in Umatilla</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtering for the county parameter</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>county_liquor_sales <span class="ot">&lt;-</span> or_county_sales <span class="sc">%&gt;%</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Month) <span class="sc">%&gt;%</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(COUNTY <span class="sc">==</span> params<span class="sc">$</span>county) <span class="sc">%&gt;%</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(COUNTY, Year) <span class="sc">%&gt;%</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">sum</span>(Total.Sales)) <span class="sc">%&gt;%</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"Total.Sales"</span> <span class="ot">=</span> <span class="st">"sum(Total.Sales)"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(COUNTY <span class="sc">==</span> params<span class="sc">$</span>county) <span class="sc">%&gt;%</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Year) <span class="sc">%&gt;%</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">sum</span>(Total.Sales)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"Total.Sales"</span> <span class="ot">=</span> <span class="st">"sum(Total.Sales)"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>&nbsp;</p>
-<section id="total-yearly-sales-in-multnomah" class="level5">
-<h5 class="anchored" data-anchor-id="total-yearly-sales-in-multnomah">Total Yearly Sales in Multnomah</h5>
-<div class="cell" data-hash="OR_County_Parameters_cache/html/unnamed-chunk-3_200e2ab08745751ee3e8fdd510751cec">
-<details>
-<summary>Show Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sales Table</span></span>
+<section id="total-yearly-sales-in-umatilla" class="level5">
+<h5 class="anchored" data-anchor-id="total-yearly-sales-in-umatilla">Total Yearly Sales in Umatilla</h5>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sales Table</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>county_liquor_sales <span class="sc">%&gt;%</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a> <span class="fu">gt</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    gtExtras<span class="sc">::</span><span class="fu">gt_theme_espn</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 
-<div id="hhpkjemwfn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="zawmerjdko" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#hhpkjemwfn table {
+#zawmerjdko table {
   font-family: Lato, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hhpkjemwfn thead, #hhpkjemwfn tbody, #hhpkjemwfn tfoot, #hhpkjemwfn tr, #hhpkjemwfn td, #hhpkjemwfn th {
+#zawmerjdko thead, #zawmerjdko tbody, #zawmerjdko tfoot, #zawmerjdko tr, #zawmerjdko td, #zawmerjdko th {
   border-style: none;
 }
 
-#hhpkjemwfn p {
+#zawmerjdko p {
   margin: 0;
   padding: 0;
 }
 
-#hhpkjemwfn .gt_table {
+#zawmerjdko .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -278,12 +263,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-left-color: #D3D3D3;
 }
 
-#hhpkjemwfn .gt_caption {
+#zawmerjdko .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hhpkjemwfn .gt_title {
+#zawmerjdko .gt_title {
   color: #333333;
   font-size: 24px;
   font-weight: initial;
@@ -295,7 +280,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-width: 0;
 }
 
-#hhpkjemwfn .gt_subtitle {
+#zawmerjdko .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -307,7 +292,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-width: 0;
 }
 
-#hhpkjemwfn .gt_heading {
+#zawmerjdko .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -319,13 +304,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#hhpkjemwfn .gt_bottom_border {
+#zawmerjdko .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hhpkjemwfn .gt_col_headings {
+#zawmerjdko .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -340,7 +325,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#hhpkjemwfn .gt_col_heading {
+#zawmerjdko .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -360,7 +345,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-#hhpkjemwfn .gt_column_spanner_outer {
+#zawmerjdko .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -372,15 +357,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 4px;
 }
 
-#hhpkjemwfn .gt_column_spanner_outer:first-child {
+#zawmerjdko .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hhpkjemwfn .gt_column_spanner_outer:last-child {
+#zawmerjdko .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hhpkjemwfn .gt_column_spanner {
+#zawmerjdko .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -392,11 +377,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   width: 100%;
 }
 
-#hhpkjemwfn .gt_spanner_row {
+#zawmerjdko .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hhpkjemwfn .gt_group_heading {
+#zawmerjdko .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -422,7 +407,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   text-align: left;
 }
 
-#hhpkjemwfn .gt_empty_group_heading {
+#zawmerjdko .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -437,15 +422,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-#hhpkjemwfn .gt_from_md > :first-child {
+#zawmerjdko .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hhpkjemwfn .gt_from_md > :last-child {
+#zawmerjdko .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hhpkjemwfn .gt_row {
+#zawmerjdko .gt_row {
   padding-top: 7px;
   padding-bottom: 7px;
   padding-left: 5px;
@@ -464,7 +449,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-#hhpkjemwfn .gt_stub {
+#zawmerjdko .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -477,7 +462,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#hhpkjemwfn .gt_stub_row_group {
+#zawmerjdko .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -491,15 +476,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: top;
 }
 
-#hhpkjemwfn .gt_row_group_first td {
+#zawmerjdko .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hhpkjemwfn .gt_row_group_first th {
+#zawmerjdko .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hhpkjemwfn .gt_summary_row {
+#zawmerjdko .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -509,16 +494,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#hhpkjemwfn .gt_first_summary_row {
+#zawmerjdko .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hhpkjemwfn .gt_first_summary_row.thick {
+#zawmerjdko .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hhpkjemwfn .gt_last_summary_row {
+#zawmerjdko .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -528,7 +513,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-#hhpkjemwfn .gt_grand_summary_row {
+#zawmerjdko .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -538,7 +523,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#hhpkjemwfn .gt_first_grand_summary_row {
+#zawmerjdko .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -548,7 +533,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-#hhpkjemwfn .gt_last_grand_summary_row_top {
+#zawmerjdko .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -558,11 +543,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-#hhpkjemwfn .gt_striped {
+#zawmerjdko .gt_striped {
   background-color: #FAFAFA;
 }
 
-#hhpkjemwfn .gt_table_body {
+#zawmerjdko .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -571,7 +556,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-#hhpkjemwfn .gt_footnotes {
+#zawmerjdko .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -585,7 +570,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#hhpkjemwfn .gt_footnote {
+#zawmerjdko .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -594,7 +579,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#hhpkjemwfn .gt_sourcenotes {
+#zawmerjdko .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -608,7 +593,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#hhpkjemwfn .gt_sourcenote {
+#zawmerjdko .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -616,63 +601,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#hhpkjemwfn .gt_left {
+#zawmerjdko .gt_left {
   text-align: left;
 }
 
-#hhpkjemwfn .gt_center {
+#zawmerjdko .gt_center {
   text-align: center;
 }
 
-#hhpkjemwfn .gt_right {
+#zawmerjdko .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hhpkjemwfn .gt_font_normal {
+#zawmerjdko .gt_font_normal {
   font-weight: normal;
 }
 
-#hhpkjemwfn .gt_font_bold {
+#zawmerjdko .gt_font_bold {
   font-weight: bold;
 }
 
-#hhpkjemwfn .gt_font_italic {
+#zawmerjdko .gt_font_italic {
   font-style: italic;
 }
 
-#hhpkjemwfn .gt_super {
+#zawmerjdko .gt_super {
   font-size: 65%;
 }
 
-#hhpkjemwfn .gt_footnote_marks {
+#zawmerjdko .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hhpkjemwfn .gt_asterisk {
+#zawmerjdko .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hhpkjemwfn .gt_indent_1 {
+#zawmerjdko .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hhpkjemwfn .gt_indent_2 {
+#zawmerjdko .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hhpkjemwfn .gt_indent_3 {
+#zawmerjdko .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hhpkjemwfn .gt_indent_4 {
+#zawmerjdko .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hhpkjemwfn .gt_indent_5 {
+#zawmerjdko .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -686,28 +671,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </thead>
   <tbody class="gt_table_body">
     <tr><td headers="Year" class="gt_row gt_right">2017</td>
-<td headers="Total.Sales" class="gt_row gt_right">155646776</td></tr>
+<td headers="Total.Sales" class="gt_row gt_right">11601741</td></tr>
     <tr><td headers="Year" class="gt_row gt_right gt_striped">2018</td>
-<td headers="Total.Sales" class="gt_row gt_right gt_striped">173638975</td></tr>
+<td headers="Total.Sales" class="gt_row gt_right gt_striped">13600552</td></tr>
     <tr><td headers="Year" class="gt_row gt_right">2019</td>
-<td headers="Total.Sales" class="gt_row gt_right">180872041</td></tr>
+<td headers="Total.Sales" class="gt_row gt_right">14197969</td></tr>
     <tr><td headers="Year" class="gt_row gt_right gt_striped">2020</td>
-<td headers="Total.Sales" class="gt_row gt_right gt_striped">178978736</td></tr>
+<td headers="Total.Sales" class="gt_row gt_right gt_striped">17386710</td></tr>
     <tr><td headers="Year" class="gt_row gt_right">2021</td>
-<td headers="Total.Sales" class="gt_row gt_right">191001211</td></tr>
+<td headers="Total.Sales" class="gt_row gt_right">17767079</td></tr>
     <tr><td headers="Year" class="gt_row gt_right gt_striped">2022</td>
-<td headers="Total.Sales" class="gt_row gt_right gt_striped">201939882</td></tr>
+<td headers="Total.Sales" class="gt_row gt_right gt_striped">18143430</td></tr>
   </tbody>
   
   
 </table>
 </div>
 </div>
-</div>
-<div class="cell" data-hash="OR_County_Parameters_cache/html/unnamed-chunk-4_cff86a1d937a57dedb8669f7ba731f67">
-<details>
-<summary>Show Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sales Graph</span></span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sales Graph</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>county_liquor_sales <span class="sc">%&gt;%</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Year, Total.Sales))<span class="sc">+</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()<span class="sc">+</span></span>
@@ -718,11 +699,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())<span class="sc">+</span></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(params<span class="sc">$</span>county, <span class="st">"County Liquor Sales"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<p><img src="OR_County_Parameters_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
+<p><img src="../../Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/posts/or-liquor-analysis-2/county_files/Umatilla_files/figure-html/unnamed-chunk-6-1.png" width="672"></p>
 
 
 </section>
