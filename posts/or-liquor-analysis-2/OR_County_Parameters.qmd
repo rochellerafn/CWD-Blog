@@ -1,0 +1,59 @@
+---
+title: "Oregon Liquor Sales by County"
+author: "Rochelle Rafn"
+format:
+  html: 
+    code-fold: true
+    code-summary: "Show Code"
+params:
+    county: "Multnomah"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+
+library(tidyverse)
+library(ggplot2)
+library(gt)
+
+or_county_sales <- read.csv('/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/or_county_sales.csv')
+```
+
+ 
+
+## Oregon Liquor Sales in `r params$county`
+
+```{r}
+# Filtering for the county parameter
+county_liquor_sales <- or_county_sales %>%
+  filter(COUNTY == params$county) %>%
+  group_by(Year) %>%
+  summarize(sum(Total.Sales)) %>%
+  rename("Total.Sales" = "sum(Total.Sales)") %>%
+  arrange(Year)
+```
+
+##### Total Yearly Sales in `r params$county`
+```{r}
+# Sales Table
+county_liquor_sales %>%
+ gt() %>%
+    gtExtras::gt_theme_espn()
+```
+
+```{r}
+# Sales Graph
+county_liquor_sales %>%
+  ggplot(aes(Year, Total.Sales))+
+    geom_point()+
+    geom_line(stat="identity")+
+    scale_y_continuous(labels = scales::comma)+
+    theme(panel.background = element_blank(),
+        plot.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())+
+  labs(title = paste(params$county, "County Liquor Sales"))
+```
+
+
+

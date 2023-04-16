@@ -1,0 +1,28 @@
+---
+title: "OR Liquor County Sales Repository"
+author: "Rochelle Rafn"
+date: "04/16/2023"
+format: 
+   html:
+     code-fold: true
+     code-summary: "Show Code"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message=FALSE, warning=FALSE)
+```
+
+```{r, message=FALSE, warning=FALSE}
+library(rmarkdown)
+library(purrr)
+
+or_county_sales <- function(x) {
+  render("OR_County_Parameters.qmd", 
+         params = list(county = x), 
+         output_file = paste0("/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/",x,".html"))
+}
+
+county_liquor_sales <- read.csv("/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/or_county_sales.csv")
+county_liquor_sales$COUNTY %>% map(., function(x) { or_county_sales(x)})
+```
+
