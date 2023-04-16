@@ -14,7 +14,7 @@ knitr::opts_chunk$set(message=FALSE, warning=FALSE)
 ```
 
 #### Creating a function for a parameterized markdown
-This function will replicate the report that I made in markdown based on the parameters I set. In this case, I created a table and visualization of the yearly sales for a county. All of the information the parameters are pulling from is listed below. The output file is in my next post.
+This function will replicate a report that I made in markdown based on the parameters I set. In this case, I created a table and visualization of the yearly sales for a county. All of the information the parameters are pulling from is listed below. An example output file is in my next post.
 
 ```{r}
 library(tidyverse)

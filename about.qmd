@@ -5,9 +5,6 @@ about:
   template: solana
   image-shape: round
   links:
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com/rochellerafn
     - icon: linkedin
       text: LinkedIn
       href: https://linkedin.com/in/rochellerafn
