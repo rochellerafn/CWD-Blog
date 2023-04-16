@@ -19,14 +19,14 @@ Year over year sales reports for each county in Oregon regarding total liquor sa
 library(rmarkdown)
 library(purrr)
 
-or_county_sales <- function(x) {
+county_liquor_sales <- function(x) {
   render("OR_County_Parameters.qmd", 
          params = list(county = x), 
          output_file = paste0("/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/posts/or-liquor-analysis-2/county_files/",x,".html"))
 }
 
-county_liquor_sales <- read.csv("/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/or_county_sales.csv")
-county_liquor_sales$COUNTY %>% map(., function(x) { or_county_sales(x)})
+or_county_sales <- read.csv("/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/or_county_sales.csv")
+or_county_sales$COUNTY %>% map(., function(x) { county_liquor_sales(x)})
 ```
 
  
@@ -38,9 +38,9 @@ library(tidyverse)
 library(DT)
 
 
-county_liquor_sales <- read.csv("/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/or_county_sales.csv")
+or_county_sales <- read.csv("/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/or_county_sales.csv")
 
-county_liquor_sales <- county_liquor_sales %>%
+or_county_sales <- or_county_sales %>%
   select(-Month, -X) %>%
   group_by(COUNTY, Year) %>%
   rename("County" = "COUNTY") %>%
@@ -48,6 +48,6 @@ county_liquor_sales <- county_liquor_sales %>%
   rename("Total.Sales" = "sum(Total.Sales)") %>%
   arrange(Year)
 
-datatable(county_liquor_sales)
+datatable(or_county_sales)
 ```
 
