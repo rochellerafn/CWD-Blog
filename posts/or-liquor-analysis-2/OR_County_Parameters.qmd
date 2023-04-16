@@ -9,7 +9,11 @@ params:
     county: "Multnomah"
 ---
 
-```{r setup, include=FALSE, message = FALSE, warning = FALSE}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE, message=FALSE, warning=FALSE)
+```
+
+```{r, include=FALSE}
 
 library(tidyverse)
 library(ggplot2)
