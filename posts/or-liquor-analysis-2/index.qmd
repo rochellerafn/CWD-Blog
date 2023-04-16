@@ -14,6 +14,7 @@ knitr::opts_chunk$set(message=FALSE, warning=FALSE)
 
 #### Creating a function for a parameterized markdown
 Year over year sales reports for each county in Oregon regarding total liquor sales
+
 ```{r}
 library(rmarkdown)
 library(purrr)
@@ -28,7 +29,10 @@ county_liquor_sales <- read.csv("/Users/rochellerafn/RStudio_Files/Data_Communic
 county_liquor_sales$COUNTY %>% map(., function(x) { or_county_sales(x)})
 ```
 
+ 
+ 
 ## County Liquor Sales
+
 ```{r}
 library(tidyverse)
 library(DT)
