@@ -2,6 +2,7 @@
 title: "OR Liquor County Sales Repository"
 author: "Rochelle Rafn"
 date: "04/16/2023"
+categories: [code]
 format: 
    html:
      code-fold: true
@@ -13,7 +14,7 @@ knitr::opts_chunk$set(message=FALSE, warning=FALSE)
 ```
 
 #### Creating a function for a parameterized markdown
-Year over year sales reports for each county in Oregon regarding total liquor sales
+This function will replicate the report that I made in markdown based on the parameters I set. In this case, I created a table and visualization of the yearly sales for a county. All of the information the parameters are pulling from is listed below. The output file is in my next post.
 
 ```{r}
 library(tidyverse)
@@ -54,8 +55,7 @@ or_county_sales <- or_county_sales %>%
   group_by(COUNTY, Year) %>%
   rename("County" = "COUNTY") %>%
   summarize(sum(Total.Sales)) %>%
-  rename("Total.Sales" = "sum(Total.Sales)") %>%
-  arrange(Year)
+  rename("Total.Sales" = "sum(Total.Sales)")
 
 datatable(or_county_sales)
 ```

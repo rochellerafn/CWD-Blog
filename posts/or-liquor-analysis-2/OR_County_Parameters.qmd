@@ -1,6 +1,7 @@
 ---
 title: "Oregon Liquor Sales by County"
 author: "Rochelle Rafn"
+categories: [code]
 format:
   html: 
     code-fold: true
@@ -24,10 +25,9 @@ or_county_sales <- read.csv('/Users/rochellerafn/RStudio_Files/Data_Communicatio
  
 
 ## Oregon Liquor Sales in `r params$county`
-Using parameters to filter by County
+Using parameters to filter by County. This is an example of one of the counties that my function will create a report for.
 
 ```{r}
-
 county_liquor_sales <- or_county_sales %>%
   select(-Month) %>%
   filter(COUNTY == params$county) %>%
@@ -59,7 +59,7 @@ county_liquor_sales %>%
         plot.background = element_blank(),
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank())+
-  labs(title = paste(params$county, "County Liquor Sales"))
+  labs(y = "Total Sales")
 ```
 
 

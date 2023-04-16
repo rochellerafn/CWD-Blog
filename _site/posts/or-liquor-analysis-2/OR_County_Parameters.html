@@ -168,7 +168,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Oregon Liquor Sales by County</h1>
-                      </div>
+                                <div class="quarto-categories">
+                <div class="quarto-category">code</div>
+              </div>
+                  </div>
   </div>
     
   
@@ -199,8 +202,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>&nbsp;</p>
 <section id="oregon-liquor-sales-in-multnomah" class="level2">
 <h2 class="anchored" data-anchor-id="oregon-liquor-sales-in-multnomah">Oregon Liquor Sales in Multnomah</h2>
-<p>Using parameters to filter by County</p>
-<div class="cell" data-hash="OR_County_Parameters_cache/html/unnamed-chunk-2_82ba19e73bbd8a590b3420dbfe9b3310">
+<p>Using parameters to filter by County. This is an example of one of the counties that my function will create a report for.</p>
+<div class="cell" data-hash="OR_County_Parameters_cache/html/unnamed-chunk-2_454a76797ff44328992f3f16a56aac53">
 <details>
 <summary>Show Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>county_liquor_sales <span class="ot">&lt;-</span> or_county_sales <span class="sc">%&gt;%</span></span>
@@ -694,7 +697,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div class="cell" data-hash="OR_County_Parameters_cache/html/unnamed-chunk-4_cff86a1d937a57dedb8669f7ba731f67">
+<div class="cell" data-hash="OR_County_Parameters_cache/html/unnamed-chunk-4_7d965479147c65cd78b0875cfe35489b">
 <details>
 <summary>Show Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sales Graph</span></span>
@@ -707,7 +710,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())<span class="sc">+</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(params<span class="sc">$</span>county, <span class="st">"County Liquor Sales"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Total Sales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="OR_County_Parameters_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
