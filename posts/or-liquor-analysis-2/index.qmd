@@ -28,3 +28,22 @@ county_liquor_sales <- read.csv("/Users/rochellerafn/RStudio_Files/Data_Communic
 county_liquor_sales$COUNTY %>% map(., function(x) { or_county_sales(x)})
 ```
 
+## County Liquor Sales
+```{r}
+library(tidyverse)
+library(DT)
+
+
+county_liquor_sales <- read.csv("/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/or_county_sales.csv")
+
+county_liquor_sales <- county_liquor_sales %>%
+  select(-Month, -X) %>%
+  group_by(COUNTY, Year) %>%
+  rename("County" = "COUNTY") %>%
+  summarize(sum(Total.Sales)) %>%
+  rename("Total.Sales" = "sum(Total.Sales)") %>%
+  arrange(Year)
+
+datatable(county_liquor_sales)
+```
+
