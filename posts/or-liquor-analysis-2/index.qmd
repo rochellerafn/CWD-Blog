@@ -12,6 +12,8 @@ format:
 knitr::opts_chunk$set(message=FALSE, warning=FALSE)
 ```
 
+#### Creating a function for a parameterized markdown
+Year over year sales reports for each county in Oregon regarding total liquor sales
 ```{r, message=FALSE, warning=FALSE}
 library(rmarkdown)
 library(purrr)
@@ -19,7 +21,7 @@ library(purrr)
 or_county_sales <- function(x) {
   render("OR_County_Parameters.qmd", 
          params = list(county = x), 
-         output_file = paste0("/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/",x,".html"))
+         output_file = paste0("/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/posts/or-liquor-analysis-2/county_files/",x,".html"))
 }
 
 county_liquor_sales <- read.csv("/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/or_county_sales.csv")
