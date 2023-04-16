@@ -33,7 +33,10 @@ county_liquor_sales <- or_county_sales %>%
   arrange(Year)
 ```
 
+ 
+
 ##### Total Yearly Sales in `r params$county`
+
 ```{r}
 # Sales Table
 county_liquor_sales %>%
