@@ -1,10 +1,14 @@
 ---
 title: "Men's 100m Dash Over 100 Years"
 author: "Rochelle Rafn"
+format:
+  html: 
+    code-fold: true
+    code-summary: "Show Code"
 ---
 
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -54,22 +58,18 @@ mens_100m_nations <- mens_100m_all %>%
   select(Year, Nation, Time, Rank) %>%
   arrange(Year)
 
-mens_100m_nations
+head(mens_100m_nations)
 ```
 
 ```{r}
 library(countrycode)
 
 country_code <- countrycode(mens_100m_nations$Nation, origin = 'country.name', destination = 'iso3c')
-
-country_code
 ```
 
 ```{r}
 mens_100m_ncodes <- mens_100m_nations %>%
   add_column('Country Code' = country_code)
-
-mens_100m_ncodes
 ```
 
 

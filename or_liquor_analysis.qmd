@@ -43,6 +43,15 @@ or_liquor_sales$Month = factor(or_liquor_sales$Month, levels = month.name)
 str(or_liquor_sales)
 ```
 
+```{r}
+or_liquor_sales_y <- or_liquor_sales %>%
+  group_by(Year, Month) %>%
+  summarize(Sales = sum(Sales))
+  
+
+or_liquor_sales_y
+```
+
 
 ```{r}
 library(MetBrewer)
