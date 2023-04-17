@@ -131,15 +131,15 @@ map1 <- mapCountryData(country_medal_map, nameColumnToPlot="Rank",
 ```
 
 ```{r}
-mapBubbles(country_medal_map, 
-    nameColumnToPlot="Rank",
-    nameX = "lon", nameY = "lat",
-    colourPalette= c("#EBD739", "#B5BCC2", "#FFB48C"),
-    nameZColour="Rank",
-    numCats = 3,
-    catMethod = "categorical",
-    oceanCol= 'lightblue', 
-    landCol= 'white')
+# mapBubbles(country_medal_map, 
+#    nameColumnToPlot="Rank",
+#    nameX = "lon", nameY = "lat",
+#    colourPalette= c("#EBD739", "#B5BCC2", "#FFB48C"),
+#    nameZColour="Rank",
+#    numCats = 3,
+#    catMethod = "categorical",
+#    oceanCol= 'lightblue', 
+#    landCol= 'white')
 ```
 
 ```{r}
@@ -156,22 +156,22 @@ world2 <- merge(world, newdata2, all = TRUE)
 
 
 ```{r}
-library(ggiraph)
+# library(ggiraph)
 
-map2 <- ggplot(world2) +
-  geom_sf_interactive(
-    aes(fill = Rank) + 
-  ggtitle("Country Medals") +
-  scale_fill_manual(breaks = c("Gold", "Silver", "Bronze"), 
-                      values=c("#EBD739", "#B5BCC2", "#FFB48C"),
-                      labels=c("Gold", "Silver", "Bronze")) +
-  guides(fill=guide_legend(title=NULL)))
+# map2 <- ggplot(world2) +
+#  geom_sf_interactive(
+#    aes(fill = Rank) + 
+#  ggtitle("Country Medals") +
+#  scale_fill_manual(breaks = c("Gold", "Silver", "Bronze"), 
+#                      values=c("#EBD739", "#B5BCC2", "#FFB48C"),
+#                      labels=c("Gold", "Silver", "Bronze")) +
+#  guides(fill=guide_legend(title=NULL)))
 
-map2 <- girafe(code, 
-                    ggobj = map2,
-                    options = list(opts_tooltip(use_fill = TRUE),
-                                   opts_zoom(min = 1, max = 5),
-                                   opts_toolbar(saveaspng = FALSE))) #removes default "save as PNG' option on widget
+# map2 <- girafe(code, 
+#                    ggobj = map2,
+#                    options = list(opts_tooltip(use_fill = TRUE),
+#                                   opts_zoom(min = 1, max = 5),
+#                                   opts_toolbar(saveaspng = FALSE))) #removes default "save as PNG' option on widget
 ```
 
 
