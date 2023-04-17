@@ -52,7 +52,7 @@ server <- function(input, output) {
     
     # draw the plot with the specified filters
     ggplot(filtered_data(), aes(x=Year, y=Sales, color=Category)) +
-      geom_point(alpha=.5, size=4) +
+      geom_point(alpha=.6, size=5) +
       labs(y = "Sales", color = "Category") +
       theme_bw() +
       theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
