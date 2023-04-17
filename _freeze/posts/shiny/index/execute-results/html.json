@@ -1,0 +1,14 @@
+{
+  "hash": "1122e850d6d853c4fa499f08d3990174",
+  "result": {
+    "markdown": "---\ntitle: \"Shiny App -- OR Liquor\"\nauthor: \"Rochelle Rafn\"\nformat:\n  html:\n    code-fold: true\n    code-summary: \"Show Code\"\n---\n\n::: {.cell}\n::: {.cell-output .cell-output-stderr}\n```\n\nAttaching package: 'DT'\n```\n:::\n\n::: {.cell-output .cell-output-stderr}\n```\nThe following objects are masked from 'package:shiny':\n\n    dataTableOutput, renderDataTable\n```\n:::\n\n::: {.cell-output .cell-output-stderr}\n```\n\nAttaching package: 'dplyr'\n```\n:::\n\n::: {.cell-output .cell-output-stderr}\n```\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n```\n:::\n\n::: {.cell-output .cell-output-stderr}\n```\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n```\n:::\n\n::: {.cell-output .cell-output-stderr}\n```\n`summarise()` has grouped output by 'Category', 'County'. You can override\nusing the `.groups` argument.\n```\n:::\n\n::: {.cell-output-display}\n`<div style=\"width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;\" class=\"muted well\">Shiny applications not supported in static R Markdown documents</div>`{=html}\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

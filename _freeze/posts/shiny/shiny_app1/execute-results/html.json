@@ -1,0 +1,14 @@
+{
+  "hash": "f2047cd7fc5095abd3e2fffc43207c25",
+  "result": {
+    "markdown": "---\ntitle: \"Shiny App -- OR Liquor\"\nauthor: \"Rochelle Rafn\"\nformat: html \n---\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

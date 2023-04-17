@@ -24,9 +24,9 @@ ui <- fluidPage(
                   min = min(or_liquor_i$Year), max = max(or_liquor_i$Year), 
                   value = c(min(or_liquor_i$Year), max(or_liquor_i$Year)), step = 1),
       selectInput("County", "Choose a County:",
-                  choices = c("All", unique(or_liquor_i$County)), multiple = TRUE, selected = "All"),
+                  choices = unique(or_liquor_i$County), multiple = TRUE, selected = ""),
       selectInput("Category", "Choose Liquor Type",
-                  choices = c("All", unique(or_liquor_i$Category)), multiple = TRUE, selected = "All")
+                  choices = unique(or_liquor_i$Category), multiple = TRUE, selected = "")
     ),
     
     # Show a plot of the generated distribution
@@ -52,7 +52,7 @@ server <- function(input, output) {
     
     # draw the plot with the specified filters
     ggplot(filtered_data(), aes(x=Year, y=Sales, color=Category)) +
-      geom_point(alpha=.6, size=5) +
+      geom_jitter(alpha=.6, size=5) +
       labs(y = "Sales", color = "Category") +
       theme_bw() +
       theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
