@@ -1,0 +1,174 @@
+---
+title: "Oregon Liquor Sales"
+author: "Rochelle Rafn"
+format:
+  html: 
+    code-fold: true
+    code-summary: "Show Code"
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(readxl)
+library(lubridate)
+library(gt)
+
+or_store_sales <- read.csv("/Users/rochellerafn/RStudio_Files/2014-2023-OR-Liquor-Sales.csv")
+store_info <- read_xlsx("/Users/rochellerafn/RStudio_Files/Info_request_store_month_category.xlsx", sheet = 2)
+```
+
+```{r}
+or_store_sales <- or_store_sales %>%
+  rename("Store_Number" = "Agency_Number")
+
+store_info <- store_info %>%
+  select(-Title, -Store_Address, -State, -Zip, -Field, -X, -Y, -Location)
+```
+
+```{r}
+or_liquor_sales = merge(x = or_store_sales, y = store_info, by = "Store_Number",
+                                 all.x = TRUE)
+
+or_liquor_sales <- or_liquor_sales %>%
+  mutate(Month = month.name[Month], Year = as.character(Year)) %>%
+  select(-X)
+
+or_liquor_sales$Month = factor(or_liquor_sales$Month, levels = month.name)
+
+str(or_liquor_sales)
+```
+
+
+```{r}
+library(MetBrewer)
+# devtools::install_github("BlakeRMills/MetBrewer")
+
+or_liquor_sales_y %>%
+  filter(Year < 2023) %>%
+ggplot(aes(Month, Sales, group = Year, color = Year)) +
+  geom_line(stat = "identity")+
+  scale_y_continuous(labels = scales::comma)+
+  theme(panel.background = element_blank(),
+        plot.background = element_blank(),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  scale_color_met_d("Signac")+
+  labs(title = "Seasonality of Oregonian's Liquor Consumption is Consistent",
+       subtitle = "Total Liquor Sales in Oregon",
+       y = "Total Sales (in dollars)")
+```
+
+
+```{r}
+sales_by_type <- or_liquor_sales %>%
+  group_by(Category) %>%
+  summarize(sum(Sales)) %>%
+  rename("Sales" = "sum(Sales)")
+
+sales_by_type %>%
+  gt() %>%
+  tab_header(title = "Total Liquor Sales Revenue",
+             subtitle = "By Liquor Type") %>%
+  tab_source_note(
+    source_note = "Source: OLCC"
+  ) %>%
+    gtExtras::gt_theme_espn()
+```
+
+```{r}
+units_by_type <- or_liquor_sales %>%
+  group_by(Category) %>%
+  summarize(sum(Liters_Sold)) %>%
+  rename("Liters_Sold" = "sum(Liters_Sold)")
+
+units_by_type %>%
+    gt() %>%
+  tab_header(title = "Total Liquor Sales in Liters",
+             subtitle = "By Liquor Type") %>%
+  tab_source_note(
+    source_note = "Source: OLCC"
+  ) %>%
+    gtExtras::gt_theme_espn()
+```
+
+
+```{r}
+library(ggplot2)
+library(gridExtra)
+
+liquor_units_plot <- ggplot(units_by_type, aes(reorder(Category, -Liters_Sold), Liters_Sold, group = Category, fill = Category))+
+  geom_col()+
+  scale_y_continuous(labels = scales::comma)+
+  theme(panel.background = element_blank(),
+        plot.background = element_blank(),
+        legend.position = "none")+
+  labs(title = "Total Units Sold by Liquor Type",
+        y = "Total Units Sold",
+        x = "Liquor Type")+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+liquor_sales_plot <- ggplot(sales_by_type, aes(reorder(Category, -Sales), Sales, group = Category, fill = Category))+
+  geom_col()+
+  scale_y_continuous(labels = scales::comma)+
+  theme(panel.background = element_blank(),
+        plot.background = element_blank(),
+        legend.position = "none")+
+  labs(title = "Total Revenue Sold by Liquor Type",
+        y = "Total Sales (in dollars)",
+        x = "Liquor Type")+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+grid.arrange(liquor_units_plot, liquor_sales_plot, nrow = 1)
+```
+
+```{r}
+or_liquor_sales_y <- or_liquor_sales %>%
+  group_by(Year, Month) %>%
+  summarize(sum(Sales)) %>%
+  rename("Sales" = "sum(Sales)")
+
+or_liquor_sales_y
+```
+
+```{r}
+or_county_sales <- or_liquor_sales %>%
+  group_by(Year, County) %>%
+  filter(Year < 2023) %>%
+  summarize(sum(Sales)) %>%
+  rename("Sales" = "sum(Sales)") %>%
+  arrange(desc(Sales))
+
+or_county_sales %>%
+ggplot(aes(reorder(County, -Sales), Sales, fill = County)) +
+  geom_col()+
+  scale_y_continuous()+
+  theme_void()+
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1, size = 6))+
+  facet_wrap(~Year, scales = "free_x")
+```
+
+```{r}
+# library(plotly)
+
+# or_liquor_i <- or_liquor_sales %>%
+#  group_by(Year, County, Category) %>%
+#  select(County, Year, Category, Sales)
+
+# p <- ggplot(or_liquor_i, aes(x=Year, y=Sales, color=Category)) +
+#  geom_point(alpha=.5, size=2) +
+#  labs(y = "Sales", color = "Category") +
+#  theme_bw() +
+#  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
+#  scale_y_continuous(limits = c(0,600000), labels = scales::comma)
+
+# ggplotly(p)
+```
+
+
+
+

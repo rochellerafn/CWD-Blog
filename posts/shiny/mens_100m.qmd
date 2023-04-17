@@ -1,0 +1,177 @@
+---
+title: "Men's 100m Dash Over 100 Years"
+author: "Rochelle Rafn"
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, include=FALSE}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(readxl)
+
+mens_100m_all <- read.csv("/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/mens_100m_all.csv")
+```
+
+
+```{r}
+mens_100m_change1 <- read_xlsx("/Users/rochellerafn/RStudio_Files/mens_100m_min.xlsx", sheet = 2, col_names = c("Year", "minTime", "Change"))
+
+mens_100m_change1 <- mens_100m_change1 %>%
+  filter(!is.na(Change)) %>%
+  transform(Change = as.numeric(Change))
+  
+mens_100m_change1
+```
+
+```{r}
+ggplot(mens_100m_change1, aes(Year, Change))+
+  geom_col()
+```
+
+```{r}
+mens_100m_change2 <- read_xlsx("/Users/rochellerafn/RStudio_Files/mens_100m_min.xlsx", sheet = 3, col_names = c("Year", "minTime", "Change", "Change2"))
+
+mens_100m_change2 <- mens_100m_change2 %>%
+  filter(!is.na(Change)) %>%
+  transform(Change = as.numeric(Change), Change2 = as.numeric(Change2))
+  
+mens_100m_change2
+```
+
+```{r}
+ggplot(mens_100m_change2, aes(Year, Change2))+
+  geom_col()
+```
+
+
+```{r}
+mens_100m_nations <- mens_100m_all %>%
+  select(Year, Nation, Time, Rank) %>%
+  arrange(Year)
+
+mens_100m_nations
+```
+
+```{r}
+library(countrycode)
+
+country_code <- countrycode(mens_100m_nations$Nation, origin = 'country.name', destination = 'iso3c')
+
+country_code
+```
+
+```{r}
+mens_100m_ncodes <- mens_100m_nations %>%
+  add_column('Country Code' = country_code)
+
+mens_100m_ncodes
+```
+
+
+```{r}
+mens_100m_ncodes %>%
+  group_by(Nation)%>%
+  filter(is.na(`Country Code`))
+```
+
+```{r}
+mens_100m_ncodes$'Country Code'[mens_100m_ncodes$Nation == "East Germany"] <- "DEU"
+mens_100m_ncodes$'Country Code'[mens_100m_ncodes$Nation == "Czechoslovakia"] <- "CZE"
+mens_100m_ncodes$'Country Code'[mens_100m_ncodes$Nation == "Virgin Islands"] <- "VBG"
+mens_100m_ncodes$'Country Code'[mens_100m_ncodes$Nation == "Netherlands Antilles"] <- "NLD"
+mens_100m_ncodes$'Country Code'[mens_100m_ncodes$Nation == "Malaya"] <- "MYS"
+mens_100m_ncodes$'Country Code'[mens_100m_ncodes$Nation == "British West Indies"] <- "JAM"
+mens_100m_ncodes$'Country Code'[mens_100m_ncodes$Nation == "Australasia"] <- "AUS"
+```
+
+
+```{r}
+library(ggmap)
+mens_100m_nation_medals <- mens_100m_ncodes %>%
+  filter(Rank %in% c("Gold", "Silver", "Bronze"))
+
+mens_100m_nation_medals$Rank <- factor(mens_100m_nation_medals$Rank, levels=c("Gold", "Silver", "Bronze"))
+
+mens_100m_nation_medals <- cbind(mens_100m_nation_medals, ggmap::geocode(as.character(mens_100m_nation_medals[, "Nation"]), force = FALSE))
+  
+mens_100m_nation_medals
+```
+
+```{r, warning=FALSE}
+# load library
+library(rworldmap)
+# get map
+worldmap <- getMap(resolution = "coarse")
+# plot world map
+plot(worldmap, col = "white", 
+     fill = T, border = "darkgray",
+     xlim = c(-180, 180), ylim = c(-90, 90),
+     bg = "aliceblue",
+     asp = 1, wrap=c(-180,180))
+```
+
+```{r}
+country_medal_map <- joinCountryData2Map(mens_100m_nation_medals, 
+                                   joinCode = "ISO3",
+                                   nameJoinColumn = "Country Code")
+```
+
+```{r}
+map1 <- mapCountryData(country_medal_map, nameColumnToPlot="Rank", 
+                       catMethod = "categorical", 
+                       missingCountryCol = 'white',
+                       oceanCol= 'lightblue',
+                       colourPalette = c("#EBD739", "#B5BCC2", "#FFB48C"), 
+                       mapTitle = "Country Medals", borderCol = "white")
+```
+
+```{r}
+mapBubbles(country_medal_map, 
+    nameColumnToPlot="Rank",
+    nameX = "lon", nameY = "lat",
+    colourPalette= c("#EBD739", "#B5BCC2", "#FFB48C"),
+    nameZColour="Rank",
+    numCats = 3,
+    catMethod = "categorical",
+    oceanCol= 'lightblue', 
+    landCol= 'white')
+```
+
+```{r}
+
+library(rnaturalearth)
+
+world <- ne_countries(scale = "medium", returnclass = "sf") 
+
+newdata2 <- rename(mens_100m_nation_medals, iso_a3 = 'Country Code')
+
+world2 <- merge(world, newdata2, all = TRUE)
+```
+
+
+
+```{r}
+library(ggiraph)
+
+map2 <- ggplot(world2) +
+  geom_sf_interactive(
+    aes(fill = Rank) + 
+  ggtitle("Country Medals") +
+  scale_fill_manual(breaks = c("Gold", "Silver", "Bronze"), 
+                      values=c("#EBD739", "#B5BCC2", "#FFB48C"),
+                      labels=c("Gold", "Silver", "Bronze")) +
+  guides(fill=guide_legend(title=NULL)))
+
+map2 <- girafe(code, 
+                    ggobj = map2,
+                    options = list(opts_tooltip(use_fill = TRUE),
+                                   opts_zoom(min = 1, max = 5),
+                                   opts_toolbar(saveaspng = FALSE))) #removes default "save as PNG' option on widget
+```
+
+
