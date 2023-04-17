@@ -135,9 +135,7 @@ or_store_sales <- or_store_sales %>%
 or_county_sales <- or_sales %>%
   group_by(Year, Month, COUNTY) %>%
   filter(Year < 2023) %>%
-  summarize(sum(Total.Sales))
-
-or_county_sales <- or_county_sales %>%
+  summarize(sum(Total.Sales)) %>%
   rename("Total.Sales" = "sum(Total.Sales)") %>%
   arrange(desc(Total.Sales))
 
