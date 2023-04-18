@@ -1,0 +1,73 @@
+"","Year","Nation","Time","Rank","Country Code","lon","lat"
+"1",1912,"United States",10.8,"Gold","USA",-95.712891,37.09024
+"2",1912,"United States",10.9,"Silver","USA",-95.712891,37.09024
+"3",1912,"United States",10.9,"Bronze","USA",-95.712891,37.09024
+"4",1920,"United States",10.8,"Gold","USA",-95.712891,37.09024
+"5",1920,"United States",10.9,"Silver","USA",-95.712891,37.09024
+"6",1920,"Great Britain",10.9,"Bronze","GBR",-3.435973,55.378051
+"7",1924,"Great Britain",10.6,"Gold","GBR",-3.435973,55.378051
+"8",1924,"United States",10.7,"Silver","USA",-95.712891,37.09024
+"9",1924,"New Zealand",10.8,"Bronze","NZL",174.885971,-40.900557
+"10",1928,"Canada",10.8,"Gold","CAN",-106.346771,56.130366
+"11",1928,"Great Britain",10.9,"Silver","GBR",-3.435973,55.378051
+"12",1928,"Germany",10.9,"Bronze","DEU",10.451526,51.165691
+"13",1932,"United States",10.38,"Gold","USA",-95.712891,37.09024
+"14",1932,"United States",10.38,"Silver","USA",-95.712891,37.09024
+"15",1932,"Germany",10.5,"Bronze","DEU",10.451526,51.165691
+"16",1936,"United States",10.3,"Gold","USA",-95.712891,37.09024
+"17",1936,"United States",10.4,"Silver","USA",-95.712891,37.09024
+"18",1936,"Netherlands",10.5,"Bronze","NLD",5.291266,52.132633
+"19",1948,"United States",10.3,"Gold","USA",-95.712891,37.09024
+"20",1948,"United States",10.4,"Silver","USA",-95.712891,37.09024
+"21",1948,"Panama",10.6,"Bronze","PAN",-80.782127,8.537981
+"22",1952,"United States",10.79,"Gold","USA",-95.712891,37.09024
+"23",1952,"Jamaica",10.8,"Silver","JAM",-77.297508,18.109581
+"24",1952,"Great Britain",10.83,"Bronze","GBR",-3.435973,55.378051
+"25",1956,"United States",10.62,"Gold","USA",-95.712891,37.09024
+"26",1956,"United States",10.77,"Silver","USA",-95.712891,37.09024
+"27",1956,"Australia",10.77,"Bronze","AUS",133.775136,-25.274398
+"28",1960,"United Team of Germany",10.2,"Gold","DEU",10.451526,51.165691
+"29",1960,"United States",10.2,"Silver","USA",-95.712891,37.09024
+"30",1960,"Great Britain",10.3,"Bronze","GBR",-3.435973,55.378051
+"31",1964,"United States",10,"Gold","USA",-95.712891,37.09024
+"32",1964,"Cuba",10.2,"Silver","CUB",-77.781167,21.521757
+"33",1964,"Canada",10.2,"Bronze","CAN",-106.346771,56.130366
+"34",1968,"United States",9.9,"Gold","USA",-95.712891,37.09024
+"35",1968,"Jamaica",10,"Silver","JAM",-77.297508,18.109581
+"36",1968,"United States",10,"Bronze","USA",-95.712891,37.09024
+"37",1972,"Soviet Union",10.14,"Gold","RUS",NA,NA
+"38",1972,"United States",10.24,"Silver","USA",-95.712891,37.09024
+"39",1972,"Jamaica",10.33,"Bronze","JAM",-77.297508,18.109581
+"40",1976,"Trinidad and Tobago",10.06,"Gold","TTO",-61.222503,10.691803
+"41",1976,"Jamaica",10.08,"Silver","JAM",-77.297508,18.109581
+"42",1976,"Soviet Union",10.14,"Bronze","RUS",NA,NA
+"43",1980,"Great Britain",10.25,"Gold","GBR",-3.435973,55.378051
+"44",1980,"Cuba",10.25,"Silver","CUB",-77.781167,21.521757
+"45",1980,"Bulgaria",10.39,"Bronze","BGR",25.48583,42.733883
+"46",1984,"United States",9.99,"Gold","USA",-95.712891,37.09024
+"47",1984,"United States",10.19,"Silver","USA",-95.712891,37.09024
+"48",1984,"Canada",10.22,"Bronze","CAN",-106.346771,56.130366
+"49",1988,"United States",9.92,"Gold","USA",-95.712891,37.09024
+"50",1988,"Great Britain",9.97,"Silver","GBR",-3.435973,55.378051
+"51",1988,"United States",9.99,"Bronze","USA",-95.712891,37.09024
+"52",1992,"Great Britain",9.96,"Gold","GBR",-3.435973,55.378051
+"53",1992,"Namibia",10.02,"Silver","NAM",18.49041,-22.95764
+"54",1992,"United States",10.04,"Bronze","USA",-95.712891,37.09024
+"55",1996,"Canada",9.84,"Gold","CAN",-106.346771,56.130366
+"56",1996,"Namibia",9.89,"Silver","NAM",18.49041,-22.95764
+"57",1996,"Trinidad and Tobago",9.9,"Bronze","TTO",-61.222503,10.691803
+"58",2000,"United States",9.87,"Gold","USA",-95.712891,37.09024
+"59",2000,"Trinidad and Tobago",9.99,"Silver","TTO",-61.222503,10.691803
+"60",2000,"Barbados",10.04,"Bronze","BRB",-59.543198,13.193887
+"61",2004,"United States",9.85,"Gold","USA",-95.712891,37.09024
+"62",2004,"Portugal",9.86,"Silver","PRT",-8.224454,39.399872
+"63",2004,"United States",9.87,"Bronze","USA",-95.712891,37.09024
+"64",2008,"Jamaica",9.69,"Gold","JAM",-77.297508,18.109581
+"65",2008,"Trinidad and Tobago",9.89,"Silver","TTO",-61.222503,10.691803
+"66",2008,"United States",9.91,"Bronze","USA",-95.712891,37.09024
+"67",2012,"Jamaica",9.63,"Gold","JAM",-77.297508,18.109581
+"68",2012,"Jamaica",9.75,"Silver","JAM",-77.297508,18.109581
+"69",2012,"United States",9.79,"Bronze","USA",-95.712891,37.09024
+"70",2016,"Jamaica",9.81,"Gold","JAM",-77.297508,18.109581
+"71",2016,"United States",9.89,"Silver","USA",-95.712891,37.09024
+"72",2016,"Canada",9.91,"Bronze","CAN",-106.346771,56.130366

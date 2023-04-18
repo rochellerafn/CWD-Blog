@@ -177,23 +177,42 @@ world2 <- merge(world, newdata2, all = TRUE)
 
 
 ```{r}
-medal_icon <- iconList(
-  medal = makeIcon("/Users/rochellerafn/RStudio_Files/medal.png", "medal@2x.png", 18, 18))
+library("leaflet")
+
+
+medal_content <- paste(sep = "<br/>",
+  "Nation:", mens_100m_nation_medals$Nation,
+  "<b>Rank:", mens_100m_nation_medals$Rank,
+  "<b>Time:", mens_100m_nation_medals$Time
+)
+
+medal_label <- mens_100m_nation_medals %>%
+  select(Nation, Rank, Time, lat, lon)
+
+medal_color <- colorFactor(c("#EBD739", "#B5BCC2", "#FFB48C"), mens_100m_nation_medals$Rank)
 ```
 
 
 ```{r}
-library("leaflet")
-
-medal_color <- colorFactor(c("#EBD739", "#B5BCC2", "#FFB48C"), domain = c("Gold", "Silver", "Bronze"))
-
 mens_100m_nation_medals %>%
 leaflet() %>%
   addTiles() %>%
   addCircleMarkers(
     color = ~medal_color(Rank),
-    stroke = FALSE, fillOpacity = 0.9) %>%
-addMarkers(label = mens_100m_nation_medals$Rank,
-           clusterOptions = markerClusterOptions())
+    stroke = FALSE, fillOpacity = 0.9,
+    clusterOptions = markerClusterOptions(),
+    label = ~paste(
+      "Nation: ", Nation,
+      "Year:", Year,
+      "Rank: ", Rank,
+      "Time: ", Time
+  ),
+    labelOptions = labelOptions(
+      noHide = FALSE,
+      direction = "auto",
+      textOnly = FALSE,
+      className = "marker-label"
+  )
+)
 ```
 
