@@ -1,8 +1,10 @@
 library(shiny)
+library(tidyverse)
 library(DT)
 library(dplyr)
 library(ggplot2)
 
+data <- read.csv("/Users/rochellerafn/RStudio_Files/or_liquor_sales.csv")
 
 data <- data %>%
   mutate(Category = recode(Category, "MEZCAL"="MEZCAL / CACHACA", 
@@ -21,7 +23,7 @@ or_liquor_i <- data %>%
 ui <- fluidPage(
   
   # Application title
-  titlePanel("Oregon Liquor Sales"),
+  titlePanel("What Types of Liquor Are Oregonians Drinking?"),
   
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
