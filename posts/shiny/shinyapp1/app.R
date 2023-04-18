@@ -2,8 +2,14 @@ library(shiny)
 library(DT)
 library(dplyr)
 library(ggplot2)
+library(MetBrewer)
+devtools::install_github("BlakeRMills/MetBrewer")
 
-data <- read.csv("/Users/rochellerafn/RStudio_Files/or_liquor_sales.csv")
+data <- data %>%
+  mutate(Category = recode(Category, "MEZCAL"="MEZCAL / CACHACA", 
+                           "CACHACA"="MEZCAL / CACHACA", 
+                           "COCKTAILS"="COCKTAILS / VERMOUTH", 
+                           "VERMOUTH"="COCKTAILS / VERMOUTH"))
 
 or_liquor_i <- data %>%
   group_by(Category, County, Year) %>%
@@ -51,11 +57,12 @@ server <- function(input, output) {
   output$plot <- renderPlot({
     
     # draw the plot with the specified filters
-    ggplot(filtered_data(), aes(x=Year, y=Sales, color=Category)) +
-      geom_jitter(alpha=.6, size=5) +
+    ggplot(filtered_data(), aes(x=Year, y=Sales, shape=County, color=Category)) +
+      geom_jitter(alpha=.6, size=7) +
       labs(y = "Sales", color = "Category") +
-      theme_bw() +
-      theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
+      theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+            plot.background = element_blank(),
+            panel.background = element_blank()) +
       scale_y_continuous(limits = c(0,50000000), labels = scales::comma)
   })
   
