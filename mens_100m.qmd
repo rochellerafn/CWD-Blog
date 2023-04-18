@@ -92,15 +92,15 @@ mens_100m_ncodes$'Country Code'[mens_100m_ncodes$Nation == "Australasia"] <- "AU
 
 
 ```{r}
-library(ggmap)
-mens_100m_nation_medals <- mens_100m_ncodes %>%
-  filter(Rank %in% c("Gold", "Silver", "Bronze"))
+# library(ggmap)
+# mens_100m_nation_medals <- mens_100m_ncodes %>%
+#  filter(Rank %in% c("Gold", "Silver", "Bronze"))
 
-mens_100m_nation_medals$Rank <- factor(mens_100m_nation_medals$Rank, levels=c("Gold", "Silver", "Bronze"))
+# mens_100m_nation_medals$Rank <- factor(mens_100m_nation_medals$Rank, levels=c("Gold", "Silver", "Bronze"))
 
-mens_100m_nation_medals <- cbind(mens_100m_nation_medals, ggmap::geocode(as.character(mens_100m_nation_medals[, "Nation"]), force = FALSE))
+# mens_100m_nation_medals <- cbind(mens_100m_nation_medals, ggmap::geocode(as.character(mens_100m_nation_medals[, "Nation"]), force = FALSE))
   
-mens_100m_nation_medals
+# mens_100m_nation_medals
 ```
 
 ```{r, warning=FALSE}
@@ -117,18 +117,18 @@ plot(worldmap, col = "white",
 ```
 
 ```{r}
-country_medal_map <- joinCountryData2Map(mens_100m_nation_medals, 
-                                   joinCode = "ISO3",
-                                   nameJoinColumn = "Country Code")
+# country_medal_map <- joinCountryData2Map(mens_100m_nation_medals, 
+#                                   joinCode = "ISO3",
+#                                   nameJoinColumn = "Country Code")
 ```
 
 ```{r}
-map1 <- mapCountryData(country_medal_map, nameColumnToPlot="Rank", 
-                       catMethod = "categorical", 
-                       missingCountryCol = 'white',
-                       oceanCol= 'lightblue',
-                       colourPalette = c("#EBD739", "#B5BCC2", "#FFB48C"), 
-                       mapTitle = "Country Medals", borderCol = "white")
+# map1 <- mapCountryData(country_medal_map, nameColumnToPlot="Rank", 
+#                       catMethod = "categorical", 
+#                      missingCountryCol = 'white',
+#                       oceanCol= 'lightblue',
+#                       colourPalette = c("#EBD739", "#B5BCC2", "#FFB48C"), 
+#                       mapTitle = "Country Medals", borderCol = "white")
 ```
 
 ```{r}
@@ -145,13 +145,13 @@ map1 <- mapCountryData(country_medal_map, nameColumnToPlot="Rank",
 
 ```{r}
 
-library(rnaturalearth)
+# library(rnaturalearth)
 
-world <- ne_countries(scale = "medium", returnclass = "sf") 
+# world <- ne_countries(scale = "medium", returnclass = "sf") 
 
-newdata2 <- rename(mens_100m_nation_medals, iso_a3 = 'Country Code')
+# newdata2 <- rename(mens_100m_nation_medals, iso_a3 = 'Country Code')
 
-world2 <- merge(world, newdata2, all = TRUE)
+# world2 <- merge(world, newdata2, all = TRUE)
 ```
 
 
@@ -179,6 +179,7 @@ world2 <- merge(world, newdata2, all = TRUE)
 ```{r}
 library("leaflet")
 
+mens_100m_nation_medals <- read.csv("/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/posts/shiny2/mens_100m_nation_medals.csv")
 
 medal_content <- paste(sep = "<br/>",
   "Nation:", mens_100m_nation_medals$Nation,
