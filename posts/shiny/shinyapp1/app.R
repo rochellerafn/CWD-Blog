@@ -2,8 +2,7 @@ library(shiny)
 library(DT)
 library(dplyr)
 library(ggplot2)
-library(MetBrewer)
-devtools::install_github("BlakeRMills/MetBrewer")
+
 
 data <- data %>%
   mutate(Category = recode(Category, "MEZCAL"="MEZCAL / CACHACA", 
@@ -12,6 +11,7 @@ data <- data %>%
                            "VERMOUTH"="COCKTAILS / VERMOUTH"))
 
 or_liquor_i <- data %>%
+  filter(Year < "2023") %>%
   group_by(Category, County, Year) %>%
   select(County, Year, Category, Sales) %>%
   summarize(Sales = sum(Sales)) %>%

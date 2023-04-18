@@ -49,7 +49,8 @@ mens_100m_change2
 
 ```{r}
 ggplot(mens_100m_change2, aes(Year, Change2))+
-  geom_col()
+  geom_col()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1, size = 6))
 ```
 
 
@@ -174,4 +175,25 @@ world2 <- merge(world, newdata2, all = TRUE)
 #                                   opts_toolbar(saveaspng = FALSE))) #removes default "save as PNG' option on widget
 ```
 
+
+```{r}
+medal_icon <- iconList(
+  medal = makeIcon("/Users/rochellerafn/RStudio_Files/medal.png", "medal@2x.png", 18, 18))
+```
+
+
+```{r}
+library("leaflet")
+
+medal_color <- colorFactor(c("#EBD739", "#B5BCC2", "#FFB48C"), domain = c("Gold", "Silver", "Bronze"))
+
+mens_100m_nation_medals %>%
+leaflet() %>%
+  addTiles() %>%
+  addCircleMarkers(
+    color = ~medal_color(Rank),
+    stroke = FALSE, fillOpacity = 0.9) %>%
+addMarkers(label = mens_100m_nation_medals$Rank,
+           clusterOptions = markerClusterOptions())
+```
 
