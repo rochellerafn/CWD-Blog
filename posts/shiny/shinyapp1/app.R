@@ -4,7 +4,7 @@ library(DT)
 library(dplyr)
 library(ggplot2)
 
-data <- read.csv("/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/posts/shiny/shinyapp1/or_liquor_sales.csv")
+data <- read.csv("https://raw.githubusercontent.com/rochellerafn/CWD-Blog/main/posts/shiny/shinyapp1/or_liquor_sales.csv")
 
 data <- data %>%
   mutate(Category = recode(Category, "MEZCAL"="MEZCAL / CACHACA", 
@@ -60,7 +60,7 @@ server <- function(input, output) {
     
     # draw the plot with the specified filters
     ggplot(filtered_data(), aes(x=Year, y=Sales, shape=County, color=Category)) +
-      geom_jitter(alpha=.6, size=7) +
+      geom_jitter(alpha=.6, size=6) +
       labs(y = "Sales", color = "Category") +
       theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
             plot.background = element_blank(),
