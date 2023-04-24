@@ -1,25 +1,27 @@
 library(shiny)
+library(shinythemes)
 library(tidyverse)
 library(DT)
 library(dplyr)
 library(ggplot2)
 library(leaflet)
 
-mens_100m_nation_medals <- read.csv("/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/posts/shiny2/mens_100m_nation_medals.csv")
+mens_100m_nation_medals <- read.csv("https://raw.githubusercontent.com/rochellerafn/CWD-Blog/main/posts/shiny2/mens_100m_nation_medals.csv")
+mens_100m_nation_medals$Rank <- factor(mens_100m_nation_medals$Rank, levels = c("Gold", "Silver", "Bronze"))
 medal_color <- colorFactor(c("#EBD739", "#B5BCC2", "#FFB48C"), mens_100m_nation_medals$Rank)
 
 # Define UI for application that draws a histogram
-ui <- fluidPage(
+ui <- fluidPage(theme = shinytheme("yeti"),
   
   # Application title
-  titlePanel("100 Years of Men's 100m Dash Medals"),
+  titlePanel("Who Has All the Medals for the Men's 100m Dash?"),
   
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
     sidebarPanel(
       sliderInput("Year", "Choose a year range:", 
                   min = min(mens_100m_nation_medals$Year), max = max(mens_100m_nation_medals$Year), 
-                  value = c(min(mens_100m_nation_medals$Year), max(mens_100m_nation_medals$Year)), step = 1),
+                  value = c(min(mens_100m_nation_medals$Year), max(mens_100m_nation_medals$Year)), step = 4),
       selectInput("Nation", "Choose a Country:",
                   choices = unique(mens_100m_nation_medals$Nation), multiple = TRUE, selected = unique(mens_100m_nation_medals$Nation)),
       selectInput("Rank", "Choose Medal Type",

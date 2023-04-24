@@ -179,5 +179,34 @@ ggplot(aes(reorder(County, -Sales), Sales, fill = County)) +
 ```
 
 
+## Mapping out liquor sales by county
+
+```{r}
+library(ggmap)
+library(leaflet)
+library(sp)
+
+or_county_sales_map <- or_county_sales %>%
+  select(COUNTY, Total.Sales) %>%
+  group_by(COUNTY) %>%
+  summarize(Sales = sum(Total.Sales))
+
+or_county_sales_map <-  as.data.frame(or_county_sales_map)
+
+# or_county_sales_map <- cbind(or_county_sales_map, ggmap::geocode(as.character(or_county_sales_map[, "COUNTY"]), force = FALSE))
+
+palette <- colorNumeric(palette = "Blues", domain = or_county_sales_map$Sales)
+
+# leaflet() %>%
+#  addProviderTiles("OpenStreetMap.Mapnik") %>%
+#  addPolygons(data = or_county_sales_map, 
+#              fillColor = ~palette(Sales),
+#              fillOpacity = 0.7,
+#              color = "#bfbfbf",
+#              weight = 1,
+#              highlightOptions = highlightOptions(color = "white", weight = 2,
+#                                                  bringToFront = TRUE)) 
+
+```
 
 

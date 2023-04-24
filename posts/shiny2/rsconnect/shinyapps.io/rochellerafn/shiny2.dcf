@@ -5,9 +5,9 @@ account: rochellerafn
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 8932261
-bundleId: 7126765
+bundleId: 7127471
 url: https://rochellerafn.shinyapps.io/shiny2/
-when: 1682317039.47373
-lastSyncTime: 1682317039.47375
+when: 1682331368.28115
+lastSyncTime: 1682331368.28116
 asMultiple: FALSE
 asStatic: FALSE
