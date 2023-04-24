@@ -23,7 +23,7 @@ or_liquor_i <- data %>%
 ui <- fluidPage(
   
   # Application title
-  titlePanel("What Types of Liquor Are Oregonians Drinking?"),
+  titlePanel("Does Liquor Preference in Oregon Differ By County?"),
   
   # Sidebar with a slider input for number of bins 
   sidebarLayout(

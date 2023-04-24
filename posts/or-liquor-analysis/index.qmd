@@ -238,3 +238,4 @@ library(gridExtra)
 grid.arrange(liquor_sales_plot, liquor_units_plot, nrow = 1)
 ```
 
+
