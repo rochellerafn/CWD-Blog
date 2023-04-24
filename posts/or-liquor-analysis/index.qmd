@@ -54,6 +54,9 @@ or_sales_yearly <- or_sales_yearly %>%
 ```
 
 
+ 
+ 
+
 
 #### There is a striking consistency to the seasonality of liquor sales year over year.
 
@@ -75,6 +78,8 @@ ggplot(aes(Month, Total.Sales, group = Year, color = Year)) +
        y = "Total Sales (in dollars)")
 ```
 
+ 
+ 
 
 
 #### Same Graph... Animated
@@ -102,6 +107,9 @@ ggplotly(or_sales_yearly_graph)
 ```
 
 
+ 
+ 
+
 
 #### Sales for liquor in Oregon is continuing to grow year over year
 
@@ -118,6 +126,8 @@ ggplot(aes(Year, Total.Sales, fill = Year, color = Year))+
   labs(y = "Total Sales (in dollars)")
 ```
 
+ 
+ 
 
 #### Looking at total liquor sales by county
 
@@ -139,17 +149,25 @@ or_county_sales <- or_sales %>%
   rename("Total.Sales" = "sum(Total.Sales)") %>%
   arrange(desc(Total.Sales))
 
-# Visualizing the sales by county
+# Visualizing total sale by county (sum from 2017-2023)
 or_county_sales %>%
 ggplot(aes(reorder(COUNTY, -Total.Sales), Total.Sales, fill = COUNTY)) +
   geom_col()+
   scale_y_continuous()+
   theme_void()+
   theme(legend.position = "none",
-        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1, size = 6))+
-  facet_wrap(~Year)
-```
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1, size = 10))
 
+# Visualizing the sales by county separate by year
+# or_county_sales %>%
+# ggplot(aes(reorder(COUNTY, -Total.Sales), Total.Sales, fill = COUNTY)) +
+#  geom_col()+
+#  scale_y_continuous()+
+#  theme_void()+
+#  theme(legend.position = "none",
+#        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1, size = 6))+
+#  facet_wrap(~Year)
+```
 
 
 ```{r}
@@ -180,6 +198,10 @@ product_sales_2020 %>%
   ) %>%
     gtExtras::gt_theme_espn()
 ```
+
+
+ 
+ 
 
 
 #### Looking at 2020 Revenue vs. Units Sold Based on Liquor Type

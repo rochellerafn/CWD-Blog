@@ -1,4 +1,5 @@
 library(shiny)
+library(shinythemes)
 library(tidyverse)
 library(DT)
 library(dplyr)
@@ -20,7 +21,7 @@ or_liquor_i <- data %>%
   ungroup()
 
 # Define UI for application that draws a histogram
-ui <- fluidPage(
+ui <- fluidPage(theme = shinytheme("yeti"),
   
   # Application title
   titlePanel("Does Liquor Preference in Oregon Differ By County?"),
