@@ -1,0 +1,13 @@
+name: shiny2
+title: shiny2
+username:
+account: rochellerafn
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8932261
+bundleId: 7126765
+url: https://rochellerafn.shinyapps.io/shiny2/
+when: 1682317039.47373
+lastSyncTime: 1682317039.47375
+asMultiple: FALSE
+asStatic: FALSE

@@ -4,7 +4,7 @@ library(DT)
 library(dplyr)
 library(ggplot2)
 
-data <- read.csv("/Users/rochellerafn/RStudio_Files/or_liquor_sales.csv")
+data <- read.csv("/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/posts/shiny/shinyapp1/or_liquor_sales.csv")
 
 data <- data %>%
   mutate(Category = recode(Category, "MEZCAL"="MEZCAL / CACHACA", 
