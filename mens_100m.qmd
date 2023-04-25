@@ -190,6 +190,7 @@ medal_content <- paste(sep = "<br/>",
 medal_label <- mens_100m_nation_medals %>%
   select(Nation, Rank, Time, lat, lon)
 
+mens_100m_nation_medals$Rank <- factor(mens_100m_nation_medals$Rank, levels = c("Gold", "Silver", "Bronze"))
 medal_color <- colorFactor(c("#EBD739", "#B5BCC2", "#FFB48C"), mens_100m_nation_medals$Rank)
 ```
 

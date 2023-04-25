@@ -348,33 +348,8 @@ library(forcats)
  
  
 
-## Map of Medal Winning Countries
 
-```{r}
-library("leaflet")
-
-mens_100m_nation_medals <- read.csv("/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/posts/shiny2/mens_100m_nation_medals.csv")
-medal_color <- colorFactor(c("#FFB48C", "#EBD739", "#B5BCC2"), mens_100m_nation_medals$Rank)
-
-mens_100m_nation_medals %>%
-leaflet() %>%
-  addTiles() %>%
-  addCircleMarkers(
-    color = ~medal_color(Rank),
-    stroke = FALSE, fillOpacity = 0.9,
-    clusterOptions = markerClusterOptions(),
-    label = ~paste(
-      "Nation: ", Nation,
-      "Year:", Year,
-      "Rank: ", Rank,
-      "Time: ", Time
-  ),
-    labelOptions = labelOptions(
-      noHide = FALSE,
-      direction = "auto",
-      textOnly = FALSE,
-      className = "marker-label"
-  )
-)
+```{=html}
+<iframe width="1000" height="800" src="https://rochellerafn.shinyapps.io/shiny2/" title="The Shiny App"></iframe>
 ```
 

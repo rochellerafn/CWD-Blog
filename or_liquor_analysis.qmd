@@ -17,6 +17,7 @@ library(tidyverse)
 library(readxl)
 library(lubridate)
 library(gt)
+library(ggplot2)
 
 or_store_sales <- read.csv("/Users/rochellerafn/RStudio_Files/2014-2023-OR-Liquor-Sales.csv")
 store_info <- read_xlsx("/Users/rochellerafn/RStudio_Files/Info_request_store_month_category.xlsx", sheet = 2)
@@ -182,20 +183,37 @@ ggplot(aes(reorder(County, -Sales), Sales, fill = County)) +
 ## Mapping out liquor sales by county
 
 ```{r}
-library(ggmap)
-library(leaflet)
-library(sp)
+# library(ggmap)
+# library(leaflet)
+# library(sp)
 
-or_county_sales_map <- or_county_sales %>%
-  select(COUNTY, Total.Sales) %>%
-  group_by(COUNTY) %>%
-  summarize(Sales = sum(Total.Sales))
+# or_county_sales_map <- or_county_sales %>%
+#  select(County, Sales) %>%
+#  filter(!is.na(County)) %>%
+#  rename("subregion" = "County") %>%
+#  group_by(subregion) %>%
+#  summarize(value = sum(Sales))
 
-or_county_sales_map <-  as.data.frame(or_county_sales_map)
+# or_county_sales_map <-  as.data.frame(or_county_sales_map)
 
-# or_county_sales_map <- cbind(or_county_sales_map, ggmap::geocode(as.character(or_county_sales_map[, "COUNTY"]), force = FALSE))
+# us_counties <- map_data("county")
+# or_counties <- us_counties %>%
+#  filter(region == "oregon")
 
-palette <- colorNumeric(palette = "Blues", domain = or_county_sales_map$Sales)
+# or_county_sales_map$subregion <- tolower(or_county_sales_map$subregion)
+
+# joining longitude and latitude 
+# or_county_sales_map <- cbind(or_county_sales_map, ggmap::geocode(as.character(or_county_sales_map[, "County"]), force = FALSE))
+
+# or_county_sales_map <- merge(x=or_counties, y=or_county_sales_map, by= "subregion", all.x = TRUE)
+
+
+# palette <- colorNumeric(palette = "Blues", domain = or_county_sales_map$Sales)
+
+# library(choroplethr)
+# library(choroplethrMaps)
+
+# country_choropleth(or_county_sales_map)
 
 # leaflet() %>%
 #  addProviderTiles("OpenStreetMap.Mapnik") %>%
@@ -207,6 +225,10 @@ palette <- colorNumeric(palette = "Blues", domain = or_county_sales_map$Sales)
 #              highlightOptions = highlightOptions(color = "white", weight = 2,
 #                                                  bringToFront = TRUE)) 
 
+
+
 ```
+
+
 
 

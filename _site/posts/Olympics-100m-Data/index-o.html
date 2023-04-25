@@ -123,7 +123,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script src="../../site_libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
+<script src="../../site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
 <script src="../../site_libs/plotly-binding-4.10.1/plotly.js"></script>
 <script src="../../site_libs/typedarray-0.1/typedarray.min.js"></script>
 <script src="../../site_libs/jquery-3.5.1/jquery.min.js"></script>
@@ -131,18 +131,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 <link href="../../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="../../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
-<link href="../../site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
-<script src="../../site_libs/leaflet-1.3.1/leaflet.js"></script>
-<link href="../../site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
-<script src="../../site_libs/proj4-2.6.2/proj4.min.js"></script>
-<script src="../../site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
-<link href="../../site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
-<script src="../../site_libs/leaflet-binding-2.1.2/leaflet.js"></script>
-<link href="../../site_libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet">
-<link href="../../site_libs/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet">
-<script src="../../site_libs/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
-<script src="../../site_libs/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
-<script src="../../site_libs/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -273,15 +261,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </details>
 <div class="cell-output-display">
 
-<div id="tavkjhishb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="xooberuodt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-html {
-  font-family: Lato, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+#xooberuodt table {
+  font-family: Lato, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-:where(#tavkjhishb) .gt_table {
+#xooberuodt thead, #xooberuodt tbody, #xooberuodt tfoot, #xooberuodt tr, #xooberuodt td, #xooberuodt th {
+  border-style: none;
+}
+
+#xooberuodt p {
+  margin: 0;
+  padding: 0;
+}
+
+#xooberuodt .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -304,24 +304,12 @@ html {
   border-left-color: #D3D3D3;
 }
 
-:where(#tavkjhishb) .gt_heading {
-  background-color: #FFFFFF;
-  text-align: left;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#tavkjhishb) .gt_caption {
+#xooberuodt .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#tavkjhishb) .gt_title {
+#xooberuodt .gt_title {
   color: #333333;
   font-size: 24px;
   font-weight: initial;
@@ -333,25 +321,37 @@ html {
   border-bottom-width: 0;
 }
 
-:where(#tavkjhishb) .gt_subtitle {
+#xooberuodt .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-:where(#tavkjhishb) .gt_bottom_border {
+#xooberuodt .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xooberuodt .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#tavkjhishb) .gt_col_headings {
+#xooberuodt .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -366,7 +366,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#tavkjhishb) .gt_col_heading {
+#xooberuodt .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -386,7 +386,7 @@ html {
   overflow-x: hidden;
 }
 
-:where(#tavkjhishb) .gt_column_spanner_outer {
+#xooberuodt .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -398,15 +398,15 @@ html {
   padding-right: 4px;
 }
 
-:where(#tavkjhishb) .gt_column_spanner_outer:first-child {
+#xooberuodt .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#tavkjhishb) .gt_column_spanner_outer:last-child {
+#xooberuodt .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#tavkjhishb) .gt_column_spanner {
+#xooberuodt .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -418,7 +418,11 @@ html {
   width: 100%;
 }
 
-:where(#tavkjhishb) .gt_group_heading {
+#xooberuodt .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#xooberuodt .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -444,7 +448,7 @@ html {
   text-align: left;
 }
 
-:where(#tavkjhishb) .gt_empty_group_heading {
+#xooberuodt .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -459,15 +463,15 @@ html {
   vertical-align: middle;
 }
 
-:where(#tavkjhishb) .gt_from_md > :first-child {
+#xooberuodt .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#tavkjhishb) .gt_from_md > :last-child {
+#xooberuodt .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#tavkjhishb) .gt_row {
+#xooberuodt .gt_row {
   padding-top: 7px;
   padding-bottom: 7px;
   padding-left: 5px;
@@ -486,7 +490,7 @@ html {
   overflow-x: hidden;
 }
 
-:where(#tavkjhishb) .gt_stub {
+#xooberuodt .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -499,7 +503,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#tavkjhishb) .gt_stub_row_group {
+#xooberuodt .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -513,11 +517,15 @@ html {
   vertical-align: top;
 }
 
-:where(#tavkjhishb) .gt_row_group_first td {
+#xooberuodt .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#tavkjhishb) .gt_summary_row {
+#xooberuodt .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#xooberuodt .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -527,16 +535,16 @@ html {
   padding-right: 5px;
 }
 
-:where(#tavkjhishb) .gt_first_summary_row {
+#xooberuodt .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#tavkjhishb) .gt_first_summary_row.thick {
+#xooberuodt .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#tavkjhishb) .gt_last_summary_row {
+#xooberuodt .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -546,7 +554,7 @@ html {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#tavkjhishb) .gt_grand_summary_row {
+#xooberuodt .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -556,7 +564,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#tavkjhishb) .gt_first_grand_summary_row {
+#xooberuodt .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -566,11 +574,21 @@ html {
   border-top-color: #D3D3D3;
 }
 
-:where(#tavkjhishb) .gt_striped {
+#xooberuodt .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xooberuodt .gt_striped {
   background-color: #FAFAFA;
 }
 
-:where(#tavkjhishb) .gt_table_body {
+#xooberuodt .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -579,7 +597,7 @@ html {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#tavkjhishb) .gt_footnotes {
+#xooberuodt .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -593,16 +611,16 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#tavkjhishb) .gt_footnote {
+#xooberuodt .gt_footnote {
   margin: 0px;
   font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-:where(#tavkjhishb) .gt_sourcenotes {
+#xooberuodt .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -616,7 +634,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#tavkjhishb) .gt_sourcenote {
+#xooberuodt .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -624,78 +642,75 @@ html {
   padding-right: 5px;
 }
 
-:where(#tavkjhishb) .gt_left {
+#xooberuodt .gt_left {
   text-align: left;
 }
 
-:where(#tavkjhishb) .gt_center {
+#xooberuodt .gt_center {
   text-align: center;
 }
 
-:where(#tavkjhishb) .gt_right {
+#xooberuodt .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#tavkjhishb) .gt_font_normal {
+#xooberuodt .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#tavkjhishb) .gt_font_bold {
+#xooberuodt .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#tavkjhishb) .gt_font_italic {
+#xooberuodt .gt_font_italic {
   font-style: italic;
 }
 
-:where(#tavkjhishb) .gt_super {
+#xooberuodt .gt_super {
   font-size: 65%;
 }
 
-:where(#tavkjhishb) .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#xooberuodt .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-:where(#tavkjhishb) .gt_asterisk {
+#xooberuodt .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#tavkjhishb) .gt_indent_1 {
+#xooberuodt .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#tavkjhishb) .gt_indent_2 {
+#xooberuodt .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#tavkjhishb) .gt_indent_3 {
+#xooberuodt .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#tavkjhishb) .gt_indent_4 {
+#xooberuodt .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#tavkjhishb) .gt_indent_5 {
+#xooberuodt .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table">
-  <thead class="gt_header">
-    <tr>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
       <td colspan="9" class="gt_heading gt_title gt_font_normal" style="">Men's 100m Dash</td>
     </tr>
-    <tr>
+    <tr class="gt_heading">
       <td colspan="9" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="">Medal Winners</td>
     </tr>
-  </thead>
-  <thead class="gt_col_headings">
-    <tr>
+    <tr class="gt_col_headings">
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Year">Year</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Name">Name</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Medal">Medal</th>
@@ -805,8 +820,8 @@ html {
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(mens_100m_gsb_ani)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-4c09f950bb3bc2eb02b6" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-4c09f950bb3bc2eb02b6">{"x":{"data":[{"x":[1936],"y":[10.5],"text":"Year: 1936<br />Time: 10.50<br />Medal: Bronze<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1936],"y":[10.3],"text":"Year: 1936<br />Time: 10.30<br />Medal: Gold<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1936],"y":[10.4],"text":"Year: 1936<br />Time: 10.40<br />Medal: Silver<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"layout":{"margin":{"t":43.7625570776256,"r":7.30593607305936,"b":40.1826484018265,"l":48.9497716894977},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Gold, Silver & Bronze Medals Over 100 Years","font":{"color":"rgba(0,0,0,1)","family":"Courier","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1932,2020],"tickmode":"array","ticktext":["1940","1960","1980","2000","2020"],"tickvals":[1940,1960,1980,2000,2020],"categoryorder":"array","categoryarray":["1940","1960","1980","2000","2020"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Courier","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Year","font":{"color":"rgba(0,0,0,1)","family":"Courier","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[9.5815,10.6485],"tickmode":"array","ticktext":["9.6","9.8","10.0","10.2","10.4","10.6"],"tickvals":[9.6,9.8,10,10.2,10.4,10.6],"categoryorder":"array","categoryarray":["9.6","9.8","10.0","10.2","10.4","10.6"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Courier","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Time (in seconds)","font":{"color":"rgba(0,0,0,1)","family":"Courier","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"Courier","size":11.689497716895},"title":{"text":"Medal","font":{"color":"rgba(0,0,0,1)","family":"Courier","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative","sliders":[{"currentvalue":{"prefix":"~Year: ","xanchor":"right","font":{"size":16,"color":"rgba(204,204,204,1)"}},"steps":[{"method":"animate","args":[["1936"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1936","value":"1936"},{"method":"animate","args":[["1948"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1948","value":"1948"},{"method":"animate","args":[["1952"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1952","value":"1952"},{"method":"animate","args":[["1956"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1956","value":"1956"},{"method":"animate","args":[["1960"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1960","value":"1960"},{"method":"animate","args":[["1964"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1964","value":"1964"},{"method":"animate","args":[["1968"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1968","value":"1968"},{"method":"animate","args":[["1972"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1972","value":"1972"},{"method":"animate","args":[["1976"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1976","value":"1976"},{"method":"animate","args":[["1980"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1980","value":"1980"},{"method":"animate","args":[["1984"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1984","value":"1984"},{"method":"animate","args":[["1988"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1988","value":"1988"},{"method":"animate","args":[["1992"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1992","value":"1992"},{"method":"animate","args":[["1996"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1996","value":"1996"},{"method":"animate","args":[["2000"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2000","value":"2000"},{"method":"animate","args":[["2004"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2004","value":"2004"},{"method":"animate","args":[["2008"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2008","value":"2008"},{"method":"animate","args":[["2012"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2012","value":"2012"},{"method":"animate","args":[["2016"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2016","value":"2016"}],"visible":true,"pad":{"t":40}}],"updatemenus":[{"type":"buttons","direction":"right","showactive":false,"y":0,"x":0,"yanchor":"top","xanchor":"right","pad":{"t":60,"r":5},"buttons":[{"label":"Play","method":"animate","args":[null,{"fromcurrent":true,"mode":"immediate","transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false}}]}]}]},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"629cff10f":{"x":{},"y":{},"colour":{},"frame":{},"type":"scatter"},"629c169b0fd1":{"x":{},"y":{},"colour":{},"frame":{}}},"cur_data":"629cff10f","visdat":{"629cff10f":["function (y) ","x"],"629c169b0fd1":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"frames":[{"name":"1936","data":[{"x":[1936],"y":[10.5],"text":"Year: 1936<br />Time: 10.50<br />Medal: Bronze<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1936],"y":[10.3],"text":"Year: 1936<br />Time: 10.30<br />Medal: Gold<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1936],"y":[10.4],"text":"Year: 1936<br />Time: 10.40<br />Medal: Silver<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1948","data":[{"x":[1948],"y":[10.6],"text":"Year: 1948<br />Time: 10.60<br />Medal: Bronze<br />Year: 1948","frame":"1948","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1948],"y":[10.3],"text":"Year: 1948<br />Time: 10.30<br />Medal: Gold<br />Year: 1948","frame":"1948","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1948],"y":[10.4],"text":"Year: 1948<br />Time: 10.40<br />Medal: Silver<br />Year: 1948","frame":"1948","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1952","data":[{"x":[1952],"y":[10.4],"text":"Year: 1952<br />Time: 10.40<br />Medal: Bronze<br />Year: 1952","frame":"1952","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1952],"y":[10.4],"text":"Year: 1952<br />Time: 10.40<br />Medal: Gold<br />Year: 1952","frame":"1952","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1952],"y":[10.4],"text":"Year: 1952<br />Time: 10.40<br />Medal: Silver<br />Year: 1952","frame":"1952","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1956","data":[{"x":[1956],"y":[10.6],"text":"Year: 1956<br />Time: 10.60<br />Medal: Bronze<br />Year: 1956","frame":"1956","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1956],"y":[10.5],"text":"Year: 1956<br />Time: 10.50<br />Medal: Gold<br />Year: 1956","frame":"1956","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1956],"y":[10.5],"text":"Year: 1956<br />Time: 10.50<br />Medal: Silver<br />Year: 1956","frame":"1956","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1960","data":[{"x":[1960],"y":[10.3],"text":"Year: 1960<br />Time: 10.30<br />Medal: Bronze<br />Year: 1960","frame":"1960","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1960],"y":[10.2],"text":"Year: 1960<br />Time: 10.20<br />Medal: Gold<br />Year: 1960","frame":"1960","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1960],"y":[10.2],"text":"Year: 1960<br />Time: 10.20<br />Medal: Silver<br />Year: 1960","frame":"1960","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1964","data":[{"x":[1964],"y":[10.2],"text":"Year: 1964<br />Time: 10.20<br />Medal: Bronze<br />Year: 1964","frame":"1964","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1964],"y":[10],"text":"Year: 1964<br />Time: 10.00<br />Medal: Gold<br />Year: 1964","frame":"1964","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1964],"y":[10.2],"text":"Year: 1964<br />Time: 10.20<br />Medal: Silver<br />Year: 1964","frame":"1964","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1968","data":[{"x":[1968],"y":[10.07],"text":"Year: 1968<br />Time: 10.07<br />Medal: Bronze<br />Year: 1968","frame":"1968","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1968],"y":[9.95],"text":"Year: 1968<br />Time:  9.95<br />Medal: Gold<br />Year: 1968","frame":"1968","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1968],"y":[10.04],"text":"Year: 1968<br />Time: 10.04<br />Medal: Silver<br />Year: 1968","frame":"1968","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1972","data":[{"x":[1972],"y":[10.33],"text":"Year: 1972<br />Time: 10.33<br />Medal: Bronze<br />Year: 1972","frame":"1972","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1972],"y":[10.14],"text":"Year: 1972<br />Time: 10.14<br />Medal: Gold<br />Year: 1972","frame":"1972","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1972],"y":[10.24],"text":"Year: 1972<br />Time: 10.24<br />Medal: Silver<br />Year: 1972","frame":"1972","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1976","data":[{"x":[1976],"y":[10.14],"text":"Year: 1976<br />Time: 10.14<br />Medal: Bronze<br />Year: 1976","frame":"1976","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1976],"y":[10.06],"text":"Year: 1976<br />Time: 10.06<br />Medal: Gold<br />Year: 1976","frame":"1976","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1976],"y":[10.08],"text":"Year: 1976<br />Time: 10.08<br />Medal: Silver<br />Year: 1976","frame":"1976","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1980","data":[{"x":[1980],"y":[10.39],"text":"Year: 1980<br />Time: 10.39<br />Medal: Bronze<br />Year: 1980","frame":"1980","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1980],"y":[10.25],"text":"Year: 1980<br />Time: 10.25<br />Medal: Gold<br />Year: 1980","frame":"1980","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1980],"y":[10.25],"text":"Year: 1980<br />Time: 10.25<br />Medal: Silver<br />Year: 1980","frame":"1980","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1984","data":[{"x":[1984],"y":[10.22],"text":"Year: 1984<br />Time: 10.22<br />Medal: Bronze<br />Year: 1984","frame":"1984","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1984],"y":[9.99],"text":"Year: 1984<br />Time:  9.99<br />Medal: Gold<br />Year: 1984","frame":"1984","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1984],"y":[10.19],"text":"Year: 1984<br />Time: 10.19<br />Medal: Silver<br />Year: 1984","frame":"1984","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1988","data":[{"x":[1988],"y":[9.99],"text":"Year: 1988<br />Time:  9.99<br />Medal: Bronze<br />Year: 1988","frame":"1988","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1988],"y":[9.92],"text":"Year: 1988<br />Time:  9.92<br />Medal: Gold<br />Year: 1988","frame":"1988","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1988],"y":[9.97],"text":"Year: 1988<br />Time:  9.97<br />Medal: Silver<br />Year: 1988","frame":"1988","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1992","data":[{"x":[1992],"y":[10.04],"text":"Year: 1992<br />Time: 10.04<br />Medal: Bronze<br />Year: 1992","frame":"1992","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1992],"y":[9.96],"text":"Year: 1992<br />Time:  9.96<br />Medal: Gold<br />Year: 1992","frame":"1992","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1992],"y":[10.02],"text":"Year: 1992<br />Time: 10.02<br />Medal: Silver<br />Year: 1992","frame":"1992","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1996","data":[{"x":[1996],"y":[9.9],"text":"Year: 1996<br />Time:  9.90<br />Medal: Bronze<br />Year: 1996","frame":"1996","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1996],"y":[9.84],"text":"Year: 1996<br />Time:  9.84<br />Medal: Gold<br />Year: 1996","frame":"1996","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1996],"y":[9.89],"text":"Year: 1996<br />Time:  9.89<br />Medal: Silver<br />Year: 1996","frame":"1996","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"2000","data":[{"x":[2000],"y":[10.04],"text":"Year: 2000<br />Time: 10.04<br />Medal: Bronze<br />Year: 2000","frame":"2000","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[2000],"y":[9.87],"text":"Year: 2000<br />Time:  9.87<br />Medal: Gold<br />Year: 2000","frame":"2000","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[2000],"y":[9.99],"text":"Year: 2000<br />Time:  9.99<br />Medal: Silver<br />Year: 2000","frame":"2000","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"2004","data":[{"x":[2004],"y":[9.87],"text":"Year: 2004<br />Time:  9.87<br />Medal: Bronze<br />Year: 2004","frame":"2004","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[2004],"y":[9.85],"text":"Year: 2004<br />Time:  9.85<br />Medal: Gold<br />Year: 2004","frame":"2004","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[2004],"y":[9.86],"text":"Year: 2004<br />Time:  9.86<br />Medal: Silver<br />Year: 2004","frame":"2004","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"2008","data":[{"x":[2008],"y":[9.91],"text":"Year: 2008<br />Time:  9.91<br />Medal: Bronze<br />Year: 2008","frame":"2008","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[2008],"y":[9.69],"text":"Year: 2008<br />Time:  9.69<br />Medal: Gold<br />Year: 2008","frame":"2008","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[2008],"y":[9.89],"text":"Year: 2008<br />Time:  9.89<br />Medal: Silver<br />Year: 2008","frame":"2008","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"2012","data":[{"x":[2012],"y":[9.79],"text":"Year: 2012<br />Time:  9.79<br />Medal: Bronze<br />Year: 2012","frame":"2012","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[2012],"y":[9.63],"text":"Year: 2012<br />Time:  9.63<br />Medal: Gold<br />Year: 2012","frame":"2012","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[2012],"y":[9.75],"text":"Year: 2012<br />Time:  9.75<br />Medal: Silver<br />Year: 2012","frame":"2012","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"2016","data":[{"x":[2016],"y":[9.91],"text":"Year: 2016<br />Time:  9.91<br />Medal: Bronze<br />Year: 2016","frame":"2016","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[2016],"y":[9.81],"text":"Year: 2016<br />Time:  9.81<br />Medal: Gold<br />Year: 2016","frame":"2016","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[2016],"y":[9.89],"text":"Year: 2016<br />Time:  9.89<br />Medal: Silver<br />Year: 2016","frame":"2016","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]}],"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-8359ec70ea3f876b65d5" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-8359ec70ea3f876b65d5">{"x":{"data":[{"x":[1936],"y":[10.5],"text":"Year: 1936<br />Time: 10.50<br />Medal: Bronze<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1936],"y":[10.3],"text":"Year: 1936<br />Time: 10.30<br />Medal: Gold<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1936],"y":[10.4],"text":"Year: 1936<br />Time: 10.40<br />Medal: Silver<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"layout":{"margin":{"t":43.7625570776256,"r":7.30593607305936,"b":40.1826484018265,"l":48.9497716894977},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Gold, Silver & Bronze Medals Over 100 Years","font":{"color":"rgba(0,0,0,1)","family":"Courier","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1932,2020],"tickmode":"array","ticktext":["1940","1960","1980","2000","2020"],"tickvals":[1940,1960,1980,2000,2020],"categoryorder":"array","categoryarray":["1940","1960","1980","2000","2020"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Courier","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Year","font":{"color":"rgba(0,0,0,1)","family":"Courier","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[9.5815,10.6485],"tickmode":"array","ticktext":["9.6","9.8","10.0","10.2","10.4","10.6"],"tickvals":[9.6,9.8,10,10.2,10.4,10.6],"categoryorder":"array","categoryarray":["9.6","9.8","10.0","10.2","10.4","10.6"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Courier","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Time (in seconds)","font":{"color":"rgba(0,0,0,1)","family":"Courier","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"Courier","size":11.689497716895},"title":{"text":"Medal","font":{"color":"rgba(0,0,0,1)","family":"Courier","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative","sliders":[{"currentvalue":{"prefix":"~Year: ","xanchor":"right","font":{"size":16,"color":"rgba(204,204,204,1)"}},"steps":[{"method":"animate","args":[["1936"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1936","value":"1936"},{"method":"animate","args":[["1948"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1948","value":"1948"},{"method":"animate","args":[["1952"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1952","value":"1952"},{"method":"animate","args":[["1956"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1956","value":"1956"},{"method":"animate","args":[["1960"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1960","value":"1960"},{"method":"animate","args":[["1964"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1964","value":"1964"},{"method":"animate","args":[["1968"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1968","value":"1968"},{"method":"animate","args":[["1972"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1972","value":"1972"},{"method":"animate","args":[["1976"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1976","value":"1976"},{"method":"animate","args":[["1980"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1980","value":"1980"},{"method":"animate","args":[["1984"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1984","value":"1984"},{"method":"animate","args":[["1988"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1988","value":"1988"},{"method":"animate","args":[["1992"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1992","value":"1992"},{"method":"animate","args":[["1996"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"1996","value":"1996"},{"method":"animate","args":[["2000"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2000","value":"2000"},{"method":"animate","args":[["2004"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2004","value":"2004"},{"method":"animate","args":[["2008"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2008","value":"2008"},{"method":"animate","args":[["2012"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2012","value":"2012"},{"method":"animate","args":[["2016"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2016","value":"2016"}],"visible":true,"pad":{"t":40}}],"updatemenus":[{"type":"buttons","direction":"right","showactive":false,"y":0,"x":0,"yanchor":"top","xanchor":"right","pad":{"t":60,"r":5},"buttons":[{"label":"Play","method":"animate","args":[null,{"fromcurrent":true,"mode":"immediate","transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false}}]}]}]},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"e43d4a69c2de":{"x":{},"y":{},"colour":{},"frame":{},"type":"scatter"},"e43d6578a2fc":{"x":{},"y":{},"colour":{},"frame":{}}},"cur_data":"e43d4a69c2de","visdat":{"e43d4a69c2de":["function (y) ","x"],"e43d6578a2fc":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"frames":[{"name":"1936","data":[{"x":[1936],"y":[10.5],"text":"Year: 1936<br />Time: 10.50<br />Medal: Bronze<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1936],"y":[10.3],"text":"Year: 1936<br />Time: 10.30<br />Medal: Gold<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1936],"y":[10.4],"text":"Year: 1936<br />Time: 10.40<br />Medal: Silver<br />Year: 1936","frame":"1936","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1948","data":[{"x":[1948],"y":[10.6],"text":"Year: 1948<br />Time: 10.60<br />Medal: Bronze<br />Year: 1948","frame":"1948","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1948],"y":[10.3],"text":"Year: 1948<br />Time: 10.30<br />Medal: Gold<br />Year: 1948","frame":"1948","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1948],"y":[10.4],"text":"Year: 1948<br />Time: 10.40<br />Medal: Silver<br />Year: 1948","frame":"1948","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1952","data":[{"x":[1952],"y":[10.4],"text":"Year: 1952<br />Time: 10.40<br />Medal: Bronze<br />Year: 1952","frame":"1952","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1952],"y":[10.4],"text":"Year: 1952<br />Time: 10.40<br />Medal: Gold<br />Year: 1952","frame":"1952","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1952],"y":[10.4],"text":"Year: 1952<br />Time: 10.40<br />Medal: Silver<br />Year: 1952","frame":"1952","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1956","data":[{"x":[1956],"y":[10.6],"text":"Year: 1956<br />Time: 10.60<br />Medal: Bronze<br />Year: 1956","frame":"1956","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1956],"y":[10.5],"text":"Year: 1956<br />Time: 10.50<br />Medal: Gold<br />Year: 1956","frame":"1956","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1956],"y":[10.5],"text":"Year: 1956<br />Time: 10.50<br />Medal: Silver<br />Year: 1956","frame":"1956","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1960","data":[{"x":[1960],"y":[10.3],"text":"Year: 1960<br />Time: 10.30<br />Medal: Bronze<br />Year: 1960","frame":"1960","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1960],"y":[10.2],"text":"Year: 1960<br />Time: 10.20<br />Medal: Gold<br />Year: 1960","frame":"1960","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1960],"y":[10.2],"text":"Year: 1960<br />Time: 10.20<br />Medal: Silver<br />Year: 1960","frame":"1960","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1964","data":[{"x":[1964],"y":[10.2],"text":"Year: 1964<br />Time: 10.20<br />Medal: Bronze<br />Year: 1964","frame":"1964","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1964],"y":[10],"text":"Year: 1964<br />Time: 10.00<br />Medal: Gold<br />Year: 1964","frame":"1964","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1964],"y":[10.2],"text":"Year: 1964<br />Time: 10.20<br />Medal: Silver<br />Year: 1964","frame":"1964","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1968","data":[{"x":[1968],"y":[10.07],"text":"Year: 1968<br />Time: 10.07<br />Medal: Bronze<br />Year: 1968","frame":"1968","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1968],"y":[9.95],"text":"Year: 1968<br />Time:  9.95<br />Medal: Gold<br />Year: 1968","frame":"1968","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1968],"y":[10.04],"text":"Year: 1968<br />Time: 10.04<br />Medal: Silver<br />Year: 1968","frame":"1968","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1972","data":[{"x":[1972],"y":[10.33],"text":"Year: 1972<br />Time: 10.33<br />Medal: Bronze<br />Year: 1972","frame":"1972","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1972],"y":[10.14],"text":"Year: 1972<br />Time: 10.14<br />Medal: Gold<br />Year: 1972","frame":"1972","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1972],"y":[10.24],"text":"Year: 1972<br />Time: 10.24<br />Medal: Silver<br />Year: 1972","frame":"1972","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1976","data":[{"x":[1976],"y":[10.14],"text":"Year: 1976<br />Time: 10.14<br />Medal: Bronze<br />Year: 1976","frame":"1976","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1976],"y":[10.06],"text":"Year: 1976<br />Time: 10.06<br />Medal: Gold<br />Year: 1976","frame":"1976","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1976],"y":[10.08],"text":"Year: 1976<br />Time: 10.08<br />Medal: Silver<br />Year: 1976","frame":"1976","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1980","data":[{"x":[1980],"y":[10.39],"text":"Year: 1980<br />Time: 10.39<br />Medal: Bronze<br />Year: 1980","frame":"1980","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1980],"y":[10.25],"text":"Year: 1980<br />Time: 10.25<br />Medal: Gold<br />Year: 1980","frame":"1980","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1980],"y":[10.25],"text":"Year: 1980<br />Time: 10.25<br />Medal: Silver<br />Year: 1980","frame":"1980","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1984","data":[{"x":[1984],"y":[10.22],"text":"Year: 1984<br />Time: 10.22<br />Medal: Bronze<br />Year: 1984","frame":"1984","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1984],"y":[9.99],"text":"Year: 1984<br />Time:  9.99<br />Medal: Gold<br />Year: 1984","frame":"1984","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1984],"y":[10.19],"text":"Year: 1984<br />Time: 10.19<br />Medal: Silver<br />Year: 1984","frame":"1984","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1988","data":[{"x":[1988],"y":[9.99],"text":"Year: 1988<br />Time:  9.99<br />Medal: Bronze<br />Year: 1988","frame":"1988","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1988],"y":[9.92],"text":"Year: 1988<br />Time:  9.92<br />Medal: Gold<br />Year: 1988","frame":"1988","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1988],"y":[9.97],"text":"Year: 1988<br />Time:  9.97<br />Medal: Silver<br />Year: 1988","frame":"1988","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1992","data":[{"x":[1992],"y":[10.04],"text":"Year: 1992<br />Time: 10.04<br />Medal: Bronze<br />Year: 1992","frame":"1992","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1992],"y":[9.96],"text":"Year: 1992<br />Time:  9.96<br />Medal: Gold<br />Year: 1992","frame":"1992","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1992],"y":[10.02],"text":"Year: 1992<br />Time: 10.02<br />Medal: Silver<br />Year: 1992","frame":"1992","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"1996","data":[{"x":[1996],"y":[9.9],"text":"Year: 1996<br />Time:  9.90<br />Medal: Bronze<br />Year: 1996","frame":"1996","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[1996],"y":[9.84],"text":"Year: 1996<br />Time:  9.84<br />Medal: Gold<br />Year: 1996","frame":"1996","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[1996],"y":[9.89],"text":"Year: 1996<br />Time:  9.89<br />Medal: Silver<br />Year: 1996","frame":"1996","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"2000","data":[{"x":[2000],"y":[10.04],"text":"Year: 2000<br />Time: 10.04<br />Medal: Bronze<br />Year: 2000","frame":"2000","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[2000],"y":[9.87],"text":"Year: 2000<br />Time:  9.87<br />Medal: Gold<br />Year: 2000","frame":"2000","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[2000],"y":[9.99],"text":"Year: 2000<br />Time:  9.99<br />Medal: Silver<br />Year: 2000","frame":"2000","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"2004","data":[{"x":[2004],"y":[9.87],"text":"Year: 2004<br />Time:  9.87<br />Medal: Bronze<br />Year: 2004","frame":"2004","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[2004],"y":[9.85],"text":"Year: 2004<br />Time:  9.85<br />Medal: Gold<br />Year: 2004","frame":"2004","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[2004],"y":[9.86],"text":"Year: 2004<br />Time:  9.86<br />Medal: Silver<br />Year: 2004","frame":"2004","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"2008","data":[{"x":[2008],"y":[9.91],"text":"Year: 2008<br />Time:  9.91<br />Medal: Bronze<br />Year: 2008","frame":"2008","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[2008],"y":[9.69],"text":"Year: 2008<br />Time:  9.69<br />Medal: Gold<br />Year: 2008","frame":"2008","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[2008],"y":[9.89],"text":"Year: 2008<br />Time:  9.89<br />Medal: Silver<br />Year: 2008","frame":"2008","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"2012","data":[{"x":[2012],"y":[9.79],"text":"Year: 2012<br />Time:  9.79<br />Medal: Bronze<br />Year: 2012","frame":"2012","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[2012],"y":[9.63],"text":"Year: 2012<br />Time:  9.63<br />Medal: Gold<br />Year: 2012","frame":"2012","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[2012],"y":[9.75],"text":"Year: 2012<br />Time:  9.75<br />Medal: Silver<br />Year: 2012","frame":"2012","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]},{"name":"2016","data":[{"x":[2016],"y":[9.91],"text":"Year: 2016<br />Time:  9.91<br />Medal: Bronze<br />Year: 2016","frame":"2016","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(255,180,140,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)"}},"hoveron":"points","name":"Bronze","legendgroup":"Bronze","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(255,180,140,1)","dash":"solid"},"visible":true},{"x":[2016],"y":[9.81],"text":"Year: 2016<br />Time:  9.81<br />Medal: Gold<br />Year: 2016","frame":"2016","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(235,215,57,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)"}},"hoveron":"points","name":"Gold","legendgroup":"Gold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(235,215,57,1)","dash":"solid"},"visible":true},{"x":[2016],"y":[9.89],"text":"Year: 2016<br />Time:  9.89<br />Medal: Silver<br />Year: 2016","frame":"2016","type":"scatter","mode":"markers+lines","marker":{"autocolorscale":false,"color":"rgba(181,188,194,1)","opacity":0.6,"size":18.8976377952756,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)"}},"hoveron":"points","name":"Silver","legendgroup":"Silver","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","line":{"width":1.88976377952756,"color":"rgba(181,188,194,1)","dash":"solid"},"visible":true}],"traces":[0,1,2]}],"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>&nbsp; &nbsp;</p>
@@ -1045,15 +1060,27 @@ html {
 </details>
 <div class="cell-output-display">
 
-<div id="mjzqclcwmf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="dzmqkhlfvf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-html {
-  font-family: Lato, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+#dzmqkhlfvf table {
+  font-family: Lato, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-:where(#mjzqclcwmf) .gt_table {
+#dzmqkhlfvf thead, #dzmqkhlfvf tbody, #dzmqkhlfvf tfoot, #dzmqkhlfvf tr, #dzmqkhlfvf td, #dzmqkhlfvf th {
+  border-style: none;
+}
+
+#dzmqkhlfvf p {
+  margin: 0;
+  padding: 0;
+}
+
+#dzmqkhlfvf .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -1076,24 +1103,12 @@ html {
   border-left-color: #D3D3D3;
 }
 
-:where(#mjzqclcwmf) .gt_heading {
-  background-color: #FFFFFF;
-  text-align: left;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#mjzqclcwmf) .gt_caption {
+#dzmqkhlfvf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#mjzqclcwmf) .gt_title {
+#dzmqkhlfvf .gt_title {
   color: #333333;
   font-size: 24px;
   font-weight: initial;
@@ -1105,25 +1120,37 @@ html {
   border-bottom-width: 0;
 }
 
-:where(#mjzqclcwmf) .gt_subtitle {
+#dzmqkhlfvf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-:where(#mjzqclcwmf) .gt_bottom_border {
+#dzmqkhlfvf .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dzmqkhlfvf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#mjzqclcwmf) .gt_col_headings {
+#dzmqkhlfvf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1138,7 +1165,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#mjzqclcwmf) .gt_col_heading {
+#dzmqkhlfvf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -1158,7 +1185,7 @@ html {
   overflow-x: hidden;
 }
 
-:where(#mjzqclcwmf) .gt_column_spanner_outer {
+#dzmqkhlfvf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -1170,15 +1197,15 @@ html {
   padding-right: 4px;
 }
 
-:where(#mjzqclcwmf) .gt_column_spanner_outer:first-child {
+#dzmqkhlfvf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#mjzqclcwmf) .gt_column_spanner_outer:last-child {
+#dzmqkhlfvf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#mjzqclcwmf) .gt_column_spanner {
+#dzmqkhlfvf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1190,7 +1217,11 @@ html {
   width: 100%;
 }
 
-:where(#mjzqclcwmf) .gt_group_heading {
+#dzmqkhlfvf .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#dzmqkhlfvf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1216,7 +1247,7 @@ html {
   text-align: left;
 }
 
-:where(#mjzqclcwmf) .gt_empty_group_heading {
+#dzmqkhlfvf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1231,15 +1262,15 @@ html {
   vertical-align: middle;
 }
 
-:where(#mjzqclcwmf) .gt_from_md > :first-child {
+#dzmqkhlfvf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#mjzqclcwmf) .gt_from_md > :last-child {
+#dzmqkhlfvf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#mjzqclcwmf) .gt_row {
+#dzmqkhlfvf .gt_row {
   padding-top: 7px;
   padding-bottom: 7px;
   padding-left: 5px;
@@ -1258,7 +1289,7 @@ html {
   overflow-x: hidden;
 }
 
-:where(#mjzqclcwmf) .gt_stub {
+#dzmqkhlfvf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -1271,7 +1302,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#mjzqclcwmf) .gt_stub_row_group {
+#dzmqkhlfvf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1285,11 +1316,15 @@ html {
   vertical-align: top;
 }
 
-:where(#mjzqclcwmf) .gt_row_group_first td {
+#dzmqkhlfvf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#mjzqclcwmf) .gt_summary_row {
+#dzmqkhlfvf .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#dzmqkhlfvf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1299,16 +1334,16 @@ html {
   padding-right: 5px;
 }
 
-:where(#mjzqclcwmf) .gt_first_summary_row {
+#dzmqkhlfvf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#mjzqclcwmf) .gt_first_summary_row.thick {
+#dzmqkhlfvf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#mjzqclcwmf) .gt_last_summary_row {
+#dzmqkhlfvf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1318,7 +1353,7 @@ html {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#mjzqclcwmf) .gt_grand_summary_row {
+#dzmqkhlfvf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1328,7 +1363,7 @@ html {
   padding-right: 5px;
 }
 
-:where(#mjzqclcwmf) .gt_first_grand_summary_row {
+#dzmqkhlfvf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1338,11 +1373,21 @@ html {
   border-top-color: #D3D3D3;
 }
 
-:where(#mjzqclcwmf) .gt_striped {
+#dzmqkhlfvf .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dzmqkhlfvf .gt_striped {
   background-color: #FAFAFA;
 }
 
-:where(#mjzqclcwmf) .gt_table_body {
+#dzmqkhlfvf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1351,7 +1396,7 @@ html {
   border-bottom-color: #D3D3D3;
 }
 
-:where(#mjzqclcwmf) .gt_footnotes {
+#dzmqkhlfvf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1365,16 +1410,16 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#mjzqclcwmf) .gt_footnote {
+#dzmqkhlfvf .gt_footnote {
   margin: 0px;
   font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-:where(#mjzqclcwmf) .gt_sourcenotes {
+#dzmqkhlfvf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1388,7 +1433,7 @@ html {
   border-right-color: #D3D3D3;
 }
 
-:where(#mjzqclcwmf) .gt_sourcenote {
+#dzmqkhlfvf .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1396,78 +1441,75 @@ html {
   padding-right: 5px;
 }
 
-:where(#mjzqclcwmf) .gt_left {
+#dzmqkhlfvf .gt_left {
   text-align: left;
 }
 
-:where(#mjzqclcwmf) .gt_center {
+#dzmqkhlfvf .gt_center {
   text-align: center;
 }
 
-:where(#mjzqclcwmf) .gt_right {
+#dzmqkhlfvf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#mjzqclcwmf) .gt_font_normal {
+#dzmqkhlfvf .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#mjzqclcwmf) .gt_font_bold {
+#dzmqkhlfvf .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#mjzqclcwmf) .gt_font_italic {
+#dzmqkhlfvf .gt_font_italic {
   font-style: italic;
 }
 
-:where(#mjzqclcwmf) .gt_super {
+#dzmqkhlfvf .gt_super {
   font-size: 65%;
 }
 
-:where(#mjzqclcwmf) .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#dzmqkhlfvf .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-:where(#mjzqclcwmf) .gt_asterisk {
+#dzmqkhlfvf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#mjzqclcwmf) .gt_indent_1 {
+#dzmqkhlfvf .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#mjzqclcwmf) .gt_indent_2 {
+#dzmqkhlfvf .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#mjzqclcwmf) .gt_indent_3 {
+#dzmqkhlfvf .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#mjzqclcwmf) .gt_indent_4 {
+#dzmqkhlfvf .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#mjzqclcwmf) .gt_indent_5 {
+#dzmqkhlfvf .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table">
-  <thead class="gt_header">
-    <tr>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
       <td colspan="3" class="gt_heading gt_title gt_font_normal" style="">Medal Count by Country</td>
     </tr>
-    <tr>
+    <tr class="gt_heading">
       <td colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="">Men's 100m Dash</td>
     </tr>
-  </thead>
-  <thead class="gt_col_headings">
-    <tr>
+    <tr class="gt_col_headings">
       <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Athlete.Country">Athlete.Country</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Medal">Medal</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="n">n</th>
@@ -1592,44 +1634,7 @@ html {
 <p><img src="index-o_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>&nbsp; &nbsp;</p>
-</section>
-<section id="map-of-medal-winning-countries" class="level2">
-<h2 class="anchored" data-anchor-id="map-of-medal-winning-countries">Map of Medal Winning Countries</h2>
-<div class="cell">
-<details>
-<summary>Show Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"leaflet"</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>mens_100m_nation_medals <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/posts/shiny2/mens_100m_nation_medals.csv"</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>medal_color <span class="ot">&lt;-</span> <span class="fu">colorFactor</span>(<span class="fu">c</span>(<span class="st">"#FFB48C"</span>, <span class="st">"#EBD739"</span>, <span class="st">"#B5BCC2"</span>), mens_100m_nation_medals<span class="sc">$</span>Rank)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>mens_100m_nation_medals <span class="sc">%&gt;%</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="sc">~</span><span class="fu">medal_color</span>(Rank),</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">stroke =</span> <span class="cn">FALSE</span>, <span class="at">fillOpacity =</span> <span class="fl">0.9</span>,</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">clusterOptions =</span> <span class="fu">markerClusterOptions</span>(),</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="sc">~</span><span class="fu">paste</span>(</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Nation: "</span>, Nation,</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Year:"</span>, Year,</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Rank: "</span>, Rank,</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Time: "</span>, Time</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">labelOptions =</span> <span class="fu">labelOptions</span>(</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">noHide =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">direction =</span> <span class="st">"auto"</span>,</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">textOnly =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">className =</span> <span class="st">"marker-label"</span></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-cc05497641296217a72f" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-cc05497641296217a72f">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addCircleMarkers","args":[[37.09024,37.09024,37.09024,37.09024,37.09024,55.378051,55.378051,37.09024,-40.900557,56.130366,55.378051,51.165691,37.09024,37.09024,51.165691,37.09024,37.09024,52.132633,37.09024,37.09024,8.537981,37.09024,18.109581,55.378051,37.09024,37.09024,-25.274398,51.165691,37.09024,55.378051,37.09024,21.521757,56.130366,37.09024,18.109581,37.09024,null,37.09024,18.109581,10.691803,18.109581,null,55.378051,21.521757,42.733883,37.09024,37.09024,56.130366,37.09024,55.378051,37.09024,55.378051,-22.95764,37.09024,56.130366,-22.95764,10.691803,37.09024,10.691803,13.193887,37.09024,39.399872,37.09024,18.109581,10.691803,37.09024,18.109581,18.109581,37.09024,18.109581,37.09024,56.130366],[-95.712891,-95.712891,-95.712891,-95.712891,-95.712891,-3.435973,-3.435973,-95.712891,174.885971,-106.346771,-3.435973,10.451526,-95.712891,-95.712891,10.451526,-95.712891,-95.712891,5.291266,-95.712891,-95.712891,-80.782127,-95.712891,-77.297508,-3.435973,-95.712891,-95.712891,133.775136,10.451526,-95.712891,-3.435973,-95.712891,-77.781167,-106.346771,-95.712891,-77.297508,-95.712891,null,-95.712891,-77.297508,-61.222503,-77.297508,null,-3.435973,-77.781167,25.48583,-95.712891,-95.712891,-106.346771,-95.712891,-3.435973,-95.712891,-3.435973,18.49041,-95.712891,-106.346771,18.49041,-61.222503,-95.712891,-61.222503,-59.543198,-95.712891,-8.224454,-95.712891,-77.297508,-61.222503,-95.712891,-77.297508,-77.297508,-95.712891,-77.297508,-95.712891,-106.346771],10,null,null,{"interactive":true,"className":"","stroke":false,"color":["#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C","#EBD739","#B5BCC2","#FFB48C"],"fillOpacity":0.9},{"showCoverageOnHover":true,"zoomToBoundsOnClick":true,"spiderfyOnMaxZoom":true,"removeOutsideVisibleBounds":true,"spiderLegPolylineOptions":{"weight":1.5,"color":"#222","opacity":0.5},"freezeAtZoom":false},null,null,null,["Nation:  United States Year: 1912 Rank:  Gold Time:  10.8","Nation:  United States Year: 1912 Rank:  Silver Time:  10.9","Nation:  United States Year: 1912 Rank:  Bronze Time:  10.9","Nation:  United States Year: 1920 Rank:  Gold Time:  10.8","Nation:  United States Year: 1920 Rank:  Silver Time:  10.9","Nation:  Great Britain Year: 1920 Rank:  Bronze Time:  10.9","Nation:  Great Britain Year: 1924 Rank:  Gold Time:  10.6","Nation:  United States Year: 1924 Rank:  Silver Time:  10.7","Nation:  New Zealand Year: 1924 Rank:  Bronze Time:  10.8","Nation:  Canada Year: 1928 Rank:  Gold Time:  10.8","Nation:  Great Britain Year: 1928 Rank:  Silver Time:  10.9","Nation:  Germany Year: 1928 Rank:  Bronze Time:  10.9","Nation:  United States Year: 1932 Rank:  Gold Time:  10.38","Nation:  United States Year: 1932 Rank:  Silver Time:  10.38","Nation:  Germany Year: 1932 Rank:  Bronze Time:  10.5","Nation:  United States Year: 1936 Rank:  Gold Time:  10.3","Nation:  United States Year: 1936 Rank:  Silver Time:  10.4","Nation:  Netherlands Year: 1936 Rank:  Bronze Time:  10.5","Nation:  United States Year: 1948 Rank:  Gold Time:  10.3","Nation:  United States Year: 1948 Rank:  Silver Time:  10.4","Nation:  Panama Year: 1948 Rank:  Bronze Time:  10.6","Nation:  United States Year: 1952 Rank:  Gold Time:  10.79","Nation:  Jamaica Year: 1952 Rank:  Silver Time:  10.8","Nation:  Great Britain Year: 1952 Rank:  Bronze Time:  10.83","Nation:  United States Year: 1956 Rank:  Gold Time:  10.62","Nation:  United States Year: 1956 Rank:  Silver Time:  10.77","Nation:  Australia Year: 1956 Rank:  Bronze Time:  10.77","Nation:  United Team of Germany Year: 1960 Rank:  Gold Time:  10.2","Nation:  United States Year: 1960 Rank:  Silver Time:  10.2","Nation:  Great Britain Year: 1960 Rank:  Bronze Time:  10.3","Nation:  United States Year: 1964 Rank:  Gold Time:  10","Nation:  Cuba Year: 1964 Rank:  Silver Time:  10.2","Nation:  Canada Year: 1964 Rank:  Bronze Time:  10.2","Nation:  United States Year: 1968 Rank:  Gold Time:  9.9","Nation:  Jamaica Year: 1968 Rank:  Silver Time:  10","Nation:  United States Year: 1968 Rank:  Bronze Time:  10","Nation:  Soviet Union Year: 1972 Rank:  Gold Time:  10.14","Nation:  United States Year: 1972 Rank:  Silver Time:  10.24","Nation:  Jamaica Year: 1972 Rank:  Bronze Time:  10.33","Nation:  Trinidad and Tobago Year: 1976 Rank:  Gold Time:  10.06","Nation:  Jamaica Year: 1976 Rank:  Silver Time:  10.08","Nation:  Soviet Union Year: 1976 Rank:  Bronze Time:  10.14","Nation:  Great Britain Year: 1980 Rank:  Gold Time:  10.25","Nation:  Cuba Year: 1980 Rank:  Silver Time:  10.25","Nation:  Bulgaria Year: 1980 Rank:  Bronze Time:  10.39","Nation:  United States Year: 1984 Rank:  Gold Time:  9.99","Nation:  United States Year: 1984 Rank:  Silver Time:  10.19","Nation:  Canada Year: 1984 Rank:  Bronze Time:  10.22","Nation:  United States Year: 1988 Rank:  Gold Time:  9.92","Nation:  Great Britain Year: 1988 Rank:  Silver Time:  9.97","Nation:  United States Year: 1988 Rank:  Bronze Time:  9.99","Nation:  Great Britain Year: 1992 Rank:  Gold Time:  9.96","Nation:  Namibia Year: 1992 Rank:  Silver Time:  10.02","Nation:  United States Year: 1992 Rank:  Bronze Time:  10.04","Nation:  Canada Year: 1996 Rank:  Gold Time:  9.84","Nation:  Namibia Year: 1996 Rank:  Silver Time:  9.89","Nation:  Trinidad and Tobago Year: 1996 Rank:  Bronze Time:  9.9","Nation:  United States Year: 2000 Rank:  Gold Time:  9.87","Nation:  Trinidad and Tobago Year: 2000 Rank:  Silver Time:  9.99","Nation:  Barbados Year: 2000 Rank:  Bronze Time:  10.04","Nation:  United States Year: 2004 Rank:  Gold Time:  9.85","Nation:  Portugal Year: 2004 Rank:  Silver Time:  9.86","Nation:  United States Year: 2004 Rank:  Bronze Time:  9.87","Nation:  Jamaica Year: 2008 Rank:  Gold Time:  9.69","Nation:  Trinidad and Tobago Year: 2008 Rank:  Silver Time:  9.89","Nation:  United States Year: 2008 Rank:  Bronze Time:  9.91","Nation:  Jamaica Year: 2012 Rank:  Gold Time:  9.63","Nation:  Jamaica Year: 2012 Rank:  Silver Time:  9.75","Nation:  United States Year: 2012 Rank:  Bronze Time:  9.79","Nation:  Jamaica Year: 2016 Rank:  Gold Time:  9.81","Nation:  United States Year: 2016 Rank:  Silver Time:  9.89","Nation:  Canada Year: 2016 Rank:  Bronze Time:  9.91"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"marker-label","sticky":true},null]}],"limits":{"lat":[-40.900557,56.130366],"lng":[-106.346771,174.885971]}},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
+<iframe width="1000" height="800" src="https://rochellerafn.shinyapps.io/shiny2/" title="The Shiny App"></iframe>
 
 
 </section>
