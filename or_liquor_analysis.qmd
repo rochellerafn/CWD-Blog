@@ -180,35 +180,64 @@ ggplot(aes(reorder(County, -Sales), Sales, fill = County)) +
 ```
 
 
+```{r}
+# Load the required libraries
+library(tigris)
+
+# Download the Oregon county shapefile from the TIGER/Line API
+oregon_counties <- counties(state = "OR", cb = TRUE)
+
+# Save the shapefile to a local directory
+write_sf(oregon_counties, "/Users/rochellerafn/RStudio_Files/Data_Communication/CWD-Blog/oregon_counties_shapefile.shp")
+
+```
+
+
 ## Mapping out liquor sales by county
 
 ```{r}
-# library(ggmap)
-# library(leaflet)
-# library(sp)
+library(ggmap)
+library(leaflet)
+library(sp)
+library(sf)
+library(tmap)
 
-# or_county_sales_map <- or_county_sales %>%
-#  select(County, Sales) %>%
-#  filter(!is.na(County)) %>%
-#  rename("subregion" = "County") %>%
-#  group_by(subregion) %>%
-#  summarize(value = sum(Sales))
+or_county_sales_map <- or_county_sales %>%
+  select(County, Sales) %>%
+  filter(!is.na(County)) %>%
+  rename("subregion" = "County") %>%
+  group_by(subregion) %>%
+  summarize(value = sum(Sales))
 
 # or_county_sales_map <-  as.data.frame(or_county_sales_map)
 
-# us_counties <- map_data("county")
-# or_counties <- us_counties %>%
-#  filter(region == "oregon")
+us_counties <- map_data("county")
+or_counties <- us_counties %>%
+  filter(region == "oregon")
 
-# or_county_sales_map$subregion <- tolower(or_county_sales_map$subregion)
+or_county_sales_map$subregion <- tolower(or_county_sales_map$subregion)
 
-# joining longitude and latitude 
+# joining longitude and latitude via google maps
 # or_county_sales_map <- cbind(or_county_sales_map, ggmap::geocode(as.character(or_county_sales_map[, "County"]), force = FALSE))
 
-# or_county_sales_map <- merge(x=or_counties, y=or_county_sales_map, by= "subregion", all.x = TRUE)
+or_county_sales_map <- merge(x=or_counties, y=or_county_sales_map, by= "subregion", all.x = TRUE)
+
+map_data <- left_join(oregon_counties, or_county_sales_map, by = c("NAME" = "subregion"))
+
+palette <- colorNumeric(palette = "Blues", domain = map_data$value)
+
+tm_shape(map_data) +
+  tm_polygons("value", palette = palette, border.col = "white") +
+  tm_layout(title = "Oregon Sales Revenue by County")
+
+tmap_mode("view")
+qtm(map_data, fill = "value", palette = palette) +
+  tm_basemap("OpenStreetMap") 
 
 
-# palette <- colorNumeric(palette = "Blues", domain = or_county_sales_map$Sales)
+ggplot() + 
+  geom_sf(data = map_data) + 
+  coord_sf()
 
 # library(choroplethr)
 # library(choroplethrMaps)

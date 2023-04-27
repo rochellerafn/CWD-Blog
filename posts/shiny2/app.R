@@ -5,9 +5,11 @@ library(DT)
 library(dplyr)
 library(ggplot2)
 library(leaflet)
+library(lubridate)
 
 mens_100m_nation_medals <- read.csv("https://raw.githubusercontent.com/rochellerafn/CWD-Blog/main/posts/shiny2/mens_100m_nation_medals.csv")
 mens_100m_nation_medals$Rank <- factor(mens_100m_nation_medals$Rank, levels = c("Gold", "Silver", "Bronze"))
+# mens_100m_nation_medals$Year <- as.Date(as.character(mens_100m_nation_medals$Year), format = "%Y")
 medal_color <- colorFactor(c("#EBD739", "#B5BCC2", "#FFB48C"), mens_100m_nation_medals$Rank)
 
 # Define UI for application that draws a histogram
@@ -44,7 +46,8 @@ server <- function(input, output) {
   
   # Filter data based on user inputs
   filtered_0_data <- reactive({
-    mens_100m_nation_medals %>% 
+    mens_100m_nation_medals %>%
+      select(-X) %>%
       filter(Rank %in% input$Rank,
              Nation %in% input$Nation,
              Year >= input$Year[1] & Year <= input$Year[2],
@@ -78,7 +81,8 @@ server <- function(input, output) {
   
   output$table <- renderDT({
     # Show a data table of the filtered data
-    datatable(filtered_0_data())
+    datatable(filtered_0_data() %>%
+                select(-lon, -lat))
   })
   
 }
