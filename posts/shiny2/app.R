@@ -9,7 +9,7 @@ library(lubridate)
 
 mens_100m_nation_medals <- read.csv("https://raw.githubusercontent.com/rochellerafn/CWD-Blog/main/posts/shiny2/mens_100m_nation_medals.csv")
 mens_100m_nation_medals$Rank <- factor(mens_100m_nation_medals$Rank, levels = c("Gold", "Silver", "Bronze"))
-# mens_100m_nation_medals$Year <- as.Date(as.character(mens_100m_nation_medals$Year), format = "%Y")
+mens_100m_nation_medals$Year <- as.Date(as.character(mens_100m_nation_medals$Year), format = "%Y")
 medal_color <- colorFactor(c("#EBD739", "#B5BCC2", "#FFB48C"), mens_100m_nation_medals$Rank)
 
 # Define UI for application that draws a histogram
@@ -21,7 +21,7 @@ ui <- fluidPage(theme = shinytheme("yeti"),
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
     sidebarPanel(
-      sliderInput("Year", "Choose a year range:", 
+      sliderInput("Year", "Choose a year range:", timeFormat = "%Y",
                   min = min(mens_100m_nation_medals$Year), max = max(mens_100m_nation_medals$Year), 
                   value = c(min(mens_100m_nation_medals$Year), max(mens_100m_nation_medals$Year)), step = 4),
       selectInput("Nation", "Choose a Country:",
@@ -82,7 +82,8 @@ server <- function(input, output) {
   output$table <- renderDT({
     # Show a data table of the filtered data
     datatable(filtered_0_data() %>%
-                select(-lon, -lat))
+                select(-lon, -lat) %>%
+                mutate(Year = format(Year, "%Y")))
   })
   
 }
