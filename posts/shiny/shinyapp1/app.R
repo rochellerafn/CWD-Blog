@@ -20,6 +20,8 @@ or_liquor_i <- data %>%
   summarize(Sales = sum(Sales)) %>%
   ungroup()
 
+or_liquor_i$Year <- as.Date(as.character(or_liquor_i$Year), format = "%Y")
+
 # Define UI for application that draws a histogram
 ui <- fluidPage(theme = shinytheme("yeti"),
   
@@ -29,9 +31,9 @@ ui <- fluidPage(theme = shinytheme("yeti"),
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
     sidebarPanel(
-      sliderInput("Year", "Choose a year range:", 
+      sliderInput("Year", "Choose a year range:", timeFormat = "%Y",
                   min = min(or_liquor_i$Year), max = max(or_liquor_i$Year), 
-                  value = c(min(or_liquor_i$Year), max(or_liquor_i$Year)), step = 1),
+                  value = c(min(or_liquor_i$Year), max(or_liquor_i$Year)), step = 4),
       selectInput("County", "Choose a County:",
                   choices = unique(or_liquor_i$County), multiple = TRUE, selected = ""),
       selectInput("Category", "Choose Liquor Type",
